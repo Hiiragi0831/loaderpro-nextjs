@@ -1,0 +1,66 @@
+// stylelint-disable at-rule-empty-line-before
+
+// не трогать этот импорт, он нужен для работы svg-спрайтов
+// @import './sprites';
+
+@import 'reset';
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+@import 'fonts';
+@import 'base';
+@import 'helpers';
+@import 'vendor';
+
+@import 'components/button';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/product';
+@import 'components/category';
+@import 'components/slider';
+@import 'components/group';
+@import 'components/article';
+@import 'components/advantage';
+@import 'components/form';
+@import 'components/forms';
+@import 'components/account';
+@import 'components/order';
+@import 'components/query';
+@import 'components/team';
+@import 'components/map';
+@import 'components/videoGallery';
+@import 'components/swiper';
+@import 'components/direction';
+@import 'components/cta';
+@import 'components/page';
+@import 'components/preference';
+@import 'components/clients';
+@import 'components/steps';
+@import 'components/step';
+@import 'components/info-box';
+@import 'components/achievement';
+@import 'components/achievements';
+@import 'components/lead';
+@import 'components/mobileBar';
+@import 'components/leadcta';
+@import 'components/videoblock';
+@import 'components/brands';
+@import 'components/modal';
+
+@import 'pages/home';
+@import 'pages/catalog';
+@import 'pages/commodity';
+@import 'pages/news';
+@import 'pages/basket';
+@import 'pages/battery';
+@import 'pages/contact';
+@import 'pages/vacancy';
+@import 'pages/deliverypayment';
+@import 'pages/about';
+@import 'pages/dealer';
+@import 'pages/suppliers';
+@import 'pages/polyurethane';
+@import 'pages/repairmaintenance';
+@import 'pages/tireservice';
+@import 'pages/oilslubricants';
+@import 'pages/favorites';

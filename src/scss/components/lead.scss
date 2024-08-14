@@ -1,0 +1,80 @@
+.lead {
+	display: flex;
+	flex-direction: column;
+	border-radius: vc(10);
+	padding: vc(25) vc(30);
+	background: $color-tree-poppy-400;
+
+	span,
+	p {
+		color: $color-white;
+	}
+
+	p {
+		display: flex;
+		justify-content: space-between;
+		font-weight: 500;
+		gap: vc(15);
+
+		> span:last-child {
+			flex-shrink: 0;
+		}
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: vc(34);
+
+		li {
+			position: relative;
+			display: flex;
+			align-items: center;
+			list-style: disc;
+			padding-left: vc(65);
+			font-weight: 500;
+			font-size: vc(40);
+			line-height: 1;
+			text-transform: uppercase;
+			color: $color-white;
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				display: flex;
+				border-radius: 100%;
+				width: vc(36);
+				height: vc(36);
+				background: $color-white;
+
+				@include devices {
+					width: vc(14);
+					height: vc(14);
+				}
+			}
+
+			@include devices {
+				padding-left: vc(25);
+				font-size: vc(15);
+			}
+		}
+
+		@include devices {
+			gap: vc(10);
+		}
+	}
+
+	.button {
+		margin-top: auto;
+		width: 100%;
+
+		@include devices {
+			margin-top: vc(10);
+		}
+	}
+
+	@include devices {
+		padding: vc(20) vc(10);
+	}
+}

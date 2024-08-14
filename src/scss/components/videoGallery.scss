@@ -1,0 +1,19 @@
+.videoGallery {
+    .swiper {
+        margin-right: vc(-40);
+        padding-bottom: vc(40);
+
+        &-pagination {
+            bottom: vc(3);
+        }
+    }
+
+    &__slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-right: vc(40);
+        gap: vc(15);
+    }
+}

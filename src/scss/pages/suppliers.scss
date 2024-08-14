@@ -1,0 +1,43 @@
+.suppliers {
+	&__hero {
+		.container {
+			width: vc(1175);
+
+			@include devices {
+				width: 100%;
+			}
+		}
+
+		h1 {
+			border-bottom: 5px solid $color-tree-poppy-400;
+			padding-bottom: vc(20);
+			text-align: center;
+
+			span {
+				color: $color-tree-poppy-400;
+			}
+		}
+
+		picture {
+			margin: vc(30) auto 0;
+			width: vc(1130);
+
+			@include devices {
+				margin: vc(10) auto 0;
+				width: 100%;
+			}
+		}
+	}
+
+	&__achievement {
+		.row {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: vc(20);
+
+			@include devices {
+				grid-template-columns: 100%;
+			}
+		}
+	}
+}

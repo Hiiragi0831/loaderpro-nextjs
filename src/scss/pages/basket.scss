@@ -1,0 +1,155 @@
+.basket {
+	margin: vc(30) 0;
+
+	.row {
+		display: grid;
+		grid-template-columns: 1fr vc(360);
+		gap: vc(50);
+
+		@include devices {
+			grid-template-columns: 100%;
+		}
+	}
+
+	&__table {
+		display: flex;
+		flex-direction: column;
+
+		&-th {
+			display: grid;
+			justify-content: space-between;
+			grid-template-columns: 1fr vc(200) vc(154) vc(200) vc(30);
+			border-bottom: 1px solid $color-black;
+			padding: vc(20) 0;
+			width: 100%;
+			gap: vc(20);
+
+			p {
+				font-weight: 500;
+				font-size: vc(20);
+				text-align: center;
+
+				&:first-child {
+					text-align: left;
+				}
+			}
+		}
+
+		&-body {
+			min-width: vc(900);
+		}
+
+		@include devices {
+			overflow: auto;
+			width: 100%;
+		}
+	}
+
+	&__form {
+		padding: vc(20);
+		box-shadow: $box-shadow;
+
+		&-sum {
+			display: flex;
+			flex-direction: column;
+			border-bottom: 1px solid $color-woodsmoke-100;
+			padding-bottom: vc(20);
+			gap: vc(10);
+
+			p,
+			b {
+				display: flex;
+				justify-content: space-between;
+				font-weight: 400;
+				font-size: vc(16);
+				line-height: vc(18);
+			}
+
+			b {
+				font-weight: 600;
+			}
+		}
+
+		&-data {
+			display: flex;
+			flex-direction: column;
+			padding: vc(20) 0 0 0;
+			gap: vc(16);
+		}
+	}
+}
+
+.basket-item {
+	display: grid;
+	align-items: center;
+	justify-content: space-between;
+	grid-template-columns: vc(125) 1fr vc(200) vc(154) vc(200) vc(30);
+	border-bottom: 1px solid $color-black;
+	padding: vc(14) 0;
+	width: 100%;
+	gap: vc(20);
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		font-weight: 600;
+		font-size: vc(16);
+		gap: vc(8);
+
+		span {
+			font-weight: 400;
+			font-size: vc(18);
+
+			mark {
+				color: $color-woodsmoke-500;
+				background: none;
+			}
+		}
+	}
+
+	&__price,
+	&__sum {
+		font-weight: 400;
+		font-size: vc(16);
+		text-align: center;
+	}
+
+	&__count {
+		display: flex;
+		border: 1px solid $color-woodsmoke-200;
+		height: vc(50);
+		font-weight: 400;
+		font-size: vc(18);
+
+		input {
+			border-right: 1px solid $color-woodsmoke-200;
+			border-left: 1px solid $color-woodsmoke-200;
+			width: vc(80);
+			text-align: center;
+
+			&::-webkit-outer-spin-button,
+			&::-webkit-inner-spin-button {
+				appearance: none;
+			}
+		}
+
+		button {
+			width: vc(35);
+		}
+	}
+
+	&__del {
+		button {
+			width: vc(28);
+			height: vc(28);
+		}
+
+		svg {
+			fill: $red-orange-500;
+		}
+	}
+
+	@include devices {
+		grid-template-columns: vc(125) 1fr vc(100) vc(154) vc(100) vc(30);
+	}
+}

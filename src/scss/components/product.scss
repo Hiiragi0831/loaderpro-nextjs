@@ -1,0 +1,230 @@
+.product {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	border-radius: vc(5);
+	padding: vc(20) vc(12);
+	box-shadow: $box-shadow;
+	background: $color-white;
+	gap: vc(12);
+
+	&__section {
+		.row {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			gap: vc(14);
+
+			@include devices {
+				grid-template-columns: 1fr 1fr;
+				gap: vc(10);
+			}
+		}
+	}
+
+	&__cache {
+		position: absolute;
+		left: vc(12);
+		top: vc(12);
+		z-index: 1;
+		display: flex;
+		border-radius: vc(90);
+		padding: vc(4) vc(10);
+		color: $color-white;
+		background: $color-blue;
+		gap: vc(4);
+
+		p {
+			font-weight: 500;
+			font-size: vc(14);
+		}
+
+		svg {
+			width: vc(15);
+			height: vc(15);
+			fill: $color-white;
+		}
+	}
+
+	&__like {
+		position: absolute;
+		right: vc(12);
+		top: vc(12);
+		z-index: 1;
+		width: vc(23);
+		height: vc(23);
+		cursor: pointer;
+
+		svg {
+			position: absolute;
+			top: 0;
+			transition: opacity $transition, visibility $transition;
+		}
+
+		.heart {
+			fill: $color-woodsmoke-400;
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.heart-solid {
+			fill: $color-tree-poppy-400;
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		@include hover {
+			.heart {
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.heart-solid {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	&__img {
+		width: 100%;
+		height: vc(220);
+
+		picture,
+		img {
+			height: 100%;
+			object-fit: contain;
+		}
+
+		@include devices {
+			height: vc(100);
+		}
+	}
+
+	&__info {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-top: 1px solid $color-woodsmoke-200;
+		border-bottom: 1px solid $color-woodsmoke-200;
+		padding: vc(12) 0;
+
+		@include devices {
+			flex-direction: column;
+			padding: vc(6) 0;
+		}
+	}
+
+	&__article {
+		font-size: vc(12);
+		color: $color-woodsmoke-500;
+
+		@include devices {
+			font-size: vc(10);
+		}
+	}
+
+	&__price {
+		display: flex;
+		align-items: baseline;
+		gap: vc(10);
+
+		p {
+			font-weight: 500;
+			font-size: vc(20);
+			color: $color-tree-poppy-400;
+
+			@include devices {
+				width: 100%;
+				font-size: vc(16);
+				text-align: center;
+			}
+		}
+
+		s {
+			font-weight: 400;
+			font-size: vc(14);
+			color: $color-woodsmoke-500;
+		}
+
+		@include devices {
+			width: 100%;
+		}
+	}
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		gap: vc(6);
+	}
+
+	&__status {
+		display: flex;
+		align-items: center;
+		font-size: vc(13);
+		gap: vc(6);
+
+		span {
+			flex-shrink: 0;
+			border: vc(3) solid rgba($color-white, 0.5);
+			border-radius: 100%;
+			width: vc(14);
+			height: vc(14);
+			background: $color-black;
+
+			@include devices {
+				width: vc(10);
+				height: vc(10);
+			}
+		}
+
+		&--green {
+			span {
+				background: $atlantis-400;
+			}
+		}
+
+		&--orange {
+			span {
+				background: $color-tree-poppy-500;
+			}
+		}
+
+		&--red {
+			span {
+				background: $red-orange-500;
+			}
+		}
+
+		@include devices {
+			font-size: vc(10);
+		}
+	}
+
+	&__title {
+		font-weight: 400;
+		font-size: vc(16);
+
+		@include devices {
+			font-size: vc(11);
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		gap: vc(6);
+
+		> * {
+			width: 100%;
+			font-size: vc(14);
+
+			@include devices {
+				font-size: vc(11);
+			}
+		}
+	}
+
+	@include devices {
+		padding: vc(10);
+		gap: vc(6);
+	}
+}

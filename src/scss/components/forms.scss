@@ -1,0 +1,62 @@
+.forms {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: vc(30);
+    gap: vc(20);
+
+    &:last-child {
+        margin: 0;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: vc(30);
+
+        &.row-2 {
+            grid-template-columns: 1fr 1fr;
+
+            @include devices {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &.row-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+
+            @include devices {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    &__head {
+        border-radius: vc(5);
+        padding: vc(15) vc(20);
+        background: $color-woodsmoke-100;
+
+        p {
+            font-weight: 600;
+            font-size: vc(20);
+
+            @include devices {
+                font-size: vc(16);
+            }
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        align-self: flex-end;
+        width: max-content;
+        gap: vc(10);
+
+        button {
+            flex: 1 0 auto;
+        }
+
+        @include devices {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+.repairmaintenance {
+	&__hero {
+		picture {
+			overflow: hidden;
+			border-radius: vc(10);
+			height: vc(400);
+
+			@include devices {
+				height: vc(330);
+			}
+		}
+	}
+
+	&__about {
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: vc(20);
+
+			.cta {
+				margin-top: vc(10);
+			}
+		}
+	}
+
+	&__express {
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: vc(10);
+
+			.h1 {
+				margin-bottom: vc(10);
+			}
+		}
+
+		picture {
+
+		}
+	}
+
+	&__maintenance {
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: vc(10);
+
+			.h3 {
+				margin-top: vc(10);
+			}
+		}
+
+		.image {
+			picture {
+				margin-bottom: vc(20);
+			}
+
+			@include devices {
+				order: -1;
+				overflow: hidden;
+				border-radius: vc(10);
+				height: vc(160);
+
+				picture,
+				img {
+					height: 100%;
+				}
+			}
+		}
+	}
+
+	&__price {
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: vc(10);
+		}
+
+		.image {
+			@include devices {
+				order: -1;
+				overflow: hidden;
+				border-radius: vc(10);
+				height: vc(160);
+
+				picture,
+				img {
+					height: 100%;
+				}
+			}
+		}
+	}
+}

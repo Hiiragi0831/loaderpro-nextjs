@@ -1,0 +1,159 @@
+.footer {
+	color: $color-white;
+	background: #242528;
+
+	&__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: vc(40) 0;
+
+		@include devices {
+			flex-direction: column;
+			gap: vc(14);
+		}
+	}
+
+	&__logo {
+		width: vc(278);
+		height: vc(60);
+
+		svg {
+			fill: $color-white;
+		}
+	}
+
+	&__city,
+	&__phone,
+	&__mail {
+		display: flex;
+		align-items: center;
+		gap: vc(12);
+
+		p {
+			font-weight: 400;
+			font-size: vc(16);
+
+			@include devices {
+				font-size: vc(14);
+			}
+		}
+
+		a {
+			transition: opacity $transition;
+
+			@include hover {
+				opacity: 0.6;
+			}
+		}
+
+		svg {
+			width: vc(24);
+			height: vc(24);
+			fill: $color-white;
+		}
+	}
+
+	&__socials {
+		display: flex;
+		gap: vc(16);
+	}
+
+	&__social {
+		border-radius: 100%;
+		padding: vc(5);
+		width: vc(32);
+		height: vc(32);
+		background: $color-white;
+		transition: opacity $transition;
+
+		svg {
+			fill: $color-black;
+		}
+
+		@include hover {
+			opacity: 0.6;
+		}
+	}
+
+	&__main {
+		display: flex;
+		justify-content: space-between;
+		border-top: 1px solid $color-woodsmoke-800;
+		border-bottom: 1px solid $color-woodsmoke-800;
+		padding: vc(40) 0 vc(50);
+		width: 100%;
+
+		@include devices {
+			flex-direction: column;
+			text-align: center;
+			gap: vc(20);
+		}
+	}
+
+	&__links {
+		&-head {
+			margin-bottom: vc(20);
+			font-weight: 500;
+			font-size: vc(18);
+		}
+
+		&-row {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: vc(30) vc(124);
+
+			&--1 {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			@include devices {
+				grid-template-columns: repeat(1, 1fr);
+				gap: vc(14);
+			}
+		}
+
+		&--navigation {
+
+		}
+	}
+
+	&__ya {
+		overflow: hidden;
+		border-radius: 5px;
+		width: 149px;
+		height: 49px;
+		background: #242528;
+
+		iframe {
+			background: #242528;
+		}
+
+		@include devices {
+			margin: vc(30) auto;
+		}
+	}
+
+	&__link {
+		display: block;
+		font-size: vc(18);
+		color: $color-white;
+
+		@include devices {
+			font-size: vc(14);
+		}
+	}
+
+	&__bottom {
+		padding: vc(20) 0;
+		text-align: center;
+
+		p {
+			font-size: vc(14);
+		}
+	}
+
+	@include devices {
+		padding-bottom: vc(80);
+	}
+}

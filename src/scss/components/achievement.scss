@@ -1,0 +1,31 @@
+.achievement {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: vc(10);
+	padding: vc(20);
+	box-shadow: $box-shadow;
+	text-align: center;
+	gap: vc(10);
+
+	&__icon {
+		width: vc(100);
+		height: vc(100);
+
+		@include devices {
+			width: vc(56);
+			height: vc(56);
+		}
+	}
+
+	&__title {
+		font-weight: 500;
+		font-size: vc(30);
+		line-height: vc(36);
+
+		@include devices {
+			font-size: vc(20);
+			line-height: vc(24);
+		}
+	}
+}

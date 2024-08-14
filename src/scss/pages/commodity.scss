@@ -1,0 +1,263 @@
+.commodity {
+	&__head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__title {
+		position: relative;
+		margin-bottom: vc(22);
+		width: 100%;
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			border-radius: vc(5);
+			width: 100%;
+			height: vc(5);
+			background: $color-woodsmoke-200;
+		}
+	}
+
+	&__availability {
+		display: flex;
+		align-items: center;
+		font-weight: 400;
+		font-size: vc(18);
+		line-height: 1.2;
+		gap: vc(6);
+
+		span {
+			flex-shrink: 0;
+			border: vc(3) solid rgba($color-white, 0.5);
+			border-radius: 100%;
+			width: vc(14);
+			height: vc(14);
+			background: $color-black;
+		}
+
+		&--green {
+			span {
+				background: $atlantis-400;
+			}
+		}
+
+		&--orange {
+			span {
+				background: $color-tree-poppy-500;
+			}
+		}
+
+		&--red {
+			span {
+				background: $red-orange-500;
+			}
+		}
+	}
+
+	&__main {
+		position: relative;
+		display: grid;
+		grid-template-columns: vc(656) 1fr;
+		margin-top: vc(40);
+		gap: vc(30);
+
+		@include devices {
+			grid-template-columns: 100%;
+		}
+	}
+
+	&__gallery {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		border: 1px solid $color-woodsmoke-200;
+		border-radius: vc(5);
+		height: vc(582);
+
+		picture {
+			overflow: hidden;
+			height: 100%;
+
+			img {
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+
+		&-main {
+			border-bottom: 1px solid $color-woodsmoke-200;
+			height: vc(472);
+
+			.swiper {
+				height: 100%;
+			}
+
+			@include devices {
+				height: vc(320);
+			}
+		}
+
+		&-thumb {
+			width: calc(100% + #{vc(15)});
+
+			.swiper-slide {
+				position: relative;
+				padding-right: vc(15);
+				opacity: 0.7;
+				transition: opacity $transition;
+
+				&::before {
+					content: "";
+					position: absolute;
+					bottom: 0;
+					z-index: 2;
+					border-radius: vc(3);
+					width: calc(100% - #{vc(15)});
+					height: vc(3);
+					background: transparent;
+					transition: background $transition;
+				}
+			}
+
+			.swiper-slide-thumb-active {
+				opacity: 1;
+
+				&::before {
+					background: $color-tree-poppy-400;
+				}
+			}
+		}
+
+		@include devices {
+			height: vc(372);
+		}
+	}
+
+	&__info {
+		display: grid;
+		grid-template-areas:
+			"info price"
+			"description description";
+		grid-template-columns: vc(500) 1fr;
+		height: fit-content;
+		gap: vc(30);
+
+		&-box {
+			grid-area: info;
+		}
+
+		@include devices {
+			grid-template-areas:
+				"price"
+				"info"
+				"description";
+			grid-template-columns: 100%;
+		}
+	}
+
+	&__specifications {
+		display: flex;
+		flex-direction: column;
+		margin-top: vc(24);
+	}
+
+	&__specification {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px dashed $color-black;
+		padding: vc(6) 0;
+		font-weight: 400;
+		font-size: vc(14);
+
+		span {
+			color: $color-woodsmoke-600;
+		}
+
+		&:last-child {
+			border: none;
+		}
+	}
+
+	&__basket {
+		display: grid;
+		grid-area: price;
+		grid-auto-rows: min-content;
+		grid-template-columns: repeat(2, 1fr);
+		border-radius: vc(5);
+		padding: vc(30) vc(20);
+		height: min-content;
+		box-shadow: $box-shadow;
+		gap: vc(15);
+
+		@include devices {
+			order: 0;
+		}
+	}
+
+	&__price {
+		grid-column: span 2 / span 1;
+
+		span {
+			font-size: vc(16);
+			color: $color-woodsmoke-400;
+		}
+
+		p {
+			font-weight: 700;
+			font-size: vc(30);
+			color: $color-tree-poppy-400;
+		}
+	}
+
+	&__input {
+		input {
+			border: 1px solid $color-woodsmoke-200;
+			border-radius: vc(5);
+			padding: vc(20);
+			height: 100%;
+			font-size: vc(16);
+		}
+	}
+
+	&__count {
+		display: flex;
+		border: 1px solid $color-woodsmoke-200;
+
+		input {
+			border-right: 1px solid $color-woodsmoke-200;
+			border-left: 1px solid $color-woodsmoke-200;
+			width: vc(80);
+			text-align: center;
+
+			&::-webkit-outer-spin-button,
+			&::-webkit-inner-spin-button {
+				appearance: none;
+			}
+		}
+
+		button {
+			width: vc(35);
+		}
+	}
+
+	&__description {
+		display: flex;
+		flex-direction: column;
+		grid-area: description;
+		gap: vc(20);
+
+		h5 {
+			font-weight: 400;
+			font-size: vc(18);
+		}
+
+		p {
+			font-size: vc(16);
+		}
+	}
+}

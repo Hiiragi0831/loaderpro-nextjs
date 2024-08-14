@@ -1,0 +1,84 @@
+.button {
+	border-radius: vc(5);
+	padding: vc(12) vc(20);
+	font-weight: 500;
+	font-size: vc(16);
+	line-height: vc(24);
+	white-space: nowrap;
+	text-align: center;
+	transition: color $transition, background $transition, border $transition;
+
+	svg {
+		transition: fill $transition;
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: vc(6);
+
+		svg {
+			width: vc(16);
+			height: vc(16);
+		}
+	}
+
+	&__outline {
+		border: 1px solid $color-tree-poppy-400;
+		color: $color-tree-poppy-400;
+		background: $color-white;
+
+		svg {
+			fill: $color-tree-poppy-400;
+		}
+
+		@include hover {
+			border-color: $color-white;
+			color: $color-white;
+			background: $color-tree-poppy-400;
+
+			svg {
+				fill: $color-white;
+			}
+		}
+	}
+
+	&__primary {
+		border: 1px solid $color-tree-poppy-400;
+		color: $color-white;
+		background: $color-tree-poppy-400;
+
+		svg {
+			fill: $color-white;
+		}
+
+		@include hover {
+			color: $color-tree-poppy-400;
+			background: $color-white;
+
+			svg {
+				fill: $color-tree-poppy-400;
+			}
+		}
+	}
+
+	&__black {
+		border: 1px solid $color-black;
+		color: $color-white;
+		background: $color-black;
+
+		svg {
+			fill: $color-white;
+		}
+
+		@include hover {
+			border-color: $color-tree-poppy-400;
+			background: $color-tree-poppy-400;
+		}
+	}
+
+	@include devices {
+		padding: vc(3) vc(5);
+	}
+}

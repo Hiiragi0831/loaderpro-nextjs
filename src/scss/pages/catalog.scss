@@ -1,0 +1,113 @@
+.catalog {
+	&__section {
+		.row {
+			display: grid;
+			grid-template-columns: 0.4fr 1.6fr;
+			gap: vc(14);
+
+			@include devices {
+				grid-template-columns: 100%;
+			}
+		}
+	}
+
+	&__filters {
+		.form {
+			display: flex;
+			flex-direction: column;
+			gap: vc(18);
+		}
+
+		legend {
+			border-top: 1px solid $color-woodsmoke-200;
+			border-bottom: 1px solid $color-woodsmoke-200;
+			padding: vc(18);
+			width: 100%;
+			font-weight: 500;
+			font-size: vc(18);
+		}
+	}
+
+	&__products {
+		display: flex;
+		flex-direction: column;
+		gap: vc(18);
+
+		&-row {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			gap: vc(14);
+
+			@include devices {
+				grid-template-columns: 1fr 1fr;
+				gap: vc(10);
+			}
+		}
+	}
+
+	&__sort {
+		overflow: auto;
+		border-top: 1px solid $color-woodsmoke-200;
+		border-bottom: 1px solid $color-woodsmoke-200;
+		padding: vc(18);
+		width: 100%;
+
+		&-wrapper {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			font-size: vc(18);
+			gap: vc(18);
+
+			@include devices {
+				min-width: vc(640);
+			}
+		}
+
+		&-title {
+			font-weight: 500;
+		}
+
+		&-item {
+			position: relative;
+			transition: color $transition, text-decoration $transition;
+
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 1px;
+				background: transparent;
+				transition: background $transition;
+			}
+
+			&::after {
+				content: attr(title);
+				position: absolute;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 500;
+				white-space: nowrap;
+				text-align: center;
+				color: transparent;
+				transform-origin: center center;
+				transition: $transition-duration;
+				inset: 0;
+			}
+
+			@include hover {
+				color: $color-tree-poppy-400;
+
+				&::before {
+					background: $color-tree-poppy-400;
+				}
+
+				&::after {
+					color: $color-tree-poppy-400;
+				}
+			}
+		}
+	}
+}

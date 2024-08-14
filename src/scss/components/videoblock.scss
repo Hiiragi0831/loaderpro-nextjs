@@ -1,0 +1,65 @@
+.videoblock {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	button {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	picture {
+		position: relative;
+		overflow: hidden;
+		border-radius: vc(10);
+		width: 100%;
+		height: 100%;
+
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: $color-black;
+			inset: 0;
+		}
+
+		img {
+			height: 100%;
+			object-fit: cover;
+			opacity: 0.6;
+		}
+	}
+
+	&__title {
+		flex-shrink: 0;
+		align-content: center;
+		margin-top: vc(20);
+		height: vc(96);
+		text-align: center;
+	}
+
+	&__play {
+		position: absolute;
+		z-index: 1;
+		width: vc(50);
+		height: vc(50);
+
+		svg {
+			width: vc(50);
+			height: vc(50);
+			fill: $color-tree-poppy-400;
+		}
+	}
+
+	&.title-hidden {
+		.videoblock__title {
+			display: none;
+		}
+	}
+}

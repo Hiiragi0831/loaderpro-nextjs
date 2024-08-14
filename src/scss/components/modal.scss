@@ -1,0 +1,43 @@
+.modal {
+	position: fixed;
+	z-index: 999;
+	overflow: hidden;
+	overflow-y: auto;
+	width: 100%;
+	min-height: 100%;
+	background: rgba($color-black, 0.7);
+	inset: 0;
+
+	&__wrapper {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 100%;
+		height: max-content;
+		inset: 0;
+	}
+
+	&__content {
+		position: relative;
+		border-radius: vc(10);
+		width: 100%;
+		max-width: vc(1575);
+		background: $color-white;
+	}
+
+	&__close {
+		position: absolute;
+		right: vc(20);
+		top: vc(20);
+		z-index: 10;
+		width: vc(20);
+		height: vc(20);
+		cursor: pointer;
+
+		svg {
+			fill: $color-tree-poppy-400;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+.map {
+    picture {
+        width: 80%;
+        margin: auto;
+
+        @include devices {
+            width: 100%;
+        }
+    }
+}

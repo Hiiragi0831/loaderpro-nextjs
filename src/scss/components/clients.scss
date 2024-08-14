@@ -1,0 +1,35 @@
+.clients {
+	.row {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: vc(20);
+
+		@include devices {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: vc(10);
+		padding: vc(50);
+		height: vc(223);
+		box-shadow: $box-shadow;
+
+		picture {
+			height: 100%;
+		}
+
+		img {
+			height: 100%;
+			object-fit: contain;
+		}
+
+		@include devices {
+			padding: vc(10);
+			height: vc(62);
+		}
+	}
+}

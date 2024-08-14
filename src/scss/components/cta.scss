@@ -1,0 +1,149 @@
+.cta {
+	.row {
+		display: grid;
+		grid-template-columns: 1fr vc(670);
+		border-radius: vc(10);
+		padding: vc(20);
+		color: $color-white;
+		background: $color-tree-poppy-400;
+		gap: vc(100);
+
+		@include devices {
+			grid-template-columns: 1fr;
+			border-radius: vc(5);
+			padding: vc(8);
+			gap: vc(10);
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: vc(20);
+
+		p {
+			@include devices {
+				font-size: vc(12);
+				line-height: 1;
+			}
+		}
+
+		@include devices {
+			gap: vc(5);
+
+			.h1 {
+				margin: 0 !important;
+				font-size: vc(14);
+				line-height: 1;
+			}
+		}
+	}
+
+	&__form {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: vc(10);
+
+		input {
+			border-radius: vc(10);
+			padding: vc(20);
+			font-weight: 500;
+			font-size: vc(22);
+			color: $color-black;
+			background: $color-white;
+
+			&::placeholder {
+				color: $color-woodsmoke-300;
+			}
+
+			@include devices {
+				border-radius: vc(5);
+				padding: vc(6);
+				font-size: vc(8);
+			}
+		}
+
+		button {
+			grid-column: 1 / 3;
+			border: 2px solid $color-white;
+			width: 100%;
+			font-size: vc(22);
+
+			@include devices {
+				padding: vc(6);
+				height: vc(22);
+				font-size: vc(8);
+				line-height: vc(8);
+			}
+		}
+
+		@include devices {
+			gap: vc(4);
+		}
+	}
+
+	&.columns {
+		.row {
+			@include desktop {
+				grid-template-columns: 100%;
+				gap: vc(20);
+			}
+		}
+	}
+
+	&.inner {
+		margin: 0;
+
+		.container {
+			padding: 0;
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+
+	&.small {
+		.cta__form {
+			grid-template-columns: 100%;
+
+			> * {
+				grid-column: auto;
+				width: 100%;
+			}
+		}
+
+		@include desktop {
+			.row {
+				grid-template-columns: 100%;
+				padding: vc(10);
+				gap: vc(10);
+			}
+
+			.cta__info {
+				gap: vc(10);
+			}
+
+			.h1 {
+				font-size: vc(22);
+				line-height: 1;
+			}
+
+			p {
+				font-size: vc(18);
+			}
+
+			.cta__form {
+				gap: vc(10);
+
+				input {
+					padding: vc(12) vc(20);
+					font-size: vc(20);
+				}
+
+				button {
+					padding: vc(12) vc(20);
+					font-size: vc(20);
+				}
+			}
+		}
+	}
+}

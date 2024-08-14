@@ -1,0 +1,259 @@
+.header {
+	position: fixed;
+	z-index: 10;
+	width: 100%;
+	background: $color-white;
+
+	&__logo {
+		width: vc(260);
+		height: vc(55);
+
+		svg {
+			fill: $color-black;
+		}
+
+		@include devices {
+			width: vc(140);
+			height: vc(28);
+		}
+	}
+
+	&__search {
+		label {
+			position: relative;
+			display: flex;
+			align-items: center;
+			border: 1px solid $color-woodsmoke-300;
+			border-radius: vc(5);
+			padding: vc(14) vc(20);
+
+			input {
+				width: 100%;
+			}
+
+			button {
+				position: absolute;
+				right: vc(20);
+				width: vc(24);
+				height: vc(24);
+
+				svg {
+					fill: $color-tree-poppy-400;
+				}
+			}
+		}
+	}
+
+	&__action {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: vc(40);
+
+		a {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: max-content;
+			min-width: vc(40);
+			gap: vc(12);
+
+			span {
+				font-size: vc(16);
+				text-align: center;
+			}
+
+			svg {
+				width: vc(30);
+				height: vc(30);
+				fill: $color-tree-poppy-400;
+			}
+		}
+
+		@include devices {
+			grid-template-columns: repeat(3, vc(22));
+			margin-right: vc(15);
+			margin-left: auto;
+			gap: vc(8);
+
+			a {
+				width: vc(22);
+				min-width: auto;
+				gap: 0;
+
+				span {
+					display: none;
+				}
+
+				svg {
+					width: vc(18);
+					height: vc(18);
+				}
+			}
+		}
+	}
+
+	&__parts {
+		display: flex;
+		align-items: center;
+		margin-right: vc(40);
+		padding: vc(20);
+		font-weight: 500;
+		font-size:vc(16);
+		color: $color-black;
+		background: $color-tree-poppy-400;
+		gap: vc(20);
+
+		svg {
+			width: vc(34);
+			height: vc(34);
+			fill: $color-black;
+		}
+	}
+
+	&__burger {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: vc(20);
+		height: vc(20);
+		gap: vc(4);
+
+		span {
+			width: 100%;
+			height: 1px;
+			background: $color-black;
+		}
+
+		@include desktop {
+			display: none;
+		}
+	}
+
+	&__top {
+		padding: vc(10) 0;
+		background: $color-woodsmoke-50;
+
+		.row {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		&-links,
+		&-contacts {
+			display: flex;
+			gap: vc(50);
+
+			a {
+				position: relative;
+				display: flex;
+				align-items: center;
+				font-weight: 400;
+				font-size: vc(16);
+				gap: vc(10);
+
+				.svg {
+					border-radius: 100%;
+					padding: vc(5);
+					width: vc(24);
+					height: vc(24);
+					background: $color-woodsmoke-600;
+				}
+
+				svg {
+					fill: $color-white;
+				}
+			}
+		}
+
+		@include devices {
+			display: none;
+		}
+	}
+
+	&__main {
+		padding: vc(15) 0;
+
+		.row {
+			display: grid;
+			align-items: center;
+			grid-template-columns: vc(260) 4fr 1fr;
+			gap: vc(46);
+
+			@include devices {
+				grid-template-columns: vc(120) 1fr vc(20);
+				gap: initial;
+			}
+		}
+
+		@include devices {
+			.header__search {
+				display: none;
+			}
+		}
+	}
+
+	&__nav {
+		background: #242528;
+
+		.row {
+			display: grid;
+			grid-template-columns: 100%;
+		}
+
+		nav {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			text-transform: uppercase;
+			gap: vc(15);
+
+			a {
+				position: relative;
+				display: flex;
+				align-items: center;
+				padding: vc(20) vc(15);
+				height: 100%;
+				font-weight: 400;
+				font-size: vc(16);
+				color: $color-white;
+				transition: color $transition, background-color $transition;
+
+				&::after {
+					content: attr(title);
+					position: absolute;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-weight: 700;
+					text-align: center;
+					color: transparent;
+					transform: scale(0.9);
+					transform-origin: center center;
+					transition: $transition;
+					inset: 0;
+				}
+
+				@include hover {
+					color: transparent;
+					background-color: $color-tree-poppy-400;
+
+					&::after {
+						color: $color-woodsmoke-950;
+						transform: scale(1);
+					}
+				}
+			}
+		}
+
+		@include devices {
+			display: none;
+		}
+	}
+
+	@include devices {
+		border-bottom: 1px solid $color-woodsmoke-200;
+	}
+}

@@ -1,0 +1,53 @@
+// COLORS
+$color-black: #000;
+$color-white: #fff;
+$color-transparent: rgba($color-white, 0);
+$color-blue: #518fc8;
+
+$color-tree-poppy-50: #fff8eb;
+$color-tree-poppy-100: #fdebc8;
+$color-tree-poppy-200: #fcd48b;
+$color-tree-poppy-300: #fab84f;
+$color-tree-poppy-400: #f8991d;
+$color-tree-poppy-500: #f27a0e;
+$color-tree-poppy-600: #d65709;
+$color-tree-poppy-700: #b2390b;
+$color-tree-poppy-800: #902c10;
+$color-tree-poppy-900: #772510;
+$color-tree-poppy-950: #441004;
+
+$color-woodsmoke-50: #f6f6f6;
+$color-woodsmoke-100: #e7e7e7;
+$color-woodsmoke-200: #d1d1d1;
+$color-woodsmoke-300: #b0b0b0;
+$color-woodsmoke-400: #888;
+$color-woodsmoke-500: #6d6d6d;
+$color-woodsmoke-600: #5d5d5d;
+$color-woodsmoke-700: #4f4f4f;
+$color-woodsmoke-800: #454545;
+$color-woodsmoke-900: #3d3d3d;
+$color-woodsmoke-950: #181818;
+
+$red-orange-500: #f44336;
+
+$atlantis-400: #8cc851;
+
+$box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+
+// FONTS
+$font-firaSans: 'FiraSans', Arial, sans-serif;
+
+// TRANSITIONS
+$transition-duration: 0.35s;
+$transition-timing-function: ease;
+$transition: $transition-duration $transition-timing-function;
+
+// SETTINGS
+$desktop-xxl: 2560;
+$desktop-xl: 1920;
+$desktop-lg: 1680;
+$desktop-md: 1440;
+$desktop-sm: 1366;
+$desktop-xs: 1280;
+$desktop: 1024;
+$tablet: 1024;

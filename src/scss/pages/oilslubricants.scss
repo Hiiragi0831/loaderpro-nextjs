@@ -1,0 +1,28 @@
+.oilslubricants {
+	&__who {
+		.text {
+			order: 1;
+		}
+	}
+
+	&__premium,
+	&__who {
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: vc(10);
+
+			.h1 {
+				margin-bottom: vc(10);
+			}
+		}
+	}
+
+	&__premium {
+		@include devices {
+			.image {
+				order: -1;
+			}
+		}
+	}
+}
