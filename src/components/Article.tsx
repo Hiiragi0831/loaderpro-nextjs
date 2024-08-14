@@ -23,7 +23,7 @@ const Article: FC<Props> = ({ id, title, description, image, date, link }) => {
         <p>{currentDate}</p>
       </div>
       <div className="article__description">
-        <p>{description.slice(0, 100)}...</p>
+        <p>{description?.slice(0, 100)}...</p>
       </div>
       <div className="article__link">
         <Link href={link ? link : `/articles/${id}`} target={"_blank"}>

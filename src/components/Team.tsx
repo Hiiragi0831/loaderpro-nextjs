@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
 import { api } from "@/services/api";
+import {Category as CategoryTypes} from "@/common/types/Category";
 
 export const Team = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<CategoryTypes[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const loadTeam = async () => {

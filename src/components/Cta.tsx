@@ -14,11 +14,11 @@ export const Cta: FC<CtaType> = (data) => {
     <section className={`cta ${data.class ? data.class : ""}`}>
       <div className="container">
         <div className="row">
-          <div class="cta__info">
+          <div className="cta__info">
             {data.title === null ? "" : <span className="h1">{title}</span>}
             {data.text === null ? "" : <p>{text}</p>}
           </div>
-          <div class="cta__form">
+          <div className="cta__form">
             <input type="text" placeholder="Имя" name="name" />
             <input type="tel" placeholder="Телефон" name="telephone" />
             <button className="button button__outline">Оставить заявку</button>

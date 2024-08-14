@@ -1,9 +1,10 @@
 import FsLightbox from "fslightbox-react";
 import delay from "lodash-es/delay";
-import { useState } from "preact/hooks";
+import { useState } from "react";
 import { FC } from "react";
+import IconPlaySolid from "@/icons/play-solid.svg"
 
-import { useVideo } from "../utils/hooks/useVideo";
+import { useVideo } from "@/utils/hooks/useVideo";
 
 type VideoBlockType = {
   id: string;
@@ -23,10 +24,8 @@ export const VideoBlock: FC<VideoBlockType> = ({ id, className }) => {
           delay(() => setToggler(!toggler), 100);
         }}
       >
-        <div class="videoblock__play">
-          <svg>
-            <use xlinkHref="/__spritemap#sprite-play-solid" />
-          </svg>
+        <div className="videoblock__play">
+          <IconPlaySolid />
         </div>
         <picture>
           <source srcSet={video.image} />

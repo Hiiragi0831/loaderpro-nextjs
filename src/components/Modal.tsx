@@ -1,8 +1,14 @@
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import {FC, ReactNode} from "react";
 
-export const Modal = ({ onClose, children }) => {
+type Props = {
+  onClose: () => void;
+  children?: ReactNode | undefined;
+};
+
+export const Modal: FC<Props> = ({ onClose, children }) => {
   useLockBodyScroll();
-  const onWrapperClick = (evt) => {
+  const onWrapperClick = (evt:any) => {
     if (evt.target.classList.contains("modal__wrapper")) onClose();
   };
   return (

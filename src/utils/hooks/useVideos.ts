@@ -7,7 +7,8 @@ export const useVideos = () => {
   const [isLoading, setIsLoading] = useState(true);
   const videos = useMemo(
     () =>
-      data?.map((item) => {
+      // @ts-ignore
+      data?.map((item:any) => {
         return {
           link: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`,
           image: item.snippet.thumbnails.standard.url,
@@ -22,8 +23,9 @@ export const useVideos = () => {
       const data = await api.getYoutubeVideos();
       setData(data.items);
       setIsLoading(false);
-    } catch (error) {
+    } catch (error:any) {
       console.error("Error fetching:", error.message);
+      throw(error);
     }
   };
   useLayoutEffect(() => void loadVideos(), []);

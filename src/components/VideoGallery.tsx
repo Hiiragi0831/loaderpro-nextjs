@@ -13,7 +13,7 @@ export const VideoGallery = () => {
   const [productIndex, setProductIndex] = useState(0);
 
   const { videos, isLoading } = useVideos();
-  const sources = useMemo(() => videos.map((video) => video.link), [videos]);
+  const sources = useMemo(() => videos.map((video:any) => video.link), [videos]);
 
   return (
     <section className="videoGallery">
@@ -35,7 +35,7 @@ export const VideoGallery = () => {
         >
           {isLoading
             ? "Загрузка"
-            : videos.map((item, index) => {
+            : videos.map((item:any, index:any) => {
                 return (
                   <SwiperSlide key={index}>
                     <button

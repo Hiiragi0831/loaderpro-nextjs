@@ -1,10 +1,10 @@
 import { FC } from "react";
 
 import { Product as ProductType } from "../common/types/Product";
-import { useBasket } from "../store/basket";
-import { getPriceFormat } from "../utils/getPriceFormat";
+import { useBasket } from "@/store/basket";
+import { getPriceFormat } from "@/utils/getPriceFormat";
 
-export const BasketItem: FC<ProductType> = ({ price, count, image, title, article, id }) => {
+export const BasketItem: FC<ProductType> = ({ price, count = 0, image, title, article, id }) => {
   const increment = useBasket((state) => state.increment);
   const decrement = useBasket((state) => state.decrement);
   const deleteItem = useBasket((state) => state.deleteProduct);

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import '../scss/main.scss'
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 
 export const metadata: Metadata = {
@@ -16,10 +18,10 @@ export default function RootLayout({
     <html lang="ru">
     <body>
       <div className="site">
-        {/*<Header/>*/}
+        <Header/>
         {children}
         {/*<MobileBar/>*/}
-        {/*<Footer/>*/}
+        <Footer/>
       </div>
     </body>
     </html>

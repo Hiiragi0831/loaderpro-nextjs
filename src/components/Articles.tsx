@@ -3,13 +3,14 @@ import {FC, useLayoutEffect, useMemo, useState} from "react";
 
 import { api } from "@/services/api";
 import Article from "./Article";
+import { Article as ArticleType } from "../common/types/Article";
 
 type Props = {
   limit: number;
 };
 
 const Articles: FC<Props> = ({ limit }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ArticleType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const dataArticles = useMemo(() => data.slice(0, limit), [data, limit]);

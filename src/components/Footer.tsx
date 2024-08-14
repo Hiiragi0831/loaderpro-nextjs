@@ -1,4 +1,12 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import IconLogo from "@/icons/logo.svg"
+import IconPhone from "@/icons/phone.svg"
+import IconMail from "@/icons/mail.svg"
+import IconVk from "@/icons/vk.svg"
+import IconTg from "@/icons/tg.svg"
+import IconWt from "@/icons/wt.svg"
+import IconYoutube from "@/icons/youtube.svg"
+
 
 const Footer = () => {
   return (
@@ -6,55 +14,40 @@ const Footer = () => {
       <div className="container">
         <div className="footer__top">
           <div className="footer__logo">
-            <svg>
-              <use xlinkHref="/__spritemap#sprite-logo" />
-            </svg>
+            <IconLogo />
           </div>
           <div className="footer__ya">
             <iframe
               src="https://yandex.ru/sprav/widget/rating-badge/144706740321?type=rating&theme=dark"
               width="150"
               height="50"
-              frameborder="0"
             />
           </div>
           <div className="footer__phone">
-            <svg>
-              <use xlinkHref="/__spritemap#sprite-phone" />
-            </svg>
+            <IconPhone />
             <p>
               <a href="tel:88005511996">8 (800) 551-19-96</a> |{" "}
               <a href="tel:+78126421256">+7 (812) 642-12-56</a>
             </p>
           </div>
           <div className="footer__mail">
-            <svg>
-              <use xlinkHref="/__spritemap#sprite-mail" />
-            </svg>
+            <IconMail />
             <p>
               <a href="mailto:zakaz@loaderpro.ru">zakaz@loaderpro.ru</a>
             </p>
           </div>
           <div className="footer__socials">
             <a className="footer__social" href="https://vk.com/loaderproru">
-              <svg>
-                <use xlinkHref="/__spritemap#sprite-vk" />
-              </svg>
+              <IconVk />
             </a>
             <a className="footer__social" href="https://t.me/loaderpro">
-              <svg>
-                <use xlinkHref="/__spritemap#sprite-tg" />
-              </svg>
+              <IconTg />
             </a>
             <a className="footer__social" href="https://wa.me/79643421256">
-              <svg>
-                <use xlinkHref="/__spritemap#sprite-wt" />
-              </svg>
+              <IconWt />
             </a>
             <a className="footer__social" href="https://www.youtube.com/@loaderpro">
-              <svg>
-                <use xlinkHref="/__spritemap#sprite-youtube" />
-              </svg>
+              <IconYoutube />
             </a>
           </div>
         </div>
@@ -62,22 +55,22 @@ const Footer = () => {
           <div className="footer__links">
             <p className="footer__links-head">Партнёрам</p>
             <div className="footer__links-row">
-              <Link className="footer__link" to="/">
+              <Link className="footer__link" href="/">
                 Главная
               </Link>
-              <Link className="footer__link" to="/vacancy">
+              <Link className="footer__link" href="/vacancy">
                 Вакансии
               </Link>
-              <Link className="footer__link" to="/about">
+              <Link className="footer__link" href="/about">
                 О компании
               </Link>
-              <Link className="footer__link" to="/privacy-policy">
+              <Link className="footer__link" href="/privacy-policy">
                 Конфиденциальность
               </Link>
-              <Link className="footer__link" to="/delivery-payment">
+              <Link className="footer__link" href="/delivery-payment">
                 Оплата и доставка
               </Link>
-              <Link className="footer__link" to="/contact">
+              <Link className="footer__link" href="/contact">
                 Контакты
               </Link>
             </div>
@@ -85,22 +78,22 @@ const Footer = () => {
           <div className="footer__links">
             <p className="footer__links-head">Товары</p>
             <div className="footer__links-row">
-              <Link className="footer__link" to="/warehouse-equipment">
+              <Link className="footer__link" href="/warehouse-equipment">
                 Складская техника
               </Link>
-              <Link className="footer__link" to="/spare-parts">
+              <Link className="footer__link" href="/spare-parts">
                 Запасные части
               </Link>
-              <Link className="footer__link" to="/battery">
+              <Link className="footer__link" href="/battery">
                 Тяговые аккумуляторы
               </Link>
-              <Link className="footer__link" to="/tires-rims">
+              <Link className="footer__link" href="/tires-rims">
                 Шины и диски
               </Link>
-              <Link className="footer__link" to="/oils-lubricants">
+              <Link className="footer__link" href="/oils-lubricants">
                 Масла и смазки
               </Link>
-              <Link className="footer__link" to="/polyurethane-wheels">
+              <Link className="footer__link" href="/polyurethane-wheels">
                 Полиуретановые колеса
               </Link>
             </div>
@@ -108,13 +101,13 @@ const Footer = () => {
           <div className="footer__links">
             <p className="footer__links-head">Услуги</p>
             <div className="footer__links-row footer__links-row--1">
-              <Link className="footer__link" to="#">
+              <Link className="footer__link" href="#">
                 Подбор запасных частей
               </Link>
-              <Link className="footer__link" to="/tire-service">
+              <Link className="footer__link" href="/tire-service">
                 Шиномонтаж
               </Link>
-              <Link className="footer__link" to="/polyurethane-surfacing">
+              <Link className="footer__link" href="/polyurethane-surfacing">
                 Восстановление колес
               </Link>
               {/*<Link className="footer__link" to="/repair-maintenance">*/}

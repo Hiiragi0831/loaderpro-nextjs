@@ -2,6 +2,10 @@
 
 import { FC } from "react";
 
+import IconHeart from "@/icons/wt.svg"
+import IconHeartSolid from "@/icons/youtube.svg"
+import IconShoppingCart from "@/icons/shopping-cart.svg"
+
 import { Product as ProductType } from "../common/types/Product";
 import { useBasket } from "@/store/basket";
 import { useFavorite } from "@/store/favorite";
@@ -22,12 +26,8 @@ const Product: FC<Props> = (data) => {
         className={`product__like ${favorites.indexOf(data.id) !== -1 ? "is-active" : ""}`}
         onClick={() => toggleFavorite(data.id)}
       >
-        <svg className="heart">
-          <use xlinkHref="/__spritemap#sprite-heart" />
-        </svg>
-        <svg className="heart-solid">
-          <use xlinkHref="/__spritemap#sprite-heart-solid" />
-        </svg>
+        <IconHeart className="heart"/>
+        <IconHeartSolid className="heart-solid" />
       </button>
       <div className="product__img">
         <picture>
@@ -60,9 +60,7 @@ const Product: FC<Props> = (data) => {
         ) : (
           <>
             <button className="button button__primary button__icon" onClick={() => addToCart(data)}>
-              <svg>
-                <use xlinkHref="/__spritemap#sprite-shopping-cart" />
-              </svg>
+              <IconShoppingCart />
               В корзину
             </button>
           </>

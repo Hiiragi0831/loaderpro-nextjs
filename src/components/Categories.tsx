@@ -1,10 +1,10 @@
-import { useLayoutEffect, useState } from "preact/hooks";
-
-import { api } from "../services/api";
+import { api } from "@/services/api";
 import Category from "./Category";
+import {useLayoutEffect, useState} from "react";
+import {Category as CategoryType} from "@/common/types/Category";
 
 const Categories = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<CategoryType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const loadProducts = async () => {
@@ -12,7 +12,7 @@ const Categories = () => {
       const data = await api.getAllCategory();
       setData(data);
       setIsLoading(false);
-    } catch (error) {
+    } catch (error:any) {
       console.error("Error fetching:", error.message);
     }
   };

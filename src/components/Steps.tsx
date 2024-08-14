@@ -1,8 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Step } from "./Step";
+import {FC} from "react";
 
-export const Steps = ({ data, title }) => {
+type Props = {
+  data: [],
+  title: string,
+}
+
+export const Steps: FC<Props> = ({ data, title }) => {
   return (
     <section className="steps">
       <div className="container">

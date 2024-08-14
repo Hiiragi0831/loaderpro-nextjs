@@ -1,15 +1,25 @@
-import { useState } from "preact/hooks";
+import {FC} from "react";
 
-export const Preference = ({ title, text, bg }) => {
-  const [style, setStyle] = useState(null);
+type Props = {
+  title: string,
+  text: string,
+  bg: string,
+};
+
+export const Preference: FC<Props> = ({ title, text, bg }) => {
+  let style = () => {
+    if (bg === "primary") {
+      return "primary"
+    } else {
+      return "white"
+    }
+  }
+
   const background = () => {
     switch (bg) {
       case "white":
-        setStyle("white");
         return <div className="preference__bg white" />;
-
       case "primary":
-        setStyle("primary");
         return <div className="preference__bg primary" />;
       default:
         return (
@@ -24,11 +34,11 @@ export const Preference = ({ title, text, bg }) => {
   };
 
   return (
-    <div className={`preference ${style}`}>
+    <div className={`preference ${style()}`}>
       {background()}
-      <div class="preference__title">{title}</div>
+      <div className="preference__title">{title}</div>
       <hr />
-      <div class="preference__text">{text}</div>
+      <div className="preference__text">{text}</div>
     </div>
   );
 };

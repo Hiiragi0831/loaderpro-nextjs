@@ -1,10 +1,17 @@
-export const Step = ({ count, text }) => {
+import {FC} from "react";
+
+type Props = {
+  count: number,
+  text: string,
+}
+
+export const Step: FC<Props> = ({ count, text }) => {
   return (
     <div className="step">
-      <div class="step__count">
-        <span class="h1">{count}</span>
+      <div className="step__count">
+        <span className="h1">{count}</span>
       </div>
-      <div class="step__text">{text}</div>
+      <div className="step__text">{text}</div>
     </div>
   );
 };

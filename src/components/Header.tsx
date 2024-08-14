@@ -1,31 +1,34 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import IconLogo from "@/icons/logo.svg"
+import IconMail from "@/icons/mail.svg"
+import IconPhone from "@/icons/phone.svg"
+import IconMagnifying from "@/icons/magnifying-glass.svg"
+import IconRectangle from "@/icons/rectangle-history-circle-plus.svg"
+import IconHeart from "@/icons/heart.svg"
+import IconCart from "@/icons/cart-shopping.svg"
 
 const Header = () => {
   return (
-    <header class="header">
-      <div class="header__top">
-        <div class="container">
-          <div class="row">
-            <div class="header__top-links">
+    <header className="header">
+      <div className="header__top">
+        <div className="container">
+          <div className="row">
+            <div className="header__top-links">
               <Link href="/dealer">Дилерам</Link>
               <Link href="/suppliers">Поставщикам</Link>
               <Link href="/account/user">Личный кабинет</Link>
             </div>
             <p className="text-uppercase">Ваша техника под надежной защитой</p>
-            <div class="header__top-contacts">
+            <div className="header__top-contacts">
               <a href="mailto:zakaz@loaderpro.ru">
-                <div class="svg">
-                  <svg>
-                    <use xlinkHref="/__spritemap#sprite-mail" />
-                  </svg>
+                <div className="svg">
+                  <IconMail />
                 </div>
                 zakaz@loaderpro.ru
               </a>
               <a href="tel:+78005511996">
-                <div class="svg">
-                  <svg>
-                    <use xlinkHref="/__spritemap#sprite-phone" />
-                  </svg>
+                <div className="svg">
+                  <IconPhone />
                 </div>
                 8 (800) 551-19-96
               </a>
@@ -33,45 +36,35 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div class="header__main">
-        <div class="container">
-          <div class="row">
-            <Link class="header__logo" to="/">
-              <svg>
-                <use xlinkHref="/__spritemap#sprite-logo" />
-              </svg>
+      <div className="header__main">
+        <div className="container">
+          <div className="row">
+            <Link className="header__logo" href="/">
+              <IconLogo />
             </Link>
-            <form class="header__search">
+            <form className="header__search">
               <label>
                 <input type="text" name="search" placeholder="Поиск товара" />
                 <button type="submit">
-                  <svg>
-                    <use xlinkHref="/__spritemap#sprite-magnifying-glass" />
-                  </svg>
+                  <IconMagnifying />
                 </button>
               </label>
             </form>
-            <div class="header__action">
+            <div className="header__action">
               <Link href="/selectionparts">
-                <svg>
-                  <use xlinkHref="/__spritemap#sprite-rectangle-history-circle-plus" />
-                </svg>
+                <IconRectangle />
                 <span>Запросы</span>
               </Link>
               <Link href="/favorites">
-                <svg>
-                  <use xlinkHref="/__spritemap#sprite-heart" />
-                </svg>
+                <IconHeart />
                 <span>Избранное</span>
               </Link>
               <Link href="/basket">
-                <svg>
-                  <use xlinkHref="/__spritemap#sprite-cart-shopping" />
-                </svg>
+                <IconCart />
                 <span>Корзина</span>
               </Link>
             </div>
-            <div class="header__burger">
+            <div className="header__burger">
               <span />
               <span />
               <span />
@@ -79,9 +72,9 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div class="header__nav">
-        <div class="container">
-          <div class="row">
+      <div className="header__nav">
+        <div className="container">
+          <div className="row">
             <nav>
               <Link href="/warehouse-equipment" title="Складская техника">
                 Складская техника

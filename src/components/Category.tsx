@@ -1,13 +1,13 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 
 import { Category as CategoryType } from "../common/types/Category";
+import Link from "next/link";
 
 type Props = Pick<CategoryType, "title" | "image" | "link">;
 
 const Category: FC<Props> = (data) => {
   return (
-    <Link className="category" to={data.link ? data.link : "#"}>
+    <Link className="category" href={data.link ? data.link : "#"}>
       <div className="category__bg">
         <picture>
           <source srcSet={data.image} />
