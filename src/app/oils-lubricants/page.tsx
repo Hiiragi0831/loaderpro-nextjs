@@ -4,7 +4,7 @@ import { Cta } from "@/components/Cta";
 import Products from "@/components/Products";
 import { VideoBlock } from "@/components/VideoBlock";
 
-export default function OilsLubricants () {
+export default function OilsLubricants() {
   return (
     <main>
       <section className="oilslubricants__premium">
@@ -13,15 +13,19 @@ export default function OilsLubricants () {
             <div className="text">
               <h1 className="h1">Премиальное масло по доступной цене</h1>
               <p>
-                Наше масло, произведенное по инновационной технологии NSA, гарантирует максимальное смешивание
-                компонентов в рекордные сроки. Эта уникальная технология обеспечивает исключительное качество продукта,
-                создавая смазочные материалы, превосходящие текущие стандарты. Наши масла обладают улучшенными
-                низкотемпературными свойствами и высокой термоокислительной стабильностью. Кроме того, благодаря
-                эксклюзивной технологии TCN, они обеспечивают надежную защиту от износа.
+                Наше масло, произведенное по инновационной технологии NSA,
+                гарантирует максимальное смешивание компонентов в рекордные
+                сроки. Эта уникальная технология обеспечивает исключительное
+                качество продукта, создавая смазочные материалы, превосходящие
+                текущие стандарты. Наши масла обладают улучшенными
+                низкотемпературными свойствами и высокой термоокислительной
+                стабильностью. Кроме того, благодаря эксклюзивной технологии
+                TCN, они обеспечивают надежную защиту от износа.
               </p>
               <p>
-                Выбирая наше премиальное масло, вы инвестируете в долговечность и надежность вашей техники. Оставьте
-                заявку прямо сейчас и почувствуйте разницу!
+                Выбирая наше премиальное масло, вы инвестируете в долговечность
+                и надежность вашей техники. Оставьте заявку прямо сейчас и
+                почувствуйте разницу!
               </p>
               <Cta
                 title={"Заказать масло"}
@@ -32,7 +36,11 @@ export default function OilsLubricants () {
             <div className="image">
               <picture>
                 <source srcSet={`/images/oilslubricants/serv3.png`} />
-                <img src={`/images/oilslubricants/serv3.png`} alt="" decoding="async" />
+                <img
+                  src={`/images/oilslubricants/serv3.png`}
+                  alt=""
+                  decoding="async"
+                />
               </picture>
             </div>
           </div>
@@ -44,18 +52,27 @@ export default function OilsLubricants () {
             <div className="text">
               <span className="h1">Почему стоит довериться нашему маслу?</span>
               <p>
-                Наше масло &laquo;NEO&raquo;&nbsp;&mdash; это результат инновационных технологий и&nbsp;строгого контроля качества. Мы&nbsp;предлагаем
-                продукцию, созданную с&nbsp;учетом ваших потребностей и&nbsp;адаптированную для российских условий эксплуатации.
+                Наше масло &laquo;NEO&raquo;&nbsp;&mdash; это результат
+                инновационных технологий и&nbsp;строгого контроля качества.
+                Мы&nbsp;предлагаем продукцию, созданную с&nbsp;учетом ваших
+                потребностей и&nbsp;адаптированную для российских условий
+                эксплуатации.
               </p>
               <p>
-                Выбирая масло &laquo;NEO&raquo;, вы&nbsp;получаете надежный и&nbsp;долговечный продукт, который обеспечивает стабильную работу
-                техники при любых условиях. Доверьтесь &laquo;NEO&raquo; и&nbsp;почувствуйте разницу!
+                Выбирая масло &laquo;NEO&raquo;, вы&nbsp;получаете надежный
+                и&nbsp;долговечный продукт, который обеспечивает стабильную
+                работу работу техники при любых условиях. Доверьтесь
+                &laquo;NEO&raquo; и&nbsp;почувствуйте разницу!
               </p>
             </div>
             <div className="image">
               <picture>
                 <source srcSet={`/images/oilslubricants/remont.png`} />
-                <img src={`/images/oilslubricants/remont.png`} alt="" decoding="async" />
+                <img
+                  src={`/images/oilslubricants/remont.png`}
+                  alt=""
+                  decoding="async"
+                />
               </picture>
             </div>
           </div>
@@ -117,4 +134,4 @@ export default function OilsLubricants () {
       <Articles limit={4} />
     </main>
   );
-};
+}

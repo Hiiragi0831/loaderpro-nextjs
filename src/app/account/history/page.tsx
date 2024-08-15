@@ -1,4 +1,8 @@
-export const History = () => {
+import IconPin from "@/icons/pin.svg";
+import IconUser from "@/icons/user.svg";
+import IconCreditCard from "@/icons/credit-card.svg";
+
+export default function History() {
   return (
     <div className="account__tab">
       <div className="account__title">
@@ -27,9 +31,7 @@ export const History = () => {
           <div className="order__row">
             <div className="order__col">
               <p>
-                <svg>
-                  <use xlinkHref="/__spritemap#sprite-pin" />
-                </svg>
+                <IconPin />
                 <span>Доставка</span>
               </p>
               <ul>
@@ -41,9 +43,7 @@ export const History = () => {
             </div>
             <div className="order__col">
               <p>
-                <svg>
-                  <use xlinkHref="/__spritemap#sprite-user" />
-                </svg>
+                <IconUser />
                 <span>Получатель</span>
               </p>
               <ul>
@@ -55,6 +55,7 @@ export const History = () => {
             </div>
             <div className="order__col">
               <p>
+                <IconCreditCard />
                 <svg>
                   <use xlinkHref="/__spritemap#sprite-credit-card" />
                 </svg>
@@ -85,8 +86,8 @@ export const History = () => {
                 </div>
                 <div className="basket-item">
                   <picture className="basket-item__img">
-                    <source srcSet="/assets/images/basket.jpg" />
-                    <img src="/assets/images/basket.jpg" alt="" decoding="async" />
+                    <source srcSet="/images/basket.jpg" />
+                    <img src="/images/basket.jpg" alt="" decoding="async" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -106,8 +107,8 @@ export const History = () => {
                 </div>
                 <div className="basket-item">
                   <picture className="basket-item__img">
-                    <source srcSet="/assets/images/basket.jpg" />
-                    <img src="/assets/images/basket.jpg" alt="" decoding="async" />
+                    <source srcSet="/images/basket.jpg" />
+                    <img src="/images/basket.jpg" alt="" decoding="async" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -127,8 +128,8 @@ export const History = () => {
                 </div>
                 <div className="basket-item">
                   <picture className="basket-item__img">
-                    <source srcSet="/assets/images/basket.jpg" />
-                    <img src="/assets/images/basket.jpg" alt="" decoding="async" />
+                    <source srcSet="/images/basket.jpg" />
+                    <img src="/images/basket.jpg" alt="" decoding="async" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -155,9 +156,7 @@ export const History = () => {
           <div className="order__row">
             <div className="order__col">
               <p>
-                <svg>
-                  <use xlinkHref="/__spritemap#sprite-pin" />
-                </svg>
+                <IconPin />
                 <span>Доставка</span>
               </p>
               <ul>
@@ -169,9 +168,7 @@ export const History = () => {
             </div>
             <div className="order__col">
               <p>
-                <svg>
-                  <use xlinkHref="/__spritemap#sprite-user" />
-                </svg>
+                <IconUser />
                 <span>Получатель</span>
               </p>
               <ul>
@@ -183,9 +180,7 @@ export const History = () => {
             </div>
             <div className="order__col">
               <p>
-                <svg>
-                  <use xlinkHref="/__spritemap#sprite-credit-card" />
-                </svg>
+                <IconCreditCard />
                 <span>Оплата</span>
               </p>
               <ul>
@@ -213,8 +208,8 @@ export const History = () => {
                 </div>
                 <div className="basket-item">
                   <picture className="basket-item__img">
-                    <source srcSet="/assets/images/basket.jpg" />
-                    <img src="/assets/images/basket.jpg" alt="" decoding="async" />
+                    <source srcSet="/images/basket.jpg" />
+                    <img src="/images/basket.jpg" alt="" decoding="async" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -234,8 +229,8 @@ export const History = () => {
                 </div>
                 <div className="basket-item">
                   <picture className="basket-item__img">
-                    <source srcSet="/assets/images/basket.jpg" />
-                    <img src="/assets/images/basket.jpg" alt="" decoding="async" />
+                    <source srcSet="/images/basket.jpg" />
+                    <img src="/images/basket.jpg" alt="" decoding="async" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -255,8 +250,8 @@ export const History = () => {
                 </div>
                 <div className="basket-item">
                   <picture className="basket-item__img">
-                    <source srcSet="/assets/images/basket.jpg" />
-                    <img src="/assets/images/basket.jpg" alt="" decoding="async" />
+                    <source srcSet="/images/basket.jpg" />
+                    <img src="/images/basket.jpg" alt="" decoding="async" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -281,4 +276,4 @@ export const History = () => {
       </div>
     </div>
   );
-};
+}
