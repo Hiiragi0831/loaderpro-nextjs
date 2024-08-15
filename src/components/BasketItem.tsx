@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from "react";
 
 import { Product as ProductType } from "../common/types/Product";

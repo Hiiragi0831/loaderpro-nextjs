@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 import { Product } from "@/common/types/Product";
-import { Notification } from "@/utils/notification";
+import { Notifications } from "@/utils/notifications";
 
 type Store = {
   basket: Product[];
@@ -24,7 +24,7 @@ export const useBasket = create<Store>()(
       addToBasket: (product) => {
         const products = CloneDeep(get().basket);
         const index = products.findIndex(({ id }) => id === product.id);
-        Notification.success(`Товар добавлен в корзину`);
+        Notifications.success(`Товар добавлен в корзину`);
         if (index !== -1) {
           products[index].count = products[index].count + product.count;
           set({ basket: products });

@@ -3,6 +3,7 @@
 import Product from "@/components/Product";
 import { api } from "@/services/api";
 import {FC, useLayoutEffect, useState} from "react";
+import {Product as ProductsType} from "@/common/types/Product";
 
 type Props = {
   filter: string;
@@ -10,14 +11,13 @@ type Props = {
 };
 
 const Products: FC<Props> = ({ filter, limit }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ProductsType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   let filteredProducts = [];
 
   const loadProducts = async () => {
     try {
       const data = await api.getAllProducts();
-      // @ts-ignore
       setData(data);
       setIsLoading(false);
     } catch (error:any) {

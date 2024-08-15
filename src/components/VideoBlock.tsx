@@ -1,10 +1,10 @@
+'use client';
 import FsLightbox from "fslightbox-react";
 import delay from "lodash-es/delay";
-import { useState } from "react";
-import { FC } from "react";
 import IconPlaySolid from "@/icons/play-solid.svg"
 
 import { useVideo } from "@/utils/hooks/useVideo";
+import {FC, useState} from "react";
 
 type VideoBlockType = {
   id: string;

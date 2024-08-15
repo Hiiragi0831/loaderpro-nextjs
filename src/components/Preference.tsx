@@ -6,6 +6,24 @@ type Props = {
   bg: string,
 };
 
+const background = (bg:any) => {
+  switch (bg) {
+    case "white":
+      return <div className="preference__bg white" />;
+    case "primary":
+      return <div className="preference__bg primary" />;
+    default:
+      return (
+        <div className="preference__bg">
+          <picture>
+            <source srcSet={`/images/preference/${bg}.jpg`} />
+            <img src={`/images/preference/${bg}.jpg`} alt="" decoding="async" />
+          </picture>
+        </div>
+      );
+  }
+};
+
 export const Preference: FC<Props> = ({ title, text, bg }) => {
   let style = () => {
     if (bg === "primary") {
@@ -15,27 +33,9 @@ export const Preference: FC<Props> = ({ title, text, bg }) => {
     }
   }
 
-  const background = () => {
-    switch (bg) {
-      case "white":
-        return <div className="preference__bg white" />;
-      case "primary":
-        return <div className="preference__bg primary" />;
-      default:
-        return (
-          <div className="preference__bg">
-            <picture>
-              <source srcSet={`/images/preference/${bg}.jpg`} />
-              <img src={`/images/preference/${bg}.jpg`} alt={title} decoding="async" />
-            </picture>
-          </div>
-        );
-    }
-  };
-
   return (
     <div className={`preference ${style()}`}>
-      {background()}
+      {background(bg)}
       <div className="preference__title">{title}</div>
       <hr />
       <div className="preference__text">{text}</div>

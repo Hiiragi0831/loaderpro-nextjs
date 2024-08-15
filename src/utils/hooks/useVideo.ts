@@ -1,9 +1,14 @@
-import { useLayoutEffect, useMemo, useState } from "preact/hooks";
+'use client';
 
-import { api } from "../../services/api";
+import { useLayoutEffect, useMemo, useState } from "react";
 
-export const useVideo = (id) => {
-  const [data, setData] = useState(null);
+import { api } from "@/services/api";
+type Props = {
+  items: any,
+}
+
+export const useVideo = (id:string) => {
+  const [data, setData] = useState<Props>();
   const [isLoading, setIsLoading] = useState(true);
 
   const video = useMemo(() => {
@@ -22,7 +27,7 @@ export const useVideo = (id) => {
       const data = await api.getYoutubeVideo(id);
       setData(data);
       setIsLoading(false);
-    } catch (error) {
+    } catch (error:any) {
       console.error("Error fetching:", error.message);
     }
   };

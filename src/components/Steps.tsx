@@ -1,10 +1,11 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+'use client';
 
 import { Step } from "./Step";
 import {FC} from "react";
+import {Swiper, SwiperSlide} from "swiper/react";
 
 type Props = {
-  data: [],
+  data: string[],
   title: string,
 }
 

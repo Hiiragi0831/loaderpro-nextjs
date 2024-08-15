@@ -2,8 +2,8 @@
 
 import { FC } from "react";
 
-import IconHeart from "@/icons/wt.svg"
-import IconHeartSolid from "@/icons/youtube.svg"
+import IconHeart from "@/icons/heart.svg"
+import IconHeartSolid from "@/icons/heart-solid.svg"
 import IconShoppingCart from "@/icons/shopping-cart.svg"
 
 import { Product as ProductType } from "../common/types/Product";

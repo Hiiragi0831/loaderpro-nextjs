@@ -2,7 +2,7 @@ import CloneDeep from "lodash-es/cloneDeep";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import { Notification } from "@/utils/notification";
+import { Notifications } from "@/utils/notifications";
 
 type Store = {
   favorite: any[];
@@ -22,11 +22,11 @@ export const useFavorite = create<Store>()(
         const index = favorites.indexOf(id);
 
         if (index !== -1) {
-          Notification.success(`Товар удален из избранного`);
+          Notifications.success(`Товар удален из избранного`);
           favorites.splice(index, 1);
           set({ favorite: favorites });
         } else {
-          Notification.success(`Товар добавлен в избранное`);
+          Notifications.success(`Товар добавлен в избранное`);
           set({ favorite: [...favorites, id] });
         }
       },
