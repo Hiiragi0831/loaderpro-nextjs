@@ -1,12 +1,11 @@
 import Link from "next/link";
-import IconLogo from "@/icons/logo.svg"
-import IconPhone from "@/icons/phone.svg"
-import IconMail from "@/icons/mail.svg"
-import IconVk from "@/icons/vk.svg"
-import IconTg from "@/icons/tg.svg"
-import IconWt from "@/icons/wt.svg"
-import IconYoutube from "@/icons/youtube.svg"
-
+import IconLogo from "@/icons/logo.svg";
+import IconPhone from "@/icons/phone.svg";
+import IconMail from "@/icons/mail.svg";
+import IconVk from "@/icons/vk.svg";
+import IconTg from "@/icons/tg.svg";
+import IconWt from "@/icons/wt.svg";
+import IconYoutube from "@/icons/youtube.svg";
 
 const Footer = () => {
   return (
@@ -46,7 +45,10 @@ const Footer = () => {
             <a className="footer__social" href="https://wa.me/79643421256">
               <IconWt />
             </a>
-            <a className="footer__social" href="https://www.youtube.com/@loaderpro">
+            <a
+              className="footer__social"
+              href="https://www.youtube.com/@loaderpro"
+            >
               <IconYoutube />
             </a>
           </div>
@@ -58,19 +60,19 @@ const Footer = () => {
               <Link className="footer__link" href="/">
                 Главная
               </Link>
-              <Link className="footer__link" href="/vacancy">
+              <Link className="footer__link" href={"/vacancy"}>
                 Вакансии
               </Link>
-              <Link className="footer__link" href="/about">
+              <Link className="footer__link" href={"/about"}>
                 О компании
               </Link>
-              <Link className="footer__link" href="/privacy-policy">
+              <Link className="footer__link" href={"/privacy-policy"}>
                 Конфиденциальность
               </Link>
-              <Link className="footer__link" href="/delivery-payment">
+              <Link className="footer__link" href={"/delivery-payment"}>
                 Оплата и доставка
               </Link>
-              <Link className="footer__link" href="/contact">
+              <Link className="footer__link" href={"/contact"}>
                 Контакты
               </Link>
             </div>
@@ -78,22 +80,22 @@ const Footer = () => {
           <div className="footer__links">
             <p className="footer__links-head">Товары</p>
             <div className="footer__links-row">
-              <Link className="footer__link" href="/warehouse-equipment">
+              <Link className="footer__link" href={"/warehouse-equipment"}>
                 Складская техника
               </Link>
-              <Link className="footer__link" href="/spare-parts">
+              <Link className="footer__link" href={"/spare-parts"}>
                 Запасные части
               </Link>
-              <Link className="footer__link" href="/battery">
+              <Link className="footer__link" href={"/battery"}>
                 Тяговые аккумуляторы
               </Link>
-              <Link className="footer__link" href="/tires-rims">
+              <Link className="footer__link" href={"/tires-rims"}>
                 Шины и диски
               </Link>
-              <Link className="footer__link" href="/oils-lubricants">
+              <Link className="footer__link" href={"/oils-lubricants"}>
                 Масла и смазки
               </Link>
-              <Link className="footer__link" href="/polyurethane-wheels">
+              <Link className="footer__link" href={"/polyurethane-wheels"}>
                 Полиуретановые колеса
               </Link>
             </div>
@@ -101,13 +103,13 @@ const Footer = () => {
           <div className="footer__links">
             <p className="footer__links-head">Услуги</p>
             <div className="footer__links-row footer__links-row--1">
-              <Link className="footer__link" href="#">
+              <Link className="footer__link" href={"/selection-parts"}>
                 Подбор запасных частей
               </Link>
-              <Link className="footer__link" href="/tire-service">
+              <Link className="footer__link" href={"/tire-service"}>
                 Шиномонтаж
               </Link>
-              <Link className="footer__link" href="/polyurethane-surfacing">
+              <Link className="footer__link" href={"/polyurethane-surfacing"}>
                 Восстановление колес
               </Link>
               {/*<Link className="footer__link" to="/repair-maintenance">*/}

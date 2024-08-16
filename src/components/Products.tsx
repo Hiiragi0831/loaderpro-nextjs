@@ -32,7 +32,7 @@ const Products: FC<Props> = ({ filter, limit }) => {
       break;
     case "inStock":
       filteredProducts = data
-        .filter((item: any) => item.status === 1)
+        .filter((item) => item.status === 1)
         .slice(0, limit);
       break;
     default:
@@ -52,7 +52,7 @@ const Products: FC<Props> = ({ filter, limit }) => {
         <div className="row">
           {isLoading
             ? "Загрузка"
-            : filteredProducts.map((post: any) => (
+            : filteredProducts.map((post) => (
                 <Product key={post.id} {...post} />
               ))}
         </div>

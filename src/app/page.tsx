@@ -1,39 +1,38 @@
 import HomeSlider from "@/components/HomeSlider";
-import {Brands} from "@/components/Brands";
+import { Brands } from "@/components/Brands";
 import Advantages from "@/components/Advantages";
-import {Reviews} from "@/components/Reviews";
-import {MapSending} from "@/components/MapSending";
-import {Team} from "@/components/Team";
-import {VideoGallery} from "@/components/VideoGallery";
+import { Reviews } from "@/components/Reviews";
+import { MapSending } from "@/components/MapSending";
+import { Team } from "@/components/Team";
+import { VideoGallery } from "@/components/VideoGallery";
 import Articles from "@/components/Articles";
 import dynamic from "next/dynamic";
 
-const Products = dynamic(() => import('@/components/Products'), {
+const Products = dynamic(() => import("@/components/Products"), {
   ssr: false,
-})
-
+});
 
 export default function Home() {
   return (
     <main>
-      <HomeSlider/>
+      <HomeSlider />
       <section>
         <div className="container">
           <picture>
-            <source srcSet="/images/home/kat.png"/>
-            <img src="/images/home/kat.png" alt="" decoding="async"/>
+            <source srcSet="/images/home/kat.png" />
+            <img src="/images/home/kat.png" alt="" decoding="async" />
           </picture>
         </div>
       </section>
-      <Brands/>
-      <Products limit={5} filter={"popular"}/>
-      <Products limit={5} filter={"inStock"}/>
-      <Advantages/>
-      <Reviews/>
-      <MapSending/>
-      <Team/>
-      <VideoGallery/>
-      <Articles limit={4}/>
+      <Brands />
+      <Products limit={5} filter={"popular"} />
+      <Products limit={5} filter={"inStock"} />
+      <Advantages />
+      <Reviews />
+      <MapSending />
+      <Team />
+      <VideoGallery />
+      <Articles limit={4} />
     </main>
   );
 }

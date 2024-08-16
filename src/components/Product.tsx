@@ -1,19 +1,25 @@
-'use client';
+"use client";
 
 import { FC } from "react";
 
-import IconHeart from "@/icons/heart.svg"
-import IconHeartSolid from "@/icons/heart-solid.svg"
-import IconShoppingCart from "@/icons/shopping-cart.svg"
+import IconHeart from "@/icons/heart.svg";
+import IconHeartSolid from "@/icons/heart-solid.svg";
+import IconShoppingCart from "@/icons/shopping-cart.svg";
 
 import { Product as ProductType } from "../common/types/Product";
 import { useBasket } from "@/store/basket";
 import { useFavorite } from "@/store/favorite";
 import { getPriceFormat } from "@/utils/getPriceFormat";
-import { getProductStatus, getProductStatusColor } from "@/utils/getProductStatus";
+import {
+  getProductStatus,
+  getProductStatusColor,
+} from "@/utils/getProductStatus";
 import Link from "next/link";
 
-type Props = Pick<ProductType, "price" | "status" | "id" | "image" | "title" | "article" | "like">;
+type Props = Pick<
+  ProductType,
+  "price" | "status" | "id" | "image" | "title" | "article" | "like"
+>;
 
 const Product: FC<Props> = (data) => {
   const addToCart = useBasket((state) => state.addToBasket);
@@ -23,10 +29,10 @@ const Product: FC<Props> = (data) => {
   return (
     <div className="product">
       <button
-        className={`product__like ${favorites.indexOf(data.id) !== -1 ? "is-active" : ""}`}
+        className={`product__like ${favorites.indexOf(data.id) !== -1 ? "active" : ""}`}
         onClick={() => toggleFavorite(data.id)}
       >
-        <IconHeart className="heart"/>
+        <IconHeart className="heart" />
         <IconHeartSolid className="heart-solid" />
       </button>
       <div className="product__img">
@@ -44,7 +50,9 @@ const Product: FC<Props> = (data) => {
         </div>
       </div>
       <div className="product__main">
-        <div className={`product__status product__status--${getProductStatusColor(data.status)}`}>
+        <div
+          className={`product__status product__status--${getProductStatusColor(data.status)}`}
+        >
           <span />
           <p>{getProductStatus(data.status)}</p>
         </div>
@@ -59,9 +67,11 @@ const Product: FC<Props> = (data) => {
           </>
         ) : (
           <>
-            <button className="button button__primary button__icon" onClick={() => addToCart(data)}>
-              <IconShoppingCart />
-              В корзину
+            <button
+              className="button button__primary button__icon"
+              onClick={() => addToCart(data)}
+            >
+              <IconShoppingCart />В корзину
             </button>
           </>
         )}

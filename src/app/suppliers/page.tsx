@@ -1,10 +1,17 @@
 import { Achievement } from "@/components/Achievement";
 import { InfoBox } from "@/components/InfoBox";
 import { Steps } from "@/components/Steps";
-import {Cta} from "@/components/Cta";
+import { Cta } from "@/components/Cta";
 import Articles from "@/components/Articles";
+import type { Metadata } from "next";
 
-export default function Suppliers(){
+export const metadata: Metadata = {
+  title: "Стань поставщиком LOADERPRO",
+  description:
+    "Вы можете использовать нашу площадку как дополнительный канал сбыта вашей продукции, необходимо лишь настроить интеграцию ваших актуальных остатков к нам в систему.",
+};
+
+export default function Suppliers() {
   const connect = [
     "Вы оставляете заявку",
     "Выбираем с Вами оптимальный вариант интеграции",
@@ -17,11 +24,16 @@ export default function Suppliers(){
       <section className="suppliers__hero">
         <div className="container">
           <h1>
-            Принимаем предложения о сотрудничестве с поставщиками и производителями <span>из России и зарубежа.</span>
+            Принимаем предложения о сотрудничестве с поставщиками и
+            производителями <span>из России и зарубежа.</span>
           </h1>
           <picture>
             <source srcSet="/images/658cf87cb0dd4446e655fa5caef79c49.png" />
-            <img src="/images/658cf87cb0dd4446e655fa5caef79c49.png" alt="map" decoding="async" />
+            <img
+              src="/images/658cf87cb0dd4446e655fa5caef79c49.png"
+              alt="map"
+              decoding="async"
+            />
           </picture>
         </div>
       </section>
@@ -77,7 +89,8 @@ export default function Suppliers(){
       <InfoBox
         title={
           <>
-            <span>МЫ ИЩЕМ ПОСТАВЩИКОВ</span> С&nbsp;НАЛИЧИЕМ ТОВАРОВ ДЛЯ ЛЮБОЙ СПЕЦТЕХНИКИ
+            <span>МЫ ИЩЕМ ПОСТАВЩИКОВ</span> С&nbsp;НАЛИЧИЕМ ТОВАРОВ ДЛЯ ЛЮБОЙ
+            СПЕЦТЕХНИКИ
           </>
         }
         text="Наша компания находится в активной стадии роста и мы готовы разделить этот рост с вами!"
@@ -88,4 +101,4 @@ export default function Suppliers(){
       <Articles limit={4} />
     </main>
   );
-};
+}

@@ -2,13 +2,17 @@ import { FC } from "react";
 
 type CtaType = {
   title?: any;
-  text?: string;
+  text?: any;
   class?: string;
 };
 
 export const Cta: FC<CtaType> = (data) => {
-  const title = data.title ? data.title : "Оставьте заявку и наш менеджер свяжется с вами в течении 15 минут!";
-  const text = data.text ? data.text : "Получите полную консультацию по всем видам аккумуляторов!";
+  const title = data.title
+    ? data.title
+    : "Оставьте заявку и наш менеджер свяжется с вами в течении 15 минут!";
+  const text = data.text
+    ? data.text
+    : "Получите полную консультацию по всем видам аккумуляторов!";
 
   return (
     <section className={`cta ${data.class ? data.class : ""}`}>

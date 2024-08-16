@@ -1,15 +1,21 @@
-import { Autoplay, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+"use client";
 
-export const Slider = () => {
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+export const PhotoSlider = () => {
   const sliders = [];
 
   for (let i = 1; i < 10; i++) {
     sliders.push(
-      <SwiperSlide>
+      <SwiperSlide key={i}>
         <picture>
-          <source srcSet={`/assets/images/battery/slider/${i}.jpg`} />
-          <img src={`/assets/images/battery/slider/${i}.jpg`} alt="" decoding="async" />
+          <source srcSet={`/images/battery/slider/${i}.jpg`} />
+          <img
+            src={`/images/battery/slider/${i}.jpg`}
+            alt=""
+            decoding="async"
+          />
         </picture>
       </SwiperSlide>,
     );
@@ -22,7 +28,6 @@ export const Slider = () => {
             clickable: true,
           }}
           modules={[Pagination, Autoplay]}
-          // @ts-expect-error @ts-expect-error
           autoplay={{ delay: 3000 }}
         >
           {sliders}

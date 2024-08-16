@@ -3,6 +3,13 @@ import Articles from "@/components/Articles";
 import { Cta } from "@/components/Cta";
 import Products from "@/components/Products";
 import { VideoBlock } from "@/components/VideoBlock";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Смазочные материалы NEO",
+  description:
+    "Являясь официальным представителем завода премиальных смазочных материалов NEO мы предлагаем своим клиентам проверенные масла, готовые выдерживать самые суровые условия эксплуатации.",
+};
 
 export default function OilsLubricants() {
   return (

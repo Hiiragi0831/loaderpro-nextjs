@@ -1,11 +1,11 @@
 import Link from "next/link";
-import IconLogo from "@/icons/logo.svg"
-import IconMail from "@/icons/mail.svg"
-import IconPhone from "@/icons/phone.svg"
-import IconMagnifying from "@/icons/magnifying-glass.svg"
-import IconRectangle from "@/icons/rectangle-history-circle-plus.svg"
-import IconHeart from "@/icons/heart.svg"
-import IconCart from "@/icons/cart-shopping.svg"
+import IconLogo from "@/icons/logo.svg";
+import IconMail from "@/icons/mail.svg";
+import IconPhone from "@/icons/phone.svg";
+import IconMagnifying from "@/icons/magnifying-glass.svg";
+import IconRectangle from "@/icons/rectangle-history-circle-plus.svg";
+import IconHeart from "@/icons/heart.svg";
+import IconCart from "@/icons/cart-shopping.svg";
 
 const Header = () => {
   return (
@@ -14,9 +14,9 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <div className="header__top-links">
-              <Link href="/dealer">Дилерам</Link>
-              <Link href="/suppliers">Поставщикам</Link>
-              <Link href="/account/user">Личный кабинет</Link>
+              <Link href={"/dealer"}>Дилерам</Link>
+              <Link href={"/suppliers"}>Поставщикам</Link>
+              <Link href={"/account"}>Личный кабинет</Link>
             </div>
             <p className="text-uppercase">Ваша техника под надежной защитой</p>
             <div className="header__top-contacts">
@@ -51,15 +51,15 @@ const Header = () => {
               </label>
             </form>
             <div className="header__action">
-              <Link href="/selectionparts">
+              <Link href={"/selectionparts"}>
                 <IconRectangle />
                 <span>Запросы</span>
               </Link>
-              <Link href="/favorites">
+              <Link href={"/favorites"}>
                 <IconHeart />
                 <span>Избранное</span>
               </Link>
-              <Link href="/basket">
+              <Link href={"/basket"}>
                 <IconCart />
                 <span>Корзина</span>
               </Link>
@@ -76,25 +76,28 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <nav>
-              <Link href="/warehouse-equipment" title="Складская техника">
+              <Link href={"/warehouse-equipment"} title="Складская техника">
                 Складская техника
               </Link>
-              <Link href="/catalog" title="Запасные части">
+              <Link href={"/spare-parts"} title="Запасные части">
                 Запасные части
               </Link>
-              <Link href="/tires-rims" title="Шины и диски">
+              <Link href={"/tires-rims"} title="Шины и диски">
                 Шины и диски
               </Link>
-              <Link href="/battery" title="Тяговые аккумуляторы">
+              <Link href={"/battery"} title="Тяговые аккумуляторы">
                 Тяговые аккумуляторы
               </Link>
-              <Link href="/polyurethane-wheels" title="Полиуретановые колеса">
+              <Link href={"/polyurethane-wheels"} title="Полиуретановые колеса">
                 Полиуретановые колеса
               </Link>
-              <Link href="/polyurethane-surfacing" title="Восстановление колес">
+              <Link
+                href={"/polyurethane-surfacing"}
+                title="Восстановление колес"
+              >
                 Восстановление колес
               </Link>
-              <Link href="/contact" title="Контакты">
+              <Link href={"/contact"} title="Контакты">
                 Контакты
               </Link>
             </nav>

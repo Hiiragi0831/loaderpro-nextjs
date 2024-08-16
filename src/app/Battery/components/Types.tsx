@@ -1,4 +1,7 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+"use client";
+
+
+import {Swiper, SwiperSlide} from "swiper/react";
 
 export const Types = () => {
   return (
@@ -9,8 +12,12 @@ export const Types = () => {
             <SwiperSlide>
               <div className="battery__type-item">
                 <picture>
-                  <source srcSet="/assets/images/battery/elektropogruzchiki.png" />
-                  <img src="/assets/images/battery/elektropogruzchiki.png" alt="Электропогрузчик" decoding="async" />
+                  <source srcSet="/images/battery/elektropogruzchiki.png" />
+                  <img
+                    src="/images/battery/elektropogruzchiki.png"
+                    alt="Электропогрузчик"
+                    decoding="async"
+                  />
                 </picture>
                 <p>Электропогрузчик</p>
               </div>
@@ -18,8 +25,12 @@ export const Types = () => {
             <SwiperSlide>
               <div className="battery__type-item">
                 <picture>
-                  <source srcSet="/assets/images/battery/shtabeler.png" />
-                  <img src="/assets/images/battery/shtabeler.png" alt="Штабелер" decoding="async" />
+                  <source srcSet="/images/battery/shtabeler.png" />
+                  <img
+                    src="/images/battery/shtabeler.png"
+                    alt="Штабелер"
+                    decoding="async"
+                  />
                 </picture>
                 <p>Штабелер</p>
               </div>
@@ -27,8 +38,12 @@ export const Types = () => {
             <SwiperSlide>
               <div className="battery__type-item">
                 <picture>
-                  <source srcSet="/assets/images/battery/richtrak.png" />
-                  <img src="/assets/images/battery/richtrak.png" alt="Ричтрак" decoding="async" />
+                  <source srcSet="/images/battery/richtrak.png" />
+                  <img
+                    src="/images/battery/richtrak.png"
+                    alt="Ричтрак"
+                    decoding="async"
+                  />
                 </picture>
                 <p>Ричтрак</p>
               </div>
@@ -36,8 +51,12 @@ export const Types = () => {
             <SwiperSlide>
               <div className="battery__type-item">
                 <picture>
-                  <source srcSet="/assets/images/battery/telezhka.png" />
-                  <img src="/assets/images/battery/telezhka.png" alt="Электротележка" decoding="async" />
+                  <source srcSet="/images/battery/telezhka.png" />
+                  <img
+                    src="/images/battery/telezhka.png"
+                    alt="Электротележка"
+                    decoding="async"
+                  />
                 </picture>
                 <p>Электротележка</p>
               </div>
@@ -45,8 +64,12 @@ export const Types = () => {
             <SwiperSlide>
               <div className="battery__type-item">
                 <picture>
-                  <source srcSet="/assets/images/battery/golfcart.png" />
-                  <img src="/assets/images/battery/golfcart.png" alt="Гольф кары" decoding="async" />
+                  <source srcSet="/images/battery/golfcart.png" />
+                  <img
+                    src="/images/battery/golfcart.png"
+                    alt="Гольф кары"
+                    decoding="async"
+                  />
                 </picture>
                 <p>Гольф кары</p>
               </div>

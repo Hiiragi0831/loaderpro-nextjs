@@ -1,4 +1,4 @@
-export const Category = () => {
+export const PolyurethaneCategory = () => {
   const data = [
     "Колеса для ричтраков",
     "Колеса и\u00A0ролики для штабелеров",
@@ -12,8 +12,8 @@ export const Category = () => {
           {data.map((cat, key) => (
             <div className="polyurethane__cat" key={key}>
               <picture>
-                <source srcSet={`/assets/images/polyurethane/c-0${key + 1}.png`} />
-                <img src={`/assets/images/polyurethane/c-0${key + 1}.png`} alt="" decoding="async" />
+                <source srcSet={`/images/polyurethane/c-0${key + 1}.png`} />
+                <img src={`/images/polyurethane/c-0${key + 1}.png`} alt="" decoding="async" />
               </picture>
               <p>{cat}</p>
             </div>

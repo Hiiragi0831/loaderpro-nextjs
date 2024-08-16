@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import { Category as CategoryType } from "../common/types/Category";
 import Link from "next/link";
+import IconRightArrow from "@/icons/right-arrow.svg";
 
 type Props = Pick<CategoryType, "title" | "image" | "link">;
 
@@ -18,9 +19,7 @@ const Category: FC<Props> = (data) => {
         <div className="category__title">{data.title}</div>
         <button className="category__button">
           <span>Перейти</span>
-          <svg>
-            <use xlinkHref="/__spritemap#sprite-right-arrow" />
-          </svg>
+          <IconRightArrow />
         </button>
       </div>
     </Link>
