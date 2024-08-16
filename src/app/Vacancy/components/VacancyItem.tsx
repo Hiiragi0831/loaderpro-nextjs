@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import IconLogo from "@/icons/logo.svg";
 
 export const VacancyItem = () => {
   return (
@@ -9,9 +10,7 @@ export const VacancyItem = () => {
           <p>от 90 000 до 200 000 ₽ на руки</p>
         </div>
         <div className="vacancy-item__logo">
-          <svg>
-            <use xlinkHref="/__spritemap#sprite-logo" />
-          </svg>
+          <IconLogo />
         </div>
       </div>
       <div className="vacancy-item__body">
@@ -20,7 +19,7 @@ export const VacancyItem = () => {
           <p>Полная занятость, удаленная работа</p>
         </div>
         <div className="vacancy__buttons">
-          <Link className="button button__outline" to="/vacancy/manager">
+          <Link className="button button__outline" href={"/vacancy/manager"}>
             Подробнее
           </Link>
           <button className="button button__primary">Откликнуться</button>

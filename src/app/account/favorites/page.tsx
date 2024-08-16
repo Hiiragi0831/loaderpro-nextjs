@@ -1,13 +1,17 @@
 "use client";
 
 import { useLayoutEffect, useState } from "react";
-
-import Product from "@/components/Product";
 import { api } from "@/services/api";
 import { useFavorite } from "@/store/favorite";
+import dynamic from "next/dynamic";
+import { Product as ProductType } from "@/common/types/Product";
+
+const Product = dynamic(() => import("@/components/Product"), {
+  ssr: false,
+});
 
 export default function Favorites() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ProductType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   let filteredProducts = [];
   const favorites = useFavorite((state) => state.favorite);
@@ -17,7 +21,7 @@ export default function Favorites() {
       const data = await api.getAllProducts();
       setData(data);
       setIsLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;
     }

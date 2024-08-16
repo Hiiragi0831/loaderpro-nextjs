@@ -56,9 +56,6 @@ export default function History() {
             <div className="order__col">
               <p>
                 <IconCreditCard />
-                <svg>
-                  <use xlinkHref="/__spritemap#sprite-credit-card" />
-                </svg>
                 <span>Оплата</span>
               </p>
               <ul>
