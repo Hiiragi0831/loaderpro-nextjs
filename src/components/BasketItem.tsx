@@ -1,24 +1,36 @@
-'use client';
+"use client";
 
 import { FC } from "react";
 
 import { Product as ProductType } from "../common/types/Product";
 import { useBasket } from "@/store/basket";
 import { getPriceFormat } from "@/utils/getPriceFormat";
+import Link from "next/link";
 
-export const BasketItem: FC<ProductType> = ({ price, count = 0, image, title, article, id }) => {
+export const BasketItem: FC<ProductType> = ({
+  price,
+  count = 0,
+  image,
+  title,
+  article,
+  id,
+}) => {
   const increment = useBasket((state) => state.increment);
   const decrement = useBasket((state) => state.decrement);
   const deleteItem = useBasket((state) => state.deleteProduct);
 
   return (
     <div className="basket-item">
-      <picture className="basket-item__img">
-        <source srcSet={image} />
-        <img src={image} alt={title} decoding="async" />
-      </picture>
+      <Link href={`/products/${id}`}>
+        <picture className="basket-item__img">
+          <source srcSet={image} />
+          <img src={image} alt={title} decoding="async" />
+        </picture>
+      </Link>
       <div className="basket-item__info">
-        <p>{title}</p>
+        <p>
+          <Link href={`/products/${id}`}>{title}</Link>
+        </p>
         <span>
           Артикул: <mark>{article}</mark>
         </span>
@@ -27,11 +39,25 @@ export const BasketItem: FC<ProductType> = ({ price, count = 0, image, title, ar
         <p>{getPriceFormat(price)} ₽</p>
       </div>
       <div className="basket-item__count">
-        <button className="basket-item__count-minus" onClick={() => decrement(id)}>
+        <button
+          className="basket-item__count-minus"
+          onClick={() => decrement(id)}
+        >
           -
         </button>
-        <input type="number" name="count" value={count} max="100" />
-        <button className="basket-item__count-plus" onClick={() => increment(id)}>
+        <input
+          type="number"
+          name="count"
+          value={count}
+          onChange={(event) => {
+            event.target;
+          }}
+          max="100"
+        />
+        <button
+          className="basket-item__count-plus"
+          onClick={() => increment(id)}
+        >
           +
         </button>
       </div>

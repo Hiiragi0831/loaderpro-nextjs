@@ -8,38 +8,42 @@ class APIService {
     try {
       const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/catalog");
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
   public async getArticles(): Promise<Article[]> {
     try {
       const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/articles");
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
 
   public async getArticle(id: string): Promise<Article> {
     try {
-      const res = await fetch(`https://76fbb2aa70af7ba2.mokky.dev/articles/${id}`);
+      const res = await fetch(
+        `https://76fbb2aa70af7ba2.mokky.dev/articles/${id}`,
+      );
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
 
-  public async getProduct(id: string): Promise<Product> {
+  public async getProduct(id: string | string[]): Promise<Product> {
     try {
-      const res = await fetch(`https://76fbb2aa70af7ba2.mokky.dev/catalog/${id}`);
+      const res = await fetch(
+        `https://76fbb2aa70af7ba2.mokky.dev/catalog/${id}`,
+      );
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
 
@@ -47,19 +51,21 @@ class APIService {
     try {
       const res = await fetch(`https://76fbb2aa70af7ba2.mokky.dev/brands/`);
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
 
-  public async getBrand(id: number): Promise<Brand> {
+  public async getBrand(id: number | undefined): Promise<Brand> {
     try {
-      const res = await fetch(`https://76fbb2aa70af7ba2.mokky.dev/brands/${id}`);
+      const res = await fetch(
+        `https://76fbb2aa70af7ba2.mokky.dev/brands/${id}`,
+      );
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
 
@@ -67,18 +73,18 @@ class APIService {
     try {
       const res = await fetch(`https://76fbb2aa70af7ba2.mokky.dev/category/`);
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
   public async getTeams(): Promise<Category[]> {
     try {
       const res = await fetch(`https://76fbb2aa70af7ba2.mokky.dev/teams/`);
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
   public async getYoutubeVideos(): Promise<any> {
@@ -91,21 +97,23 @@ class APIService {
         `${YOUTUBE_API}?part=snippet&maxResults=50&playlistId=${YOUTUBE_PLAYLIST}&key=${YOUTUBE_KEY}`,
       );
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
-  public async getYoutubeVideo(id:string): Promise<any> {
+  public async getYoutubeVideo(id: string): Promise<any> {
     const YOUTUBE_API = "https://youtube.googleapis.com/youtube/v3/videos";
     const YOUTUBE_KEY = "AIzaSyA2UEjRCI--QCtdYoA_jeN5s84htgXNyF0";
 
     try {
-      const res = await fetch(`${YOUTUBE_API}?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${YOUTUBE_KEY}`);
+      const res = await fetch(
+        `${YOUTUBE_API}?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${YOUTUBE_KEY}`,
+      );
       return res.json();
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   }
 }

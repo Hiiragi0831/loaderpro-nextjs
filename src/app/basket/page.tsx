@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { BasketItem } from "@/components/BasketItem";
 import { useBasket } from "@/store/basket";
 
@@ -36,13 +36,13 @@ export default function Basket() {
               <div className="basket__form-data">
                 <label className="form__select">
                   <select name="pay">
-                    <option value="0" label="Оплата 1">
+                    <option defaultValue="0" label="Оплата 1">
                       0
                     </option>
-                    <option value="1" label="Оплата 2">
+                    <option defaultValue="1" label="Оплата 2">
                       1
                     </option>
-                    <option value="2" selected label="Оплата 3">
+                    <option defaultValue="2" selected label="Оплата 3">
                       2
                     </option>
                   </select>
@@ -50,27 +50,13 @@ export default function Basket() {
                 </label>
                 <label className="form__select">
                   <select name="delivery">
-                    <option value="0" label="Доставка 1">
+                    <option defaultValue="0" label="Доставка 1">
                       0
                     </option>
-                    <option value="1" label="Доставка 2">
+                    <option defaultValue="1" label="Доставка 2">
                       1
                     </option>
-                    <option value="2" selected label="Доставка 3">
-                      2
-                    </option>
-                  </select>
-                  <span>Доставка</span>
-                </label>
-                <label className="form__select">
-                  <select name="delivery">
-                    <option value="0" label="Доставка 1">
-                      0
-                    </option>
-                    <option value="1" label="Доставка 2">
-                      1
-                    </option>
-                    <option value="2" selected label="Доставка 3">
+                    <option defaultValue="2" selected label="Доставка 3">
                       2
                     </option>
                   </select>
@@ -78,13 +64,13 @@ export default function Basket() {
                 </label>
                 <label className="form__select">
                   <select name="transport">
-                    <option value="0" label="Перевозчик 1">
+                    <option defaultValue="0" label="Перевозчик 1">
                       0
                     </option>
-                    <option value="1" label="Перевозчик 2">
+                    <option defaultValue="1" label="Перевозчик 2">
                       1
                     </option>
-                    <option value="2" selected label="Перевозчик 3">
+                    <option defaultValue="2" selected label="Перевозчик 3">
                       2
                     </option>
                   </select>
@@ -92,37 +78,48 @@ export default function Basket() {
                 </label>
                 <label className="form__select">
                   <select name="method">
-                    <option value="0" label="Метод доставки 1">
+                    <option defaultValue="0" label="Метод доставки 1">
                       0
                     </option>
-                    <option value="1" label="Метод доставки 2">
+                    <option defaultValue="1" label="Метод доставки 2">
                       1
                     </option>
-                    <option value="2" selected label="Метод доставки 3">
+                    <option defaultValue="2" selected label="Метод доставки 3">
                       2
                     </option>
                   </select>
                   <span>Метод доставки</span>
                 </label>
                 <label className="form__input">
-                  <input type="text" placeholder="Адрес" name="address" value="Санкт-Петербург, Херсонская 2" />
+                  <input
+                    type="text"
+                    placeholder="Адрес"
+                    name="address"
+                    defaultValue="Санкт-Петербург, Херсонская 2"
+                  />
                   <span>Адрес</span>
                 </label>
                 <label className="form__select">
                   <select name="method">
-                    <option value="0" label="Приоритет отгрузки 1">
+                    <option defaultValue="0" label="Приоритет отгрузки 1">
                       0
                     </option>
-                    <option value="1" label="Приоритет отгрузки 2">
+                    <option defaultValue="1" label="Приоритет отгрузки 2">
                       1
                     </option>
-                    <option value="2" selected label="Приоритет отгрузки 3">
+                    <option
+                      defaultValue="2"
+                      selected={true}
+                      label="Приоритет отгрузки 3"
+                    >
                       2
                     </option>
                   </select>
                   <span>Приоритет отгрузки</span>
                 </label>
-                <button className="button button__primary">Оформить заказ</button>
+                <button className="button button__primary">
+                  Оформить заказ
+                </button>
               </div>
             </div>
           </div>

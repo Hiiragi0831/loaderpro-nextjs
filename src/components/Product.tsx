@@ -36,10 +36,12 @@ const Product: FC<Props> = (data) => {
         <IconHeartSolid className="heart-solid" />
       </button>
       <div className="product__img">
-        <picture>
-          <source srcSet={data.image} />
-          <img src={data.image} alt="" decoding="async" />
-        </picture>
+        <Link href={`/products/${data.id}`}>
+          <picture>
+            <source srcSet={data.image} />
+            <img src={data.image} alt="" decoding="async" />
+          </picture>
+        </Link>
       </div>
       <div className="product__info">
         <div className="product__price">
@@ -57,7 +59,7 @@ const Product: FC<Props> = (data) => {
           <p>{getProductStatus(data.status)}</p>
         </div>
         <div className="product__title">
-          <Link href={`/catalog/${data.id}`}>{data.title}</Link>
+          <Link href={`/products/${data.id}`}>{data.title}</Link>
         </div>
       </div>
       <div className="product__buttons">
