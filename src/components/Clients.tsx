@@ -5,8 +5,8 @@ export const Clients = () => {
         <div className="title">
           <span className="h1"> Среди наших клиентов:</span>
           <p>
-            Мы с огромной благодарностью относимся к клиентам и партнерам за то, что они доверяют нам и выбирают нашу
-            команду.
+            Мы с огромной благодарностью относимся к клиентам и партнерам за то,
+            что они доверяют нам и выбирают нашу команду.
           </p>
         </div>
         <div className="row">
@@ -19,7 +19,11 @@ export const Clients = () => {
           <div className="clients__item">
             <picture>
               <source srcSet={`/images/clients/egger.png`} />
-              <img src={`/images/clients/egger.png`} alt="wb" decoding="async" />
+              <img
+                src={`/images/clients/egger.png`}
+                alt="wb"
+                decoding="async"
+              />
             </picture>
           </div>
           <div className="clients__item">
@@ -31,7 +35,11 @@ export const Clients = () => {
           <div className="clients__item">
             <picture>
               <source srcSet={`/images/clients/marazzi.png`} />
-              <img src={`/images/clients/marazzi.png`} alt="wb" decoding="async" />
+              <img
+                src={`/images/clients/marazzi.png`}
+                alt="wb"
+                decoding="async"
+              />
             </picture>
           </div>
           <div className="clients__item">
@@ -43,7 +51,11 @@ export const Clients = () => {
           <div className="clients__item">
             <picture>
               <source srcSet={`/images/clients/maksidom.png`} />
-              <img src={`/images/clients/maksidom.png`} alt="wb" decoding="async" />
+              <img
+                src={`/images/clients/maksidom.png`}
+                alt="wb"
+                decoding="async"
+              />
             </picture>
           </div>
         </div>

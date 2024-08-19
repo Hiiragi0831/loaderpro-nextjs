@@ -19,10 +19,12 @@ const Advantage = () => {
             </div>
             <div className="advantage__info">
               <p className="advantage__title">
-                Регистрируйтесь в системе LOADERPRO и получите доступ к новым возможностям!
+                Регистрируйтесь в системе LOADERPRO и получите доступ к новым
+                возможностям!
               </p>
               <p className="advantage__description">
-                Размещение заказов, прогрессивная система скидок, свой гараж, база каталогов!
+                Размещение заказов, прогрессивная система скидок, свой гараж,
+                база каталогов!
               </p>
               <div className="advantage__button">
                 <a className="button button__primary" href="#">
@@ -46,10 +48,12 @@ const Advantage = () => {
               </picture>
             </div>
             <div className="advantage__info">
-              <p className="advantage__title">Осуществляем подбор запчастей по каталогам с гарантией!</p>
+              <p className="advantage__title">
+                Осуществляем подбор запчастей по каталогам с гарантией!
+              </p>
               <p className="advantage__description">
-                Наши специалисты подберут запчасти по данным вашей техники. Вы получите вырезку из каталога для
-                согласования позиций.
+                Наши специалисты подберут запчасти по данным вашей техники. Вы
+                получите вырезку из каталога для согласования позиций.
               </p>
               <div className="advantage__button">
                 <a className="button button__black" href="#">

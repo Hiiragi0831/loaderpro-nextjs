@@ -1,19 +1,22 @@
-'use client';
+"use client";
 import FsLightbox from "fslightbox-react";
 import delay from "lodash-es/delay";
 
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Pagination} from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
 import { useVideos } from "@/utils/hooks/useVideos";
-import {useMemo, useState} from "react";
+import { useMemo, useState } from "react";
 
 export const VideoGallery = () => {
   const [toggler, setToggler] = useState(false);
   const [productIndex, setProductIndex] = useState(0);
 
   const { videos, isLoading } = useVideos();
-  const sources = useMemo(() => videos.map((video:any) => video.link), [videos]);
+  const sources = useMemo(
+    () => videos.map((video: any) => video.link),
+    [videos],
+  );
 
   return (
     <section className="videoGallery">
@@ -35,7 +38,7 @@ export const VideoGallery = () => {
         >
           {isLoading
             ? "Загрузка"
-            : videos.map((item:any, index:any) => {
+            : videos.map((item: any, index: any) => {
                 return (
                   <SwiperSlide key={index}>
                     <button
@@ -47,7 +50,11 @@ export const VideoGallery = () => {
                     >
                       <picture>
                         <source srcSet={item.image} />
-                        <img src={item.image} alt={item.title} decoding="async" />
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          decoding="async"
+                        />
                       </picture>
                       <p className="h4">{item.title}</p>
                     </button>
@@ -56,7 +63,11 @@ export const VideoGallery = () => {
               })}
         </Swiper>
       </div>
-      <FsLightbox toggler={toggler} sources={[sources[productIndex]]} key={productIndex} />
+      <FsLightbox
+        toggler={toggler}
+        sources={[sources[productIndex]]}
+        key={productIndex}
+      />
     </section>
   );
 };

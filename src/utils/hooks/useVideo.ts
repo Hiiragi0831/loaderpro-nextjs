@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
 import { useLayoutEffect, useMemo, useState } from "react";
 
 import { api } from "@/services/api";
 type Props = {
-  items: any,
-}
+  items: any;
+};
 
-export const useVideo = (id:string) => {
+export const useVideo = (id: string) => {
   const [data, setData] = useState<Props>();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -27,7 +27,7 @@ export const useVideo = (id:string) => {
       const data = await api.getYoutubeVideo(id);
       setData(data);
       setIsLoading(false);
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
     }
   };

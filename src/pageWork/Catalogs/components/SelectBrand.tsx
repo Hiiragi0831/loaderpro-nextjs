@@ -1,7 +1,7 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "preact/compat";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-import { Brand } from "../../../common/types/Brand";
-import { api } from "../../../services/api";
+import { Brand } from "@/common/types/Brand";
+import { api } from "@/services/api";
 
 type Props = {
   value: number;
@@ -17,6 +17,7 @@ const SelectBrand = ({ value, onChange }: Props) => {
       const props = await api.getAllBrand();
       setBrands(props);
     } catch (error) {
+      // @ts-expect-error @ts-ignore
       console.error("Error fetching:", error.message);
     }
   };
@@ -24,7 +25,9 @@ const SelectBrand = ({ value, onChange }: Props) => {
   useLayoutEffect(() => void init(), []);
 
   useEffect(() => {
+    // @ts-expect-error @ts-ignore
     ref.current.addEventListener("change", handleChange);
+    // @ts-expect-error @ts-ignore
     return () => ref.current.removeEventListener("change", handleChange);
   }, []);
 
@@ -37,7 +40,12 @@ const SelectBrand = ({ value, onChange }: Props) => {
       <select name="brand" ref={ref}>
         <option value="-1" label="Все бренды" selected={value === -1} />
         {brands?.map((option) => (
-          <option key={option?.id} value={option?.id} label={option?.name} selected={option?.id === value} />
+          <option
+            key={option?.id}
+            value={option?.id}
+            label={option?.name}
+            selected={option?.id === value}
+          />
         ))}
       </select>
     </>

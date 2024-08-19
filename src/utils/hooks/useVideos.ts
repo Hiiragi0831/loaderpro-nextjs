@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useLayoutEffect, useMemo, useState } from "react";
 
@@ -9,8 +9,8 @@ export const useVideos = () => {
   const [isLoading, setIsLoading] = useState(true);
   const videos = useMemo(
     () =>
-      // @ts-ignore
-      data?.map((item:any) => {
+      // @ts-expect-error @ts-ignore
+      data?.map((item: any) => {
         return {
           link: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`,
           image: item.snippet.thumbnails.standard.url,
@@ -25,9 +25,9 @@ export const useVideos = () => {
       const data = await api.getYoutubeVideos();
       setData(data.items);
       setIsLoading(false);
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   };
   useLayoutEffect(() => void loadVideos(), []);

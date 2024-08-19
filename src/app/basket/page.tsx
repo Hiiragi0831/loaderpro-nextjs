@@ -1,9 +1,10 @@
-"use client";
-import { BasketItem } from "@/components/BasketItem";
-import { useBasket } from "@/store/basket";
+import dynamic from "next/dynamic";
+
+const BasketItems = dynamic(() => import("./BasketItems"), {
+  ssr: false,
+});
 
 export default function Basket() {
-  const data = useBasket((state) => state.basket);
   return (
     <main>
       <section className="basket">
@@ -19,9 +20,7 @@ export default function Basket() {
                   <p>Всего</p>
                   <p />
                 </div>
-                {data.map((item) => (
-                  <BasketItem key={item.id} {...item} />
-                ))}
+                <BasketItems />
               </div>
             </div>
             <div className="basket__form">

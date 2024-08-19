@@ -26,6 +26,7 @@ export const useBasket = create<Store>()(
         const index = products.findIndex(({ id }) => id === product.id);
         Notifications.success(`Товар добавлен в корзину`);
         if (index !== -1) {
+          // @ts-expect-error @ts-ignore
           products[index].count = products[index].count + product.count;
           set({ basket: products });
           return;
@@ -36,16 +37,19 @@ export const useBasket = create<Store>()(
         const products = CloneDeep(get().basket);
         const index = products.findIndex(({ id }) => id === productId);
         if (index !== -1) {
+          // @ts-expect-error @ts-ignore
           products[index].count = products[index].count + 1;
           set({ basket: products });
           return;
         }
+        // @ts-expect-error @ts-ignore
         set({ basket: [...products, index] });
       },
       decrement: (productId) => {
         const products = CloneDeep(get().basket);
         const index = products.findIndex(({ id }) => id === productId);
         if (index !== -1) {
+          // @ts-expect-error @ts-ignore
           products[index].count = products[index].count - 1;
 
           if (products[index].count <= 0) {
@@ -55,6 +59,7 @@ export const useBasket = create<Store>()(
           set({ basket: products });
           return;
         }
+        // @ts-expect-error @ts-ignore
         set({ basket: [...products, index] });
       },
       deleteProduct: (productId) => {

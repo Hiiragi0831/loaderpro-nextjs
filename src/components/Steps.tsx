@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
 import { Step } from "./Step";
-import {FC} from "react";
-import {Swiper, SwiperSlide} from "swiper/react";
+import { FC } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 type Props = {
-  data: string[],
-  title: string,
-}
+  data: string[];
+  title: string;
+};
 
 export const Steps: FC<Props> = ({ data, title }) => {
   return (

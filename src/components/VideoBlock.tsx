@@ -39,7 +39,7 @@ export const VideoBlock: FC<VideoBlockType> = ({ id, className }) => {
           <p className="h1 videoblock__title">{video.title}</p>
           <FsLightbox
             toggler={toggler}
-            sources={[video.link]}
+            source={video.link}
             key={productIndex}
           />
         </>

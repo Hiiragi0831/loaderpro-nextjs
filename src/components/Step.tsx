@@ -1,9 +1,9 @@
-import {FC} from "react";
+import { FC } from "react";
 
 type Props = {
-  count: number,
-  text: string,
-}
+  count: number;
+  text: string;
+};
 
 export const Step: FC<Props> = ({ count, text }) => {
   return (

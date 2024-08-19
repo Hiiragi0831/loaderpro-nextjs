@@ -1,12 +1,12 @@
-import {FC} from "react";
+import { FC } from "react";
 
 type Props = {
-  title: string,
-  text: string,
-  bg: string,
+  title: string;
+  text: string;
+  bg: string;
 };
 
-const background = (bg:any) => {
+const background = (bg: any) => {
   switch (bg) {
     case "white":
       return <div className="preference__bg white" />;
@@ -25,13 +25,13 @@ const background = (bg:any) => {
 };
 
 export const Preference: FC<Props> = ({ title, text, bg }) => {
-  let style = () => {
+  const style = () => {
     if (bg === "primary") {
-      return "primary"
+      return "primary";
     } else {
-      return "white"
+      return "white";
     }
-  }
+  };
 
   return (
     <div className={`preference ${style()}`}>

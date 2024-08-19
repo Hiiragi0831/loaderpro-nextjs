@@ -195,11 +195,7 @@ export default function PolyurethaneSurfacing() {
         <div className="container">
           <picture>
             <source srcSet={`/images/advantage2.jpg`} />
-            <img
-              src={`/images/advantage2.jpg`}
-              alt=""
-              decoding="async"
-            />
+            <img src={`/images/advantage2.jpg`} alt="" decoding="async" />
           </picture>
         </div>
       </section>

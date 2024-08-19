@@ -18,7 +18,11 @@ export default function RequestParts() {
                   <span>Модель</span>
                 </label>
                 <label className="form__input">
-                  <input type="text" name="yearproduction" placeholder="Год производства" />
+                  <input
+                    type="text"
+                    name="yearproduction"
+                    placeholder="Год производства"
+                  />
                   <span>Год производства</span>
                 </label>
                 <label className="form__input">
@@ -26,7 +30,11 @@ export default function RequestParts() {
                   <span>Префикс</span>
                 </label>
                 <label className="form__input">
-                  <input type="text" name="serialnumber" placeholder="Серийный номер" />
+                  <input
+                    type="text"
+                    name="serialnumber"
+                    placeholder="Серийный номер"
+                  />
                   <span>Серийный номер</span>
                 </label>
               </div>
@@ -37,11 +45,19 @@ export default function RequestParts() {
               </div>
               <div className="forms__row row-3">
                 <label className="form__input">
-                  <input type="text" name="sparepart" placeholder="Наименование запчасти" />
+                  <input
+                    type="text"
+                    name="sparepart"
+                    placeholder="Наименование запчасти"
+                  />
                   <span>Наименование запчасти</span>
                 </label>
                 <label className="form__input">
-                  <input type="text" name="catalognumber" placeholder="Каталожный номер запчасти" />
+                  <input
+                    type="text"
+                    name="catalognumber"
+                    placeholder="Каталожный номер запчасти"
+                  />
                   <span>Каталожный номер запчасти</span>
                 </label>
                 <label className="form__input">
@@ -56,7 +72,9 @@ export default function RequestParts() {
                 </label>
               </div>
               <div className="forms__buttons">
-                <button className="button button__outline">Добавить в список</button>
+                <button className="button button__outline">
+                  Добавить в список
+                </button>
               </div>
             </div>
           </div>

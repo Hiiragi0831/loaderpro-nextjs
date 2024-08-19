@@ -1,6 +1,6 @@
-'use client';
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper/modules";
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 export const Brands = () => {
   const data = [
@@ -85,7 +85,11 @@ export const Brands = () => {
                 <div className="brands__slide">
                   <picture>
                     <source srcSet={`/images/vendors/${brand.title}.png`} />
-                    <img src={`/images/vendors/${brand.title}.png`} alt={brand.title} decoding="async" />
+                    <img
+                      src={`/images/vendors/${brand.title}.png`}
+                      alt={brand.title}
+                      decoding="async"
+                    />
                   </picture>
                 </div>
               </SwiperSlide>

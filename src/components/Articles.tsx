@@ -1,5 +1,5 @@
-'use client';
-import {FC, useLayoutEffect, useMemo, useState} from "react";
+"use client";
+import { FC, useLayoutEffect, useMemo, useState } from "react";
 
 import { api } from "@/services/api";
 import Article from "./Article";
@@ -20,9 +20,9 @@ const Articles: FC<Props> = ({ limit }) => {
       const data = await api.getArticles();
       setData(data);
       setIsLoading(false);
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error fetching:", error.message);
-      throw(error);
+      throw error;
     }
   };
 
@@ -34,7 +34,11 @@ const Articles: FC<Props> = ({ limit }) => {
           <span className="h1">Полезная информация</span>
         </div>
         <div className="row">
-          {isLoading ? "Загрузка" : dataArticles.map((post:any) => <Article key={post.id} {...post} />)}
+          {isLoading
+            ? "Загрузка"
+            : dataArticles.map((post: any) => (
+                <Article key={post.id} {...post} />
+              ))}
         </div>
       </div>
     </section>

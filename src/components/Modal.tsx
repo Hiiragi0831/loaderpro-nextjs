@@ -1,6 +1,6 @@
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { FC, ReactNode } from "react";
-import IconXmark from "@/icons/xmark-solid.svg"
+import IconXmark from "@/icons/xmark-solid.svg";
 
 type Props = {
   onClose: () => void;

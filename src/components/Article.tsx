@@ -1,12 +1,19 @@
-
 import { Article as ArticleType } from "../common/types/Article";
 import Link from "next/link";
-import {FC} from "react";
+import { FC } from "react";
 
-type Props = Pick<ArticleType, "id" | "title" | "description" | "image" | "date" | "link">;
+type Props = Pick<
+  ArticleType,
+  "id" | "title" | "description" | "image" | "date" | "link"
+>;
 
 const Article: FC<Props> = ({ id, title, description, image, date, link }) => {
-  const currentDate = new Date(date).toISOString().slice(0, 10).split("-").reverse().join(".");
+  const currentDate = new Date(date)
+    .toISOString()
+    .slice(0, 10)
+    .split("-")
+    .reverse()
+    .join(".");
 
   return (
     <div className="article">

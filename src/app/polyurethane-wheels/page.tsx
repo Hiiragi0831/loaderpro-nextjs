@@ -71,11 +71,7 @@ export default function polyurethaneWheels() {
         <div className="container">
           <picture>
             <source srcSet={`/images/polyurethane/01.png`} />
-            <img
-              src={`/images/polyurethane/01.png`}
-              alt=""
-              decoding="async"
-            />
+            <img src={`/images/polyurethane/01.png`} alt="" decoding="async" />
           </picture>
         </div>
       </section>
