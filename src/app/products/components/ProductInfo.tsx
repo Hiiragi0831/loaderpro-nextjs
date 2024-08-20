@@ -34,6 +34,20 @@ export default function ProductInfo(prop: any) {
   let statusColor: string;
   const addToCart = useBasket((state) => state.addToBasket);
 
+  // const [counter, setCounter] = useState(0);
+  // const [initialCount, setInitialCount] = useState(1);
+  //
+  // const handleInitialCountChange = (event) => {
+  //   setInitialCount(Number(event.target.value));
+  // };
+  // const handleClick1 = () => {
+  //   setCounter(counter + 1);
+  // };
+  //
+  // const handleClick2 = () => {
+  //   setCounter(counter - 1);
+  // };
+
   const loadArticle = async () => {
     try {
       const props = await api.getProduct(id);
