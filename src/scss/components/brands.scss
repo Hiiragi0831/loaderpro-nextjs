@@ -1,5 +1,6 @@
 .brands {
 	margin: vc(-60) 0;
+
 	.swiper {
 		margin: 0 vc(-15);
 		padding: vc(16) 0 vc(40);
@@ -48,5 +49,9 @@
 		@include devices {
 			gap: vc(10);
 		}
+	}
+
+	@include devices {
+		margin: 0;
 	}
 }

@@ -10,13 +10,24 @@
 
 	&__section {
 		.row {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-			gap: vc(14);
+			display: flex;
+		}
+
+		.swiper {
+			width: calc(100% + #{vc(30)});
+			margin: 0 vc(-15);
+			padding: 0 vc(15);
 
 			@include devices {
-				grid-template-columns: 1fr 1fr;
-				gap: vc(10);
+				padding: 0 vc(6);
+			}
+		}
+
+		.swiper-slide {
+			padding: vc(18) vc(6);
+
+			@include devices {
+				padding: vc(12) vc(6);
 			}
 		}
 	}

@@ -12,14 +12,13 @@ export default function ProductInfo(prop: any) {
   const id = prop.id;
   const [data, setData] = useState<ProductType>({
     id: 0,
-    title: "",
+    productname: "",
     price: 0,
     count: 0,
     description: "",
     image: "",
     article: 0,
     weight: 0,
-    like: false,
     status: 0,
     brand: -1,
   });
@@ -117,7 +116,7 @@ export default function ProductInfo(prop: any) {
           <div className="row">
             <div className="commodity__head">
               <div className="commodity__title">
-                <h1>{data.title}</h1>
+                <h1>{data.productname}</h1>
               </div>
             </div>
             <div className="commodity__main">

@@ -3,13 +3,15 @@
 		margin: vc(60) 0  vc(80);
 
 		.row {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
-			gap: vc(40);
+			display: flex;
+		}
 
-			@include devices {
-				grid-template-columns: 100%;
-				gap: vc(20);
+		.swiper {
+			margin: 0 vc(-15);
+			width: calc(100% + #{vc(30)});
+
+			&-slide {
+				padding: 0 vc(15);
 			}
 		}
 	}

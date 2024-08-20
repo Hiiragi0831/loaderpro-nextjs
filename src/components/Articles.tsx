@@ -4,6 +4,8 @@ import { FC, useLayoutEffect, useMemo, useState } from "react";
 import { api } from "@/services/api";
 import Article from "./Article";
 import { Article as ArticleType } from "../common/types/Article";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 type Props = {
   limit: number;
@@ -34,11 +36,25 @@ const Articles: FC<Props> = ({ limit }) => {
           <span className="h1">Полезная информация</span>
         </div>
         <div className="row">
-          {isLoading
-            ? "Загрузка"
-            : dataArticles.map((post: any) => (
-                <Article key={post.id} {...post} />
-              ))}
+          <Swiper
+            slidesPerView={1}
+            autoplay={{ delay: 5000 }}
+            modules={[Autoplay]}
+            loop={true}
+            breakpoints={{
+              1024: {
+                slidesPerView: 4,
+              },
+            }}
+          >
+            {isLoading
+              ? "Загрузка"
+              : dataArticles.map((post: any) => (
+                  <SwiperSlide key={post.id}>
+                    <Article key={post.id} {...post} />
+                  </SwiperSlide>
+                ))}
+          </Swiper>
         </div>
       </div>
     </section>

@@ -1,13 +1,12 @@
 export type Product = {
-  brand?: number;
   id: number;
-  title: string;
-  price: number;
-  description?: string;
-  image?: string;
-  count?: number;
+  productname: string;
+  brand?: number;
   article?: number;
-  weight?: number;
-  like: boolean;
+  price: number;
+  count?: number;
+  image?: string;
   status: number;
+  description?: string;
+  weight?: number;
 };

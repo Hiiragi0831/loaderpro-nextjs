@@ -4,6 +4,8 @@ import Product from "@/components/Product";
 import { api } from "@/services/api";
 import { FC, useLayoutEffect, useState } from "react";
 import { Product as ProductsType } from "@/common/types/Product";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 type Props = {
   filter: string;
@@ -50,11 +52,25 @@ const Products: FC<Props> = ({ filter, limit }) => {
           <a href="#">Все товары</a>
         </div>
         <div className="row">
-          {isLoading
-            ? "Загрузка"
-            : filteredProducts.map((post) => (
-                <Product key={post.id} {...post} />
-              ))}
+          <Swiper
+            slidesPerView={2}
+            autoplay={{ delay: 3000 }}
+            modules={[Autoplay]}
+            loop={true}
+            breakpoints={{
+              1024: {
+                slidesPerView: 5,
+              },
+            }}
+          >
+            {isLoading
+              ? "Загрузка"
+              : filteredProducts.map((post) => (
+                  <SwiperSlide key={post.id}>
+                    <Product key={post.id} {...post} />
+                  </SwiperSlide>
+                ))}
+          </Swiper>
         </div>
       </div>
     </section>

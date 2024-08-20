@@ -18,7 +18,7 @@ import Link from "next/link";
 
 type Props = Pick<
   ProductType,
-  "price" | "status" | "id" | "image" | "title" | "article" | "like"
+  "price" | "status" | "id" | "image" | "productname" | "article"
 >;
 
 const Product: FC<Props> = (data) => {
@@ -59,7 +59,7 @@ const Product: FC<Props> = (data) => {
           <p>{getProductStatus(data.status)}</p>
         </div>
         <div className="product__title">
-          <Link href={`/products/${data.id}`}>{data.title}</Link>
+          <Link href={`/products/${data.id}`}>{data.productname}</Link>
         </div>
       </div>
       <div className="product__buttons">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../scss/main.scss";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { MobileBar } from "@/components/MobileBar";
 
 export const metadata: Metadata = {
   title:
@@ -21,7 +22,7 @@ export default function RootLayout({
         <div className="site">
           <Header />
           {children}
-          {/*<MobileBar/>*/}
+          <MobileBar />
           <Footer />
         </div>
       </body>

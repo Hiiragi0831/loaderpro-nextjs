@@ -1,34 +1,31 @@
+import IconHome from "@/icons/house-l.svg";
+import IconShield from "@/icons/shield.svg";
+import IconBox from "@/icons/box-l.svg";
+import IconRectangle from "@/icons/rectangle-history-circle-plus-l.svg";
+import IconUser from "@/icons/user-l.svg";
+import Link from "next/link";
+
 export const MobileBar = () => {
   return (
     <div className="mobilebar">
-      <a href="#" className="mobilebar__item">
-        <svg>
-          <use xlinkHref="/__spritemap#sprite-home-line" />
-        </svg>
+      <Link href="/" className="mobilebar__item">
+        <IconHome />
         <span>Домой</span>
-      </a>
+      </Link>
       <a href="#" className="mobilebar__item">
-        <svg>
-          <use xlinkHref="/__spritemap#sprite-checkbox-list-line" />
-        </svg>
+        <IconBox />
         <span>Каталог</span>
       </a>
       <a href="#" className="mobilebar__search">
-        <svg>
-          <use xlinkHref="/__spritemap#sprite-shield" />
-        </svg>
+        <IconShield />
       </a>
       <a href="#" className="mobilebar__item">
-        <svg>
-          <use xlinkHref="/__spritemap#sprite-question" />
-        </svg>
-        <span>Запросы</span>
+        <IconRectangle />
+        <span>Подбор</span>
       </a>
       <a href="#" className="mobilebar__item">
-        <svg>
-          <use xlinkHref="/__spritemap#sprite-parking-garage" />
-        </svg>
-        <span>Гараж</span>
+        <IconUser />
+        <span>Аккаунт</span>
       </a>
     </div>
   );

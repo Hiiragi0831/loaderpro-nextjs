@@ -69,7 +69,7 @@ export const Brands = () => {
     <section className="brands">
       <div className="container">
         <Swiper
-          slidesPerView={1}
+          slidesPerView={2}
           autoplay={{ delay: 3000 }}
           modules={[Autoplay]}
           loop={true}

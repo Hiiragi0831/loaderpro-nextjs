@@ -71,7 +71,7 @@
 		}
 
 		@include devices {
-			grid-template-columns: repeat(3, vc(22));
+			grid-template-columns: repeat(2, vc(22));
 			margin-right: vc(15);
 			margin-left: auto;
 			gap: vc(8);
