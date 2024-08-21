@@ -36,25 +36,27 @@ const Articles: FC<Props> = ({ limit }) => {
           <span className="h1">Полезная информация</span>
         </div>
         <div className="row">
-          <Swiper
-            slidesPerView={1}
-            autoplay={{ delay: 5000 }}
-            modules={[Autoplay]}
-            loop={true}
-            breakpoints={{
-              1024: {
-                slidesPerView: 4,
-              },
-            }}
-          >
-            {isLoading
-              ? "Загрузка"
-              : dataArticles.map((post: any) => (
-                  <SwiperSlide key={post.id}>
-                    <Article key={post.id} {...post} />
-                  </SwiperSlide>
-                ))}
-          </Swiper>
+          {isLoading ? (
+            "Загрузка"
+          ) : (
+            <Swiper
+              slidesPerView={1}
+              autoplay={{ delay: 5000 }}
+              modules={[Autoplay]}
+              loop={true}
+              breakpoints={{
+                1024: {
+                  slidesPerView: 4,
+                },
+              }}
+            >
+              {dataArticles.map((post: any) => (
+                <SwiperSlide key={post.id}>
+                  <Article key={post.id} {...post} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
         </div>
       </div>
     </section>

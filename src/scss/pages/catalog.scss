@@ -5,6 +5,17 @@
 			grid-template-columns: 0.4fr 1.6fr;
 			gap: vc(14);
 
+			&.row-1 {
+				display: flex;
+				.catalog__products-row {
+					grid-template-columns: repeat(5, 1fr);
+
+					@include devices {
+						grid-template-columns: repeat(2, 1fr);
+					}
+				}
+			}
+
 			@include devices {
 				grid-template-columns: 100%;
 			}
@@ -35,11 +46,11 @@
 
 		&-row {
 			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-template-columns: repeat(4, 1fr);
 			gap: vc(14);
 
 			@include devices {
-				grid-template-columns: 1fr 1fr;
+				grid-template-columns: repeat(2, 1fr);
 				gap: vc(10);
 			}
 		}

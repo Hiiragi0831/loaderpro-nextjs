@@ -11,7 +11,7 @@ export const BasketItem: FC<ProductType> = ({
   price,
   count = 0,
   image,
-  title,
+  productname,
   article,
   id,
 }) => {
@@ -24,12 +24,12 @@ export const BasketItem: FC<ProductType> = ({
       <Link href={`/products/${id}`}>
         <picture className="basket-item__img">
           <source srcSet={image} />
-          <img src={image} alt={title} decoding="async" />
+          <img src={image} alt={productname} decoding="async" />
         </picture>
       </Link>
       <div className="basket-item__info">
         <p>
-          <Link href={`/products/${id}`}>{title}</Link>
+          <Link href={`/products/${id}`}>{productname}</Link>
         </p>
         <span>
           Артикул: <mark>{article}</mark>

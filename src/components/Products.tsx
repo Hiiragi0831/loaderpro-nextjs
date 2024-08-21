@@ -52,25 +52,27 @@ const Products: FC<Props> = ({ filter, limit }) => {
           <a href="#">Все товары</a>
         </div>
         <div className="row">
-          <Swiper
-            slidesPerView={2}
-            autoplay={{ delay: 3000 }}
-            modules={[Autoplay]}
-            loop={true}
-            breakpoints={{
-              1024: {
-                slidesPerView: 5,
-              },
-            }}
-          >
-            {isLoading
-              ? "Загрузка"
-              : filteredProducts.map((post) => (
-                  <SwiperSlide key={post.id}>
-                    <Product key={post.id} {...post} />
-                  </SwiperSlide>
-                ))}
-          </Swiper>
+          {isLoading ? (
+            "Загрузка"
+          ) : (
+            <Swiper
+              slidesPerView={2}
+              autoplay={{ delay: 3000 }}
+              modules={[Autoplay]}
+              loop={true}
+              breakpoints={{
+                1024: {
+                  slidesPerView: 5,
+                },
+              }}
+            >
+              {filteredProducts.map((post) => (
+                <SwiperSlide key={post.id}>
+                  <Product key={post.id} {...post} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
         </div>
       </div>
     </section>
