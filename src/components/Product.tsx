@@ -71,7 +71,7 @@ const Product: FC<Props> = (data) => {
           <>
             <button
               className="button button__primary button__icon"
-              onClick={() => addToCart(data)}
+              onClick={() => addToCart(data.id, 1)}
             >
               <IconShoppingCart />В корзину
             </button>

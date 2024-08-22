@@ -28,24 +28,24 @@ export default function ProductInfo(prop: any) {
   });
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [quantity, setQuantity] = useState(1);
+
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   let status: string;
   let statusColor: string;
   const addToCart = useBasket((state) => state.addToBasket);
 
-  // const [counter, setCounter] = useState(0);
-  // const [initialCount, setInitialCount] = useState(1);
-  //
-  // const handleInitialCountChange = (event) => {
-  //   setInitialCount(Number(event.target.value));
-  // };
-  // const handleClick1 = () => {
-  //   setCounter(counter + 1);
-  // };
-  //
-  // const handleClick2 = () => {
-  //   setCounter(counter - 1);
-  // };
+  const handleInitialCountChange = (event: any) => {
+    setQuantity(Number(event.target.value));
+  };
+
+  const increment = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrement = () => {
+    setQuantity(quantity - 1);
+  };
 
   const loadArticle = async () => {
     try {
@@ -68,26 +68,6 @@ export default function ProductInfo(prop: any) {
       // @ts-expect-error @ts-expect-error
       console.error("Error fetching:", error.message);
     }
-  };
-
-  const counter = (method: string) => {
-    const dataCount = Object.assign({}, data);
-    console.log(method);
-    switch (method) {
-      case "increment":
-        // @ts-expect-error @ts-expect-error
-        dataCount.count += 1;
-        break;
-      case "decrement":
-        // @ts-expect-error @ts-expect-error
-        if (dataCount.count <= 1) {
-          dataCount.count = 1;
-        } else {
-          // @ts-expect-error @ts-expect-error
-          dataCount.count -= 1;
-        }
-    }
-    setData(dataCount);
   };
 
   useLayoutEffect(() => void loadArticle(), []);
@@ -339,25 +319,26 @@ export default function ProductInfo(prop: any) {
                       <div className="commodity__count">
                         <button
                           className="commodity__count-minus"
-                          onClick={() => counter("decrement")}
+                          onClick={() => decrement()}
                         >
                           -
                         </button>
                         <input
                           type="number"
                           name="count"
-                          defaultValue={data.count}
+                          value={quantity}
+                          onChange={handleInitialCountChange}
                         />
                         <button
                           className="commodity__count-plus"
-                          onClick={() => counter("increment")}
+                          onClick={() => increment()}
                         >
                           +
                         </button>
                       </div>
                       <button
                         className="button button__primary"
-                        onClick={() => addToCart(data)}
+                        onClick={() => addToCart(data.id, quantity)}
                       >
                         В корзину
                       </button>

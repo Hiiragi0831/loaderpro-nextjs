@@ -1,15 +1,15 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 
-import { Product as ProductType } from "../common/types/Product";
+import { Product as ProductType } from "@/common/types/Product";
 import { useBasket } from "@/store/basket";
 import { getPriceFormat } from "@/utils/getPriceFormat";
 import Link from "next/link";
+import IconTrash from "@/icons/trash-can.svg";
 
 export const BasketItem: FC<ProductType> = ({
   price,
-  count = 0,
   image,
   productname,
   article,
@@ -18,6 +18,14 @@ export const BasketItem: FC<ProductType> = ({
   const increment = useBasket((state) => state.increment);
   const decrement = useBasket((state) => state.decrement);
   const deleteItem = useBasket((state) => state.deleteProduct);
+  const countChange = useBasket((state) => state.countChange);
+  const product = useBasket((state) => state.basket).find(
+    (element: { id: number }) => element.id === id,
+  );
+
+  const handleCountChange = (event: any) => {
+    countChange(id, Number(event.target.value));
+  };
 
   return (
     <div className="basket-item">
@@ -48,10 +56,8 @@ export const BasketItem: FC<ProductType> = ({
         <input
           type="number"
           name="count"
-          value={count}
-          onChange={(event) => {
-            event.target;
-          }}
+          value={product.quantity}
+          onChange={handleCountChange}
           max="100"
         />
         <button
@@ -62,7 +68,7 @@ export const BasketItem: FC<ProductType> = ({
         </button>
       </div>
       <div className="basket-item__sum">
-        <p>{getPriceFormat(price * count)} ₽</p>
+        <p>{getPriceFormat(price * product.quantity)} ₽</p>
       </div>
       <div className="basket-item__del">
         <button
@@ -70,9 +76,7 @@ export const BasketItem: FC<ProductType> = ({
             deleteItem(id);
           }}
         >
-          <svg>
-            <use xlinkHref="/__spritemap#sprite-trash-can" />
-          </svg>
+          <IconTrash />
         </button>
       </div>
     </div>

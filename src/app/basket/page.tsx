@@ -34,56 +34,56 @@ export default function Basket() {
               </div>
               <div className="basket__form-data">
                 <label className="form__select">
-                  <select name="pay">
-                    <option defaultValue="0" label="Оплата 1">
+                  <select name="pay" defaultValue="0">
+                    <option value="0" label="Оплата 1">
                       0
                     </option>
-                    <option defaultValue="1" label="Оплата 2">
+                    <option value="1" label="Оплата 2">
                       1
                     </option>
-                    <option defaultValue="2" selected label="Оплата 3">
+                    <option value="2" label="Оплата 3">
                       2
                     </option>
                   </select>
                   <span>Способ оплаты</span>
                 </label>
                 <label className="form__select">
-                  <select name="delivery">
-                    <option defaultValue="0" label="Доставка 1">
+                  <select name="delivery" defaultValue="0">
+                    <option value="0" label="Доставка 1">
                       0
                     </option>
-                    <option defaultValue="1" label="Доставка 2">
+                    <option value="1" label="Доставка 2">
                       1
                     </option>
-                    <option defaultValue="2" selected label="Доставка 3">
+                    <option value="2" label="Доставка 3">
                       2
                     </option>
                   </select>
                   <span>Доставка</span>
                 </label>
                 <label className="form__select">
-                  <select name="transport">
-                    <option defaultValue="0" label="Перевозчик 1">
+                  <select name="transport" defaultValue="0">
+                    <option value="0" label="Перевозчик 1">
                       0
                     </option>
-                    <option defaultValue="1" label="Перевозчик 2">
+                    <option value="1" label="Перевозчик 2">
                       1
                     </option>
-                    <option defaultValue="2" selected label="Перевозчик 3">
+                    <option value="2" label="Перевозчик 3">
                       2
                     </option>
                   </select>
                   <span>Перевозчик</span>
                 </label>
                 <label className="form__select">
-                  <select name="method">
-                    <option defaultValue="0" label="Метод доставки 1">
+                  <select name="method" defaultValue="0">
+                    <option value="0" label="Метод доставки 1">
                       0
                     </option>
-                    <option defaultValue="1" label="Метод доставки 2">
+                    <option value="1" label="Метод доставки 2">
                       1
                     </option>
-                    <option defaultValue="2" selected label="Метод доставки 3">
+                    <option value="2" label="Метод доставки 3">
                       2
                     </option>
                   </select>
@@ -99,18 +99,14 @@ export default function Basket() {
                   <span>Адрес</span>
                 </label>
                 <label className="form__select">
-                  <select name="method">
-                    <option defaultValue="0" label="Приоритет отгрузки 1">
+                  <select name="method" defaultValue="0">
+                    <option value="0" label="Приоритет отгрузки 1">
                       0
                     </option>
-                    <option defaultValue="1" label="Приоритет отгрузки 2">
+                    <option value="1" label="Приоритет отгрузки 2">
                       1
                     </option>
-                    <option
-                      defaultValue="2"
-                      selected={true}
-                      label="Приоритет отгрузки 3"
-                    >
+                    <option value="2" label="Приоритет отгрузки 3">
                       2
                     </option>
                   </select>

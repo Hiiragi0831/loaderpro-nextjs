@@ -2,17 +2,17 @@ import CloneDeep from "lodash-es/cloneDeep";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import { Product } from "@/common/types/Product";
 import { Notifications } from "@/utils/notifications";
 
 type Store = {
-  basket: Product[];
+  basket: any;
   loading: boolean;
   error: null;
-  addToBasket: (product: Product) => void;
+  addToBasket: (id: number, count: number) => void;
   increment: (id: number) => void;
   decrement: (id: number) => void;
   deleteProduct: (id: number) => void;
+  countChange: (id: number, count: number) => void;
 };
 
 export const useBasket = create<Store>()(
@@ -21,54 +21,58 @@ export const useBasket = create<Store>()(
       basket: [],
       loading: false,
       error: null,
-      addToBasket: (product) => {
+      addToBasket: (id, count) => {
         const products = CloneDeep(get().basket);
-        const index = products.findIndex(({ id }) => id === product.id);
+        const product = products.find(
+          (element: { id: number }) => element.id === id,
+        );
+
         Notifications.success(`Товар добавлен в корзину`);
-        if (index !== -1) {
-          // @ts-expect-error @ts-ignore
-          products[index].count = products[index].count + product.count;
-          set({ basket: products });
-          return;
-        }
-        set({ basket: [...products, product] });
-      },
-      increment: (productId) => {
-        const products = CloneDeep(get().basket);
-        const index = products.findIndex(({ id }) => id === productId);
-        if (index !== -1) {
-          // @ts-expect-error @ts-ignore
-          products[index].count = products[index].count + 1;
-          set({ basket: products });
-          return;
-        }
-        // @ts-expect-error @ts-ignore
-        set({ basket: [...products, index] });
-      },
-      decrement: (productId) => {
-        const products = CloneDeep(get().basket);
-        const index = products.findIndex(({ id }) => id === productId);
-        if (index !== -1) {
-          // @ts-expect-error @ts-ignore
-          products[index].count = products[index].count - 1;
 
-          if (products[index].count <= 0) {
-            products.splice(index, 1);
-          }
-
+        if (product) {
+          product.quantity = product.quantity + count;
           set({ basket: products });
           return;
         }
-        // @ts-expect-error @ts-ignore
-        set({ basket: [...products, index] });
+
+        set({ basket: [...products, { id: id, quantity: count }] });
       },
-      deleteProduct: (productId) => {
+      increment: (id) => {
         const products = CloneDeep(get().basket);
-        const index = products.findIndex(({ id }) => id === productId);
-        if (index > -1) {
-          products.splice(index, 1);
-          set({ basket: products });
+        const product = products.find(
+          (element: { id: number }) => element.id === id,
+        );
+        product.quantity = product.quantity + 1;
+        set({ basket: products });
+      },
+      decrement: (id) => {
+        const products = CloneDeep(get().basket);
+        const product = products.find(
+          (element: { id: number }) => element.id === id,
+        );
+        product.quantity = product.quantity - 1;
+
+        if (product.quantity <= 0) {
+          products.splice(product, 1);
         }
+        set({ basket: products });
+      },
+      deleteProduct: (id) => {
+        const products = CloneDeep(get().basket);
+        const product = products.find(
+          (element: { id: number }) => element.id === id,
+        );
+        products.splice(product, 1);
+        Notifications.success(`Товар удален из корзины`);
+        set({ basket: products });
+      },
+      countChange: (id, count) => {
+        const products = CloneDeep(get().basket);
+        const product = products.find(
+          (element: { id: number }) => element.id === id,
+        );
+        product.quantity = count;
+        set({ basket: products });
       },
     }),
     { name: "basket" },
