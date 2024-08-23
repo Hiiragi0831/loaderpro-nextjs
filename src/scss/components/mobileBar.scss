@@ -7,7 +7,7 @@
 	border-top: 1px solid $color-woodsmoke-400;
 	padding: vc(10);
 	width: 100%;
-	height: vc(76);
+	height: vc(60);
 	background: $color-white;
 	gap: vc(15);
 
@@ -21,15 +21,15 @@
 		gap: vc(5);
 
 		svg {
-			width: vc(32);
-			height: vc(32);
+			width: vc(22);
+			height: vc(22);
 			fill: $color-woodsmoke-400;
 		}
 	}
 
 	&__search {
 		position: relative;
-		top: vc(-20);
+		top: vc(-36);
 		display: flex;
 		align-items: center;
 		justify-content: center;

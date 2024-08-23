@@ -14,7 +14,7 @@ type Props = {
 const Products: FC<Props> = ({ filter, limit }) => {
   const [data, setData] = useState<ProductsType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  let filteredProducts = [];
+  let filteredProducts: any[];
 
   const loadProducts = async () => {
     try {
@@ -56,7 +56,6 @@ const Products: FC<Props> = ({ filter, limit }) => {
           ) : (
             <Swiper
               slidesPerView={"auto"}
-              loop={true}
               breakpoints={{
                 1024: {
                   slidesPerView: 5,

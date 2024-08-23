@@ -40,7 +40,6 @@ const Articles: FC<Props> = ({ limit }) => {
           ) : (
             <Swiper
               slidesPerView={"auto"}
-              loop={true}
               breakpoints={{
                 1024: {
                   slidesPerView: 4,
