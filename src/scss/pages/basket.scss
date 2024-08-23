@@ -18,7 +18,7 @@
 		&-th {
 			display: grid;
 			justify-content: space-between;
-			grid-template-columns: 1fr vc(200) vc(154) vc(200) vc(30);
+			grid-template-columns: vc(125) 1fr vc(200) vc(154) vc(200) vc(30);
 			border-bottom: 1px solid $color-black;
 			padding: vc(20) 0;
 			width: 100%;
@@ -32,11 +32,25 @@
 				&:first-child {
 					text-align: left;
 				}
+
+				@include devices {
+					font-size: vc(16);
+				}
+			}
+
+			@include devices {
+				padding: vc(10) 0;
+				grid-template-columns: vc(60) vc(150) vc(80) vc(90) vc(80) vc(30);
+				gap: vc(10);
 			}
 		}
 
 		&-body {
 			min-width: vc(900);
+
+			@include devices {
+				min-width: vc(560);
+			}
 		}
 
 		@include devices {
@@ -83,7 +97,7 @@
 	display: grid;
 	align-items: center;
 	justify-content: space-between;
-	grid-template-columns: vc(125) 1fr vc(200) vc(154) vc(200) vc(30);
+	grid-template-columns: vc(125) 1fr vc(200) vc(154) vc(200) vc(14);
 	border-bottom: 1px solid $color-black;
 	padding: vc(14) 0;
 	width: 100%;
@@ -105,6 +119,14 @@
 				background: none;
 			}
 		}
+
+		@include devices {
+			font-size: vc(12);
+
+			span {
+				font-size: vc(12);
+			}
+		}
 	}
 
 	&__price,
@@ -112,6 +134,10 @@
 		font-weight: 400;
 		font-size: vc(16);
 		text-align: center;
+
+		@include devices {
+			font-size: vc(14);
+		}
 	}
 
 	&__count {
@@ -131,10 +157,23 @@
 			&::-webkit-inner-spin-button {
 				appearance: none;
 			}
+
+			@include devices {
+				width: vc(30);
+			}
 		}
 
 		button {
 			width: vc(35);
+
+			@include devices {
+				width: vc(30);
+			}
+		}
+
+		@include devices {
+			height: vc(30);
+			font-size: vc(14);
 		}
 	}
 
@@ -142,6 +181,11 @@
 		button {
 			width: vc(28);
 			height: vc(28);
+
+			@include devices {
+				width: vc(14);
+				height: vc(14);
+			}
 		}
 
 		svg {
@@ -150,6 +194,8 @@
 	}
 
 	@include devices {
-		grid-template-columns: vc(125) 1fr vc(100) vc(154) vc(100) vc(30);
+		padding: vc(8) 0;
+		grid-template-columns: vc(60) vc(150) vc(80) vc(90) vc(80) vc(14);
+		gap: vc(10);
 	}
 }

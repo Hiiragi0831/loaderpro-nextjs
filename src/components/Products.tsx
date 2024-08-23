@@ -56,9 +56,7 @@ const Products: FC<Props> = ({ filter, limit }) => {
             "Загрузка"
           ) : (
             <Swiper
-              slidesPerView={2}
-              autoplay={{ delay: 3000 }}
-              modules={[Autoplay]}
+              slidesPerView={"auto"}
               loop={true}
               breakpoints={{
                 1024: {

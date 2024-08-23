@@ -14,6 +14,7 @@ export default function Basket() {
             <div className="basket__table">
               <div className="basket__table-body">
                 <div className="basket__table-th">
+                  <p></p>
                   <p>Название товара</p>
                   <p>Стоимость</p>
                   <p>Количество</p>

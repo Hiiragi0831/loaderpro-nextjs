@@ -10,6 +10,7 @@
 
 		@include devices {
 			flex-direction: column;
+			padding: vc(30) 0;
 			gap: vc(14);
 		}
 	}
@@ -80,11 +81,11 @@
 		display: flex;
 		justify-content: space-between;
 		border-top: 1px solid $color-woodsmoke-800;
-		border-bottom: 1px solid $color-woodsmoke-800;
 		padding: vc(40) 0 vc(50);
 		width: 100%;
 
 		@include devices {
+			display: none;
 			flex-direction: column;
 			text-align: center;
 			gap: vc(20);
@@ -130,6 +131,7 @@
 		}
 
 		@include devices {
+			order: 5;
 			margin: vc(0) auto;
 		}
 	}
@@ -147,6 +149,7 @@
 	&__bottom {
 		padding: vc(20) 0;
 		text-align: center;
+		border-top: 1px solid $color-woodsmoke-800;
 
 		p {
 			font-size: vc(14);

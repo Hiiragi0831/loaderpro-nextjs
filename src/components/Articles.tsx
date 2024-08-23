@@ -5,7 +5,6 @@ import { api } from "@/services/api";
 import Article from "./Article";
 import { Article as ArticleType } from "../common/types/Article";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 
 type Props = {
   limit: number;
@@ -40,9 +39,7 @@ const Articles: FC<Props> = ({ limit }) => {
             "Загрузка"
           ) : (
             <Swiper
-              slidesPerView={1}
-              autoplay={{ delay: 5000 }}
-              modules={[Autoplay]}
+              slidesPerView={"auto"}
               loop={true}
               breakpoints={{
                 1024: {

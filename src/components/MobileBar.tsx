@@ -21,7 +21,7 @@ export const MobileBar = () => {
       </a>
       <a href="#" className="mobilebar__item">
         <IconRectangle />
-        <span>Подбор</span>
+        <span>Запросы</span>
       </a>
       <a href="#" className="mobilebar__item">
         <IconUser />

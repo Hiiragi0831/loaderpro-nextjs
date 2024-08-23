@@ -11,6 +11,7 @@
 			width: calc(100% + #{vc(30)});
 
 			&-slide {
+				width: 90%;
 				padding: 0 vc(15);
 			}
 		}

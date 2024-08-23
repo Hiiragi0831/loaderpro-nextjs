@@ -25,6 +25,7 @@
 
 		.swiper-slide {
 			padding: vc(18) vc(6);
+			width: 48%;
 
 			@include devices {
 				padding: vc(12) vc(6);
@@ -93,6 +94,13 @@
 				opacity: 1;
 				visibility: visible;
 			}
+		}
+
+		@include devices {
+			right: vc(10);
+			top: vc(10);
+			width: vc(14);
+			height: vc(14);
 		}
 	}
 
