@@ -5,7 +5,6 @@ import { api } from "@/services/api";
 import { FC, useLayoutEffect, useState } from "react";
 import { Product as ProductsType } from "@/common/types/Product";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 
 type Props = {
   filter: string;
