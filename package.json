@@ -17,6 +17,7 @@
     "notyf": "^3.10.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-use": "^17.5.1",
     "swiper": "^11.1.9",
     "zustand": "^4.5.4"
   },

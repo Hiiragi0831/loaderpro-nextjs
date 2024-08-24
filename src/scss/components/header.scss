@@ -124,6 +124,21 @@
 			width: 100%;
 			height: 1px;
 			background: $color-black;
+			transition: visibility $transition, opacity $transition, transform $transition;
+		}
+
+		&.active {
+			span:nth-child(1) {
+				transform: rotate(-45deg) translateX(vc(-7));
+			}
+			span:nth-child(2) {
+				opacity: 0;
+				visibility: hidden;
+			}
+			span:nth-child(3) {
+				transform: rotate(45deg) translateX(vc(-7));
+			}
+
 		}
 
 		@include desktop {
