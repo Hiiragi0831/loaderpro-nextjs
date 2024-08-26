@@ -14,7 +14,7 @@
 		&::before {
 			content: "";
 			position: absolute;
-			bottom: 0;
+			bottom: vc(-10);
 			border-radius: vc(5);
 			width: 100%;
 			height: vc(5);
@@ -144,8 +144,7 @@
 			"info price"
 			"description description";
 		grid-template-columns: vc(500) 1fr;
-		height: fit-content;
-		gap: vc(30);
+		gap: vc(15) vc(30);
 
 		&-box {
 			grid-area: info;
@@ -258,6 +257,10 @@
 
 		p {
 			font-size: vc(16);
+		}
+
+		picture {
+			margin-top: auto;
 		}
 	}
 }

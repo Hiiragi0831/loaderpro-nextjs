@@ -11,6 +11,7 @@ const HomeSlider = () => {
         <Swiper
           modules={[Autoplay]}
           slidesPerView={"auto"}
+          spaceBetween={10}
           centeredSlides={true}
           loop={true}
           autoplay={{ delay: 4000 }}

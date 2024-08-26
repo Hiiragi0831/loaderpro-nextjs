@@ -12,16 +12,16 @@ export function MobileNav({ className }: any) {
           <p className="mobilenav__title">Партнерам</p>
           <div className="mobilenav__row">
             <div className="mobilenav__col">
-              <Link href="#">Главная</Link>
-              <Link href="#">Вакансии</Link>
-              <Link href="#">О компании</Link>
-              <Link href="#">Поставщикам</Link>
+              <Link href="/">Главная</Link>
+              <Link href={"/vacancy"}>Вакансии</Link>
+              <Link href={"/about"}>О компании</Link>
+              <Link href={"/suppliers"}>Поставщикам</Link>
             </div>
             <div className="mobilenav__col">
-              <Link href="#">Дилерам</Link>
-              <Link href="#">Конфиденциальность</Link>
-              <Link href="#">Оплата и доставка</Link>
-              <Link href="#">Контакты</Link>
+              <Link href={"/dealer"}>Дилерам</Link>
+              <Link href={"/privacy-policy"}>Конфиденциальность</Link>
+              <Link href={"/delivery-payment"}>Оплата и доставка</Link>
+              <Link href={"/contact"}>Контакты</Link>
             </div>
           </div>
         </div>
@@ -29,14 +29,14 @@ export function MobileNav({ className }: any) {
           <p className="mobilenav__title">Товары</p>
           <div className="mobilenav__row">
             <div className="mobilenav__col">
-              <Link href="#">Складская техника</Link>
-              <Link href="#">Запасные части</Link>
-              <Link href="#">Тяговые аккумуляторы</Link>
+              <Link href={"/warehouse-equipment"}>Складская техника</Link>
+              <Link href={"/spare-parts"}>Запасные части</Link>
+              <Link href={"/battery"}>Тяговые аккумуляторы</Link>
             </div>
             <div className="mobilenav__col">
-              <Link href="#">Шины и диски</Link>
-              <Link href="#">Масла и смазки</Link>
-              <Link href="#">Полиуретановые колеса</Link>
+              <Link href={"/tires-rims"}>Шины и диски</Link>
+              <Link href={"/oils-lubricants"}>Масла и смазки</Link>
+              <Link href={"/polyurethane-wheels"}>Полиуретановые колеса</Link>
             </div>
           </div>
         </div>
@@ -44,12 +44,12 @@ export function MobileNav({ className }: any) {
           <p className="mobilenav__title">Услуги</p>
           <div className="mobilenav__row">
             <div className="mobilenav__col">
-              <Link href="#">Подбор запчастей</Link>
-              <Link href="#">Запрос на запчасти</Link>
+              <Link href={"/selection-parts"}>Подбор запчастей</Link>
+              <Link href={"/request-parts"}>Запрос на запчасти</Link>
             </div>
             <div className="mobilenav__col">
-              <Link href="#">Шиномонтаж</Link>
-              <Link href="#">Восстановление колес</Link>
+              <Link href={"/tire-service"}>Шиномонтаж</Link>
+              <Link href={"/polyurethane-surfacing"}>Восстановление колес</Link>
             </div>
           </div>
         </div>
@@ -57,22 +57,28 @@ export function MobileNav({ className }: any) {
           <p className="mobilenav__title">Контакты</p>
           <div className="mobilenav__row">
             <div className="mobilenav__col">
-              <Link href="#" className="mobilenav__contact">
+              <a href="tel:88005511996" className="mobilenav__contact">
                 8 (800) 551-19-96
-              </Link>
-              <Link href="#" className="mobilenav__contact">
+              </a>
+              <a
+                href="mailto:zakaz@loaderpro.ru"
+                className="mobilenav__contact"
+              >
                 <small>Для заявок:</small>
                 zakaz@loaderpro.ru
-              </Link>
+              </a>
             </div>
             <div className="mobilenav__col">
-              <Link href="#" className="mobilenav__contact">
+              <a href="tel:+78126421256" className="mobilenav__contact">
                 +7 (812) 642-12-56
-              </Link>
-              <Link href="#" className="mobilenav__contact">
+              </a>
+              <a
+                href="mailto:zakup@loaderpro.ru"
+                className="mobilenav__contact"
+              >
                 <small>Сотрудничество:</small>
                 zakup@loaderpro.ru
-              </Link>
+              </a>
             </div>
           </div>
         </div>

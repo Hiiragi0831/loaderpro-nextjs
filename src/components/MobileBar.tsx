@@ -12,21 +12,21 @@ export const MobileBar = () => {
         <IconHome />
         <span>Домой</span>
       </Link>
-      <a href="#" className="mobilebar__item">
+      <Link href={"/spare-parts"} className="mobilebar__item">
         <IconBox />
         <span>Каталог</span>
-      </a>
-      <a href="#" className="mobilebar__search">
+      </Link>
+      <span className="mobilebar__search">
         <IconShield />
-      </a>
-      <a href="#" className="mobilebar__item">
+      </span>
+      <Link href={"/request-parts"} className="mobilebar__item">
         <IconRectangle />
         <span>Запросы</span>
-      </a>
-      <a href="#" className="mobilebar__item">
+      </Link>
+      <Link href={"/account"} className="mobilebar__item">
         <IconUser />
         <span>Аккаунт</span>
-      </a>
+      </Link>
     </div>
   );
 };
