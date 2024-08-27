@@ -6,7 +6,7 @@ import { Product } from "@/common/types/Product";
 class APIService {
   public async getAllProducts(): Promise<Product[]> {
     try {
-      const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/catalog");
+      const res = await fetch("https://api.cartrac.ru/catalog/");
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
