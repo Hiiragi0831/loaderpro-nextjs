@@ -7,6 +7,8 @@
 
 			&.row-1 {
 				display: flex;
+				width: 100%;
+
 				.catalog__products-row {
 					grid-template-columns: repeat(5, 1fr);
 
@@ -42,6 +44,7 @@
 	&__products {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 		gap: vc(18);
 
 		&-row {
