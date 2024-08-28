@@ -38,8 +38,14 @@ const Product: FC<Props> = (data) => {
       <div className="product__img">
         <Link href={`/products/${data.id}`}>
           <picture>
-            <source srcSet={data.image} />
-            <img src={data.image} alt="" decoding="async" />
+            <source
+              srcSet={`https://my.loaderpro.ru/images/products/${data.image}`}
+            />
+            <img
+              src={`https://my.loaderpro.ru/images/products/${data.image}`}
+              alt=""
+              decoding="async"
+            />
           </picture>
         </Link>
       </div>
@@ -63,7 +69,7 @@ const Product: FC<Props> = (data) => {
         </div>
       </div>
       <div className="product__buttons">
-        {data.status === 0 ? (
+        {data.status === "Нет в наличии" ? (
           <>
             <button className="button button__primary">Запросить</button>
           </>

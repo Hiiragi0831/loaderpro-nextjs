@@ -7,6 +7,10 @@ import { useBasket } from "@/store/basket";
 import { api } from "@/services/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Thumbs } from "swiper/modules";
+import {
+  getProductStatus,
+  getProductStatusColor,
+} from "@/utils/getProductStatus";
 
 export default function ProductInfo(prop: any) {
   const id = prop.id;
@@ -19,7 +23,7 @@ export default function ProductInfo(prop: any) {
     image: "",
     article: 0,
     weight: 0,
-    status: 0,
+    status: "Нет в наличии",
     brand: -1,
   });
   const [brand, setBrand] = useState<BrandType>({
@@ -31,8 +35,6 @@ export default function ProductInfo(prop: any) {
   const [quantity, setQuantity] = useState(1);
 
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-  let status: string;
-  let statusColor: string;
   const addToCart = useBasket((state) => state.addToBasket);
 
   const handleInitialCountChange = (event: any) => {
@@ -72,20 +74,6 @@ export default function ProductInfo(prop: any) {
 
   useLayoutEffect(() => void loadArticle(), []);
   useEffect(() => void loadBrands(), [data.brand]);
-
-  switch (data.status) {
-    case 1:
-      status = "В наличии";
-      statusColor = "green";
-      break;
-    case 2:
-      status = "2-3 недели";
-      statusColor = "orange";
-      break;
-    default:
-      status = "Нет в наличии";
-      statusColor = "red";
-  }
 
   return (
     <section className="commodity__section">
@@ -264,10 +252,10 @@ export default function ProductInfo(prop: any) {
               <div className="commodity__info">
                 <div className="commodity__info-box">
                   <div
-                    className={`commodity__availability commodity__availability--${statusColor}`}
+                    className={`commodity__availability commodity__availability--${getProductStatusColor(data.status)}`}
                   >
                     <span />
-                    <p>{status}</p>
+                    <p>{getProductStatus(data.status)}</p>
                   </div>
                   <div className="commodity__specifications">
                     <div className="commodity__specification">
@@ -305,7 +293,7 @@ export default function ProductInfo(prop: any) {
                     <span>Цена:</span>
                     <p>{price} ₽</p>
                   </div>
-                  {data.status === 0 ? (
+                  {getProductStatus(data.status) === "Нет в наличии" ? (
                     <>
                       <label className="commodity__input">
                         <input type="email" name="email" placeholder="Email" />

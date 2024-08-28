@@ -1,21 +1,21 @@
-export const getProductStatus = (id: number): string => {
-  switch (id) {
-    case 1:
+export const getProductStatus = (name: string): string => {
+  switch (name) {
+    case "В наличии":
       return "В наличии";
-    case 2:
-      return "2-3 недели";
-    default:
+    case "Нет в наличии":
       return "Нет в наличии";
+    default:
+      return "По запросу";
   }
 };
 
-export const getProductStatusColor = (id: number): string => {
-  switch (id) {
-    case 1:
+export const getProductStatusColor = (name: string): string => {
+  switch (name) {
+    case "В наличии":
       return "green";
-    case 2:
-      return "orange";
-    default:
+    case "Нет в наличии":
       return "red";
+    default:
+      return "orange";
   }
 };

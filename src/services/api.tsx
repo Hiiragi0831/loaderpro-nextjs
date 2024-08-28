@@ -49,7 +49,7 @@ class APIService {
 
   public async getAllBrand(): Promise<Brand[]> {
     try {
-      const res = await fetch(`https://76fbb2aa70af7ba2.mokky.dev/brands/`);
+      const res = await fetch(`https://api.cartrac.ru/brands/`);
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -59,9 +59,7 @@ class APIService {
 
   public async getBrand(id: number | undefined): Promise<Brand> {
     try {
-      const res = await fetch(
-        `https://76fbb2aa70af7ba2.mokky.dev/brands/${id}`,
-      );
+      const res = await fetch(`https://api.cartrac.ru/brands/${id}`);
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
