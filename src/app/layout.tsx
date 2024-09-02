@@ -3,6 +3,7 @@ import "../scss/main.scss";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { MobileBar } from "@/components/MobileBar";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title:
@@ -20,10 +21,12 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         <div className="site">
-          <Header />
-          {children}
-          <MobileBar />
-          <Footer />
+          <SessionProvider>
+            <Header />
+            {children}
+            <MobileBar />
+            <Footer />
+          </SessionProvider>
         </div>
       </body>
     </html>

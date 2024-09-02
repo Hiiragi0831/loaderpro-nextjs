@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { compare } from "bcrypt";
+// import { compare } from "bcrypt";
 import { api } from "@/services/api";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -20,34 +20,35 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email: credentials.email,
         };
 
-        const findUser = await api.getUsers().find({
-          where: values,
-        });
+        const findUser = await api.getUsers();
+        console.log(findUser);
 
         if (!findUser) {
           return null;
         }
 
-        const isPasswordValid = await compare(
-          credentials.password,
-          findUser.password,
-        );
-
-        if (!isPasswordValid) {
-          return null;
-        }
-
-        if (!findUser.verified) {
-          return null;
-        }
-
-        return {
-          id: findUser.id,
-          email: findUser.email,
-          name: findUser.firstname,
-          role: findUser.role,
-        };
+        // const isPasswordValid = await compare(
+        //   credentials.password,
+        //   findUser.password,
+        // );
+        //
+        // if (!isPasswordValid) {
+        //   return null;
+        // }
+        //
+        // if (!findUser.verified) {
+        //   return null;
+        // }
+        //
+        // return {
+        //   id: findUser.id,
+        //   email: findUser.email,
+        //   name: findUser.firstname,
+        //   role: findUser.role,
+        // };
       },
     }),
   ],
 });
+
+export { handlers as GET, handlers as POST };

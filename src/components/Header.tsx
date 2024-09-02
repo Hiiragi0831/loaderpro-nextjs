@@ -9,10 +9,14 @@ import IconHeart from "@/icons/heart.svg";
 import IconCart from "@/icons/cart-shopping.svg";
 import { MobileNav } from "@/components/MobileNav";
 import { useLockBodyScroll, useToggle } from "react-use";
+import {useSession} from "next-auth/react";
 
 const Header = () => {
   const [active, setActive] = useToggle(false);
   useLockBodyScroll(active);
+  const { data: session } = useSession();
+
+  console.log(session);
 
   return (
     <>

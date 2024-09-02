@@ -15,7 +15,7 @@ class APIService {
     }
   }
 
-  public async getArticles(): Promise<User[]> {
+  public async getArticles(): Promise<Article[]> {
     try {
       const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/articles");
       return res.json();
@@ -25,9 +25,9 @@ class APIService {
     }
   }
 
-  public async getUsers(): Promise<Article[]> {
+  public async getUsers(): Promise<User[]> {
     try {
-      const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/users");
+      const res = await fetch("https://api.cartrac.ru/users/");
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
