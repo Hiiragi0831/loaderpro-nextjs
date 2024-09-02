@@ -11,48 +11,46 @@ export default function VacancyManager() {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <main>
-      {modalOpen && (
-        <Modal onClose={() => setModalOpen(false)}>
-          <div className="vacancy-modal">
-            <div className="vacancy-modal__text">
-              <div className="vacancy-modal__head">
-                <p className="h1">Крючкова Надежда Андреевна</p>
-                <small>Специалист по подбору персонала</small>
-              </div>
-              <p>
-                Здравствуйте! Меня зовут Надежда, я HR-менеджер в компании ООО
-                “Спецмашина”!
-              </p>
-              <p>
-                Отправьте своё резюме с указанием должности или позвоните и
-                запишитесь на собеседование.
-              </p>
-              <div className="contact__info">
-                <div className="contact__item">
-                  <small>Телефон:</small>
-                  <a href="tel:+79045560011">+7 (904) 556-00-11</a>
-                </div>
-                <div className="contact__item">
-                  <small>Почта:</small>
-                  <a href="mailto:hr@loaderpro.ru">hr@loaderpro.ru</a>
-                </div>
-              </div>
-              <button
-                className="button button__primary"
-                onClick={() => setModalOpen(false)}
-              >
-                Посмотреть другие вакансии
-              </button>
+      <Modal isShow={modalOpen} onClose={() => setModalOpen(false)}>
+        <div className="vacancy-modal">
+          <div className="vacancy-modal__text">
+            <div className="vacancy-modal__head">
+              <p className="h1">Крючкова Надежда Андреевна</p>
+              <small>Специалист по подбору персонала</small>
             </div>
-            <div className="vacancy-modal__image">
-              <picture>
-                <source srcSet="/images/vacancy/hr.jpg" />
-                <img src="/images/vacancy/hr.jpg" alt="" decoding="async" />
-              </picture>
+            <p>
+              Здравствуйте! Меня зовут Надежда, я HR-менеджер в компании ООО
+              “Спецмашина”!
+            </p>
+            <p>
+              Отправьте своё резюме с указанием должности или позвоните и
+              запишитесь на собеседование.
+            </p>
+            <div className="contact__info">
+              <div className="contact__item">
+                <small>Телефон:</small>
+                <a href="tel:+79045560011">+7 (904) 556-00-11</a>
+              </div>
+              <div className="contact__item">
+                <small>Почта:</small>
+                <a href="mailto:hr@loaderpro.ru">hr@loaderpro.ru</a>
+              </div>
             </div>
+            <button
+              className="button button__primary"
+              onClick={() => setModalOpen(false)}
+            >
+              Посмотреть другие вакансии
+            </button>
           </div>
-        </Modal>
-      )}
+          <div className="vacancy-modal__image">
+            <picture>
+              <source srcSet="/images/vacancy/hr.jpg" />
+              <img src="/images/vacancy/hr.jpg" alt="" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </Modal>
       <section className="vacancy-inner">
         <div className="container">
           <div className="vacancy-inner__head">
