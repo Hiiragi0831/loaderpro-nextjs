@@ -27,6 +27,7 @@ const Products: FC<Props> = ({ filter, limit }) => {
     }
   };
 
+
   switch (filter) {
     case "popular":
       filteredProducts = data.slice(0, limit);

@@ -9,14 +9,11 @@ import IconHeart from "@/icons/heart.svg";
 import IconCart from "@/icons/cart-shopping.svg";
 import { MobileNav } from "@/components/MobileNav";
 import { useLockBodyScroll, useToggle } from "react-use";
-import {useSession} from "next-auth/react";
+import { ProfileButton } from "@/components/ProfileButton";
 
 const Header = () => {
   const [active, setActive] = useToggle(false);
   useLockBodyScroll(active);
-  const { data: session } = useSession();
-
-  console.log(session);
 
   return (
     <>
@@ -27,7 +24,7 @@ const Header = () => {
               <div className="header__top-links">
                 <Link href={"/dealer"}>Дилерам</Link>
                 <Link href={"/suppliers"}>Поставщикам</Link>
-                <Link href={"/account"}>Личный кабинет</Link>
+                <ProfileButton />
               </div>
               <p className="text-uppercase">
                 Ваша техника под надежной защитой
