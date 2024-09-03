@@ -10,9 +10,12 @@ import IconCart from "@/icons/cart-shopping.svg";
 import { MobileNav } from "@/components/MobileNav";
 import { useLockBodyScroll, useToggle } from "react-use";
 import { ProfileButton } from "@/components/ProfileButton";
+import { AuthModal } from "@/components/AuthModal";
+import { useState } from "react";
 
 const Header = () => {
   const [active, setActive] = useToggle(false);
+  const [modalOpen, setModalOpen] = useState(false);
   useLockBodyScroll(active);
 
   return (
@@ -24,7 +27,11 @@ const Header = () => {
               <div className="header__top-links">
                 <Link href={"/dealer"}>Дилерам</Link>
                 <Link href={"/suppliers"}>Поставщикам</Link>
-                <ProfileButton />
+                <AuthModal
+                  isShow={modalOpen}
+                  onClose={() => setModalOpen(false)}
+                />
+                <ProfileButton onClickSignIn={() => setModalOpen(true)} />
               </div>
               <p className="text-uppercase">
                 Ваша техника под надежной защитой
