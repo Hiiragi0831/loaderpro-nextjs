@@ -10,14 +10,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
+
       async authorize(credentials: any) {
         if (!credentials) {
           return null;
         }
 
-        const values = {
-          email: credentials.email,
-        };
+        // const values = {
+        //   email: credentials.email,
+        // };
 
         const findUser = await api.getUsers();
         console.log(findUser);
@@ -39,13 +40,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         //   return null;
         // }
         //
-        // return {
-        //   id: findUser.id,
-        //   email: findUser.email,
-        //   name: findUser.firstname,
-        //   role: findUser.role,
-        // };
+        return {
+          id: findUser.id,
+          email: findUser.email,
+          name: findUser.firstname,
+          role: findUser.role,
+        };
       },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: "jwt",
+  },
 });

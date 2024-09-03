@@ -20,6 +20,7 @@ const Header = () => {
 
   return (
     <>
+      <AuthModal isShow={modalOpen} onClose={() => setModalOpen(false)} />
       <header className="header">
         <div className="header__top">
           <div className="container">
@@ -27,10 +28,6 @@ const Header = () => {
               <div className="header__top-links">
                 <Link href={"/dealer"}>Дилерам</Link>
                 <Link href={"/suppliers"}>Поставщикам</Link>
-                <AuthModal
-                  isShow={modalOpen}
-                  onClose={() => setModalOpen(false)}
-                />
                 <ProfileButton onClickSignIn={() => setModalOpen(true)} />
               </div>
               <p className="text-uppercase">
