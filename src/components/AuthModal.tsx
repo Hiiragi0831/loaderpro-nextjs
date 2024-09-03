@@ -1,12 +1,19 @@
 import { FC } from "react";
 import { Modal } from "@/components/Modal";
+import { useForm } from "react-hook-form";
+
 interface Props {
   isShow: boolean;
   onClose: () => void;
 }
 
 export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
-  const form = useFo
+  const form = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
   return (
     <Modal isShow={isShow} onClose={onClose}>
       <label className="form__input">
