@@ -4,7 +4,6 @@ import Credentials from "next-auth/providers/credentials";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
-      name: "Credentials",
       credentials: {
         email: { label: "Email" },
         password: { label: "Password", type: "password" },
