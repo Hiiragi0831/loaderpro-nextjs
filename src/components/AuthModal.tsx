@@ -45,7 +45,7 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
     <Modal isShow={isShow} onClose={onClose}>
       <form
         action={async (formData) => {
-          await signIn("credentials", { formData, redirect: false });
+          await signIn("Сredentials", { formData, redirect: false });
         }}
       >
         <label className="form__input">
