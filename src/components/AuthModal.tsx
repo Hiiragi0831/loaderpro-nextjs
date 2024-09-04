@@ -1,4 +1,3 @@
-"use client";
 import { FC } from "react";
 import { Modal } from "@/components/Modal";
 import { SignIn } from "@/components/forms/sign-in";
