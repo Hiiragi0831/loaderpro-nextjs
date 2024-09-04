@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { api } from "@/services/api";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -11,20 +10,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const users = await api.getUsers();
+        const res = await fetch("https://api.cartrac.ru/Main/auth_user/", {
+          method: "POST",
+          body: JSON.stringify(credentials),
+          headers: { "Content-Type": "application/json" },
+        });
+        const user = await res.json();
 
-        // const response = await fetch("https://api.cartrac.ru/Main/auth_user/");
-        // if (!response.ok) return null;
-        // return (await response.json()) ?? null;
-
-        const user = users.find(
-          (user) =>
-            user.email === credentials.email &&
-            user.password === credentials.password,
-        );
-        return user
-          ? { id: user.id, name: user.firstname, email: user.email }
-          : null;
+        // If no error and we have user data, return it
+        if (res.ok && user) {
+          return user;
+        }
+        // Return null if user data could not be retrieved
+        return null;
       },
     }),
   ],
