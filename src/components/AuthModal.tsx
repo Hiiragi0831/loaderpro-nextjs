@@ -43,21 +43,23 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
 
   return (
     <Modal isShow={isShow} onClose={onClose}>
-      <FormProvider {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <label className="form__input">
-            <input type="text" placeholder="Emal" name="email" />
-            <span>email</span>
-          </label>
-          <label className="form__input">
-            <input type="password" placeholder="Пароль" name="password" />
-            <span>Пароль</span>
-          </label>
-          <button type="submit">
-            {form.formState.isSubmitting ? "Вход..." : "Войти"}
-          </button>
-        </form>
-      </FormProvider>
+      <form
+        action={async (formData) => {
+          await signIn("credentials", { formData, redirect: false });
+        }}
+      >
+        <label className="form__input">
+          <input type="text" placeholder="Emal" name="email" />
+          <span>email</span>
+        </label>
+        <label className="form__input">
+          <input type="password" placeholder="Пароль" name="password" />
+          <span>Пароль</span>
+        </label>
+        <button type="submit">
+          {form.formState.isSubmitting ? "Вход..." : "Войти"}
+        </button>
+      </form>
     </Modal>
   );
 };
