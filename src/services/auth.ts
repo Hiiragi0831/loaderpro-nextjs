@@ -12,6 +12,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
 
       async authorize(credentials: any) {
+        console.log("onSubmit");
         if (!credentials) {
           return null;
         }
@@ -52,5 +53,35 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
+  },
+  callbacks: {
+    async jwt({ token }) {
+      if (!token.email) {
+        return token;
+      }
+
+      // const findUser = await prisma.user.findFirst({
+      //   where: {
+      //     email: token.email,
+      //   },
+      // });
+      //
+      // if (findUser) {
+      //   token.id = String(findUser.id);
+      //   token.email = findUser.email;
+      //   token.fullName = findUser.fullName;
+      //   token.role = findUser.role;
+      // }
+
+      return token;
+    },
+    session({ session, token }) {
+      // if (session?.user) {
+      //   session.user.id = token.id;
+      //   session.user.role = token.role;
+      // }
+
+      return session;
+    },
   },
 });

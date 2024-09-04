@@ -46,8 +46,8 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <label className="form__input">
-            <input type="text" placeholder="Emal" name="emal" />
-            <span>Emal</span>
+            <input type="text" placeholder="Emal" name="email" />
+            <span>email</span>
           </label>
           <label className="form__input">
             <input type="password" placeholder="Пароль" name="password" />
