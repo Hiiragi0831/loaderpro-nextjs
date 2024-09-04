@@ -9,7 +9,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const res = await fetch("https://api.cartrac.ru/Main/auth_user/", {
+        const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/auth/", {
           method: "POST",
           body: JSON.stringify(credentials),
           headers: { "Content-Type": "application/json" },
@@ -18,7 +18,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         // If no error and we have user data, return it
         if (res.ok && user) {
-          return user;
+          return user.data;
         }
         // Return null if user data could not be retrieved
         return null;
