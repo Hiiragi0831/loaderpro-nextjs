@@ -5,14 +5,14 @@ export const passwordSchema = z
   .min(4, { message: "Введите корректный пароль" });
 
 export const formLoginSchema = z.object({
-  email: z.string().email({ message: "Введите корректную почту" }),
+  email: z.string().email({ message: "Введите корректную почту" }).min(5),
   password: passwordSchema,
 });
 
 export const formRegisterSchema = formLoginSchema
   .merge(
     z.object({
-      fullName: z.string().min(2, { message: "Введите имя и фамилию" }),
+      email: z.string().email({ message: "Введите корректную почту" }),
       confirmPassword: passwordSchema,
     }),
   )

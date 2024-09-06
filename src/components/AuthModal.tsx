@@ -1,8 +1,8 @@
 "use client";
 import { FC } from "react";
 import { Modal } from "@/components/Modal";
-import { signIn } from "@/services/auth";
-import { FormProvider, useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formLoginSchema, TFormLoginValues } from "@/common/shemas";
 
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
-  const form = useForm<TFormLoginValues>({
+  const { register, handleSubmit } = useForm<TFormLoginValues>({
     resolver: zodResolver(formLoginSchema),
     defaultValues: {
       email: "",
@@ -40,19 +40,23 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
 
   return (
     <Modal isShow={isShow} onClose={onClose}>
-      <FormProvider {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <label>
-            Email
-            <input name="email" type="email" />
-          </label>
-          <label>
-            Password
-            <input name="password" type="password" />
-          </label>
-          <button type={"submit"}>Sign In</button>
-        </form>
-      </FormProvider>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>
+          Email
+          <input
+            type="email"
+            {...register("email", { required: true, maxLength: 20 })}
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            {...register("password", { required: true, maxLength: 20 })}
+          />
+        </label>
+        <button type={"submit"}>Sign In</button>
+      </form>
     </Modal>
   );
 };
