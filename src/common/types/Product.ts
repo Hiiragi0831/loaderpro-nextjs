@@ -54,7 +54,7 @@ export type Product = {
 //     ],
 //     "weight": "7,24",
 //     "description": "",
-//     "img-drop": [
+//     "image": [
 //       "b841584de7d1645c72d3db9679642491.jpeg",
 //       "b841584de7d1645c72d3db9679642491.jpeg",
 //       "b841584de7d1645c72d3db9679642491.jpeg"

@@ -15,6 +15,16 @@ class APIService {
     }
   }
 
+  public async getProduct(id: string | string[]): Promise<Product> {
+    try {
+      const res = await fetch(`https://api.cartrac.ru/catalog/${id}`);
+      return res.json();
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  }
+
   public async getArticles(): Promise<Article[]> {
     try {
       const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/articles");
@@ -28,30 +38,6 @@ class APIService {
   public async getUsers(): Promise<User[]> {
     try {
       const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/users/");
-      return res.json();
-    } catch (error: any) {
-      console.error("Error fetching:", error.message);
-      throw error;
-    }
-  }
-
-  public async getArticle(id: string): Promise<Article> {
-    try {
-      const res = await fetch(
-        `https://76fbb2aa70af7ba2.mokky.dev/articles/${id}`,
-      );
-      return res.json();
-    } catch (error: any) {
-      console.error("Error fetching:", error.message);
-      throw error;
-    }
-  }
-
-  public async getProduct(id: string | string[]): Promise<Product> {
-    try {
-      const res = await fetch(
-        `https://76fbb2aa70af7ba2.mokky.dev/catalog/${id}`,
-      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -79,24 +65,6 @@ class APIService {
     }
   }
 
-  public async getAllCategory(): Promise<Category[]> {
-    try {
-      const res = await fetch(`https://76fbb2aa70af7ba2.mokky.dev/category/`);
-      return res.json();
-    } catch (error: any) {
-      console.error("Error fetching:", error.message);
-      throw error;
-    }
-  }
-  public async getTeams(): Promise<Category[]> {
-    try {
-      const res = await fetch(`https://76fbb2aa70af7ba2.mokky.dev/teams/`);
-      return res.json();
-    } catch (error: any) {
-      console.error("Error fetching:", error.message);
-      throw error;
-    }
-  }
   public async getYoutubeVideos(): Promise<any> {
     const YOUTUBE_API = "https://www.googleapis.com/youtube/v3/playlistItems";
     const YOUTUBE_KEY = "AIzaSyA2UEjRCI--QCtdYoA_jeN5s84htgXNyF0";

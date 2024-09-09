@@ -1,23 +1,39 @@
-import { api } from "@/services/api";
 import Category from "./Category";
-import { useLayoutEffect, useState } from "react";
 import { Category as CategoryType } from "@/common/types/Category";
 
 const Categories = () => {
-  const [data, setData] = useState<CategoryType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const loadProducts = async () => {
-    try {
-      const data = await api.getAllCategory();
-      setData(data);
-      setIsLoading(false);
-    } catch (error: any) {
-      console.error("Error fetching:", error.message);
-    }
-  };
-
-  useLayoutEffect(() => void loadProducts(), []);
+  const data = [
+    {
+      id: 1,
+      title: "Запасные части",
+      image: "/assets/images/cat-01.jpg",
+      popular: true,
+    },
+    {
+      id: 2,
+      title: "Шины и диски",
+      image: "/assets/images/cat-02.jpg",
+      popular: true,
+    },
+    {
+      id: 3,
+      title: "Ремонт и обслуживание",
+      image: "/assets/images/cat-03.jpg",
+      popular: true,
+    },
+    {
+      id: 4,
+      title: "Подбор запчастей",
+      image: "/assets/images/cat-04.jpg",
+      popular: true,
+    },
+    {
+      id: 5,
+      title: "Фильтры",
+      image: "/assets/images/cat-05.jpg",
+      popular: true,
+    },
+  ];
 
   return (
     <section className="category__section">
@@ -26,9 +42,9 @@ const Categories = () => {
           <span className="h1">Популярные категории</span>
         </div>
         <div className="row">
-          {isLoading
-            ? "Загрузка"
-            : data.map((item) => <Category key={item.id} {...item} />)}
+          {data.map((item: CategoryType) => (
+            <Category key={item.id} {...item} />
+          ))}
         </div>
       </div>
     </section>
