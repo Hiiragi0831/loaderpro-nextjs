@@ -15,6 +15,7 @@ export const VideoBlock: FC<VideoBlockType> = ({ id, className }) => {
   const [toggler, setToggler] = useState(false);
   const [productIndex, setProductIndex] = useState(0);
   const { video, isLoading } = useVideo(id);
+  const sources: any = [video.link];
 
   return (
     <div className={`videoblock ${className ? className : ""}`}>
@@ -39,7 +40,7 @@ export const VideoBlock: FC<VideoBlockType> = ({ id, className }) => {
           <p className="h1 videoblock__title">{video.title}</p>
           <FsLightbox
             toggler={toggler}
-            source={video.link}
+            sources={[sources[productIndex]]}
             key={productIndex}
           />
         </>
