@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
 import IconXmark from "@/icons/xmark-solid.svg";
-import IconLogo from "@/icons/logo.svg";
 
 type Props = {
   onClose: () => void;
