@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formLoginSchema, TFormLoginValues } from "@/common/shemas";
 import IconLogo from "@/icons/logo.svg";
-import { Notifications } from "@/utils/notifications";
 
 interface Props {
   isShow: boolean;
@@ -25,13 +24,6 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
   const { errors } = formState;
 
   if (errors) {
-    if (errors.email) {
-      Notifications.error(`${errors.email.message}`);
-    }
-    if (errors.password) {
-      Notifications.error(`${errors.password.message}`);
-    }
-
     console.log(errors);
   }
 
@@ -42,12 +34,12 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
         redirect: false,
       });
 
-      if (!resp?.ok) {
+      if (resp?.error) {
         throw Error();
+      } else {
+        console.log("Вы успешно вошли в аккаунт");
+        onClose?.();
       }
-      console.log("Вы успешно вошли в аккаунт");
-
-      onClose?.();
     } catch (error) {
       console.error("Error [LOGIN]", error);
     }
