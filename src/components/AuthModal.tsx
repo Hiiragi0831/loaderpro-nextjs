@@ -5,6 +5,8 @@ import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formLoginSchema, TFormLoginValues } from "@/common/shemas";
+import IconLogo from "@/icons/logo.svg";
+import { Notifications } from "@/utils/notifications";
 
 interface Props {
   isShow: boolean;
@@ -12,13 +14,26 @@ interface Props {
 }
 
 export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
-  const { register, handleSubmit } = useForm<TFormLoginValues>({
+  const { register, handleSubmit, formState } = useForm<TFormLoginValues>({
     resolver: zodResolver(formLoginSchema),
     defaultValues: {
       email: "",
       password: "",
     },
   });
+
+  const { errors } = formState;
+
+  if (errors) {
+    if (errors.email) {
+      Notifications.error(`${errors.email.message}`);
+    }
+    if (errors.password) {
+      Notifications.error(`${errors.password.message}`);
+    }
+
+    console.log(errors);
+  }
 
   const onSubmit = async (data: TFormLoginValues) => {
     try {
@@ -39,24 +54,35 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
   };
 
   return (
-    <Modal isShow={isShow} onClose={onClose}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          Email
-          <input
-            type="email"
-            {...register("email", { required: true, maxLength: 20 })}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            {...register("password", { required: true, maxLength: 20 })}
-          />
-        </label>
-        <button type={"submit"}>Sign In</button>
-      </form>
+    <Modal isShow={isShow} onClose={onClose} className={"auth-modal"}>
+      <div className={"auth-modal__content"}>
+        <div className="auth-modal__logo">
+          <IconLogo />
+        </div>
+        <hr />
+        <p className="h2">Авторизоваться</p>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label className="form__input">
+            <input
+              type="email"
+              placeholder="Email"
+              {...register("email", { required: true, maxLength: 20 })}
+            />
+            <span>Email</span>
+          </label>
+          <label className="form__input">
+            <input
+              type="Password"
+              placeholder="Пароль"
+              {...register("password", { required: true, maxLength: 20 })}
+            />
+            <span>Пароль</span>
+          </label>
+          <button type={"submit"} className={"button button__primary"}>
+            Войти
+          </button>
+        </form>
+      </div>
     </Modal>
   );
 };
