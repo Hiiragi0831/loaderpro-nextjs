@@ -16,7 +16,7 @@ export const VacancyItem = () => {
       <div className="vacancy-item__body">
         <div className="vacancy__info">
           <p>Требуемый опыт работы: не требуется</p>
-          <p>Полная занятость, удаленная работа</p>
+          <p>Полная занятость, удаленная работа.</p>
         </div>
         <div className="vacancy__buttons">
           <Link className="button button__outline" href={"/vacancy/manager"}>

@@ -24,7 +24,7 @@ export default function VacancyManager() {
             </p>
             <p>
               Отправьте своё резюме с указанием должности или позвоните и
-              запишитесь на собеседование.
+              запишитесь на собеседование
             </p>
             <div className="contact__info">
               <div className="contact__item">
