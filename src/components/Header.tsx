@@ -68,7 +68,7 @@ const Header = () => {
                 </label>
               </form>
               <div className="header__action">
-                <Link href={"/selectionparts"} className={"for-desktop"}>
+                <Link href={"/selection-parts"} className={"for-desktop"}>
                   <IconRectangle />
                   <span>Запросы</span>
                 </Link>
