@@ -4,7 +4,7 @@ import { VacancyItem } from "./components/VacancyItem";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Вакансии компании СПЕЦМАШИНА.",
+  title: "Вакансии компании СПЕЦМАШИНА",
 };
 
 export default function vacancy() {
