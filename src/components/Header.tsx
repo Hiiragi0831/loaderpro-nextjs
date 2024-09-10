@@ -11,6 +11,7 @@ import { MobileNav } from "@/components/MobileNav";
 import { useLockBodyScroll, useToggle } from "react-use";
 import { ProfileButton } from "@/components/ProfileButton";
 import { AuthModal } from "@/components/AuthModal";
+import { HeaderSearch } from "@/components/HeaderSearch";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 
@@ -59,14 +60,7 @@ const Header = () => {
               <Link className="header__logo" href="/">
                 <IconLogo />
               </Link>
-              <form className="header__search">
-                <label>
-                  <input type="text" name="search" placeholder="Поиск товара" />
-                  <button type="submit">
-                    <IconMagnifying />
-                  </button>
-                </label>
-              </form>
+              <HeaderSearch />
               <div className="header__action">
                 <Link href={"/selection-parts"} className={"for-desktop"}>
                   <IconRectangle />
