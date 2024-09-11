@@ -10,10 +10,6 @@ import { Product as ProductType } from "../common/types/Product";
 import { useBasket } from "@/store/basket";
 import { useFavorite } from "@/store/favorite";
 import { getPriceFormat } from "@/utils/getPriceFormat";
-import {
-  getProductStatus,
-  getProductStatusColor,
-} from "@/utils/getProductStatus";
 import Link from "next/link";
 
 type Props = Pick<
@@ -39,10 +35,18 @@ const Product: FC<Props> = (data) => {
         <Link href={`/products/${data.id}`}>
           <picture>
             <source
-              srcSet={`https://my.loaderpro.ru/images/products/${data.image}`}
+              srcSet={
+                data.image
+                  ? `https://my.loaderpro.ru/images/products/${data.image}`
+                  : "https://my.loaderpro.ru/images/no-photo.svg"
+              }
             />
             <img
-              src={`https://my.loaderpro.ru/images/products/${data.image}`}
+              src={
+                data.image
+                  ? `https://my.loaderpro.ru/images/products/${data.image}`
+                  : "https://my.loaderpro.ru/images/no-photo.svg"
+              }
               alt=""
               decoding="async"
             />
@@ -59,17 +63,18 @@ const Product: FC<Props> = (data) => {
       </div>
       <div className="product__main">
         <div
-          className={`product__status product__status--${getProductStatusColor(data.status)}`}
+          className={`product__status product__status--${data.status.value}`}
         >
           <span />
-          <p>{getProductStatus(data.status)}</p>
+          <p>{data.status.name}</p>
         </div>
         <div className="product__title">
           <Link href={`/products/${data.id}`}>{data.productname}</Link>
         </div>
       </div>
       <div className="product__buttons">
-        {data.status === "Нет в наличии" ? (
+        {data.status.name === "Нет предложений" ||
+        data.status.name === "В идентификации" ? (
           <>
             <button className="button button__primary">Запросить</button>
           </>

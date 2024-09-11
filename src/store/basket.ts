@@ -1,8 +1,7 @@
 import CloneDeep from "lodash-es/cloneDeep";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-import { Notifications } from "@/utils/notifications";
+import { toast } from "react-toastify";
 
 type Store = {
   basket: any;
@@ -22,12 +21,13 @@ export const useBasket = create<Store>()(
       loading: false,
       error: null,
       addToBasket: (id, count) => {
+        console.log(id, count);
         const products = CloneDeep(get().basket);
         const product = products.find(
           (element: { id: number }) => element.id === id,
         );
 
-        Notifications.success(`Товар добавлен в корзину`);
+        toast.success("Товар добавлен в корзину");
 
         if (product) {
           product.quantity = product.quantity + count;
@@ -63,7 +63,7 @@ export const useBasket = create<Store>()(
           (element: { id: number }) => element.id === id,
         );
         products.splice(product, 1);
-        Notifications.success(`Товар удален из корзины`);
+        toast.success(`Товар удален из корзины`);
         set({ basket: products });
       },
       countChange: (id, count) => {

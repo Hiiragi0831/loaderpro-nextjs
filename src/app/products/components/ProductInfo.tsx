@@ -1,35 +1,35 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
-import { Product as ProductType } from "@/common/types/Product";
-import { Brand as BrandType } from "@/common/types/Brand";
+import { Key, useLayoutEffect, useState } from "react";
+import { SingleProduct } from "@/common/types/Product";
+// import { Brand as BrandType } from "@/common/types/Brand";
 import { useBasket } from "@/store/basket";
 import { api } from "@/services/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Thumbs } from "swiper/modules";
-import {
-  getProductStatus,
-  getProductStatusColor,
-} from "@/utils/getProductStatus";
 
 export default function ProductInfo(prop: any) {
   const id = prop.id;
-  const [data, setData] = useState<ProductType>({
+  const [data, setData] = useState<SingleProduct>({
     id: 0,
     productname: "",
     price: 0,
     count: 0,
     description: "",
-    image: "",
-    article: 0,
-    weight: 0,
-    status: "Нет в наличии",
-    brand: -1,
+    image: [],
+    article: "",
+    weight: "",
+    status: {
+      id: 0,
+      name: "",
+      value: "",
+    },
+    brand: "",
   });
-  const [brand, setBrand] = useState<BrandType>({
-    id: -1,
-    name: "",
-  });
+  // const [brand, setBrand] = useState<BrandType>({
+  //   id: -1,
+  //   name: "",
+  // });
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
@@ -59,21 +59,36 @@ export default function ProductInfo(prop: any) {
     }
   };
 
-  const loadBrands = async () => {
-    if (data.brand === -1) {
-      return;
-    }
-    try {
-      const props = await api.getBrand(data.brand);
-      setBrand(props);
-    } catch (error) {
-      // @ts-expect-error @ts-expect-error
-      console.error("Error fetching:", error.message);
-    }
+  // const loadBrands = async () => {
+  //   if (data.brand === -1) {
+  //     return;
+  //   }
+  //   try {
+  //     const props = await api.getBrand(data.brand);
+  //     setBrand(props);
+  //   } catch (error) {
+  //     // @ts-expect-error @ts-expect-error
+  //     console.error("Error fetching:", error.message);
+  //   }
+  // };
+
+  const images = (items: []) => {
+    return items.map((item: any, index: Key | null | undefined) => (
+      <SwiperSlide key={index}>
+        <picture>
+          <source srcSet={`https://my.loaderpro.ru/images/products/${item}`} />
+          <img
+            src={`https://my.loaderpro.ru/images/products/${item}`}
+            alt=""
+            decoding="async"
+          />
+        </picture>
+      </SwiperSlide>
+    ));
   };
 
   useLayoutEffect(() => void loadArticle(), []);
-  useEffect(() => void loadBrands(), [data.brand]);
+  // useEffect(() => void loadBrands(), [data.brand]);
 
   return (
     <section className="commodity__section">
@@ -95,76 +110,7 @@ export default function ProductInfo(prop: any) {
                     thumbs={{ swiper: thumbsSwiper }}
                     modules={[Thumbs]}
                   >
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
+                    {images(data.image)}
                   </Swiper>
                 </div>
                 <div className="commodity__gallery-thumb">
@@ -176,86 +122,17 @@ export default function ProductInfo(prop: any) {
                     watchSlidesProgress={true}
                     modules={[FreeMode, Thumbs]}
                   >
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <picture>
-                        <source srcSet="/images/image_1.png" />
-                        <img
-                          src="/images/image_1.png"
-                          alt=""
-                          decoding="async"
-                        />
-                      </picture>
-                    </SwiperSlide>
+                    {images(data.image)}
                   </Swiper>
                 </div>
               </div>
               <div className="commodity__info">
                 <div className="commodity__info-box">
                   <div
-                    className={`commodity__availability commodity__availability--${getProductStatusColor(data.status)}`}
+                    className={`commodity__availability commodity__availability--${data.status.value}`}
                   >
                     <span />
-                    <p>{getProductStatus(data.status)}</p>
+                    <p>{data.status.name}</p>
                   </div>
                   <div className="commodity__specifications">
                     <div className="commodity__specification">
@@ -264,21 +141,25 @@ export default function ProductInfo(prop: any) {
                     </div>
                     <div className="commodity__specification">
                       <p>Бренд</p>
-                      <span>{brand.name}</span>
+                      <span>{data.brand}</span>
                     </div>
-                    <div className="commodity__specification">
-                      <p>Бренд</p>
-                      <span>JUNGHEINRICH</span>
-                    </div>
-                    <div className="commodity__specification">
-                      <p>Бренд</p>
-                      <span>JUNGHEINRICH</span>
-                    </div>
+                    {data.options?.map((option: any) => (
+                      <div className="commodity__specification" key={option.id}>
+                        <p>{option.name}</p>
+                        <span>{option.value}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 <div className="commodity__description">
-                  <h5>Описание</h5>
-                  <p>{data.description}</p>
+                  {data.description ? (
+                    <>
+                      <h5>Описание</h5>
+                      <p>{data.description}</p>
+                    </>
+                  ) : (
+                    ""
+                  )}
                   <picture>
                     <source srcSet="/images/product/hero.png" />
                     <img
@@ -293,7 +174,7 @@ export default function ProductInfo(prop: any) {
                     <span>Цена:</span>
                     <p>{price} ₽</p>
                   </div>
-                  {getProductStatus(data.status) === "Нет в наличии" ? (
+                  {data.status.name === "Нет в наличии" ? (
                     <>
                       <label className="commodity__input">
                         <input type="email" name="email" placeholder="Email" />

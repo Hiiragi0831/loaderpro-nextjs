@@ -2,13 +2,41 @@ export type Product = {
   id: number;
   productname: string;
   brand?: number;
-  article?: number;
+  article?: string;
   price: number;
   count?: number;
   image?: string;
-  status: string;
+  status: {
+    id: number;
+    name: string;
+    value: string;
+  };
   description?: string;
-  weight?: number;
+  weight?: string;
+  options?: [
+    {
+      id: number;
+      name: string;
+      value: string;
+    },
+  ];
+};
+
+export type SingleProduct = {
+  id: number;
+  productname: string;
+  brand: string;
+  article: string;
+  price: number;
+  count?: number;
+  image: [];
+  status: {
+    id: number;
+    name: string;
+    value: string;
+  };
+  description?: string;
+  weight?: string;
   options?: [
     {
       id: number;

@@ -1,7 +1,6 @@
 import { Article } from "@/common/types/Article";
 import { Brand } from "@/common/types/Brand";
-import { Category } from "@/common/types/Category";
-import { Product } from "@/common/types/Product";
+import { Product, SingleProduct } from "@/common/types/Product";
 import { User } from "@/common/types/User";
 
 class APIService {
@@ -15,7 +14,7 @@ class APIService {
     }
   }
 
-  public async getProduct(id: string | string[]): Promise<Product> {
+  public async getProduct(id: string | string[]): Promise<SingleProduct> {
     try {
       const res = await fetch(`https://api.cartrac.ru/catalog/${id}`);
       return res.json();

@@ -1,8 +1,7 @@
 import CloneDeep from "lodash-es/cloneDeep";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-import { Notifications } from "@/utils/notifications";
+import { toast } from "react-toastify";
 
 type Store = {
   favorite: any[];
@@ -22,11 +21,11 @@ export const useFavorite = create<Store>()(
         const index = favorites.indexOf(id);
 
         if (index !== -1) {
-          Notifications.success(`Товар удален из избранного`);
+          toast.success(`Товар удален из избранного`);
           favorites.splice(index, 1);
           set({ favorite: favorites });
         } else {
-          Notifications.success(`Товар добавлен в избранное`);
+          toast.success(`Товар добавлен в избранное`);
           set({ favorite: [...favorites, id] });
         }
       },
