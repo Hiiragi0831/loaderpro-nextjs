@@ -3,7 +3,6 @@ import Link from "next/link";
 import IconLogo from "@/icons/logo.svg";
 import IconMail from "@/icons/mail.svg";
 import IconPhone from "@/icons/phone.svg";
-import IconMagnifying from "@/icons/magnifying-glass.svg";
 import IconRectangle from "@/icons/rectangle-history-circle-plus.svg";
 import IconHeart from "@/icons/heart.svg";
 import IconCart from "@/icons/cart-shopping.svg";
