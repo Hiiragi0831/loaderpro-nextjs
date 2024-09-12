@@ -1,6 +1,7 @@
 import IconMagnifying from "@/icons/magnifying-glass.svg";
 import { useEffect, useState } from "react";
 import { api } from "@/services/api";
+import { useDebounce } from "react-use";
 
 export const HeaderSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,12 +24,15 @@ export const HeaderSearch = () => {
       throw error;
     }
   };
-
-  useEffect(() => {
-    search(searchQuery).then((items: any) => {
-      setSearchData(items);
-    });
-  }, [searchQuery]);
+  useDebounce(
+    () => {
+      search(searchQuery).then((items: any) => {
+        setSearchData(items);
+      });
+    },
+    500,
+    [searchQuery],
+  );
 
   console.log(searchData);
 
