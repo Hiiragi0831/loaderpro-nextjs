@@ -4,23 +4,33 @@ import { api } from "@/services/api";
 
 export const HeaderSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchData, setSearchData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const search = async (data: any) => {
-    const fd = {
-      search: data,
-    };
     try {
-      const fdata = api.getSearchResult(fd);
-      console.log(fdata);
+      const fdata = await api.getSearchResult({ search: data });
+      if (fdata.length < 1) {
+        setIsLoading(true);
+        throw new Error("No results found");
+      } else {
+        setIsLoading(false);
+        return fdata;
+      }
     } catch (error: any) {
+      setSearchData([]);
       console.error("Error fetching:", error.message);
       throw error;
     }
   };
 
   useEffect(() => {
-    search(searchQuery);
+    search(searchQuery).then((items: any) => {
+      setSearchData(items);
+    });
   }, [searchQuery]);
+
+  console.log(searchData);
 
   // useDebounse задержка на отправку запроса чтобы не спамить
   // Очистить поисковую строку при клике на результат
@@ -39,6 +49,17 @@ export const HeaderSearch = () => {
           <IconMagnifying />
         </button>
       </label>
+      <div>
+        {isLoading ? (
+          "Загрузка"
+        ) : (
+          <div>
+            {/*{searchData.map((item, index) => (*/}
+            {/*  <p key={index}>{item}</p>*/}
+            {/*))}*/}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
