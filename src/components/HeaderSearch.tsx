@@ -9,18 +9,21 @@ export const HeaderSearch = () => {
     const fd = {
       search: data,
     };
-    // try {
-    //   const fdata = api.getSearchResult(fd);
-    //   console.log(fdata);
-    // } catch (error: any) {
-    //   console.error("Error fetching:", error.message);
-    //   throw error;
-    // }
+    try {
+      const fdata = api.getSearchResult(fd);
+      console.log(fdata);
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
   };
 
   useEffect(() => {
     search(searchQuery);
   }, [searchQuery]);
+
+  // useDebounse задержка на отправку запроса чтобы не спамить
+  // Очистить поисковую строку при клике на результат
 
   return (
     <div className="header__search">
