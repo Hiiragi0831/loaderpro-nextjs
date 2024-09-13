@@ -1,7 +1,9 @@
+"use client";
+
 import IconMagnifying from "@/icons/magnifying-glass.svg";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { api } from "@/services/api";
-import { useDebounce } from "react-use";
+import { debounce } from "lodash-es";
 
 export const HeaderSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,28 +15,23 @@ export const HeaderSearch = () => {
       const fdata = await api.getSearchResult({ search: data });
       if (fdata.length < 1) {
         setIsLoading(true);
-        throw new Error("No results found");
+        setSearchData([]);
       } else {
-        setIsLoading(false);
-        return fdata;
+        setSearchData(fdata || []);
       }
     } catch (error: any) {
       setSearchData([]);
       console.error("Error fetching:", error.message);
       throw error;
+    } finally {
+      setIsLoading(false);
     }
   };
-  useDebounce(
-    () => {
-      search(searchQuery).then((items: any) => {
-        setSearchData(items);
-      });
-    },
-    500,
-    [searchQuery],
-  );
+  const debounced = useRef(debounce(search, 500));
 
-  console.log(searchData);
+  useEffect(() => {
+    debounced.current(searchQuery);
+  }, [searchQuery]);
 
   // useDebounse задержка на отправку запроса чтобы не спамить
   // Очистить поисковую строку при клике на результат
@@ -58,9 +55,9 @@ export const HeaderSearch = () => {
           "Загрузка"
         ) : (
           <div>
-            {/*{searchData.map((item, index) => (*/}
-            {/*  <p key={index}>{item}</p>*/}
-            {/*))}*/}
+            {searchData.map((item, index) => (
+              <p key={index}>{item?.id} - {item?.productname}</p>
+            ))}
           </div>
         )}
       </div>
