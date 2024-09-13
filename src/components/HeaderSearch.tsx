@@ -86,7 +86,9 @@ export const HeaderSearch = () => {
                     decoding="async"
                   />
                 </picture>
-                <span>{item.productname}</span>
+                <span>
+                  {item.productname} {item.brand} {item.article}
+                </span>
               </Link>
             ))}
           </div>
