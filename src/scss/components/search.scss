@@ -1,0 +1,85 @@
+.search {
+	width: 100%;
+	position: relative;
+
+	label {
+		position: relative;
+		display: flex;
+		align-items: center;
+		border: 1px solid $color-woodsmoke-300;
+		border-radius: vc(5);
+		padding: vc(14) vc(20);
+
+		input {
+			width: 100%;
+		}
+
+		button {
+			position: absolute;
+			right: vc(20);
+			width: vc(24);
+			height: vc(24);
+
+			svg {
+				fill: $color-tree-poppy-400;
+			}
+		}
+	}
+
+	&__results {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		background: $color-white;
+		top: vc(56);
+		bottom: 0;
+		height: fit-content;
+		width: 100%;
+		overflow: hidden;
+		border: 1px solid $color-woodsmoke-300;
+		border-radius: vc(5);
+		max-height: 60vh;
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility $transition, opacity $transition;
+
+		@include hover {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	&__wrapper {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: auto;
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		gap: vc(15);
+		padding: vc(10);
+		border-bottom: 1px solid $color-woodsmoke-300;
+		background: $color-white;
+		transition: background $transition;
+
+		@include hover {
+			background: $color-tree-poppy-400;
+		}
+
+		picture {
+			width: vc(50);
+			height: vc(50);
+
+			img {
+				height: 100%;
+				width: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+}

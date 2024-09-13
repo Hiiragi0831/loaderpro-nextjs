@@ -18,32 +18,6 @@
 		}
 	}
 
-	&__search {
-		label {
-			position: relative;
-			display: flex;
-			align-items: center;
-			border: 1px solid $color-woodsmoke-300;
-			border-radius: vc(5);
-			padding: vc(14) vc(20);
-
-			input {
-				width: 100%;
-			}
-
-			button {
-				position: absolute;
-				right: vc(20);
-				width: vc(24);
-				height: vc(24);
-
-				svg {
-					fill: $color-tree-poppy-400;
-				}
-			}
-		}
-	}
-
 	&__action {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
@@ -189,7 +163,9 @@
 	}
 
 	&__main {
+		position: relative;
 		padding: vc(15) 0;
+		z-index: 2;
 
 		.row {
 			display: grid;
