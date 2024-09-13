@@ -4,6 +4,7 @@ import IconMagnifying from "@/icons/magnifying-glass.svg";
 import { useEffect, useRef, useState } from "react";
 import { api } from "@/services/api";
 import { debounce } from "lodash-es";
+import { Product } from "@/common/types/Product";
 
 export const HeaderSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -55,8 +56,10 @@ export const HeaderSearch = () => {
           "Загрузка"
         ) : (
           <div>
-            {searchData.map((item, index) => (
-              <p key={index}>{item?.id} - {item?.productname}</p>
+            {searchData.map((item: Product, index) => (
+              <p key={index}>
+                {item?.id} - {item?.productname}
+              </p>
             ))}
           </div>
         )}
