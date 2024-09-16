@@ -1,10 +1,14 @@
+"use client";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 
 const BasketItems = dynamic(() => import("./BasketItems"), {
   ssr: false,
 });
 
 export default function Basket() {
+  const [delivery, setDelivery] = useState(false);
+
   return (
     <main>
       <section className="basket">
@@ -35,81 +39,59 @@ export default function Basket() {
               </div>
               <div className="basket__form-data">
                 <label className="form__select">
-                  <select name="pay" defaultValue="0">
-                    <option value="0" label="Оплата 1">
-                      0
-                    </option>
-                    <option value="1" label="Оплата 2">
-                      1
-                    </option>
-                    <option value="2" label="Оплата 3">
-                      2
-                    </option>
+                  <select name="pay">
+                    <option value="0" label="Оплата по счету" />
+                    <option value="1" label="Оплата картой" />
                   </select>
                   <span>Способ оплаты</span>
                 </label>
                 <label className="form__select">
-                  <select name="delivery" defaultValue="0">
-                    <option value="0" label="Доставка 1">
-                      0
-                    </option>
-                    <option value="1" label="Доставка 2">
-                      1
-                    </option>
-                    <option value="2" label="Доставка 3">
-                      2
-                    </option>
+                  <select
+                    name="delivery"
+                    defaultValue="0"
+                    onChange={(e) => {
+                      if (Number(e.target.value) === 1) {
+                        setDelivery(true);
+                      } else {
+                        setDelivery(false);
+                      }
+                    }}
+                  >
+                    <option value="0" label="Самовывоз Санкт-Петербург" />
+                    <option value="1" label="Доставка" />
                   </select>
                   <span>Доставка</span>
                 </label>
-                <label className="form__select">
-                  <select name="transport" defaultValue="0">
-                    <option value="0" label="Перевозчик 1">
-                      0
-                    </option>
-                    <option value="1" label="Перевозчик 2">
-                      1
-                    </option>
-                    <option value="2" label="Перевозчик 3">
-                      2
-                    </option>
-                  </select>
-                  <span>Перевозчик</span>
-                </label>
-                <label className="form__select">
-                  <select name="method" defaultValue="0">
-                    <option value="0" label="Метод доставки 1">
-                      0
-                    </option>
-                    <option value="1" label="Метод доставки 2">
-                      1
-                    </option>
-                    <option value="2" label="Метод доставки 3">
-                      2
-                    </option>
-                  </select>
-                  <span>Метод доставки</span>
-                </label>
-                <label className="form__input">
-                  <input
-                    type="text"
-                    placeholder="Адрес"
-                    name="address"
-                    defaultValue="Санкт-Петербург, Херсонская 2"
-                  />
-                  <span>Адрес</span>
-                </label>
+                {delivery && (
+                  <>
+                    <label className="form__select">
+                      <select name="transport" defaultValue="0">
+                        <option value="0" label="Деловые линии" />
+                        <option value="1" label="СДЭК" />
+                      </select>
+                      <span>Перевозчик</span>
+                    </label>
+                    <label className="form__select">
+                      <select name="method" defaultValue="0">
+                        <option value="0" label="До дверей" />
+                        <option value="1" label="До терминала" />
+                      </select>
+                      <span>Метод доставки</span>
+                    </label>
+                    <label className="form__input">
+                      <input type="text" placeholder="Город" name="city" />
+                      <span>Город</span>
+                    </label>
+                    <label className="form__input">
+                      <input type="text" placeholder="Адрес" name="address" />
+                      <span>Адрес</span>
+                    </label>
+                  </>
+                )}
                 <label className="form__select">
                   <select name="method" defaultValue="0">
-                    <option value="0" label="Приоритет отгрузки 1">
-                      0
-                    </option>
-                    <option value="1" label="Приоритет отгрузки 2">
-                      1
-                    </option>
-                    <option value="2" label="Приоритет отгрузки 3">
-                      2
-                    </option>
+                    <option value="0" label="Отправить имеющееся в наличии" />
+                    <option value="1" label="Укомплектовать полностью" />
                   </select>
                   <span>Приоритет отгрузки</span>
                 </label>
