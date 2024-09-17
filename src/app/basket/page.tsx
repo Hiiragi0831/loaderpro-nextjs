@@ -1,13 +1,75 @@
 "use client";
-import dynamic from "next/dynamic";
-import { useState } from "react";
 
-const BasketItems = dynamic(() => import("./BasketItems"), {
-  ssr: false,
-});
+import { useLayoutEffect, useState } from "react";
+import { useBasket } from "@/store/basket";
+import { useForm } from "react-hook-form";
+import { getPriceFormat } from "@/utils/getPriceFormat";
+import { BasketItem } from "@/components/BasketItem";
+import { Product as ProductsType } from "@/common/types/Product";
+import { api } from "@/services/api";
+
+// const BasketItems = dynamic(() => import("./BasketItems"), {
+//   ssr: false,
+// });
 
 export default function Basket() {
   const [delivery, setDelivery] = useState(false);
+  const [data, setData] = useState<ProductsType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const products = useBasket((state) => state.basket);
+  let total = 0;
+  let filteredProducts = [];
+
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      email: "",
+      phone: "",
+      pay: "",
+      delivery: "",
+      transport: "",
+      methoddelivery: "",
+      city: "",
+      address: "",
+      priority: "",
+    },
+  });
+
+  const loadProducts = async () => {
+    try {
+      const data = await api.getAllProducts();
+      setData(data);
+      setIsLoading(false);
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  };
+
+  const totalFun = (items: any) => {
+    let sum = 0;
+    items.forEach((item: any) => {
+      const product = products.find(
+        (element: { id: number }) => element.id === item.id,
+      );
+      sum += item.price * product.quantity;
+    });
+    return Number(sum);
+  };
+
+  filteredProducts = data
+    .filter((item) =>
+      products.find((element: { id: number }) => element.id === item.id),
+    )
+    .slice(0);
+
+  total = totalFun(filteredProducts);
+
+  const onSubmit = async (data: any) => {
+    const fd = Object.assign({ goods: products }, data);
+    console.log(fd);
+  };
+
+  useLayoutEffect(() => void loadProducts(), []);
 
   return (
     <main>
@@ -25,21 +87,41 @@ export default function Basket() {
                   <p>Всего</p>
                   <p />
                 </div>
-                <BasketItems />
+                {isLoading
+                  ? "Загрузка"
+                  : filteredProducts.map((item) => (
+                      <BasketItem key={item.id} {...item} />
+                    ))}
               </div>
             </div>
-            <div className="basket__form">
+            <form className="basket__form" onSubmit={handleSubmit(onSubmit)}>
               <div className="basket__form-sum">
-                <p>
-                  Итого: <span>11500 руб</span>
-                </p>
                 <b>
-                  Итого со скидкой: <span>10 000 руб</span>
+                  Итого: <span>{getPriceFormat(total)} ₽</span>
                 </b>
+                {/*<b>*/}
+                {/*  Итого со скидкой: <span>10 000 руб</span>*/}
+                {/*</b>*/}
               </div>
               <div className="basket__form-data">
+                <label className="form__input">
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    {...register("email", { required: true })}
+                  />
+                  <span>Email</span>
+                </label>
+                <label className="form__input">
+                  <input
+                    type="text"
+                    placeholder="Телефон"
+                    {...register("phone", { required: true })}
+                  />
+                  <span>Телефон</span>
+                </label>
                 <label className="form__select">
-                  <select name="pay">
+                  <select {...register("pay", { required: true })}>
                     <option value="0" label="Оплата по счету" />
                     <option value="1" label="Оплата картой" />
                   </select>
@@ -47,8 +129,7 @@ export default function Basket() {
                 </label>
                 <label className="form__select">
                   <select
-                    name="delivery"
-                    defaultValue="0"
+                    {...register("delivery", { required: true })}
                     onChange={(e) => {
                       if (Number(e.target.value) === 1) {
                         setDelivery(true);
@@ -65,31 +146,44 @@ export default function Basket() {
                 {delivery && (
                   <>
                     <label className="form__select">
-                      <select name="transport" defaultValue="0">
+                      <select {...register("transport", { required: true })}>
                         <option value="0" label="Деловые линии" />
                         <option value="1" label="СДЭК" />
                       </select>
                       <span>Перевозчик</span>
                     </label>
                     <label className="form__select">
-                      <select name="method" defaultValue="0">
+                      <select
+                        {...register("methoddelivery", { required: true })}
+                      >
                         <option value="0" label="До дверей" />
                         <option value="1" label="До терминала" />
                       </select>
                       <span>Метод доставки</span>
                     </label>
                     <label className="form__input">
-                      <input type="text" placeholder="Город" name="city" />
+                      <input
+                        type="text"
+                        placeholder="Город"
+                        {...register("city", { required: true })}
+                      />
                       <span>Город</span>
                     </label>
                     <label className="form__input">
-                      <input type="text" placeholder="Адрес" name="address" />
+                      <input
+                        type="text"
+                        placeholder="Адрес"
+                        {...register("address", { required: true })}
+                      />
                       <span>Адрес</span>
                     </label>
                   </>
                 )}
                 <label className="form__select">
-                  <select name="method" defaultValue="0">
+                  <select
+                    defaultValue="0"
+                    {...register("priority", { required: true })}
+                  >
                     <option value="0" label="Отправить имеющееся в наличии" />
                     <option value="1" label="Укомплектовать полностью" />
                   </select>
@@ -99,7 +193,7 @@ export default function Basket() {
                   Оформить заказ
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
