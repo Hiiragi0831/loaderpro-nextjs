@@ -93,14 +93,22 @@ export default function Basket() {
         },
       ];
     };
-    console.log(name === "delivery");
 
     const item: any = status.find((item: status) => item.name == name);
 
-    if (item) {
+    if (name === "delivery") {
       return (
         <label className="form__select">
-          <select {...register(item.name, { required: true })}>
+          <select
+            {...register(item.name, { required: true })}
+            onChange={(e) => {
+              if (Number(e.target.value) === 4) {
+                setDelivery(true);
+              } else {
+                setDelivery(false);
+              }
+            }}
+          >
             {item.options.map((option: any) => (
               <option key={option.id} value={option.id} label={option.label} />
             ))}
@@ -110,20 +118,10 @@ export default function Basket() {
       );
     }
 
-    if (name === "delivery") {
+    if (item) {
       return (
         <label className="form__select">
-          <select
-            {...register(item.name, { required: true })}
-            onChange={(e) => {
-              console.log(e.target);
-              if (Number(e.target.label) === 1) {
-                setDelivery(true);
-              } else {
-                setDelivery(false);
-              }
-            }}
-          >
+          <select {...register(item.name, { required: true })}>
             {item.options.map((option: any) => (
               <option key={option.id} value={option.id} label={option.label} />
             ))}
