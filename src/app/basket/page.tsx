@@ -7,6 +7,7 @@ import { getPriceFormat } from "@/utils/getPriceFormat";
 import { BasketItem } from "@/components/BasketItem";
 import { Product as ProductsType } from "@/common/types/Product";
 import { api } from "@/services/api";
+import {toast} from "react-toastify";
 
 // const BasketItems = dynamic(() => import("./BasketItems"), {
 //   ssr: false,
@@ -80,6 +81,15 @@ export default function Basket() {
   const onSubmit = async (data: any) => {
     const fd = Object.assign({ goods: products }, data);
     console.log(fd);
+    try {
+      const fdata = await api.postBasket(fd);
+      if (fdata.ok) {
+        toast.success("Заказ успешно создан");
+      }
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
   };
 
   const select = (name: string) => {
