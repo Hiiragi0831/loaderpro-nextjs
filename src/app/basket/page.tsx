@@ -7,7 +7,7 @@ import { getPriceFormat } from "@/utils/getPriceFormat";
 import { BasketItem } from "@/components/BasketItem";
 import { Product as ProductsType } from "@/common/types/Product";
 import { api } from "@/services/api";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 // const BasketItems = dynamic(() => import("./BasketItems"), {
 //   ssr: false,
