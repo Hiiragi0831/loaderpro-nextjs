@@ -15,7 +15,9 @@ import { api } from "@/services/api";
 export default function Basket() {
   const [delivery, setDelivery] = useState(false);
   const [data, setData] = useState<ProductsType[]>([]);
+  const [status, setStatus] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingStatus, setIsLoadingStatus] = useState(true);
   const products = useBasket((state) => state.basket);
   let total = 0;
   let filteredProducts = [];
@@ -39,6 +41,17 @@ export default function Basket() {
       const data = await api.getAllProducts();
       setData(data);
       setIsLoading(false);
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  };
+
+  const loadBasketStatus = async () => {
+    try {
+      const data = await api.getBasketStatus();
+      setStatus(data);
+      setIsLoadingStatus(false);
     } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;
@@ -69,7 +82,60 @@ export default function Basket() {
     console.log(fd);
   };
 
+  const select = (name: string) => {
+    type status = {
+      name: string;
+      title: string;
+      options: [
+        {
+          id: number;
+          label: string;
+        },
+      ];
+    };
+    console.log(name === "delivery");
+
+    const item: any = status.find((item: status) => item.name == name);
+
+    if (item) {
+      return (
+        <label className="form__select">
+          <select {...register(item.name, { required: true })}>
+            {item.options.map((option: any) => (
+              <option key={option.id} value={option.id} label={option.label} />
+            ))}
+          </select>
+          <span>{item.title}</span>
+        </label>
+      );
+    }
+
+    if (name === "delivery") {
+      return (
+        <label className="form__select">
+          <select
+            {...register(item.name, { required: true })}
+            onChange={(e) => {
+              console.log(e.target);
+              if (Number(e.target.label) === 1) {
+                setDelivery(true);
+              } else {
+                setDelivery(false);
+              }
+            }}
+          >
+            {item.options.map((option: any) => (
+              <option key={option.id} value={option.id} label={option.label} />
+            ))}
+          </select>
+          <span>{item.title}</span>
+        </label>
+      );
+    }
+  };
+
   useLayoutEffect(() => void loadProducts(), []);
+  useLayoutEffect(() => void loadBasketStatus(), []);
 
   return (
     <main>
@@ -120,47 +186,12 @@ export default function Basket() {
                   />
                   <span>Телефон</span>
                 </label>
-                <label className="form__select">
-                  <select {...register("pay", { required: true })}>
-                    <option value="0" label="Оплата по счету" />
-                    <option value="1" label="Оплата картой" />
-                  </select>
-                  <span>Способ оплаты</span>
-                </label>
-                <label className="form__select">
-                  <select
-                    {...register("delivery", { required: true })}
-                    onChange={(e) => {
-                      if (Number(e.target.value) === 1) {
-                        setDelivery(true);
-                      } else {
-                        setDelivery(false);
-                      }
-                    }}
-                  >
-                    <option value="0" label="Самовывоз Санкт-Петербург" />
-                    <option value="1" label="Доставка" />
-                  </select>
-                  <span>Доставка</span>
-                </label>
+                {isLoadingStatus ? "" : select("pay")}
+                {isLoadingStatus ? "" : select("delivery")}
                 {delivery && (
                   <>
-                    <label className="form__select">
-                      <select {...register("transport", { required: true })}>
-                        <option value="0" label="Деловые линии" />
-                        <option value="1" label="СДЭК" />
-                      </select>
-                      <span>Перевозчик</span>
-                    </label>
-                    <label className="form__select">
-                      <select
-                        {...register("methoddelivery", { required: true })}
-                      >
-                        <option value="0" label="До дверей" />
-                        <option value="1" label="До терминала" />
-                      </select>
-                      <span>Метод доставки</span>
-                    </label>
+                    {isLoadingStatus ? "" : select("transport")}
+                    {isLoadingStatus ? "" : select("methoddelivery")}
                     <label className="form__input">
                       <input
                         type="text"
@@ -179,16 +210,7 @@ export default function Basket() {
                     </label>
                   </>
                 )}
-                <label className="form__select">
-                  <select
-                    defaultValue="0"
-                    {...register("priority", { required: true })}
-                  >
-                    <option value="0" label="Отправить имеющееся в наличии" />
-                    <option value="1" label="Укомплектовать полностью" />
-                  </select>
-                  <span>Приоритет отгрузки</span>
-                </label>
+                {isLoadingStatus ? "" : select("priority")}
                 <button className="button button__primary">
                   Оформить заказ
                 </button>

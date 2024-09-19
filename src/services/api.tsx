@@ -44,6 +44,16 @@ class APIService {
     }
   }
 
+  public async getBasketStatus() {
+    try {
+      const res = await fetch("https://api.cartrac.ru/basket_status/");
+      return res.json();
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  }
+
   public async getSearchResult(data: any) {
     try {
       const res = await fetch("https://api.cartrac.ru/Main/search_product/", {
