@@ -1,80 +1,100 @@
 export default function RequestParts() {
   return (
     <main>
-      <section className="forms__section">
+      <section className="query__section">
         <div className="container">
           <div className="row">
-            <div className="forms">
-              <div className="forms__head">
-                <p>Информация о транспортном средстве</p>
-              </div>
-              <div className="forms__row row-3">
+            <div className="query">
+              <div className="query__title">Запрос цены</div>
+              <div className="query__form">
                 <label className="form__input">
                   <input type="text" name="brand" placeholder="Бренд" />
                   <span>Бренд</span>
                 </label>
                 <label className="form__input">
-                  <input type="text" name="model" placeholder="Модель" />
-                  <span>Модель</span>
-                </label>
-                <label className="form__input">
                   <input
                     type="text"
-                    name="yearproduction"
-                    placeholder="Год производства"
+                    name="partnumber"
+                    placeholder="Номер запчасти"
                   />
-                  <span>Год производства</span>
+                  <span>Номер запчасти</span>
                 </label>
                 <label className="form__input">
-                  <input type="text" name="prefix" placeholder="Префикс" />
-                  <span>Префикс</span>
-                </label>
-                <label className="form__input">
-                  <input
-                    type="text"
-                    name="serialnumber"
-                    placeholder="Серийный номер"
-                  />
-                  <span>Серийный номер</span>
-                </label>
-              </div>
-            </div>
-            <div className="forms">
-              <div className="forms__head">
-                <p>Добавить запчасти для ТС</p>
-              </div>
-              <div className="forms__row row-3">
-                <label className="form__input">
-                  <input
-                    type="text"
-                    name="sparepart"
-                    placeholder="Наименование запчасти"
-                  />
-                  <span>Наименование запчасти</span>
-                </label>
-                <label className="form__input">
-                  <input
-                    type="text"
-                    name="catalognumber"
-                    placeholder="Каталожный номер запчасти"
-                  />
-                  <span>Каталожный номер запчасти</span>
-                </label>
-                <label className="form__input">
-                  <input type="text" name="quantity" placeholder="Количество" />
+                  <input type="text" name="brand" placeholder="Количество" />
                   <span>Количество</span>
                 </label>
+                <div className="query__buttons">
+                  <button className="button button__primary">
+                    Добавить в запрос
+                  </button>
+                </div>
               </div>
-              <div className="forms__row">
-                <label className="form__textarea">
-                  <textarea name="comment" rows={4} placeholder="Комментарий" />
-                  <span>Комментарий</span>
+            </div>
+            <div className="query">
+              <div className="query__title">Ваш запрос</div>
+              <div className="query__form">
+                <label className="form__input">
+                  <input
+                    type="text"
+                    name="brand"
+                    placeholder="Бренд"
+                    defaultValue="Loaderpro"
+                  />
+                  <span>Бренд</span>
                 </label>
+                <label className="form__input">
+                  <input
+                    type="text"
+                    name="partnumber"
+                    placeholder="Номер запчасти"
+                    defaultValue="13243422"
+                  />
+                  <span>Номер запчасти</span>
+                </label>
+                <label className="form__input">
+                  <input
+                    type="text"
+                    name="brand"
+                    placeholder="Количество"
+                    defaultValue="2"
+                  />
+                  <span>Количество</span>
+                </label>
+                <div className="query__buttons">
+                  <button className="button button__primary">X</button>
+                </div>
               </div>
-              <div className="forms__buttons">
-                <button className="button button__outline">
-                  Добавить в список
-                </button>
+              <div className="query__form">
+                <label className="form__input">
+                  <input
+                    type="text"
+                    name="brand"
+                    placeholder="Бренд"
+                    defaultValue="Loaderpro"
+                  />
+                  <span>Бренд</span>
+                </label>
+                <label className="form__input">
+                  <input
+                    type="text"
+                    name="partnumber"
+                    placeholder="Номер запчасти"
+                    defaultValue="13243422"
+                  />
+                  <span>Номер запчасти</span>
+                </label>
+                <label className="form__input">
+                  <input
+                    type="text"
+                    name="brand"
+                    placeholder="Количество"
+                    defaultValue="2"
+                  />
+                  <span>Количество</span>
+                </label>
+                <div className="query__buttons">
+                  <button className="button button__primary">X</button>
+                </div>
               </div>
             </div>
           </div>

@@ -25,6 +25,7 @@ export default function Basket() {
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
+      username: "",
       email: "",
       phone: "",
       pay: "",
@@ -178,6 +179,14 @@ export default function Basket() {
                 {/*</b>*/}
               </div>
               <div className="basket__form-data">
+                <label className="form__input">
+                  <input
+                    type="text"
+                    placeholder="Имя"
+                    {...register("username", { required: true })}
+                  />
+                  <span>Имя</span>
+                </label>
                 <label className="form__input">
                   <input
                     type="text"
