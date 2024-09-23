@@ -6,6 +6,7 @@ import IconPhone from "@/icons/phone.svg";
 import IconRectangle from "@/icons/rectangle-history-circle-plus.svg";
 import IconHeart from "@/icons/heart.svg";
 import IconCart from "@/icons/cart-shopping.svg";
+import IconEngine from "@/icons/engine-two.svg";
 import { MobileNav } from "@/components/MobileNav";
 import { useLockBodyScroll, useToggle } from "react-use";
 import { ProfileButton } from "@/components/ProfileButton";
@@ -64,6 +65,10 @@ const Header = () => {
                 <Link href={"/selection-parts"} className={"for-desktop"}>
                   <IconRectangle />
                   <span>Запросы</span>
+                </Link>
+                <Link href={"/request-parts"} className={"for-desktop"}>
+                  <IconEngine />
+                  <span>Подбор ЗЧ</span>
                 </Link>
                 <Link href={"/favorites"}>
                   <IconHeart />

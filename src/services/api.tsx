@@ -1,7 +1,7 @@
-import {Article} from "@/common/types/Article";
-import {Brand} from "@/common/types/Brand";
-import {Product, SingleProduct} from "@/common/types/Product";
-import {User} from "@/common/types/User";
+import { Article } from "@/common/types/Article";
+import { Brand } from "@/common/types/Brand";
+import { Product, SingleProduct } from "@/common/types/Product";
+import { User } from "@/common/types/User";
 
 class APIService {
   public async getAllProducts(): Promise<Product[]> {

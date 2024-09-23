@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import "../scss/main.scss";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { MobileBar } from "@/components/MobileBar";
-import { SessionProvider } from "next-auth/react";
-import { ToastContainer } from "react-toastify";
+import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
   title:
@@ -22,13 +18,7 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         <div className="site">
-          <SessionProvider>
-            <Header />
-            {children}
-            <MobileBar />
-            <Footer />
-            <ToastContainer />
-          </SessionProvider>
+          <Providers>{children}</Providers>
         </div>
       </body>
     </html>

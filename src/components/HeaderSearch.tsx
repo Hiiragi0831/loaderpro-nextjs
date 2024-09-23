@@ -44,7 +44,7 @@ export const HeaderSearch = () => {
   // Очистить поисковую строку при клике на результат
 
   return (
-    <div className="search" ref={ref}>
+    <div className="search for-desktop" ref={ref}>
       <label>
         <input
           type="text"

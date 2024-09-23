@@ -20,8 +20,8 @@
 
 	&__action {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: vc(40);
+		grid-template-columns: repeat(4, 1fr);
+		gap: vc(24);
 
 		a {
 			display: flex;
