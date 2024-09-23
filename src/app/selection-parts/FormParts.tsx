@@ -9,25 +9,26 @@ import { useEffect, useState } from "react";
 
 export const FormParts = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       brand: "",
+      name: "",
+      email: "",
+      phone: "",
+      model: "",
+      yearproduction: "",
+      prefix: "",
+      serialnumber: "",
+      sparepart: "",
+      catalognumber: "",
+      quantity: "",
+      comment: "",
     },
   });
-
-  const onSubmit = async (data: any) => {
-    const fd = Object.assign(data);
-    console.log(fd);
-    try {
-      const fdata = await api.postBasket(fd);
-      if (fdata.ok) {
-        toast.success("Заказ успешно создан");
-      }
-    } catch (error: any) {
-      console.error("Error fetching:", error.message);
-      throw error;
-    }
-  };
 
   const loadBrands = async () => {
     try {
@@ -39,12 +40,48 @@ export const FormParts = () => {
     }
   };
 
+  const onSubmit = async (data: any) => {
+    const fd = Object.assign(data);
+    console.log(fd);
+    try {
+      const fdata = await api.postQueryTs(fd);
+      if (fdata.ok) {
+        toast.success("Заказ успешно создан");
+      }
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  };
+
   useEffect(() => void loadBrands(), []);
 
   return (
     <section className="forms__section">
       <div className="container">
         <form className="row" onSubmit={handleSubmit(onSubmit)}>
+          <div className="forms">
+            <div className="forms__head">
+              <p>Контактная информация</p>
+            </div>
+            <div className="forms__row row-3">
+              <TextField
+                label="Имя"
+                error={!!errors.name}
+                {...register("name", { required: true })}
+              />
+              <TextField
+                label="Email"
+                error={!!errors.email}
+                {...register("email", { required: true })}
+              />
+              <TextField
+                label="Телефон"
+                error={!!errors.phone}
+                {...register("phone", { required: true })}
+              />
+            </div>
+          </div>
           <div className="forms">
             <div className="forms__head">
               <p>Информация о транспортном средстве</p>
@@ -56,36 +93,29 @@ export const FormParts = () => {
                 options={brand}
                 renderInput={(params) => (
                   <TextField
+                    error={!!errors.brand}
                     {...params}
                     label="Бренд"
                     {...register("brand", { required: true })}
                   />
                 )}
               />
-              <label className="form__input">
-                <input type="text" name="model" placeholder="Модель" />
-                <span>Модель</span>
-              </label>
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="yearproduction"
-                  placeholder="Год производства"
-                />
-                <span>Год производства</span>
-              </label>
-              <label className="form__input">
-                <input type="text" name="prefix" placeholder="Префикс" />
-                <span>Префикс</span>
-              </label>
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="serialnumber"
-                  placeholder="Серийный номер"
-                />
-                <span>Серийный номер</span>
-              </label>
+              <TextField
+                error={!!errors.model}
+                label="Модель"
+                {...register("model", { required: true })}
+              />
+              <TextField
+                error={!!errors.yearproduction}
+                label="Год производства"
+                {...register("yearproduction", { required: true })}
+              />
+              <TextField label="Префикс" {...register("prefix")} />
+              <TextField
+                error={!!errors.serialnumber}
+                label="Серийный номер"
+                {...register("serialnumber", { required: true })}
+              />
             </div>
           </div>
           <div className="forms">
@@ -93,32 +123,28 @@ export const FormParts = () => {
               <p>Добавить запчасти для ТС</p>
             </div>
             <div className="forms__row row-3">
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="sparepart"
-                  placeholder="Наименование запчасти"
-                />
-                <span>Наименование запчасти</span>
-              </label>
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="catalognumber"
-                  placeholder="Каталожный номер запчасти"
-                />
-                <span>Каталожный номер запчасти</span>
-              </label>
-              <label className="form__input">
-                <input type="text" name="quantity" placeholder="Количество" />
-                <span>Количество</span>
-              </label>
+              <TextField
+                error={!!errors.sparepart}
+                label="Наименование запчасти"
+                {...register("sparepart", { required: true })}
+              />
+              <TextField
+                label="Каталожный номер запчасти"
+                {...register("catalognumber")}
+              />
+              <TextField
+                error={!!errors.quantity}
+                label="Количество"
+                {...register("quantity", { required: true })}
+              />
             </div>
             <div className="forms__row">
-              <label className="form__textarea">
-                <textarea name="comment" rows={4} placeholder="Комментарий" />
-                <span>Комментарий</span>
-              </label>
+              <TextField
+                label="Комментарий"
+                multiline
+                maxRows={4}
+                {...register("comment")}
+              />
             </div>
             <div className="forms__buttons">
               <button className="button button__outline">

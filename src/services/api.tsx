@@ -1,7 +1,7 @@
-import { Article } from "@/common/types/Article";
-import { Brand } from "@/common/types/Brand";
-import { Product, SingleProduct } from "@/common/types/Product";
-import { User } from "@/common/types/User";
+import {Article} from "@/common/types/Article";
+import {Brand} from "@/common/types/Brand";
+import {Product, SingleProduct} from "@/common/types/Product";
+import {User} from "@/common/types/User";
 
 class APIService {
   public async getAllProducts(): Promise<Product[]> {
@@ -69,11 +69,22 @@ class APIService {
 
   public async postBasket(data: any) {
     try {
-      const res = await fetch("https://api.cartrac.ru/Main/orders/", {
+      return await fetch("https://api.cartrac.ru/Main/orders/", {
         method: "POST",
         body: JSON.stringify(data),
       });
-      return res;
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  }
+
+  public async postQueryTs(data: any) {
+    try {
+      return await fetch("https://api.cartrac.ru/Main/query_ts/", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
     } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;
