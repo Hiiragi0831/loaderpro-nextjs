@@ -56,6 +56,7 @@ body {
 main {
 	flex: 1;
 	margin-top: vc(210);
+	z-index: 2;
 
 	@include devices {
 		margin-top: vc(64);
