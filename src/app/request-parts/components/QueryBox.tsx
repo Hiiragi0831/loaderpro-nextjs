@@ -6,23 +6,26 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { Brand } from "@/common/types/Brand";
 import { Autocomplete, TextField } from "@mui/material";
+import CloneDeep from "lodash-es/cloneDeep";
 
 export const QueryBox = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const [queryRequested, setQueryRequested] = useState([]);
+  const query = useForm({
     defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
       brand: "",
       serialnumber: "",
       quantity: "",
     },
   });
+  const user = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+    },
+  });
+
   const loadBrands = async () => {
     try {
       const props = await api.getAllBrand();
@@ -34,12 +37,12 @@ export const QueryBox = () => {
   };
 
   const onSubmit = async (data: any) => {
-    const fd = Object.assign(data);
+    const fd = Object.assign(data, { query: queryRequested });
     console.log(fd);
     try {
-      const fdata = await api.postQueryTs(fd);
+      const fdata = await api.postQueryZp(fd);
       if (fdata.ok) {
-        toast.success("Заказ успешно создан");
+        toast.success("Запрос успешно создан");
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -47,111 +50,115 @@ export const QueryBox = () => {
     }
   };
 
+  const addToQuery = (data: object) => {
+    const arr: any = queryRequested;
+    arr.push(data);
+    setQueryRequested(arr);
+  };
+
+  const deleteQuery = (id: number) => {
+    const arr = CloneDeep(queryRequested);
+    arr.splice(id, 1);
+    setQueryRequested(arr);
+  };
+
   useEffect(() => void loadBrands(), []);
+
   return (
     <section className="query__section">
       <div className="container">
         <div className="row">
           <div className="query">
+            <div className="query__title">Контактная информация</div>
+            <div className="query__user-form">
+              <TextField
+                error={!!user.formState.errors.name}
+                label="Имя"
+                {...user.register("name", { required: true })}
+              />
+              <TextField
+                error={!!user.formState.errors.email}
+                label="Email"
+                {...user.register("email", { required: true })}
+              />
+              <TextField
+                error={!!user.formState.errors.phone}
+                label="Телефон"
+                {...user.register("phone", { required: true })}
+              />
+            </div>
+          </div>
+          <div className="query">
             <div className="query__title">Запрос цены</div>
-            <div className="query__form">
+            <form
+              className="query__form"
+              onSubmit={query.handleSubmit(addToQuery)}
+            >
               <Autocomplete
                 disablePortal
                 getOptionLabel={(option) => option.name}
                 options={brand}
                 renderInput={(params) => (
                   <TextField
-                    error={!!errors.brand}
+                    error={!!query.formState.errors.brand}
                     {...params}
                     label="Бренд"
-                    {...register("brand", { required: true })}
+                    {...query.register("brand", { required: true })}
                   />
                 )}
               />
               <TextField
-                error={!!errors.serialnumber}
+                error={!!query.formState.errors.serialnumber}
                 label="Номер запчасти"
-                {...register("serialnumber", { required: true })}
+                {...query.register("serialnumber", { required: true })}
               />
               <TextField
-                error={!!errors.quantity}
+                error={!!query.formState.errors.quantity}
                 label="Количество"
-                {...register("quantity", { required: true })}
+                {...query.register("quantity", { required: true })}
               />
               <div className="query__buttons">
                 <button className="button button__primary">
-                  Добавить в запрос
+                  Добавить в список
                 </button>
               </div>
-            </div>
+            </form>
           </div>
           <div className="query">
             <div className="query__title">Ваш запрос</div>
-            <div className="query__form">
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="brand"
-                  placeholder="Бренд"
-                  defaultValue="Loaderpro"
+            {queryRequested.map((item: any, id) => (
+              <div className="query__form" key={id}>
+                <TextField
+                  label="Бренд"
+                  defaultValue={item.brand}
+                  disabled={true}
                 />
-                <span>Бренд</span>
-              </label>
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="partnumber"
-                  placeholder="Номер запчасти"
-                  defaultValue="13243422"
+                <TextField
+                  label="Номер запчасти"
+                  defaultValue={item.serialnumber}
+                  disabled={true}
                 />
-                <span>Номер запчасти</span>
-              </label>
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="brand"
-                  placeholder="Количество"
-                  defaultValue="2"
+                <TextField
+                  label="Количество"
+                  defaultValue={item.quantity}
+                  disabled={true}
                 />
-                <span>Количество</span>
-              </label>
-              <div className="query__buttons">
-                <button className="button button__primary">X</button>
+                <div className="query__buttons">
+                  <button
+                    className="button button__primary"
+                    onClick={() => deleteQuery(id)}
+                  >
+                    X
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="query__form">
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="brand"
-                  placeholder="Бренд"
-                  defaultValue="Loaderpro"
-                />
-                <span>Бренд</span>
-              </label>
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="partnumber"
-                  placeholder="Номер запчасти"
-                  defaultValue="13243422"
-                />
-                <span>Номер запчасти</span>
-              </label>
-              <label className="form__input">
-                <input
-                  type="text"
-                  name="brand"
-                  placeholder="Количество"
-                  defaultValue="2"
-                />
-                <span>Количество</span>
-              </label>
-              <div className="query__buttons">
-                <button className="button button__primary">X</button>
-              </div>
-            </div>
+            ))}
           </div>
+          <form onSubmit={user.handleSubmit(onSubmit)}>
+            <button className="button button__primary" type="submit">
+              Отправить запрос
+            </button>
+          </form>
         </div>
       </div>
     </section>

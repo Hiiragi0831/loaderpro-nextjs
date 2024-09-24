@@ -91,6 +91,18 @@ class APIService {
     }
   }
 
+  public async postQueryZp(data: any) {
+    try {
+      return await fetch("https://api.cartrac.ru/Main/query_catalog/", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  }
+
   public async getAllBrand(): Promise<Brand[]> {
     try {
       const res = await fetch(`https://api.cartrac.ru/brands/`);
