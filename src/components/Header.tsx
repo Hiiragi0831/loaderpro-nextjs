@@ -13,14 +13,11 @@ import { ProfileButton } from "@/components/ProfileButton";
 import { AuthModal } from "@/components/AuthModal";
 import { HeaderSearch } from "@/components/HeaderSearch";
 import { useState } from "react";
-// import { useSession } from "next-auth/react";
 
 const Header = () => {
   const [active, setActive] = useToggle(false);
   const [modalOpen, setModalOpen] = useState(false);
   useLockBodyScroll(active);
-  // const { data: session } = useSession();
-  // console.log("session", session);
 
   return (
     <>
