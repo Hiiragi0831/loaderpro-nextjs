@@ -1,6 +1,8 @@
 .search {
 	width: 100%;
 	position: relative;
+	background: $color-white;
+	z-index: 3;
 
 	label {
 		position: relative;
@@ -43,9 +45,13 @@
 		opacity: 0;
 		transition: visibility $transition, opacity $transition;
 
-		@include hover {
+		&.active {
 			visibility: visible;
 			opacity: 1;
+		}
+
+		@include devices {
+			top: vc(45);
 		}
 	}
 
@@ -81,5 +87,16 @@
 				object-fit: contain;
 			}
 		}
+	}
+
+	@include devices {
+		display: none;
+	}
+
+	&.active {
+		display: block;
+		position: fixed;
+		left: 0;
+		top: vc(60);
 	}
 }

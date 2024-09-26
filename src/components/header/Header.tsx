@@ -7,16 +7,18 @@ import IconRectangle from "@/icons/rectangle-history-circle-plus.svg";
 import IconHeart from "@/icons/heart.svg";
 import IconCart from "@/icons/cart-shopping.svg";
 import IconDesktop from "@/icons/desktop.svg";
-import { MobileNav } from "@/components/MobileNav";
+import { MobileNav } from "./MobileNav";
 import { useLockBodyScroll, useToggle } from "react-use";
 import { ProfileButton } from "@/components/ProfileButton";
 import { AuthModal } from "@/components/AuthModal";
-import { HeaderSearch } from "@/components/HeaderSearch";
+import { Search } from "./Search";
 import { useState } from "react";
+import { useSearchPanel } from "@/store/useSearchPanel";
 
 const Header = () => {
   const [active, setActive] = useToggle(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const { isShow } = useSearchPanel();
   useLockBodyScroll(active);
 
   return (
@@ -57,7 +59,7 @@ const Header = () => {
               <Link className="header__logo" href="/">
                 <IconLogo />
               </Link>
-              <HeaderSearch />
+              <Search className={`${isShow ? "active" : ""}`} />
               <div className="header__action">
                 <Link href={"/selection-parts"} className={"for-desktop"}>
                   <IconRectangle />

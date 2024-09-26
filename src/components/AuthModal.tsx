@@ -24,7 +24,7 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
   const { errors } = formState;
 
   if (errors) {
-    console.log(errors);
+    // console.log(errors);
   }
 
   const onSubmit = async (data: TFormLoginValues) => {

@@ -1,18 +1,24 @@
 "use client";
 
 import IconMagnifying from "@/icons/magnifying-glass.svg";
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { api } from "@/services/api";
 import { debounce } from "lodash-es";
 import { Product } from "@/common/types/Product";
 import { useClickAway } from "react-use";
 import Link from "next/link";
+import { useSearchPanel } from "@/store/useSearchPanel";
 
-export const HeaderSearch = () => {
+type Props = {
+  className?: string;
+};
+
+export const Search: FC<Props> = ({ className }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchData, setSearchData] = useState<Product[]>([]);
   const [focused, setFocused] = useState(false);
   const ref = useRef(null);
+  const { toggleShow } = useSearchPanel();
 
   const search = async (data: any) => {
     try {
@@ -28,10 +34,12 @@ export const HeaderSearch = () => {
 
   useClickAway(ref, () => {
     setFocused(false);
+    toggleShow(false);
   });
 
   const onClickItem = () => {
     setFocused(false);
+    toggleShow(false);
     setSearchQuery("");
     setSearchData([]);
   };
@@ -40,11 +48,8 @@ export const HeaderSearch = () => {
     debounced.current(searchQuery);
   }, [searchQuery]);
 
-  // useDebounse задержка на отправку запроса чтобы не спамить
-  // Очистить поисковую строку при клике на результат
-
   return (
-    <div className="search for-desktop" ref={ref}>
+    <div className={`search ${className}`} ref={ref}>
       <label>
         <input
           type="text"

@@ -2,8 +2,8 @@
 
 import React from "react";
 import { SessionProvider } from "next-auth/react";
-import Header from "@/components/Header";
-import { MobileBar } from "@/components/MobileBar";
+import Header from "@/components/header/Header";
+import { MobileBar } from "@/components/header/MobileBar";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import { createTheme, ThemeProvider } from "@mui/material";
