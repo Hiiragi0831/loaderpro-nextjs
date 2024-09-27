@@ -12,12 +12,7 @@ type CtaType = {
 };
 
 export const Cta: FC<CtaType> = (data) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       username: "",
       phone: "",

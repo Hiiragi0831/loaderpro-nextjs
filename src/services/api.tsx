@@ -135,6 +135,19 @@ class APIService {
     }
   }
 
+  public async getRutubeVideos(): Promise<any> {
+    try {
+      const res = await fetch(
+        `https://rutube.ru/api/playlist/custom/595683/videos/`,
+        { mode: "no-cors" },
+      );
+      return res.json();
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  }
+
   public async getYoutubeVideos(): Promise<any> {
     const YOUTUBE_API = "https://www.googleapis.com/youtube/v3/playlistItems";
     const YOUTUBE_KEY = "AIzaSyA2UEjRCI--QCtdYoA_jeN5s84htgXNyF0";
@@ -158,6 +171,16 @@ class APIService {
       const res = await fetch(
         `${YOUTUBE_API}?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${YOUTUBE_KEY}`,
       );
+      return res.json();
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  }
+
+  public async getLocalVideos(): Promise<any> {
+    try {
+      const res = await fetch(`/data/videos.json`);
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);

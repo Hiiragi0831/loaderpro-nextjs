@@ -3,8 +3,8 @@ import FsLightbox from "fslightbox-react";
 import delay from "lodash-es/delay";
 import IconPlaySolid from "@/icons/play-solid.svg";
 
-import { useVideo } from "@/utils/hooks/useVideo";
 import { FC, useState } from "react";
+import { useVideoLocal } from "@/utils/hooks/useVideoLocal";
 
 type VideoBlockType = {
   id: string;
@@ -14,8 +14,9 @@ type VideoBlockType = {
 export const VideoBlock: FC<VideoBlockType> = ({ id, className }) => {
   const [toggler, setToggler] = useState(false);
   const [productIndex, setProductIndex] = useState(0);
-  const { video, isLoading } = useVideo(id);
-  const sources: any = [video.link];
+  const { video, isLoading } = useVideoLocal(id);
+  const iframe = <iframe src={video.link} />;
+  const sources: any = [iframe];
 
   return (
     <div className={`videoblock ${className ? className : ""}`}>

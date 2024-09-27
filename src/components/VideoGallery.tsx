@@ -4,25 +4,29 @@ import delay from "lodash-es/delay";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-
-import { useVideos } from "@/utils/hooks/useVideos";
 import { useMemo, useState } from "react";
+import { useVideosLocal } from "@/utils/hooks/useVideosLocal";
 
 export const VideoGallery = () => {
   const [toggler, setToggler] = useState(false);
   const [productIndex, setProductIndex] = useState(0);
 
-  const { videos, isLoading } = useVideos();
+  const { videos, isLoading } = useVideosLocal();
   const sources = useMemo(
-    () => videos.map((video: any) => video.link),
+    () =>
+      videos.map((video: any, id: number) => (
+        <iframe key={id} src={video.link} />
+      )),
     [videos],
   );
+
+  //
 
   return (
     <section className="videoGallery">
       <div className="container">
         <div className="title">
-          <span className="h1">Мы на YOUTUBE</span>
+          <span className="h1">Мы на Rutube</span>
         </div>
         <Swiper
           slidesPerView={1}

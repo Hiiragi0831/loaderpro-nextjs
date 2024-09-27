@@ -56,7 +56,6 @@ body {
 main {
 	flex: 1;
 	margin-top: vc(210);
-	z-index: 2;
 
 	@include devices {
 		margin-top: vc(64);
@@ -361,8 +360,7 @@ blockquote {
 	}
 }
 
-.fslightbox-open {
-	main {
-		//z-index: 10;
-	}
+iframe.fslightboxs {
+	width: vc(1200)!important;
+	height: vc(700) !important;
 }
