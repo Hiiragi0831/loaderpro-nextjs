@@ -3,9 +3,9 @@ import IconHome from "@/icons/house-l.svg";
 import IconShield from "@/icons/shield.svg";
 import IconBox from "@/icons/box-l.svg";
 import IconRectangle from "@/icons/rectangle-history-circle-plus-l.svg";
-import IconUser from "@/icons/user-l.svg";
 import Link from "next/link";
 import { useSearchPanel } from "@/store/useSearchPanel";
+import IconDesktop from "@/icons/desktop.svg";
 
 export const MobileBar = () => {
   const { isShow, toggleShow } = useSearchPanel();
@@ -27,9 +27,9 @@ export const MobileBar = () => {
         <IconRectangle />
         <span>Запросы</span>
       </Link>
-      <Link href={"/account"} className="mobilebar__item">
-        <IconUser />
-        <span>Аккаунт</span>
+      <Link href={"/request-parts"} className="mobilebar__item">
+        <IconDesktop />
+        <span>Подбор ЗЧ</span>
       </Link>
     </div>
   );

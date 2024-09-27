@@ -103,6 +103,18 @@ class APIService {
     }
   }
 
+  public async postCB(data: any) {
+    try {
+      return await fetch("https://api.cartrac.ru/Main/call_back/", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  }
+
   public async getAllBrand(): Promise<Brand[]> {
     try {
       const res = await fetch(`https://api.cartrac.ru/brands/`);

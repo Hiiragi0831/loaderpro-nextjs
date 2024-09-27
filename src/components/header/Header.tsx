@@ -8,18 +8,20 @@ import IconHeart from "@/icons/heart.svg";
 import IconCart from "@/icons/cart-shopping.svg";
 import IconDesktop from "@/icons/desktop.svg";
 import { MobileNav } from "./MobileNav";
-import { useLockBodyScroll, useToggle } from "react-use";
+import { useLockBodyScroll } from "react-use";
 import { ProfileButton } from "@/components/ProfileButton";
 import { AuthModal } from "@/components/AuthModal";
 import { Search } from "./Search";
 import { useState } from "react";
 import { useSearchPanel } from "@/store/useSearchPanel";
+import { useMobileNav } from "@/store/useMobileNav";
 
 const Header = () => {
-  const [active, setActive] = useToggle(false);
   const [modalOpen, setModalOpen] = useState(false);
   const { isShow } = useSearchPanel();
-  useLockBodyScroll(active);
+  const stateMobileNav = useMobileNav();
+
+  useLockBodyScroll(stateMobileNav.isShow);
 
   return (
     <>
@@ -79,8 +81,10 @@ const Header = () => {
                 </Link>
               </div>
               <div
-                className={`header__burger ${active ? "active" : ""}`}
-                onClick={() => setActive(!active)}
+                className={`header__burger ${stateMobileNav.isShow ? "active" : ""}`}
+                onClick={() =>
+                  stateMobileNav.toggleShow(!stateMobileNav.isShow)
+                }
               >
                 <span />
                 <span />
@@ -125,7 +129,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <MobileNav className={active ? "active" : ""} />
+      <MobileNav />
     </>
   );
 };

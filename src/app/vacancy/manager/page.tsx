@@ -64,12 +64,11 @@ export default function VacancyManager() {
             </div>
             <div className="vacancy__buttons">
               <button
-                className="button button__outline"
+                className="button button__primary"
                 onClick={() => setModalOpen(true)}
               >
-                Показать контакты
+                Откликнуться
               </button>
-              <button className="button button__primary">Откликнуться</button>
             </div>
           </div>
           <div className="vacancy-inner__body">

@@ -3,25 +3,48 @@ import IconVk from "@/icons/vk.svg";
 import IconTg from "@/icons/tg.svg";
 import IconWt from "@/icons/wt.svg";
 import IconYoutube from "@/icons/youtube.svg";
+import { useMobileNav } from "@/store/useMobileNav";
 
-export function MobileNav({ className }: any) {
+export function MobileNav() {
+  const stateMobileNav = useMobileNav();
+
+  const onClickItem = () => {
+    stateMobileNav.toggleShow(false);
+  };
+
   return (
-    <nav className={`mobilenav ${className}`}>
+    <nav className={`mobilenav ${stateMobileNav.isShow ? "active" : ""}`}>
       <div className="mobilenav__wrapper">
         <div className="mobilenav__item">
           <p className="mobilenav__title">Партнерам</p>
           <div className="mobilenav__row">
             <div className="mobilenav__col">
-              <Link href="/">Главная</Link>
-              <Link href={"/vacancy"}>Вакансии</Link>
-              <Link href={"/about"}>О компании</Link>
-              <Link href={"/suppliers"}>Поставщикам</Link>
+              <Link href={"/"} onClick={onClickItem}>
+                Главная
+              </Link>
+              <Link href={"/vacancy"} onClick={onClickItem}>
+                Вакансии
+              </Link>
+              <Link href={"/about"} onClick={onClickItem}>
+                О компании
+              </Link>
+              <Link href={"/suppliers"} onClick={onClickItem}>
+                Поставщикам
+              </Link>
             </div>
             <div className="mobilenav__col">
-              <Link href={"/dealer"}>Дилерам</Link>
-              <Link href={"/privacy-policy"}>Конфиденциальность</Link>
-              <Link href={"/delivery-payment"}>Оплата и доставка</Link>
-              <Link href={"/contact"}>Контакты</Link>
+              <Link href={"/dealer"} onClick={onClickItem}>
+                Дилерам
+              </Link>
+              <Link href={"/privacy-policy"} onClick={onClickItem}>
+                Конфиденциальность
+              </Link>
+              <Link href={"/delivery-payment"} onClick={onClickItem}>
+                Оплата и доставка
+              </Link>
+              <Link href={"/contact"} onClick={onClickItem}>
+                Контакты
+              </Link>
             </div>
           </div>
         </div>
@@ -29,14 +52,26 @@ export function MobileNav({ className }: any) {
           <p className="mobilenav__title">Товары</p>
           <div className="mobilenav__row">
             <div className="mobilenav__col">
-              <Link href={"/warehouse-equipment"}>Складская техника</Link>
-              <Link href={"/spare-parts"}>Запасные части</Link>
-              <Link href={"/battery"}>Тяговые аккумуляторы</Link>
+              <Link href={"/warehouse-equipment"} onClick={onClickItem}>
+                Складская техника
+              </Link>
+              <Link href={"/spare-parts"} onClick={onClickItem}>
+                Запасные части
+              </Link>
+              <Link href={"/battery"} onClick={onClickItem}>
+                Тяговые аккумуляторы
+              </Link>
             </div>
             <div className="mobilenav__col">
-              <Link href={"/tires-rims"}>Шины и диски</Link>
-              <Link href={"/oils-lubricants"}>Масла и смазки</Link>
-              <Link href={"/polyurethane-wheels"}>Полиуретановые колеса</Link>
+              <Link href={"/tires-rims"} onClick={onClickItem}>
+                Шины и диски
+              </Link>
+              <Link href={"/oils-lubricants"} onClick={onClickItem}>
+                Масла и смазки
+              </Link>
+              <Link href={"/polyurethane-wheels"} onClick={onClickItem}>
+                Полиуретановые колеса
+              </Link>
             </div>
           </div>
         </div>
@@ -44,12 +79,20 @@ export function MobileNav({ className }: any) {
           <p className="mobilenav__title">Услуги</p>
           <div className="mobilenav__row">
             <div className="mobilenav__col">
-              <Link href={"/selection-parts"}>Подбор запчастей</Link>
-              <Link href={"/request-parts"}>Запрос на запчасти</Link>
+              <Link href={"/selection-parts"} onClick={onClickItem}>
+                Подбор запчастей
+              </Link>
+              <Link href={"/request-parts"} onClick={onClickItem}>
+                Запрос на запчасти
+              </Link>
             </div>
             <div className="mobilenav__col">
-              <Link href={"/tire-service"}>Шиномонтаж</Link>
-              <Link href={"/polyurethane-surfacing"}>Восстановление колес</Link>
+              <Link href={"/tire-service"} onClick={onClickItem}>
+                Шиномонтаж
+              </Link>
+              <Link href={"/polyurethane-surfacing"} onClick={onClickItem}>
+                Восстановление колес
+              </Link>
             </div>
           </div>
         </div>
@@ -84,18 +127,18 @@ export function MobileNav({ className }: any) {
         </div>
         <div className="mobilenav__item">
           <div className="mobilenav__socials">
-            <a href="https://vk.com/loaderproru">
+            <Link href="https://vk.com/loaderproru" target={"_blank"}>
               <IconVk />
-            </a>
-            <a href="https://t.me/loaderpro">
+            </Link>
+            <Link href="https://t.me/loaderpro" target={"_blank"}>
               <IconTg />
-            </a>
-            <a href="https://wa.me/79643421256">
+            </Link>
+            <Link href="https://wa.me/79643421256" target={"_blank"}>
               <IconWt />
-            </a>
-            <a href="https://www.youtube.com/@loaderpro">
+            </Link>
+            <Link href="https://www.youtube.com/@loaderpro" target={"_blank"}>
               <IconYoutube />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

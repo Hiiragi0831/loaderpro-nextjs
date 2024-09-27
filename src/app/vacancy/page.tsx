@@ -1,7 +1,7 @@
 import Articles from "@/components/Articles";
 import { Cta } from "@/components/Cta";
-import { VacancyItem } from "./components/VacancyItem";
 import type { Metadata } from "next";
+import { Vacancy } from "./components/Vacancy";
 
 export const metadata: Metadata = {
   title: "Вакансии компании СПЕЦМАШИНА",
@@ -10,15 +10,7 @@ export const metadata: Metadata = {
 export default function vacancy() {
   return (
     <main>
-      <section className="vacancy">
-        <div className="container">
-          <div className="row">
-            <VacancyItem />
-            <VacancyItem />
-            <VacancyItem />
-          </div>
-        </div>
-      </section>
+      <Vacancy />
       <Cta />
       <Articles limit={4} />
     </main>

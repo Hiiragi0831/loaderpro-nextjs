@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Advantage = () => {
   return (
     <section className="advantage__section">
@@ -27,9 +29,13 @@ const Advantage = () => {
                 база каталогов!
               </p>
               <div className="advantage__button">
-                <a className="button button__primary" href="#">
+                <Link
+                  className="button button__primary"
+                  href="https://my.loaderpro.ru/"
+                  target={"_blank"}
+                >
                   Зарегистрироваться
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -56,9 +62,12 @@ const Advantage = () => {
                 получите вырезку из каталога для согласования позиций.
               </p>
               <div className="advantage__button">
-                <a className="button button__black" href="#">
+                <Link
+                  className="button button__black"
+                  href={"/selection-parts"}
+                >
                   Отправить запрос
-                </a>
+                </Link>
               </div>
             </div>
           </div>
