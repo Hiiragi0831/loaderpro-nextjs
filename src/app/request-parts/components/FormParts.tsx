@@ -6,23 +6,26 @@ import { toast } from "react-toastify";
 import { Autocomplete, TextField } from "@mui/material";
 import { Brand } from "@/common/types/Brand";
 import { useEffect, useState } from "react";
+import CloneDeep from "lodash-es/cloneDeep";
 
 export const FormParts = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const [queryRequested, setQueryRequested] = useState([]);
+  const user = useForm({
     defaultValues: {
-      brand: "",
       name: "",
       email: "",
       phone: "",
+      brand: "",
       model: "",
       yearproduction: "",
       prefix: "",
       serialnumber: "",
+    },
+  });
+
+  const query = useForm({
+    defaultValues: {
       sparepart: "",
       catalognumber: "",
       quantity: "",
@@ -41,12 +44,12 @@ export const FormParts = () => {
   };
 
   const onSubmit = async (data: any) => {
-    const fd = Object.assign(data);
+    const fd = Object.assign(data, { query: queryRequested });
     console.log(fd);
     try {
       const fdata = await api.postQueryTs(fd);
       if (fdata.ok) {
-        toast.success("Заказ успешно создан");
+        toast.success("Запрос на подбор успешно создан");
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -54,12 +57,24 @@ export const FormParts = () => {
     }
   };
 
+  const addToQuery = (data: object) => {
+    const arr: any = queryRequested;
+    arr.push(data);
+    setQueryRequested(arr);
+  };
+
+  const deleteQuery = (id: number) => {
+    const arr = CloneDeep(queryRequested);
+    arr.splice(id, 1);
+    setQueryRequested(arr);
+  };
+
   useEffect(() => void loadBrands(), []);
 
   return (
     <section className="forms__section">
       <div className="container">
-        <form className="row" onSubmit={handleSubmit(onSubmit)}>
+        <div className="row">
           <div className="forms">
             <div className="forms__head">
               <p>Контактная информация</p>
@@ -67,18 +82,18 @@ export const FormParts = () => {
             <div className="forms__row row-3">
               <TextField
                 label="Имя"
-                error={!!errors.name}
-                {...register("name", { required: true })}
+                error={!!user.formState.errors.name}
+                {...user.register("name", { required: true })}
               />
               <TextField
                 label="Email"
-                error={!!errors.email}
-                {...register("email", { required: true })}
+                error={!!user.formState.errors.email}
+                {...user.register("email", { required: true })}
               />
               <TextField
                 label="Телефон"
-                error={!!errors.phone}
-                {...register("phone", { required: true })}
+                error={!!user.formState.errors.phone}
+                {...user.register("phone", { required: true })}
               />
             </div>
           </div>
@@ -93,66 +108,101 @@ export const FormParts = () => {
                 options={brand}
                 renderInput={(params) => (
                   <TextField
-                    error={!!errors.brand}
+                    error={!!user.formState.errors.brand}
                     {...params}
                     label="Бренд"
-                    {...register("brand", { required: true })}
+                    {...user.register("brand", { required: true })}
                   />
                 )}
               />
               <TextField
-                error={!!errors.model}
+                error={!!user.formState.errors.model}
                 label="Модель"
-                {...register("model", { required: true })}
+                {...user.register("model", { required: true })}
               />
               <TextField
-                error={!!errors.yearproduction}
+                error={!!user.formState.errors.yearproduction}
                 label="Год производства"
-                {...register("yearproduction", { required: true })}
+                {...user.register("yearproduction", { required: true })}
               />
-              <TextField label="Префикс" {...register("prefix")} />
+              <TextField label="Префикс" {...user.register("prefix")} />
               <TextField
-                error={!!errors.serialnumber}
+                error={!!user.formState.errors.serialnumber}
                 label="Серийный номер"
-                {...register("serialnumber", { required: true })}
+                {...user.register("serialnumber", { required: true })}
               />
             </div>
           </div>
-          <div className="forms">
+          <form className="forms" onSubmit={query.handleSubmit(addToQuery)}>
             <div className="forms__head">
               <p>Добавить запчасти для ТС</p>
             </div>
-            <div className="forms__row row-3">
+            <div className="forms__request">
               <TextField
-                error={!!errors.sparepart}
+                error={!!query.formState.errors.sparepart}
                 label="Наименование запчасти"
-                {...register("sparepart", { required: true })}
+                {...query.register("sparepart", { required: true })}
               />
               <TextField
                 label="Каталожный номер запчасти"
-                {...register("catalognumber")}
+                {...query.register("catalognumber")}
               />
               <TextField
-                error={!!errors.quantity}
+                error={!!query.formState.errors.quantity}
                 label="Количество"
-                {...register("quantity", { required: true })}
+                {...query.register("quantity", { required: true })}
               />
-            </div>
-            <div className="forms__row">
               <TextField
                 label="Комментарий"
                 multiline
-                maxRows={4}
-                {...register("comment")}
+                {...query.register("comment")}
               />
-            </div>
-            <div className="forms__buttons">
               <button className="button button__outline">
                 Добавить в список
               </button>
             </div>
+          </form>
+          <div className="forms">
+            <div className="forms__head">
+              <p>Ваш запрос</p>
+            </div>
+            {queryRequested.map((item: any, id) => (
+              <div className="forms__request-query" key={id}>
+                <TextField
+                  label="Бренд"
+                  defaultValue={item.sparepart}
+                  disabled={true}
+                />
+                <TextField
+                  label="Номер запчасти"
+                  defaultValue={item.catalognumber}
+                  disabled={true}
+                />
+                <TextField
+                  label="Количество"
+                  defaultValue={item.quantity}
+                  disabled={true}
+                />
+                <button
+                  className="button button__primary"
+                  onClick={() => deleteQuery(id)}
+                >
+                  X
+                </button>
+                <TextField
+                  label="Комментарий"
+                  multiline
+                  defaultValue={item.comment}
+                />
+              </div>
+            ))}
           </div>
-        </form>
+          <form onSubmit={user.handleSubmit(onSubmit)}>
+            <button className="button button__primary" type="submit">
+              Отправить запрос
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );

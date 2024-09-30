@@ -18,7 +18,7 @@ export const Reviews = () => {
   return (
     <section className="reviews">
       <div className="container">
-        <div className="title">
+        <div className="section-title">
           <span className="h1">Что говорят о нас</span>
         </div>
         {status ? reviewLab() : "Загрузка отзывов"}

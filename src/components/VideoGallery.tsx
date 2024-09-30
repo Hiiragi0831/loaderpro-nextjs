@@ -25,7 +25,7 @@ export const VideoGallery = () => {
   return (
     <section className="videoGallery">
       <div className="container">
-        <div className="title">
+        <div className="section-title">
           <span className="h1">Мы на Rutube</span>
         </div>
         <Swiper

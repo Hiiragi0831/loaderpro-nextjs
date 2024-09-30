@@ -38,7 +38,7 @@ const Categories = () => {
   return (
     <section className="category__section">
       <div className="container">
-        <div className="title">
+        <div className="section-title">
           <span className="h1">Популярные категории</span>
         </div>
         <div className="row">

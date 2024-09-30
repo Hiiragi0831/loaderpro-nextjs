@@ -91,7 +91,7 @@ export default function OilsLubricants() {
       </section>
       <section className="achievements">
         <div className="container">
-          <div className="title">
+          <div className="section-title">
             <span className="h1">Наши преимущества:</span>
           </div>
           <div className="row">

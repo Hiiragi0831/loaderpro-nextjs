@@ -70,7 +70,7 @@ export default function About() {
       <Clients />
       <section className="about-requisite">
         <div className="container">
-          <div className="title">
+          <div className="section-title">
             <span className="h1">Реквизиты ООО «СПЕЦМАШИНА»</span>
           </div>
           <div className="table">

@@ -65,12 +65,14 @@ export const QueryBox = () => {
   useEffect(() => void loadBrands(), []);
 
   return (
-    <section className="query__section">
+    <section className="forms__section">
       <div className="container">
         <div className="row">
-          <div className="query">
-            <div className="query__title">Контактная информация</div>
-            <div className="query__user-form">
+          <div className="forms">
+            <div className="forms__head">
+              <p>Контактная информация</p>
+            </div>
+            <div className="forms__row row-3">
               <TextField
                 error={!!user.formState.errors.name}
                 label="Имя"
@@ -88,10 +90,12 @@ export const QueryBox = () => {
               />
             </div>
           </div>
-          <div className="query">
-            <div className="query__title">Запрос цены</div>
+          <div className="forms">
+            <div className="forms__head">
+              <p>Запрос цены</p>
+            </div>
             <form
-              className="query__form"
+              className="forms__query"
               onSubmit={query.handleSubmit(addToQuery)}
             >
               <Autocomplete
@@ -124,10 +128,12 @@ export const QueryBox = () => {
               </div>
             </form>
           </div>
-          <div className="query">
-            <div className="query__title">Ваш запрос</div>
+          <div className="forms">
+            <div className="forms__head">
+              <p>Ваш запрос</p>
+            </div>
             {queryRequested.map((item: any, id) => (
-              <div className="query__form" key={id}>
+              <div className="forms__query" key={id}>
                 <TextField
                   label="Бренд"
                   defaultValue={item.brand}

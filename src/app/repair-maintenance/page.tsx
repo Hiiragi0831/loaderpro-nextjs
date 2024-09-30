@@ -100,7 +100,7 @@ export default function RepairMaintenance() {
       </section>
       <section className="achievements">
         <div className="container">
-          <div className="title">
+          <div className="section-title">
             <span className="h1">
               Сервис вилочных <br className="for-desktop" /> погрузчиков
             </span>

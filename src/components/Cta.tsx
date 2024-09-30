@@ -4,15 +4,27 @@ import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
+import { createTheme, TextField, ThemeProvider } from "@mui/material";
 
 type CtaType = {
   title?: any;
   text?: any;
   class?: string;
 };
+const darkTheme = createTheme({
+  typography: {
+    fontFamily: "'FiraSans', Arial, sans-serif",
+  },
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#fab84f",
+    },
+  },
+});
 
 export const Cta: FC<CtaType> = (data) => {
-  const { register, handleSubmit, reset } = useForm({
+  const { register, handleSubmit, reset, formState } = useForm({
     defaultValues: {
       username: "",
       phone: "",
@@ -41,30 +53,32 @@ export const Cta: FC<CtaType> = (data) => {
   };
 
   return (
-    <section className={`cta ${data.class ? data.class : ""}`}>
-      <div className="container">
-        <div className="row">
-          <div className="cta__info">
-            {data.title === null ? "" : <span className="h1">{title}</span>}
-            {data.text === null ? "" : <p>{text}</p>}
+    <ThemeProvider theme={darkTheme}>
+      <section className={`cta ${data.class ? data.class : ""}`}>
+        <div className="container">
+          <div className="row">
+            <div className="cta__info">
+              {data.title === null ? "" : <span className="h1">{title}</span>}
+              {data.text === null ? "" : <p>{text}</p>}
+            </div>
+            <form className="cta__form" onSubmit={handleSubmit(onSubmit)}>
+              <TextField
+                error={!!formState.errors.username}
+                label="Имя"
+                {...register("username", { required: true })}
+              />
+              <TextField
+                error={!!formState.errors.phone}
+                label="Телефон"
+                {...register("phone", { required: true })}
+              />
+              <button className="button button__primary" type={"submit"}>
+                Оставить заявку
+              </button>
+            </form>
           </div>
-          <form className="cta__form" onSubmit={handleSubmit(onSubmit)}>
-            <input
-              type="text"
-              placeholder="Имя"
-              {...register("username", { required: true })}
-            />
-            <input
-              type="text"
-              placeholder="Телефон"
-              {...register("phone", { required: true })}
-            />
-            <button className="button button__outline" type={"submit"}>
-              Оставить заявку
-            </button>
-          </form>
         </div>
-      </div>
-    </section>
+      </section>
+    </ThemeProvider>
   );
 };

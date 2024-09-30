@@ -1,0 +1,26 @@
+.title {
+	.row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: vc(40);
+	}
+
+	.h1 {
+		font-weight: 500;
+		font-size: 36px;
+		line-height: 1;
+		color: $color-woodsmoke-950;
+	}
+
+	p {
+		font-size: vc(22);
+		line-height: vc(26);
+		text-align: right;
+
+		@include devices {
+			font-size: vc(14);
+			line-height: vc(14);
+			text-align: left;
+		}
+	}
+}

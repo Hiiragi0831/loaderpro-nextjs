@@ -2,7 +2,7 @@ export const Clients = () => {
   return (
     <section className="clients">
       <div className="container">
-        <div className="title">
+        <div className="section-title">
           <span className="h1"> Среди наших клиентов:</span>
           <p>
             Мы с огромной благодарностью относимся к клиентам и партнерам за то,

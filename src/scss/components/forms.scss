@@ -1,23 +1,34 @@
 .forms {
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: vc(30);
-    gap: vc(20);
+    border-radius: vc(10);
+    box-shadow: $box-shadow;
 
     &:last-child {
         margin: 0;
     }
 
+    &__section {
+        .row {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+    }
+
     &__row {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
+        padding: vc(30);
         gap: vc(30);
 
         &.row-2 {
             grid-template-columns: 1fr 1fr;
 
             @include devices {
-                grid-template-columns: 1fr;
+                grid-template-columns: 100%;
             }
         }
 
@@ -25,16 +36,63 @@
             grid-template-columns: 1fr 1fr 1fr;
 
             @include devices {
-                grid-template-columns: 1fr;
+                grid-template-columns: 100%;
             }
         }
     }
 
-    &__head {
-        border-radius: vc(5);
-        padding: vc(15) vc(20);
-        background: $color-woodsmoke-100;
+    &__query {
+        padding: vc(25) vc(30);
+        position: relative;
+        display: grid;
+        grid-template-columns: 0.8fr 1.4fr 0.8fr 0.1fr;
+        gap: vc(35);
 
+        @include devices {
+            grid-template-columns: 100%;
+            border-bottom: 1px solid $color-woodsmoke-300;
+            gap: vc(15);
+        }
+    }
+
+    &__request {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: vc(30);
+        gap: vc(30);
+
+        > * {
+            &:nth-child(4) {
+                grid-column: 1 / 3;
+            }
+        }
+
+        @include devices {
+            grid-template-columns: 100%;
+        }
+    }
+
+    &__request-query {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 0.1fr;
+        padding: vc(30);
+        gap: vc(30);
+        border-bottom: 1px solid $color-woodsmoke-200;
+
+        > * {
+            &:nth-child(5) {
+                grid-column: 1 / 5;
+            }
+        }
+
+        @include devices {
+            grid-template-columns: 100%;
+        }
+    }
+
+    &__head {
+        padding: vc(30);
+        border-bottom: 1px solid $color-woodsmoke-200;
         p {
             font-weight: 600;
             font-size: vc(20);

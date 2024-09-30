@@ -2,7 +2,7 @@ export const MapSending = () => {
   return (
     <section className="map">
       <div className="container">
-        <div className="title">
+        <div className="section-title">
           <span className="h1">Ежедневные отправки</span>
         </div>
         <picture>

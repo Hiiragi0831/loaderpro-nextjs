@@ -68,7 +68,7 @@ export default function PolyurethaneSurfacing() {
       </section>
       <section className="achievements">
         <div className="container">
-          <div className="title">
+          <div className="section-title">
             <span className="h1">
               Как происходит <br className="for-desktop" /> наплавка
               полиуретаном?

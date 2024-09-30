@@ -31,7 +31,7 @@ const Articles: FC<Props> = ({ limit }) => {
   return (
     <section className="article__section">
       <div className="container">
-        <div className="title">
+        <div className="section-title">
           <span className="h1">Полезная информация</span>
         </div>
         <div className="row">

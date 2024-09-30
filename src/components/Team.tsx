@@ -75,7 +75,7 @@ export const Team = () => {
   return (
     <section className="team">
       <div className="container">
-        <div className="title">
+        <div className="section-title">
           <span className="h1">Наша команда - знай наших в лицо:</span>
           <p>
             Каждый человек в нашей команде имеет большую ценность и является
