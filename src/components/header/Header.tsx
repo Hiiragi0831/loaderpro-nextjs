@@ -63,11 +63,11 @@ const Header = () => {
               </Link>
               <Search className={`${isShow ? "active" : ""}`} />
               <div className="header__action">
-                <Link href={"/selection-parts"} className={"for-desktop"}>
+                <Link href={"/request-parts"} className={"for-desktop"}>
                   <IconRectangle />
                   <span>Запросы</span>
                 </Link>
-                <Link href={"/request-parts"} className={"for-desktop"}>
+                <Link href={"/selection-parts"} className={"for-desktop"}>
                   <IconDesktop />
                   <span>Подбор ЗЧ</span>
                 </Link>

@@ -1,34 +1,34 @@
-import { QueryBox } from "./components/QueryBox";
 import type { Metadata } from "next";
-import Advantages from "@/components/Advantages";
+import { FormParts } from "./components/FormParts";
 import { Cta } from "@/components/Cta";
+import Advantages from "@/components/Advantages";
 import Articles from "@/components/Articles";
 
 export const metadata: Metadata = {
-  title: "Запрос запчастей по номерам",
+  title: "Подбор запасных частей по каталогам",
   description:
-    "Вы можете создать запрос на запчасти для погрузчика и мы отправим вам коммерческое предложение.",
+    "Наши технические специалисты постоянно расширяют базу каталогов запчастей для различных брендов складской техники, это позволяет нам осуществлять подбор запасных частей с гарантией.",
 };
 
-export default function SelectionParts() {
+export default function RequestParts() {
   return (
     <main>
       <section className="title">
         <div className="container">
           <div className="row">
             <h1 className="h1">
-              Некоторые запчасти могут отсутствовать в нашем каталоге – это
-              нормально
+              Если у вас нет каталожных номеров запчастей - это не проблема
             </h1>
             <p>
-              Вы можете отправить запрос на необходимые позиции, добавив их в
-              список ниже. После того, как ваш запрос будет обработан, мы
-              отправим вам коммерческое предложение и добавим их в каталог.
+              Мы можем осуществить подбор по каталогам с гарантией. Заполните
+              данные техники в полях ниже, а также добавьте необходимые позиции
+              в список. После того, как ваш запрос будет обработан, мы отправим
+              вам коммерческое предложение.
             </p>
           </div>
         </div>
       </section>
-      <QueryBox />
+      <FormParts />
       <Cta />
       <Advantages />
       <Articles limit={4} />

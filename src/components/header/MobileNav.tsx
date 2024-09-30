@@ -79,10 +79,10 @@ export function MobileNav() {
           <p className="mobilenav__title">Услуги</p>
           <div className="mobilenav__row">
             <div className="mobilenav__col">
-              <Link href={"/request-parts"} onClick={onClickItem}>
+              <Link href={"/selection-parts"} onClick={onClickItem}>
                 Подбор запчастей
               </Link>
-              <Link href={"/selection-parts"} onClick={onClickItem}>
+              <Link href={"/request-parts"} onClick={onClickItem}>
                 Запрос на запчасти
               </Link>
             </div>

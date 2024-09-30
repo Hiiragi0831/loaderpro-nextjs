@@ -23,11 +23,11 @@ export const MobileBar = () => {
       <span className="mobilebar__search" onClick={() => toggleShow(!isShow)}>
         <IconShield />
       </span>
-      <Link href={"/selection-parts"} className="mobilebar__item">
+      <Link href={"/request-parts"} className="mobilebar__item">
         <IconRectangle />
         <span>Запросы</span>
       </Link>
-      <Link href={"/request-parts"} className="mobilebar__item">
+      <Link href={"/selection-parts"} className="mobilebar__item">
         <IconDesktop />
         <span>Подбор ЗЧ</span>
       </Link>
