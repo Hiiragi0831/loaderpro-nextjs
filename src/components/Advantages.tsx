@@ -64,7 +64,7 @@ const Advantage = () => {
               <div className="advantage__button">
                 <Link
                   className="button button__black"
-                  href={"/selection-parts"}
+                  href={"/request-parts"}
                 >
                   Отправить запрос
                 </Link>
