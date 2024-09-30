@@ -32,10 +32,10 @@ export const Cta: FC<CtaType> = (data) => {
   });
   const title = data.title
     ? data.title
-    : "Оставьте заявку и наш менеджер свяжется с вами в течении 15 минут!";
+    : "Наш специалист свяжется с вами в течение 15 минут";
   const text = data.text
     ? data.text
-    : "Получите полную консультацию по всем видам аккумуляторов!";
+    : "Если у вас возникли вопросы, вы можете заказать обратный звонок";
 
   const onSubmit = async (data: any) => {
     const fd = Object.assign(data);
