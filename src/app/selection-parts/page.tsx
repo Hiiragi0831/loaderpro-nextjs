@@ -1,5 +1,8 @@
 import { QueryBox } from "./components/QueryBox";
 import type { Metadata } from "next";
+import Advantages from "@/components/Advantages";
+import { Cta } from "@/components/Cta";
+import Articles from "@/components/Articles";
 
 export const metadata: Metadata = {
   title: "Запрос запчастей по номерам",
@@ -26,6 +29,9 @@ export default function SelectionParts() {
         </div>
       </section>
       <QueryBox />
+      <Cta />
+      <Advantages />
+      <Articles limit={4} />
     </main>
   );
 }

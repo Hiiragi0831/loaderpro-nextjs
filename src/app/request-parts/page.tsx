@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { FormParts } from "./components/FormParts";
+import { Cta } from "@/components/Cta";
+import Advantages from "@/components/Advantages";
+import Articles from "@/components/Articles";
 
 export const metadata: Metadata = {
   title: "Подбор запасных частей по каталогам",
@@ -26,6 +29,9 @@ export default function RequestParts() {
         </div>
       </section>
       <FormParts />
+      <Cta />
+      <Advantages />
+      <Articles limit={4} />
     </main>
   );
 }
