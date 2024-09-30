@@ -19,8 +19,8 @@ export default function VacancyManager() {
               <small>Специалист по подбору персонала</small>
             </div>
             <p>
-              Здравствуйте! Меня зовут Надежда, я HR-менеджер компании
-              Спецмашина!
+              Здравствуйте! Меня зовут Надежда, я HR-менеджер в компании ООО
+              “Спецмашина”!
             </p>
             <p>
               Отправьте своё резюме с указанием должности или позвоните и
@@ -64,11 +64,12 @@ export default function VacancyManager() {
             </div>
             <div className="vacancy__buttons">
               <button
-                className="button button__primary"
+                className="button button__outline"
                 onClick={() => setModalOpen(true)}
               >
-                Откликнуться
+                Показать контакты
               </button>
+              <button className="button button__primary">Откликнуться</button>
             </div>
           </div>
           <div className="vacancy-inner__body">

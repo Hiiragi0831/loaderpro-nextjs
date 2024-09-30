@@ -3,6 +3,11 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: vc(40);
+
+		@include devices {
+			grid-template-columns: 100%;
+			gap: vc(20);
+		}
 	}
 
 	.h1 {
