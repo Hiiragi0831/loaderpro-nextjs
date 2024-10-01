@@ -2,7 +2,6 @@ import { Article } from "@/common/types/Article";
 import { Brand } from "@/common/types/Brand";
 import { Product, SingleProduct } from "@/common/types/Product";
 import { User } from "@/common/types/User";
-import { Reviews } from "@/components/Reviews";
 
 class APIService {
   public async getAllProducts(): Promise<Product[]> {
@@ -147,6 +146,7 @@ class APIService {
       throw error;
     }
   }
+
   public async getReviewCompany(id: string | undefined): Promise<any> {
     try {
       const res = await fetch(

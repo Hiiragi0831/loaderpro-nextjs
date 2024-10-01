@@ -81,7 +81,9 @@ export default function ProductInfo(prop: any) {
           <div className="row">
             <div className="commodity__head">
               <div className="commodity__title">
-                <h1>{data.productname} {data.brand} {data.article}</h1>
+                <h1>
+                  {data.productname} {data.brand} {data.article}
+                </h1>
               </div>
             </div>
             <div className="commodity__main">

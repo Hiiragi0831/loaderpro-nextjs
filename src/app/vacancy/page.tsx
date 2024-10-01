@@ -14,8 +14,6 @@ export default function vacancy() {
         <div className="container">
           <div className="row">
             <VacancyItem />
-            <VacancyItem />
-            <VacancyItem />
           </div>
         </div>
       </section>

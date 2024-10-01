@@ -2,7 +2,7 @@ import Advantages from "@/components/Advantages";
 import Articles from "@/components/Articles";
 import { Reviews } from "@/components/Reviews";
 import dynamic from "next/dynamic";
-import {Cta} from "@/components/Cta";
+import { Cta } from "@/components/Cta";
 
 const ProductInfo = dynamic(() => import("../components/ProductInfo"), {
   ssr: false,

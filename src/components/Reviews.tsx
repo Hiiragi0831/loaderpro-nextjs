@@ -84,7 +84,8 @@ export const Reviews = () => {
       <div className="container">
         <div className="section-title">
           <span className="h1">
-            Что говорят о нас <span className={"is-hidden"}>{dataCompany.yaSpravRating}</span>
+            Что говорят о нас{" "}
+            <span className={"is-hidden"}>{dataCompany.yaSpravRating}</span>
           </span>
           <p>
             <a href="https://yandex.ru/profile/144706740321" target="_blank">
@@ -118,20 +119,3 @@ export const Reviews = () => {
     </section>
   );
 };
-
-// {
-//   "_id": "66fada50eb335c7456ed2855",
-//   "imageFileNames": [],
-//   "images": [],
-//   "name": "Родион Лукахин",
-//   "photo": "",
-//   "message": "Хороший поставщик. ",
-//   "rating": 5,
-//   "date": "2024-09-27T13:32:27.854Z",
-//   "type": "yaSprav",
-//   "src": "https://yandex.ru/profile/144706740321",
-//   "widget": "615460382f94086a47cb9ca9",
-//   "createdAt": "2024-09-30T17:05:20.344Z",
-//   "__v": 0,
-//   "updatedAt": "2024-09-30T17:05:20.344Z"
-// },
