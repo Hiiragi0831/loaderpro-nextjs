@@ -1,7 +1,6 @@
 "use client";
 import { FC, useLayoutEffect, useState } from "react";
 import { api } from "@/services/api";
-import { Product as ProductType } from "@/common/types/Product";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import IconStar from "@/icons/star.svg";
