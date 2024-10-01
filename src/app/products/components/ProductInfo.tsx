@@ -26,10 +26,6 @@ export default function ProductInfo(prop: any) {
     },
     brand: "",
   });
-  // const [brand, setBrand] = useState<BrandType>({
-  //   id: -1,
-  //   name: "",
-  // });
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
@@ -59,19 +55,6 @@ export default function ProductInfo(prop: any) {
     }
   };
 
-  // const loadBrands = async () => {
-  //   if (data.brand === -1) {
-  //     return;
-  //   }
-  //   try {
-  //     const props = await api.getBrand(data.brand);
-  //     setBrand(props);
-  //   } catch (error) {
-  //     // @ts-expect-error @ts-expect-error
-  //     console.error("Error fetching:", error.message);
-  //   }
-  // };
-
   const images = (items: []) => {
     return items.map((item: any, index: Key | null | undefined) => (
       <SwiperSlide key={index}>
@@ -88,7 +71,6 @@ export default function ProductInfo(prop: any) {
   };
 
   useLayoutEffect(() => void loadArticle(), []);
-  // useEffect(() => void loadBrands(), [data.brand]);
 
   return (
     <section className="commodity__section">
@@ -99,7 +81,7 @@ export default function ProductInfo(prop: any) {
           <div className="row">
             <div className="commodity__head">
               <div className="commodity__title">
-                <h1>{data.productname}</h1>
+                <h1>{data.productname} {data.brand} {data.article}</h1>
               </div>
             </div>
             <div className="commodity__main">

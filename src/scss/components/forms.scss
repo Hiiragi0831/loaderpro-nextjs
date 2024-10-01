@@ -11,6 +11,8 @@
     }
 
     &__section {
+        margin-top: vc(-30);
+
         .row {
             display: flex;
             flex-direction: column;
@@ -95,7 +97,7 @@
         border-bottom: 1px solid $color-woodsmoke-200;
         p {
             font-weight: 600;
-            font-size: vc(20);
+            font-size: vc(22);
 
             @include devices {
                 font-size: vc(16);

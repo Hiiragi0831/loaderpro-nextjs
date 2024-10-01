@@ -65,6 +65,10 @@ main {
 section {
 	margin: vc(90) 0;
 
+	&:first-child {
+		margin-top: vc(50);
+	}
+
 	@include devices {
 		margin: vc(30) 0;
 	}
