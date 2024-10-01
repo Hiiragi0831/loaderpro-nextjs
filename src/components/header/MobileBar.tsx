@@ -6,6 +6,7 @@ import IconRectangle from "@/icons/rectangle-history-circle-plus-l.svg";
 import Link from "next/link";
 import { useSearchPanel } from "@/store/useSearchPanel";
 import IconDesktop from "@/icons/desktop.svg";
+import IconMagnifying from "@/icons/magnifying-glass.svg";
 
 export const MobileBar = () => {
   const { isShow, toggleShow } = useSearchPanel();
@@ -21,7 +22,12 @@ export const MobileBar = () => {
         <span>Каталог</span>
       </Link>
       <span className="mobilebar__search" onClick={() => toggleShow(!isShow)}>
-        <IconShield />
+        <div className="front">
+          <IconShield className="logo-icon" />
+        </div>
+        <div className="back">
+          <IconMagnifying className="search-icon" />
+        </div>
       </span>
       <Link href={"/request-parts"} className="mobilebar__item">
         <IconRectangle />
