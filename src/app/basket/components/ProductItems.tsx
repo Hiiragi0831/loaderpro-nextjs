@@ -1,16 +1,18 @@
 "use client";
 
 import { Product as ProductsType } from "@/common/types/Product";
-import { BasketItem } from "@/components/BasketItem";
+import { ProductItem } from "./ProductItem";
 import { useBasket } from "@/store/basket";
 import { useLayoutEffect, useState } from "react";
 import { api } from "@/services/api";
+import { Skeleton } from "@mui/material";
 
-export default function BasketItems() {
+export default function ProductItems() {
   const [data, setData] = useState<ProductsType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   let filteredProducts = [];
   const products = useBasket((state) => state.basket);
+  const total = useBasket((state) => state.total);
 
   const loadProducts = async () => {
     try {
@@ -29,15 +31,20 @@ export default function BasketItems() {
     )
     .slice(0);
 
+  const loadedProducts = () => {
+    total(filteredProducts);
+  };
+
   useLayoutEffect(() => void loadProducts(), []);
+  useLayoutEffect(() => void loadedProducts(), [data]);
 
   return (
     <>
-      {isLoading
-        ? "Загрузка"
-        : filteredProducts.map((item) => (
-            <BasketItem key={item.id} {...item} />
-          ))}
+      {isLoading ? (
+        <Skeleton height={154} variant={"rounded"} />
+      ) : (
+        filteredProducts?.map((item) => <ProductItem key={item.id} {...item} />)
+      )}
     </>
   );
 }

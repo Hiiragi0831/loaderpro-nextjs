@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 
 type Store = {
   basket: any;
-  loading: boolean;
-  error: null;
+  total: (items: any) => void;
+  isTotal: number;
   addToBasket: (id: number, count: number) => void;
   increment: (id: number) => void;
   decrement: (id: number) => void;
@@ -18,8 +18,18 @@ export const useBasket = create<Store>()(
   persist(
     (set, get) => ({
       basket: [],
-      loading: false,
-      error: null,
+      isTotal: 0,
+      total: (items) => {
+        let sum = 0;
+        items.forEach((item: any) => {
+          const product = get().basket.find(
+            (element: { id: number }) => element.id === item.id,
+          );
+          sum += item.price * product.quantity;
+        });
+        console.log(sum);
+        set({ isTotal: sum });
+      },
       addToBasket: (id, count) => {
         console.log(id, count);
         const products = CloneDeep(get().basket);

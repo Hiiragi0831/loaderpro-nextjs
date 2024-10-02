@@ -8,7 +8,7 @@ import { getPriceFormat } from "@/utils/getPriceFormat";
 import Link from "next/link";
 import IconTrash from "@/icons/trash-can.svg";
 
-export const BasketItem: FC<ProductType> = ({
+export const ProductItem: FC<ProductType> = ({
   price,
   image,
   productname,

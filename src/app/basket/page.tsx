@@ -4,24 +4,16 @@ import { useLayoutEffect, useState } from "react";
 import { useBasket } from "@/store/basket";
 import { useForm } from "react-hook-form";
 import { getPriceFormat } from "@/utils/getPriceFormat";
-import { BasketItem } from "@/components/BasketItem";
-import { Product as ProductsType } from "@/common/types/Product";
+import ProductItems from "./components/ProductItems";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
 
-// const BasketItems = dynamic(() => import("./BasketItems"), {
-//   ssr: false,
-// });
-
 export default function Basket() {
   const [delivery, setDelivery] = useState(false);
-  const [data, setData] = useState<ProductsType[]>([]);
   const [status, setStatus] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [isLoadingStatus, setIsLoadingStatus] = useState(true);
   const products = useBasket((state) => state.basket);
-  let total = 0;
-  let filteredProducts = [];
+  const total = useBasket((state) => state.isTotal);
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -38,17 +30,6 @@ export default function Basket() {
     },
   });
 
-  const loadProducts = async () => {
-    try {
-      const data = await api.getAllProducts();
-      setData(data);
-      setIsLoading(false);
-    } catch (error: any) {
-      console.error("Error fetching:", error.message);
-      throw error;
-    }
-  };
-
   const loadBasketStatus = async () => {
     try {
       const data = await api.getBasketStatus();
@@ -59,25 +40,6 @@ export default function Basket() {
       throw error;
     }
   };
-
-  const totalFun = (items: any) => {
-    let sum = 0;
-    items.forEach((item: any) => {
-      const product = products.find(
-        (element: { id: number }) => element.id === item.id,
-      );
-      sum += item.price * product.quantity;
-    });
-    return Number(sum);
-  };
-
-  filteredProducts = data
-    .filter((item) =>
-      products.find((element: { id: number }) => element.id === item.id),
-    )
-    .slice(0);
-
-  total = totalFun(filteredProducts);
 
   const onSubmit = async (data: any) => {
     const fd = Object.assign({ goods: products }, data);
@@ -143,7 +105,6 @@ export default function Basket() {
     }
   };
 
-  useLayoutEffect(() => void loadProducts(), []);
   useLayoutEffect(() => void loadBasketStatus(), []);
 
   return (
@@ -162,11 +123,7 @@ export default function Basket() {
                   <p>Всего</p>
                   <p />
                 </div>
-                {isLoading
-                  ? "Загрузка"
-                  : filteredProducts.map((item) => (
-                      <BasketItem key={item.id} {...item} />
-                    ))}
+                <ProductItems />
               </div>
             </div>
             <form className="basket__form" onSubmit={handleSubmit(onSubmit)}>

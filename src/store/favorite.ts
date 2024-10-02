@@ -5,8 +5,6 @@ import { toast } from "react-toastify";
 
 type Store = {
   favorite: any[];
-  loading: boolean;
-  error: null;
   toggleFavorite: (id: number) => void;
 };
 
@@ -14,8 +12,6 @@ export const useFavorite = create<Store>()(
   persist(
     (set, get) => ({
       favorite: [],
-      loading: false,
-      error: null,
       toggleFavorite: (id) => {
         const favorites = CloneDeep(get().favorite);
         const index = favorites.indexOf(id);

@@ -2,7 +2,6 @@
 
 import { Key, useLayoutEffect, useState } from "react";
 import { SingleProduct } from "@/common/types/Product";
-// import { Brand as BrandType } from "@/common/types/Brand";
 import { useBasket } from "@/store/basket";
 import { api } from "@/services/api";
 import { Swiper, SwiperSlide } from "swiper/react";
