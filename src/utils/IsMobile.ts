@@ -14,5 +14,11 @@ const theme = createTheme({
 });
 
 export function IsMobile() {
-  return mediaQuery(theme.breakpoints.down("xs"), { noSsr: true });
+  const ssrMatchMedia = (query: string) => ({
+    matches: mediaQuery.match(query, {
+      // The estimated CSS width of the browser.
+      width: 1024,
+    }),
+  });
+  return ssrMatchMedia(theme.breakpoints.down("xs"));
 }
