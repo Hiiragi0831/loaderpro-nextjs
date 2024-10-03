@@ -16,8 +16,9 @@ export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
       fontFamily: "'FiraSans', Arial, sans-serif",
     },
     palette: {
+      mode: "light",
       primary: {
-        main: "#fab84f",
+        main: "#f8991d",
       },
     },
   });

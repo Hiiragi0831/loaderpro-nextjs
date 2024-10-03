@@ -3,10 +3,13 @@
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { Autocomplete, TextField } from "@mui/material";
+import { Autocomplete } from "@mui/material";
 import { Brand } from "@/common/types/Brand";
 import { useEffect, useState } from "react";
 import CloneDeep from "lodash-es/cloneDeep";
+import { RedditTextField } from "@/components/ui/RedditTextField";
+import { IsMobile } from "@/utils/IsMobile";
+import { RedditButton } from "@/components/ui/RedditButton";
 
 export const FormParts = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
@@ -80,17 +83,17 @@ export const FormParts = () => {
               <p>Контактная информация</p>
             </div>
             <div className="forms__row row-3">
-              <TextField
+              <RedditTextField
                 label="Имя"
                 error={!!user.formState.errors.name}
                 {...user.register("name", { required: true })}
               />
-              <TextField
+              <RedditTextField
                 label="Email"
                 error={!!user.formState.errors.email}
                 {...user.register("email", { required: true })}
               />
-              <TextField
+              <RedditTextField
                 label="Телефон"
                 error={!!user.formState.errors.phone}
                 {...user.register("phone", { required: true })}
@@ -103,30 +106,31 @@ export const FormParts = () => {
             </div>
             <div className="forms__row row-3">
               <Autocomplete
+                size={IsMobile() ? "small" : "medium"}
                 disablePortal
                 getOptionLabel={(option) => option.name}
                 options={brand}
                 renderInput={(params) => (
-                  <TextField
-                    error={!!user.formState.errors.brand}
+                  <RedditTextField
                     {...params}
+                    error={!!user.formState.errors.brand}
                     label="Бренд"
                     {...user.register("brand", { required: true })}
                   />
                 )}
               />
-              <TextField
+              <RedditTextField
                 error={!!user.formState.errors.model}
                 label="Модель"
                 {...user.register("model", { required: true })}
               />
-              <TextField
+              <RedditTextField
                 error={!!user.formState.errors.yearproduction}
                 label="Год производства"
                 {...user.register("yearproduction", { required: true })}
               />
-              <TextField label="Префикс" {...user.register("prefix")} />
-              <TextField
+              <RedditTextField label="Префикс" {...user.register("prefix")} />
+              <RedditTextField
                 error={!!user.formState.errors.serialnumber}
                 label="Серийный номер"
                 {...user.register("serialnumber", { required: true })}
@@ -138,21 +142,21 @@ export const FormParts = () => {
               <p>Добавить запчасти для ТС</p>
             </div>
             <div className="forms__request">
-              <TextField
+              <RedditTextField
                 error={!!query.formState.errors.sparepart}
                 label="Наименование запчасти"
                 {...query.register("sparepart", { required: true })}
               />
-              <TextField
+              <RedditTextField
                 label="Каталожный номер запчасти"
                 {...query.register("catalognumber")}
               />
-              <TextField
+              <RedditTextField
                 error={!!query.formState.errors.quantity}
                 label="Количество"
                 {...query.register("quantity", { required: true })}
               />
-              <TextField
+              <RedditTextField
                 label="Комментарий"
                 multiline
                 {...query.register("comment")}
@@ -168,17 +172,17 @@ export const FormParts = () => {
             </div>
             {queryRequested.map((item: any, id) => (
               <div className="forms__request-query" key={id}>
-                <TextField
+                <RedditTextField
                   label="Бренд"
                   defaultValue={item.sparepart}
                   disabled={true}
                 />
-                <TextField
+                <RedditTextField
                   label="Номер запчасти"
                   defaultValue={item.catalognumber}
                   disabled={true}
                 />
-                <TextField
+                <RedditTextField
                   label="Количество"
                   defaultValue={item.quantity}
                   disabled={true}
@@ -189,7 +193,7 @@ export const FormParts = () => {
                 >
                   X
                 </button>
-                <TextField
+                <RedditTextField
                   label="Комментарий"
                   multiline
                   defaultValue={item.comment}
@@ -198,9 +202,9 @@ export const FormParts = () => {
             ))}
           </div>
           <form onSubmit={user.handleSubmit(onSubmit)}>
-            <button className="button button__primary" type="submit">
+            <RedditButton type={"submit"} variant="contained">
               Отправить запрос
-            </button>
+            </RedditButton>
           </form>
         </div>
       </div>

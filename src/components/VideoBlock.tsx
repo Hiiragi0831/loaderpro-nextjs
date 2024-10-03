@@ -5,6 +5,7 @@ import IconPlaySolid from "@/icons/play-solid.svg";
 
 import { FC, useState } from "react";
 import { useVideoLocal } from "@/utils/hooks/useVideoLocal";
+import { Skeleton } from "@mui/material";
 
 type VideoBlockType = {
   id: string;
@@ -21,7 +22,7 @@ export const VideoBlock: FC<VideoBlockType> = ({ id, className }) => {
   return (
     <div className={`videoblock ${className ? className : ""}`}>
       {isLoading ? (
-        "Загрузка"
+        <Skeleton height={"100%"} variant={"rounded"} />
       ) : (
         <>
           <button

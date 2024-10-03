@@ -166,7 +166,7 @@ export default function leadAcid() {
         </div>
       </section>
       <Cta />
-      <PhotoSlider />
+      {/*<PhotoSlider />*/}
       <Articles limit={4} />
     </main>
   );

@@ -3,6 +3,7 @@
   "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   "plugins": ["@typescript-eslint", "simple-import-sort"],
   "rules": {
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/display-name": "off"
   }
 }

@@ -7,6 +7,9 @@ import { useEffect, useState } from "react";
 import { Brand } from "@/common/types/Brand";
 import { Autocomplete, TextField } from "@mui/material";
 import CloneDeep from "lodash-es/cloneDeep";
+import { RedditTextField } from "@/components/ui/RedditTextField";
+import { IsMobile } from "@/utils/IsMobile";
+import { RedditButton } from "@/components/ui/RedditButton";
 
 export const QueryBox = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
@@ -73,17 +76,17 @@ export const QueryBox = () => {
               <p>Контактная информация</p>
             </div>
             <div className="forms__row row-3">
-              <TextField
+              <RedditTextField
                 error={!!user.formState.errors.name}
                 label="Имя"
                 {...user.register("name", { required: true })}
               />
-              <TextField
+              <RedditTextField
                 error={!!user.formState.errors.email}
                 label="Email"
                 {...user.register("email", { required: true })}
               />
-              <TextField
+              <RedditTextField
                 error={!!user.formState.errors.phone}
                 label="Телефон"
                 {...user.register("phone", { required: true })}
@@ -99,11 +102,12 @@ export const QueryBox = () => {
               onSubmit={query.handleSubmit(addToQuery)}
             >
               <Autocomplete
+                size={IsMobile() ? "small" : "medium"}
                 disablePortal
                 getOptionLabel={(option) => option.name}
                 options={brand}
                 renderInput={(params) => (
-                  <TextField
+                  <RedditTextField
                     error={!!query.formState.errors.brand}
                     {...params}
                     label="Бренд"
@@ -111,20 +115,20 @@ export const QueryBox = () => {
                   />
                 )}
               />
-              <TextField
+              <RedditTextField
                 error={!!query.formState.errors.serialnumber}
                 label="Номер запчасти"
                 {...query.register("serialnumber", { required: true })}
               />
-              <TextField
+              <RedditTextField
                 error={!!query.formState.errors.quantity}
                 label="Количество"
                 {...query.register("quantity", { required: true })}
               />
-              <div className="query__buttons">
-                <button className="button button__primary">
+              <div className="forms__buttons">
+                <RedditButton variant="contained" type={"submit"}>
                   Добавить в список
-                </button>
+                </RedditButton>
               </div>
             </form>
           </div>
@@ -134,36 +138,36 @@ export const QueryBox = () => {
             </div>
             {queryRequested.map((item: any, id) => (
               <div className="forms__query" key={id}>
-                <TextField
+                <RedditTextField
                   label="Бренд"
                   defaultValue={item.brand}
                   disabled={true}
                 />
-                <TextField
+                <RedditTextField
                   label="Номер запчасти"
                   defaultValue={item.serialnumber}
                   disabled={true}
                 />
-                <TextField
+                <RedditTextField
                   label="Количество"
                   defaultValue={item.quantity}
                   disabled={true}
                 />
-                <div className="query__buttons">
-                  <button
-                    className="button button__primary"
+                <div className="forms__buttons">
+                  <RedditButton
                     onClick={() => deleteQuery(id)}
+                    variant="contained"
                   >
                     X
-                  </button>
+                  </RedditButton>
                 </div>
               </div>
             ))}
           </div>
           <form onSubmit={user.handleSubmit(onSubmit)}>
-            <button className="button button__primary" type="submit">
+            <RedditButton variant="contained" type="submit" size={'large'}>
               Отправить запрос
-            </button>
+            </RedditButton>
           </form>
         </div>
       </div>

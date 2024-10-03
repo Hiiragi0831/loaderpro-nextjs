@@ -4,6 +4,7 @@ import { Cta } from "@/components/Cta";
 import { PolyurethaneCategory } from "@/components/PolyurethaneCategory";
 import { VideoBlock } from "@/components/VideoBlock";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Восстановление полиуретановых колес",
@@ -259,9 +260,7 @@ export default function PolyurethaneSurfacing() {
                 палетоперевозчики, роклы, комплектовщики заказов, узкопроходные
                 штабелёры с высокой грузоподъемностью.
               </p>
-              <button className="button button__outline">
-                Оставить заявку
-              </button>
+              {/*<Link className="button button__outline" href={""}>Перейти</Link>*/}
             </div>
             <div className="leadcta__video">
               <VideoBlock

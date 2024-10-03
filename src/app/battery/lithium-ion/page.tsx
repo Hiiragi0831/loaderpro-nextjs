@@ -126,7 +126,7 @@ export default function lithiumIon() {
         </div>
       </section>
       <Cta />
-      <PhotoSlider />
+      {/*<PhotoSlider />*/}
       <Articles limit={4} />
     </main>
   );

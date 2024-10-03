@@ -20,7 +20,7 @@ export default function About() {
             <div className="about__hero">
               <h1>О нас</h1>
               <p>
-                Добро пожаловать в &quot;Спецмашина&ldquo; – компанию, где
+                Добро пожаловать в &quot;СПЕЦМАШИНА&ldquo; – компанию, где
                 профессионалы своего дела создают уникальную экосистему для
                 эффективного и прозрачного взаимодействия с партнёрами.
               </p>
@@ -50,13 +50,9 @@ export default function About() {
         <div className="container">
           <div className="row">
             <Preference title="7 лет" text="опыт работы" bg="white" />
-            <Preference
-              title="25 000"
-              text="товарных позиций в наличии"
-              bg="1"
-            />
+            <Preference title="55 000 000" text="товарных позиций" bg="1" />
             <Preference title="1 616" text="брендов в портфеле" bg="2" />
-            <Preference title="4 000" text="довольных клиентов" bg="primary" />
+            <Preference title="6 000" text="довольных клиентов" bg="primary" />
             <Preference
               title="12 месяцев"
               text="средний срок гарантии"

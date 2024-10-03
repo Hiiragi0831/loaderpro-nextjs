@@ -79,6 +79,8 @@
 	}
 
 	@include devices {
-		padding: vc(3) vc(5);
+		padding: vc(6) vc(10);
+		font-size: vc(12);
+		line-height: vc(16);
 	}
 }

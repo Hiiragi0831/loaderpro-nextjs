@@ -2,7 +2,7 @@
 
 :root {
 	--width-base: #{$desktop-xl};
-	--width-current: #{$desktop-xl * 1px};
+	--width-current: #{1800 * 1px};
 	--width-multiplier: var(--width-current) / var(--width-base);
 
 	@include desktop-xl {
@@ -67,6 +67,10 @@ section {
 
 	&:first-child {
 		margin-top: vc(50);
+
+		@include devices {
+			margin-top: vc(30);
+		}
 	}
 
 	@include devices {
@@ -90,23 +94,9 @@ blockquote {
 	font-size: inherit;
 }
 
-a,
-button,
-[type='button'] {
+a {
 	color: currentColor;
 	cursor: pointer;
-}
-
-button,
-[type='button'] {
-	appearance: none;
-	border: 0;
-	border-radius: 0;
-	font-family: inherit;
-	font-weight: inherit;
-	font-size: inherit;
-	line-height: inherit;
-	letter-spacing: inherit;
 }
 
 img,

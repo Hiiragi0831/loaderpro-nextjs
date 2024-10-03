@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
 import { createTheme, TextField, ThemeProvider } from "@mui/material";
+import { IsMobile } from "@/utils/IsMobile";
+import { RedditButton } from "@/components/ui/RedditButton";
 
 type CtaType = {
   title?: any;
@@ -18,7 +20,7 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#fab84f",
+      main: "#f8991d",
     },
   },
 });
@@ -63,18 +65,20 @@ export const Cta: FC<CtaType> = (data) => {
             </div>
             <form className="cta__form" onSubmit={handleSubmit(onSubmit)}>
               <TextField
+                size={IsMobile() ? "small" : "medium"}
                 error={!!formState.errors.username}
                 label="Имя"
                 {...register("username", { required: true })}
               />
               <TextField
+                size={IsMobile() ? "small" : "medium"}
                 error={!!formState.errors.phone}
                 label="Телефон"
                 {...register("phone", { required: true })}
               />
-              <button className="button button__primary" type={"submit"}>
+              <RedditButton type={"submit"} variant="contained">
                 Оставить заявку
-              </button>
+              </RedditButton>
             </form>
           </div>
         </div>

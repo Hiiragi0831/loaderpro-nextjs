@@ -6,6 +6,7 @@ import { PolyurethaneCategory } from "@/components/PolyurethaneCategory";
 import Link from "next/link";
 import type { Metadata } from "next";
 import IconLogo from "@/icons/logo.svg";
+import { RedditButton } from "@/components/ui/RedditButton";
 
 export const metadata: Metadata = {
   title: "Полиуретановые колеса",
@@ -122,9 +123,9 @@ export default function polyurethaneWheels() {
                 чтобы подобрать оптимальные варианты для вашей складской
                 техники.
               </p>
-              <Link href="#" className="button button__primary">
+              <RedditButton href="#" variant="contained">
                 Перейти в каталог
-              </Link>
+              </RedditButton>
             </div>
             <div className="polyurethane__about-logo">
               <IconLogo />
@@ -156,12 +157,6 @@ export default function polyurethaneWheels() {
                 комплектовщики заказов, узкопроходные штабелёры с&nbsp;высокой
                 грузоподъемностью.
               </p>
-              <Link
-                href={"/polyurethane-surfacing"}
-                className="button button__outline"
-              >
-                Перейти
-              </Link>
             </div>
             <div className="leadcta__video">
               <VideoBlock

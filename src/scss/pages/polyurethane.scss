@@ -218,6 +218,7 @@
 			li {
 				font-size: vc(25);
 				line-height: 1;
+				color: $color-black;
 
 				@include devices {
 					font-size: vc(12);

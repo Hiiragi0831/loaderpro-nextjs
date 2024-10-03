@@ -119,7 +119,7 @@ export default function battery() {
         </div>
       </section>
       <Cta />
-      <PhotoSlider />
+      {/*<PhotoSlider />*/}
       <Articles limit={4} />
     </main>
   );
