@@ -1,7 +1,7 @@
 import Articles from "@/components/Articles";
 import { Cta } from "@/components/Cta";
 import { Hero } from "../components/Hero";
-import { PhotoSlider } from "../components/PhotoSlider";
+// import { PhotoSlider } from "../components/PhotoSlider";
 import { Types } from "../components/Types";
 import Link from "next/link";
 

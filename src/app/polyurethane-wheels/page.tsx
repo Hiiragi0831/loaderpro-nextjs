@@ -6,7 +6,6 @@ import { PolyurethaneCategory } from "@/components/PolyurethaneCategory";
 import Link from "next/link";
 import type { Metadata } from "next";
 import IconLogo from "@/icons/logo.svg";
-import { RedditButton } from "@/components/ui/RedditButton";
 
 export const metadata: Metadata = {
   title: "Полиуретановые колеса",
