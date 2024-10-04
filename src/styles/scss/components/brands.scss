@@ -1,0 +1,58 @@
+.brands {
+	margin: vc(-60) 0;
+
+	.swiper {
+		width: calc(100% + #{vc(30)});
+		margin: 0 vc(-15);
+		padding: 0 vc(15);
+
+		&-slide {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: vc(16) 0;
+		}
+
+		&-pagination {
+			bottom: vc(3);
+		}
+
+		@include devices {
+			padding: 0 vc(6);
+		}
+	}
+
+	&__slide {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 vc(6);
+		border-radius: vc(10);
+		padding: vc(20) vc(15);
+		width: 100%;
+		box-shadow: $box-shadow;
+		text-align: center;
+		background: $color-white;
+		gap: vc(15);
+
+		picture {
+			position: relative;
+			margin-bottom: vc(5);
+			height: vc(40);
+
+			img {
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+
+		@include devices {
+			padding: vc(10) vc(8);
+			gap: vc(10);
+		}
+	}
+
+	@include devices {
+		margin: 0;
+	}
+}

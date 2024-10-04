@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import "../scss/main.scss";
+import "@/styles/globals.css";
+import "@/styles/scss/main.scss";
 import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
@@ -15,11 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className="loaderpro-theme">
       <body>
-        <div className="site">
-          <Providers>{children}</Providers>
-        </div>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,0 +1,84 @@
+.team {
+	.swiper {
+		margin: 0 vc(-15);
+		padding: vc(16) 0 vc(40);
+		width: calc(100% + #{vc(30)});
+
+		&-slide {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&-pagination {
+			bottom: vc(3);
+		}
+
+		@include devices {
+			margin: 0;
+			width: 100%;
+		}
+	}
+
+	&__slide {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 vc(15);
+		border-radius: vc(10);
+		padding: vc(20) vc(15);
+		width: 100%;
+		box-shadow: $box-shadow;
+		text-align: center;
+		background: $color-white;
+		gap: vc(15);
+
+		picture {
+			position: relative;
+			margin-bottom: vc(5);
+			height: vc(384);
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				z-index: 1;
+				border-radius: 2px;
+				width: 100%;
+				height: 2px;
+				background: $color-tree-poppy-400;
+			}
+
+			img {
+				height: 100%;
+				object-fit: contain;
+			}
+
+			@include devices {
+				height: vc(284);
+			}
+		}
+
+		b {
+			font-weight: 500;
+
+			@include devices {
+				font-size: vc(14);
+			}
+		}
+
+		p {
+			font-size: vc(14);
+			line-height: 1;
+
+			@include devices {
+				font-size: vc(12);
+			}
+		}
+
+		@include devices {
+			gap: vc(10);
+		}
+	}
+}

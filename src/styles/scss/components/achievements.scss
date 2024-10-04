@@ -1,0 +1,23 @@
+.achievements {
+	.row {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: vc(20);
+
+		@include devices {
+			grid-template-columns: 100%;
+		}
+	}
+
+	.cta {
+		&.small {
+			@include desktop {
+				grid-column: auto;
+			}
+		}
+
+		@include desktop {
+			grid-column: 2 / 4;
+		}
+	}
+}

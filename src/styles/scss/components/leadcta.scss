@@ -1,0 +1,122 @@
+.leadcta {
+	position: relative;
+
+	.row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border-radius: vc(10);
+		padding: vc(30);
+		color: $color-white;
+		background: $color-tree-poppy-400;
+		gap: vc(60);
+
+		@include devices {
+			grid-template-columns: 100%;
+			padding: vc(10);
+			gap: vc(10);
+		}
+	}
+
+	.container {
+		position: inherit;
+		z-index: inherit;
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		.h1 {
+			font-size: vc(60);
+			text-align: center;
+
+			p {
+				margin: 0;
+			}
+
+			@include devices {
+				font-size: vc(20);
+			}
+		}
+
+		mark {
+			display: inline-block;
+			margin: vc(20) 0 vc(30);
+			border-radius: vc(10);
+			padding: vc(20);
+			width: 100%;
+			text-align: center;
+			color: $color-tree-poppy-400;
+			background: $color-white;
+
+			@include devices {
+				margin: vc(4) 0 vc(15);
+				padding: vc(5);
+			}
+		}
+
+		p {
+			margin-bottom: vc(10);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__img {
+		position: relative;
+		overflow: hidden;
+		border-radius: vc(10);
+
+		picture {
+			height: 100%;
+
+			img {
+				height: 100%;
+			}
+		}
+
+		@include devices {
+			order: -1;
+			margin: vc(-10);
+
+			picture {
+				height: vc(160);
+			}
+		}
+	}
+
+	&__video {
+		height: 100%;
+
+		.videoblock {
+			height: 100%;
+		}
+
+		@include devices {
+			order: -1;
+			margin: vc(-10);
+			height: vc(160);
+		}
+	}
+
+	.button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: vc(20);
+		width: 100%;
+		height: vc(80);
+
+		@include desktop {
+			font-size: vc(30);
+		}
+
+		@include devices {
+			margin-top: vc(15);
+			height: auto;
+		}
+	}
+}

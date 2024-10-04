@@ -3,16 +3,17 @@
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { Brand } from "@/common/types/Brand";
-import { Autocomplete, TextField } from "@mui/material";
 import CloneDeep from "lodash-es/cloneDeep";
-import { RedditTextField } from "@/components/ui/RedditTextField";
-import { IsMobile } from "@/utils/IsMobile";
+import { RedditInput } from "@/components/ui/RedditInput";
+import { Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { RedditButton } from "@/components/ui/RedditButton";
+// import { Autocomplete, TextField } from "@mui/material";
 
 export const QueryBox = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
+  const [isBrandLoading, setIsBrandLoading] = useState(true);
   const [queryRequested, setQueryRequested] = useState([]);
   const query = useForm({
     defaultValues: {
@@ -33,6 +34,7 @@ export const QueryBox = () => {
     try {
       const props = await api.getAllBrand();
       setBrand(props);
+      setIsBrandLoading(false);
     } catch (error) {
       // @ts-expect-error @ts-expect-error
       console.error("Error fetching:", error.message);
@@ -65,7 +67,7 @@ export const QueryBox = () => {
     setQueryRequested(arr);
   };
 
-  useEffect(() => void loadBrands(), []);
+  useMemo(() => void loadBrands(), []);
 
   return (
     <section className="forms__section">
@@ -76,18 +78,20 @@ export const QueryBox = () => {
               <p>Контактная информация</p>
             </div>
             <div className="forms__row row-3">
-              <RedditTextField
-                error={!!user.formState.errors.name}
+              <RedditInput
+                isInvalid={!!user.formState.errors.name}
+                errorMessage={user.formState.errors.name?.message}
                 label="Имя"
+                variant={"bordered"}
                 {...user.register("name", { required: true })}
               />
-              <RedditTextField
-                error={!!user.formState.errors.email}
+              <RedditInput
+                isInvalid={!!user.formState.errors.email}
                 label="Email"
                 {...user.register("email", { required: true })}
               />
-              <RedditTextField
-                error={!!user.formState.errors.phone}
+              <RedditInput
+                isInvalid={!!user.formState.errors.phone}
                 label="Телефон"
                 {...user.register("phone", { required: true })}
               />
@@ -101,34 +105,38 @@ export const QueryBox = () => {
               className="forms__query"
               onSubmit={query.handleSubmit(addToQuery)}
             >
-              <Autocomplete
-                size={IsMobile() ? "small" : "medium"}
-                disablePortal
-                getOptionLabel={(option) => option.name}
-                options={brand}
-                renderInput={(params) => (
-                  <RedditTextField
-                    error={!!query.formState.errors.brand}
-                    {...params}
-                    label="Бренд"
-                    {...query.register("brand", { required: true })}
-                  />
-                )}
-              />
-              <RedditTextField
-                error={!!query.formState.errors.serialnumber}
+              <Autocomplete label="Select an animal" className="max-w-xs" isLoading={isBrandLoading}>
+                {brand.map((item) => (
+                  <AutocompleteItem key={item.id} value={item.name}>
+                    {item.name}
+                  </AutocompleteItem>
+                ))}
+              </Autocomplete>
+              {/*<Autocomplete*/}
+              {/*  disablePortal*/}
+              {/*  getOptionLabel={(option) => option.name}*/}
+              {/*  options={brand}*/}
+              {/*  renderInput={(params) => (*/}
+              {/*    <TextField*/}
+              {/*      error={!!query.formState.errors.brand}*/}
+              {/*      {...params}*/}
+              {/*      label="Бренд"*/}
+              {/*      {...query.register("brand", { required: true })}*/}
+              {/*    />*/}
+              {/*  )}*/}
+              {/*/>*/}
+              <RedditInput
+                isInvalid={!!query.formState.errors.serialnumber}
                 label="Номер запчасти"
                 {...query.register("serialnumber", { required: true })}
               />
-              <RedditTextField
-                error={!!query.formState.errors.quantity}
+              <RedditInput
+                isInvalid={!!query.formState.errors.quantity}
                 label="Количество"
                 {...query.register("quantity", { required: true })}
               />
               <div className="forms__buttons">
-                <RedditButton variant="contained" type={"submit"}>
-                  Добавить в список
-                </RedditButton>
+                <RedditButton type={"submit"}>Добавить в список</RedditButton>
               </div>
             </form>
           </div>
@@ -138,36 +146,29 @@ export const QueryBox = () => {
             </div>
             {queryRequested.map((item: any, id) => (
               <div className="forms__query" key={id}>
-                <RedditTextField
+                <RedditInput
                   label="Бренд"
                   defaultValue={item.brand}
                   disabled={true}
                 />
-                <RedditTextField
+                <RedditInput
                   label="Номер запчасти"
                   defaultValue={item.serialnumber}
                   disabled={true}
                 />
-                <RedditTextField
+                <RedditInput
                   label="Количество"
                   defaultValue={item.quantity}
                   disabled={true}
                 />
                 <div className="forms__buttons">
-                  <RedditButton
-                    onClick={() => deleteQuery(id)}
-                    variant="contained"
-                  >
-                    X
-                  </RedditButton>
+                  <RedditButton onClick={() => deleteQuery(id)}>X</RedditButton>
                 </div>
               </div>
             ))}
           </div>
           <form onSubmit={user.handleSubmit(onSubmit)}>
-            <RedditButton variant="contained" type="submit" size={'large'}>
-              Отправить запрос
-            </RedditButton>
+            <RedditButton type="submit">Отправить запрос</RedditButton>
           </form>
         </div>
       </div>

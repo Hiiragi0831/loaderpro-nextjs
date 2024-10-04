@@ -1,0 +1,49 @@
+.step {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: vc(40);
+	border-radius: vc(10);
+	padding: vc(40);
+	width: 100%;
+	height: vc(200);
+	box-shadow: $box-shadow;
+
+	&__count {
+		position: absolute;
+		top: vc(-40);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 100%;
+		width: vc(80);
+		height: vc(80);
+		color: $color-white;
+		background: $color-tree-poppy-400;
+
+		@include devices {
+			width: vc(76);
+			height: vc(76);
+
+			span {
+				font-size: vc(40);
+			}
+		}
+	}
+
+	&__text {
+		font-weight: 400;
+		text-align: center;
+
+		@include devices {
+			font-size: vc(20);
+		}
+	}
+
+	@include devices {
+		padding: vc(35) vc(10) vc(10);
+		height: vc(146);
+	}
+}

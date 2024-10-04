@@ -1,0 +1,31 @@
+.tireservice {
+	&__hero {
+		picture {
+			overflow: hidden;
+			border-radius: vc(10);
+		}
+	}
+
+	&__pressing,
+	&__price,
+	&__tire {
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: vc(10);
+
+			.h1 {
+				margin-bottom: vc(10);
+			}
+		}
+	}
+
+	&__pressing,
+	&__price {
+		@include devices {
+			.image {
+				order: -1;
+			}
+		}
+	}
+}

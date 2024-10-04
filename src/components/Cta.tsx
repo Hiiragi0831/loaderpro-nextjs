@@ -66,9 +66,7 @@ export const Cta: FC<CtaType> = (data) => {
                 label="Телефон"
                 {...register("phone", { required: true })}
               />
-              <RedditButton type={"submit"} variant="contained">
-                Оставить заявку
-              </RedditButton>
+              <RedditButton type={"submit"}>Оставить заявку</RedditButton>
             </form>
           </div>
         </div>

@@ -3,13 +3,14 @@
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { Autocomplete } from "@mui/material";
+import { Autocomplete, TextField } from "@mui/material";
 import { Brand } from "@/common/types/Brand";
 import { useEffect, useState } from "react";
 import CloneDeep from "lodash-es/cloneDeep";
-import { RedditTextField } from "@/components/ui/RedditTextField";
+import { RedditInput } from "@/components/ui/RedditInput";
 import { IsMobile } from "@/utils/IsMobile";
 import { RedditButton } from "@/components/ui/RedditButton";
+import { RedditTextarea } from "@/components/ui/RedditTextarea";
 
 export const FormParts = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
@@ -83,19 +84,19 @@ export const FormParts = () => {
               <p>Контактная информация</p>
             </div>
             <div className="forms__row row-3">
-              <RedditTextField
+              <RedditInput
                 label="Имя"
-                error={!!user.formState.errors.name}
+                isInvalid={!!user.formState.errors.name}
                 {...user.register("name", { required: true })}
               />
-              <RedditTextField
+              <RedditInput
                 label="Email"
-                error={!!user.formState.errors.email}
+                isInvalid={!!user.formState.errors.email}
                 {...user.register("email", { required: true })}
               />
-              <RedditTextField
+              <RedditInput
                 label="Телефон"
-                error={!!user.formState.errors.phone}
+                isInvalid={!!user.formState.errors.phone}
                 {...user.register("phone", { required: true })}
               />
             </div>
@@ -111,7 +112,7 @@ export const FormParts = () => {
                 getOptionLabel={(option) => option.name}
                 options={brand}
                 renderInput={(params) => (
-                  <RedditTextField
+                  <TextField
                     {...params}
                     error={!!user.formState.errors.brand}
                     label="Бренд"
@@ -119,19 +120,19 @@ export const FormParts = () => {
                   />
                 )}
               />
-              <RedditTextField
-                error={!!user.formState.errors.model}
+              <RedditInput
+                isInvalid={!!user.formState.errors.model}
                 label="Модель"
                 {...user.register("model", { required: true })}
               />
-              <RedditTextField
-                error={!!user.formState.errors.yearproduction}
+              <RedditInput
+                isInvalid={!!user.formState.errors.yearproduction}
                 label="Год производства"
                 {...user.register("yearproduction", { required: true })}
               />
-              <RedditTextField label="Префикс" {...user.register("prefix")} />
-              <RedditTextField
-                error={!!user.formState.errors.serialnumber}
+              <RedditInput label="Префикс" {...user.register("prefix")} />
+              <RedditInput
+                isInvalid={!!user.formState.errors.serialnumber}
                 label="Серийный номер"
                 {...user.register("serialnumber", { required: true })}
               />
@@ -142,23 +143,23 @@ export const FormParts = () => {
               <p>Добавить запчасти для ТС</p>
             </div>
             <div className="forms__request">
-              <RedditTextField
-                error={!!query.formState.errors.sparepart}
+              <RedditInput
+                isInvalid={!!query.formState.errors.sparepart}
                 label="Наименование запчасти"
                 {...query.register("sparepart", { required: true })}
               />
-              <RedditTextField
+              <RedditInput
                 label="Каталожный номер запчасти"
                 {...query.register("catalognumber")}
               />
-              <RedditTextField
-                error={!!query.formState.errors.quantity}
+              <RedditInput
+                isInvalid={!!query.formState.errors.quantity}
                 label="Количество"
                 {...query.register("quantity", { required: true })}
               />
-              <RedditTextField
+              <RedditTextarea
                 label="Комментарий"
-                multiline
+                minRows={1}
                 {...query.register("comment")}
               />
               <button className="button button__outline">
@@ -172,17 +173,17 @@ export const FormParts = () => {
             </div>
             {queryRequested.map((item: any, id) => (
               <div className="forms__request-query" key={id}>
-                <RedditTextField
+                <RedditInput
                   label="Бренд"
                   defaultValue={item.sparepart}
                   disabled={true}
                 />
-                <RedditTextField
+                <RedditInput
                   label="Номер запчасти"
                   defaultValue={item.catalognumber}
                   disabled={true}
                 />
-                <RedditTextField
+                <RedditInput
                   label="Количество"
                   defaultValue={item.quantity}
                   disabled={true}
@@ -193,18 +194,16 @@ export const FormParts = () => {
                 >
                   X
                 </button>
-                <RedditTextField
+                <RedditTextarea
                   label="Комментарий"
-                  multiline
                   defaultValue={item.comment}
+                  disabled={true}
                 />
               </div>
             ))}
           </div>
           <form onSubmit={user.handleSubmit(onSubmit)}>
-            <RedditButton type={"submit"} variant="contained">
-              Отправить запрос
-            </RedditButton>
+            <RedditButton type={"submit"}>Отправить запрос</RedditButton>
           </form>
         </div>
       </div>

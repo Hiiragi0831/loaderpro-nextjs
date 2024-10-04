@@ -1,0 +1,16 @@
+.favorites {
+	.row {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		gap: vc(14);
+
+		@include devices {
+			grid-template-columns: 1fr 1fr;
+			gap: vc(10);
+		}
+	}
+
+	.h1 {
+		margin-bottom: vc(30);
+	}
+}

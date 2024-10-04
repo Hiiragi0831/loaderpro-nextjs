@@ -1,15 +1,9 @@
-"use client";
-import { Button, ButtonProps } from "@mui/material";
+import { Button, ButtonProps } from "@nextui-org/react";
 import React from "react";
-import { IsMobile } from "@/utils/IsMobile";
 
 export const RedditButton = React.forwardRef((props: ButtonProps, ref: any) => {
   return (
-    <Button
-      ref={ref}
-      {...props}
-      size={props.size ? props.size : IsMobile() ? "small" : "medium"}
-    >
+    <Button ref={ref} {...props} color={props.color ? props.color : "primary"}>
       {props.children}
     </Button>
   );

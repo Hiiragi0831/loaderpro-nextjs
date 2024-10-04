@@ -1,0 +1,14 @@
+// FontName
+// @include font-face("FontName", 500);
+// italic fonts
+// @include font-face("FontName", 500, italic);
+
+@include font-face("FiraSans", 100);
+@include font-face("FiraSans", 200);
+@include font-face("FiraSans", 300);
+@include font-face("FiraSans", 400);
+@include font-face("FiraSans", 500);
+@include font-face("FiraSans", 600);
+@include font-face("FiraSans", 700);
+@include font-face("FiraSans", 800);
+@include font-face("FiraSans", 900);
