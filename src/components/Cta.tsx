@@ -4,11 +4,11 @@ import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { FormControl, Input, InputLabel, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import { RedditButton } from "@/components/ui/RedditButton";
 import { darkTheme } from "@/utils/customTheme";
 import { RedditTextField } from "@/components/ui/RedditTextField";
-import {InputPhone} from "@/components/ui/InputPhone";
+import { InputPhone } from "@/components/ui/InputPhone";
 
 type CtaType = {
   title?: any;

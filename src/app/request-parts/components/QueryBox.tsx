@@ -5,7 +5,7 @@ import { api } from "@/services/api";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { Brand } from "@/common/types/Brand";
-import { Autocomplete, TextField } from "@mui/material";
+import { Autocomplete } from "@mui/material";
 import CloneDeep from "lodash-es/cloneDeep";
 import { RedditTextField } from "@/components/ui/RedditTextField";
 import { IsMobile } from "@/utils/IsMobile";
@@ -165,7 +165,7 @@ export const QueryBox = () => {
             ))}
           </div>
           <form onSubmit={user.handleSubmit(onSubmit)}>
-            <RedditButton variant="contained" type="submit" size={'large'}>
+            <RedditButton variant="contained" type="submit">
               Отправить запрос
             </RedditButton>
           </form>
