@@ -1,6 +1,7 @@
+"use client";
 import { Button, ButtonProps } from "@mui/material";
-import { IsMobile } from "@/utils/IsMobile";
 import React from "react";
+import { IsMobile } from "@/utils/IsMobile";
 
 export const RedditButton = React.forwardRef((props: ButtonProps, ref: any) => {
   return (

@@ -123,9 +123,9 @@ export default function polyurethaneWheels() {
                 чтобы подобрать оптимальные варианты для вашей складской
                 техники.
               </p>
-              <RedditButton href="#" variant="contained">
+              <Link href="#" className="button button__primary">
                 Перейти в каталог
-              </RedditButton>
+              </Link>
             </div>
             <div className="polyurethane__about-logo">
               <IconLogo />

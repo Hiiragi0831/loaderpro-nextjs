@@ -4,26 +4,16 @@ import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { createTheme, TextField, ThemeProvider } from "@mui/material";
+import { TextField, ThemeProvider } from "@mui/material";
 import { IsMobile } from "@/utils/IsMobile";
 import { RedditButton } from "@/components/ui/RedditButton";
+import { darkTheme } from "@/utils/customTheme";
 
 type CtaType = {
   title?: any;
   text?: any;
   class?: string;
 };
-const darkTheme = createTheme({
-  typography: {
-    fontFamily: "'FiraSans', Arial, sans-serif",
-  },
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#f8991d",
-    },
-  },
-});
 
 export const Cta: FC<CtaType> = (data) => {
   const { register, handleSubmit, reset, formState } = useForm({
