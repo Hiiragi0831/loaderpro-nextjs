@@ -4,10 +4,11 @@ import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { TextField, ThemeProvider } from "@mui/material";
-import { IsMobile } from "@/utils/IsMobile";
+import { FormControl, Input, InputLabel, ThemeProvider } from "@mui/material";
 import { RedditButton } from "@/components/ui/RedditButton";
 import { darkTheme } from "@/utils/customTheme";
+import { RedditTextField } from "@/components/ui/RedditTextField";
+import {InputPhone} from "@/components/ui/InputPhone";
 
 type CtaType = {
   title?: any;
@@ -54,14 +55,12 @@ export const Cta: FC<CtaType> = (data) => {
               {data.text === null ? "" : <p>{text}</p>}
             </div>
             <form className="cta__form" onSubmit={handleSubmit(onSubmit)}>
-              <TextField
-                size={IsMobile() ? "small" : "medium"}
+              <RedditTextField
                 error={!!formState.errors.username}
                 label="Имя"
                 {...register("username", { required: true })}
               />
-              <TextField
-                size={IsMobile() ? "small" : "medium"}
+              <InputPhone
                 error={!!formState.errors.phone}
                 label="Телефон"
                 {...register("phone", { required: true })}

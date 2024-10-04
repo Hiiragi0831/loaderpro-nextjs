@@ -34,7 +34,6 @@ export const darkTheme = createTheme({
   },
   components: {
     MuiUseMediaQuery: {
-      // Change the default options of useMediaQuery
       defaultProps: { ssrMatchMedia },
     },
   },

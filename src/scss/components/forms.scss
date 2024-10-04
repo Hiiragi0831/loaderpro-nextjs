@@ -7,6 +7,8 @@
 	box-shadow: $box-shadow;
 
 	&__section {
+		position: relative;
+		z-index: 2;
 		margin-top: vc(-30);
 
 		.row {
