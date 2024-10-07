@@ -25,8 +25,18 @@ export default function Home() {
         </div>
       </section>
       <Brands />
-      <Products limit={5} filter={"popular"} />
-      <Products limit={5} filter={"inStock"} />
+      <Products
+        limit={5}
+        filter={"popular"}
+        title={"Часто ищут"}
+        link={"/spare-parts"}
+      />
+      <Products
+        limit={5}
+        filter={"inStock"}
+        title={"В наличии"}
+        link={"/spare-parts"}
+      />
       <Advantages />
       <Reviews />
       <MapSending />

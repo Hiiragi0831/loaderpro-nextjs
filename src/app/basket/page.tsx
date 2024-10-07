@@ -7,6 +7,8 @@ import { getPriceFormat } from "@/utils/getPriceFormat";
 import ProductItems from "./components/ProductItems";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
+import { InputPhone } from "@/components/ui/InputPhone";
+import { RedditTextField } from "@/components/ui/RedditTextField";
 
 export default function Basket() {
   const [delivery, setDelivery] = useState(false);
@@ -15,7 +17,7 @@ export default function Basket() {
   const products = useBasket((state) => state.basket);
   const total = useBasket((state) => state.isTotal);
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     defaultValues: {
       username: "",
       email: "",
@@ -136,30 +138,21 @@ export default function Basket() {
                 {/*</b>*/}
               </div>
               <div className="basket__form-data">
-                <label className="form__input">
-                  <input
-                    type="text"
-                    placeholder="Имя"
-                    {...register("username", { required: true })}
-                  />
-                  <span>Имя</span>
-                </label>
-                <label className="form__input">
-                  <input
-                    type="text"
-                    placeholder="Email"
-                    {...register("email", { required: true })}
-                  />
-                  <span>Email</span>
-                </label>
-                <label className="form__input">
-                  <input
-                    type="text"
-                    placeholder="Телефон"
-                    {...register("phone", { required: true })}
-                  />
-                  <span>Телефон</span>
-                </label>
+                <RedditTextField
+                  error={!!formState.errors.username}
+                  label="Имя"
+                  {...register("username", { required: true })}
+                />
+                <RedditTextField
+                  error={!!formState.errors.email}
+                  label="Email"
+                  {...register("email", { required: true })}
+                />
+                <InputPhone
+                  error={!!formState.errors.phone}
+                  label="Телефон"
+                  {...register("phone", { required: true })}
+                />
                 {isLoadingStatus ? "" : select("pay")}
                 {isLoadingStatus ? "" : select("delivery")}
                 {delivery && (

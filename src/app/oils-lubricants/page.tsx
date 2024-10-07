@@ -128,7 +128,12 @@ export default function OilsLubricants() {
           </div>
         </div>
       </section>
-      <Products limit={5} filter={"popular"} />
+      <Products
+        limit={5}
+        filter={"popular"}
+        title={"Часто ищут"}
+        link={"/spare-parts"}
+      />
       <section className="leadcta">
         <div className="container">
           <div className="row">
