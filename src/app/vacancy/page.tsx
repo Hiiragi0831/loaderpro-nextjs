@@ -10,7 +10,15 @@ export const metadata: Metadata = {
 export default function vacancy() {
   return (
     <main>
-      <VacancyItem />
+      <section className="vacancy">
+        <div className="container">
+          <div className="row">
+            <VacancyItem />
+            <VacancyItem />
+            <VacancyItem />
+          </div>
+        </div>
+      </section>
       <Cta />
       <Articles limit={4} />
     </main>

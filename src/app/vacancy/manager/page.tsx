@@ -6,7 +6,6 @@ import Articles from "@/components/Articles";
 import { Cta } from "@/components/Cta";
 import { Modal } from "@/components/Modal";
 import IconLogo from "@/icons/logo.svg";
-import Link from "next/link";
 
 export default function VacancyManager() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,7 +20,7 @@ export default function VacancyManager() {
             </div>
             <p>
               Здравствуйте! Меня зовут Надежда, я HR-менеджер в компании ООО
-              «СПЕЦМАШИНА»!
+              “Спецмашина”!
             </p>
             <p>
               Отправьте своё резюме с указанием должности или позвоните и
@@ -37,13 +36,12 @@ export default function VacancyManager() {
                 <a href="mailto:hr@loaderpro.ru">hr@loaderpro.ru</a>
               </div>
             </div>
-            <Link
+            <button
               className="button button__primary"
               onClick={() => setModalOpen(false)}
-              href={"/vacancy"}
             >
               Посмотреть другие вакансии
-            </Link>
+            </button>
           </div>
           <div className="vacancy-modal__image">
             <picture>
@@ -66,11 +64,12 @@ export default function VacancyManager() {
             </div>
             <div className="vacancy__buttons">
               <button
-                className="button button__primary"
+                className="button button__outline"
                 onClick={() => setModalOpen(true)}
               >
-                Откликнуться
+                Показать контакты
               </button>
+              <button className="button button__primary">Откликнуться</button>
             </div>
           </div>
           <div className="vacancy-inner__body">

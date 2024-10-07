@@ -19,8 +19,8 @@
 		gap: vc(6);
 
 		svg {
-			width: vc(16);
-			height: vc(16);
+			width: vc(18);
+			height: vc(18);
 		}
 	}
 
@@ -68,7 +68,7 @@
 		background: $color-tree-poppy-400;
 
 		svg {
-			fill: $color-white;
+			fill: $color-black;
 		}
 
 		@include hover {
