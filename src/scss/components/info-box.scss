@@ -1,7 +1,7 @@
 .info-box {
 	.row {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 50% 50%;
 		border-radius: vc(10);
 		height: vc(274);
 		box-shadow: $box-shadow;
@@ -36,6 +36,24 @@
 		display: flex;
 		justify-content: center;
 		height: vc(274);
+
+		.swiper {
+			height: 100%;
+
+			&-slide {
+				height: 100%;
+
+				picture {
+					padding: vc(50);
+					height: 100%;
+
+					img {
+						height: 100%;
+						object-fit: contain;
+					}
+				}
+			}
+		}
 
 		&--main {
 			overflow: hidden;

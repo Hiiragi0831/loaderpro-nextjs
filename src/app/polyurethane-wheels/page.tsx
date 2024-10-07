@@ -100,7 +100,16 @@ export default function polyurethaneWheels() {
       <InfoBox
         title="Совместимость"
         text="Наши колеса и ролики подходят для брендов"
-        img="/images/polyurethane/still.png"
+        images={[
+          "/images/vendors/still.png",
+          "/images/vendors/linde.png",
+          "/images/vendors/bt.png",
+          "/images/vendors/jungheinrich.png",
+          "/images/vendors/yale.png",
+          "/images/vendors/hyster.png",
+          "/images/vendors/crown.png",
+          "/images/vendors/noblelift.png",
+        ]}
         class="reverse polyurethane__info-box"
       />
       <section className="polyurethane__about">

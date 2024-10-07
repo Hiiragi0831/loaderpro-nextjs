@@ -1,9 +1,13 @@
+"use client";
 import { FC } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 type InfoBoxType = {
   title: any;
   text: string;
-  img: string;
+  img?: string;
+  images?: string[];
   special?: string;
   class?: string;
 };
@@ -28,10 +32,23 @@ export const InfoBox: FC<InfoBoxType> = (data) => {
             <p>{data.text}</p>
           </div>
           <div className="info-box__image">
-            <picture className="info-box__image--main">
-              <source srcSet={data.img} />
-              <img src={data.img} alt={data.title} decoding="async" />
-            </picture>
+            {data.images ? (
+              <Swiper autoplay={{ delay: 3000 }} modules={[Autoplay]}>
+                {data.images.map((image, id) => (
+                  <SwiperSlide key={id}>
+                    <picture>
+                      <source srcSet={image} />
+                      <img src={image} alt={data.title} decoding="async" />
+                    </picture>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : (
+              <picture className="info-box__image--main">
+                <source srcSet={data.img} />
+                <img src={data.img} alt={data.title} decoding="async" />
+              </picture>
+            )}
             {special()}
           </div>
         </div>

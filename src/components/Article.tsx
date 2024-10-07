@@ -8,12 +8,12 @@ type Props = Pick<
 >;
 
 const Article: FC<Props> = ({ id, title, description, image, date, link }) => {
-  const currentDate = new Date(date)
-    .toISOString()
-    .slice(0, 10)
-    .split("-")
-    .reverse()
-    .join(".");
+  // const currentDate = new Date(date)
+  //   .toISOString()
+  //   .slice(0, 10)
+  //   .split("-")
+  //   .reverse()
+  //   .join(".");
 
   return (
     <div className="article">
@@ -27,7 +27,7 @@ const Article: FC<Props> = ({ id, title, description, image, date, link }) => {
         <p>{title}</p>
       </div>
       <div className="article__date">
-        <p>{currentDate}</p>
+        <p>{date}</p>
       </div>
       <div className="article__description">
         <p>{description?.slice(0, 80)}...</p>
