@@ -27,7 +27,6 @@
 	&__outline {
 		border: 1px solid $color-tree-poppy-400;
 		color: $color-tree-poppy-400;
-		background: $color-white;
 
 		svg {
 			fill: $color-tree-poppy-400;
@@ -37,6 +36,25 @@
 			border-color: $color-white;
 			color: $color-white;
 			background: $color-tree-poppy-400;
+
+			svg {
+				fill: $color-white;
+			}
+		}
+	}
+
+	&__outline-white {
+		border: 1px solid $color-white;
+		color: $color-white;
+
+		svg {
+			fill: $color-white;
+		}
+
+		@include hover {
+			border-color: $color-tree-poppy-400;
+			color: $color-tree-poppy-400;
+			background: $color-white;
 
 			svg {
 				fill: $color-white;

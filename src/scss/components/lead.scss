@@ -4,6 +4,7 @@
 	border-radius: vc(10);
 	padding: vc(25) vc(30);
 	background: $color-tree-poppy-400;
+	gap: vc(20);
 
 	span,
 	p {
@@ -33,10 +34,10 @@
 			list-style: disc;
 			padding-left: vc(65);
 			font-weight: 500;
-			font-size: vc(40);
+			font-size: vc(38);
 			line-height: 1;
 			text-transform: uppercase;
-			color: $color-white;
+			color: $color-black;
 
 			&::before {
 				content: "";

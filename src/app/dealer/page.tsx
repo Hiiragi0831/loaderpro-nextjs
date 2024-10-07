@@ -16,18 +16,18 @@ export const metadata: Metadata = {
 
 export default function Dealer() {
   const steps = [
-    "Вбиваете запрос в\u00A0систему",
-    "Получаете лучшее предложение в России",
-    "Выгружаете КП",
-    "Согласовываете с\u00A0клиентом покупку",
-    "Оформляете заказ и присылаете реквизиты клиента!",
+    "Добавление запроса в\u00A0систему",
+    "Получение ценового предложения в\u00A0системе",
+    "Отправка коммерческого предложение из\u00A0системы",
+    "Согласование покупки с\u00A0клиентом",
+    "Оформление заказа в\u00A0системе",
   ];
   const whats = [
-    "Бухгалтерия сформирует договор и\u00A0счет",
-    "Отправит его вашему клиенту",
-    "Проконтролирует получение денег",
-    "Отдел закупок запустит заказ в\u00A0работу",
-    "Отдел логистики осуществит отгрузку товара",
+    "Контроль денег",
+    "Отгрузка или заказ товара",
+    "Маркировка и упаковка",
+    "Логистика до клиента",
+    "Обмен бухгалтерскими документами",
   ];
   return (
     <main>
@@ -78,8 +78,7 @@ export default function Dealer() {
               </p>
             </div>
             <iframe
-              src="https://vk.com/video_ext.php?oid=-30158839&id=456239332"
-              allow="encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+              src="https://rutube.ru/play/embed/e8d5f3268e79d1f15cfb78ac994e8042/"
               allowFullScreen
             />
           </div>
@@ -90,11 +89,7 @@ export default function Dealer() {
           <span className="h1">Возможности данной платформы:</span>
           <div className="row">
             <div className="dealer__preference-list">
-              <Preference
-                title="25 000"
-                text="товарных позиций в наличии"
-                bg="1"
-              />
+              <Preference title="55 000 000" text="товарных позиций" bg="1" />
               <Preference title="1 616" text="брендов в портфеле" bg="2" />
               <Preference title="3" text="надежных канала поставок" bg="3" />
             </div>
@@ -109,7 +104,7 @@ export default function Dealer() {
                 <li>Создание КП с&nbsp;указанием вашей наценки</li>
                 <li>Доставка до&nbsp;вас или ваших клиентов</li>
               </ul>
-              <button className="button button__outline">
+              <button className="button button__outline-white">
                 {" "}
                 Оставить заявку
               </button>
@@ -175,10 +170,7 @@ export default function Dealer() {
           </div>
         </div>
       </section>
-      <Steps
-        data={steps}
-        title={"Все это происходит по схеме, где вы делаете 5 простых шагов:"}
-      />
+      <Steps data={steps} title={"Вы делаете 5 простых шагов:"} />
       <Steps data={whats} title={"Что делаем мы:"} />
       <section className="dealer__qa">
         <div className="container">
