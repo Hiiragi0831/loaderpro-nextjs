@@ -10,9 +10,10 @@ type Props = {
   date: string;
   message: string;
   rating: number;
+  photo: string;
 };
 
-const Review: FC<Props> = ({ name, date, message, rating }) => {
+const Review: FC<Props> = ({ name, date, message, rating, photo }) => {
   const currentDate = new Date(date)
     .toISOString()
     .slice(0, 10)
@@ -35,12 +36,24 @@ const Review: FC<Props> = ({ name, date, message, rating }) => {
   return (
     <div className="review">
       <div className="review__head">
-        <div className="review__rating">{star(rating)}</div>
-        <div className="review__name">
-          <p>{name}</p>
+        <div className="review__avatar">
+          <picture className="info-box__image--main">
+            <source srcSet={photo ? photo : "images/blank/avatar.png"} />
+            <img
+              src={photo ? photo : "images/blank/avatar.png"}
+              alt={name}
+              decoding="async"
+            />
+          </picture>
         </div>
-        <div className="review__date">
-          <p>{currentDate}</p>
+        <div className="review__info">
+          <div className="review__rating">{star(rating)}</div>
+          <div className="review__name">
+            <p>{name}</p>
+          </div>
+          <div className="review__date">
+            <p>{currentDate}</p>
+          </div>
         </div>
       </div>
       <div className="review__message">
@@ -49,6 +62,23 @@ const Review: FC<Props> = ({ name, date, message, rating }) => {
     </div>
   );
 };
+
+// {
+//   "_id": "6702d181eb335c2ec3228c1b",
+//   "imageFileNames": [],
+//   "images": [],
+//   "name": "Мария Д.",
+//   "photo": "https://avatars.mds.yandex.net/get-yapic/27232/m45zfoSrzjhi5T9dxtNuq8226CQ-1/islands-68",
+//   "message": "Добрый день! Обращались в компанию за услугой нанесения полиуретанового покрытия на ролики. Сделали в срок, проточили, выполнили фаски, все согласно чертежа и на высоком уровне. Однозначно, будем обращаться вновь! Благодарим за профессионализм. С вами приятно работать! ",
+//   "rating": 5,
+//   "date": "2024-10-02T05:37:43.439Z",
+//   "type": "yaSprav",
+//   "src": "https://yandex.ru/profile/144706740321",
+//   "widget": "615460382f94086a47cb9ca9",
+//   "createdAt": "2024-10-06T18:05:53.834Z",
+//   "__v": 0,
+//   "updatedAt": "2024-10-06T18:05:53.837Z"
+// },
 
 export const Reviews = () => {
   const [data, setData] = useState<any>([]);
