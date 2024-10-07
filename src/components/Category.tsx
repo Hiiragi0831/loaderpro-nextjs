@@ -17,7 +17,7 @@ const Category: FC<Props> = (data) => {
       </div>
       <div className="category__info">
         <div className="category__title">{data.title}</div>
-        <button className="category__button">
+        <button className={`category__button ${data.link ? "" : "is-hidden"}`}>
           <span>Перейти</span>
           <IconRightArrow />
         </button>

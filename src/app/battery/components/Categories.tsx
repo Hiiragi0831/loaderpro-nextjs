@@ -8,12 +8,12 @@ export const Categories = () => {
           <Category
             title="Свинцово-кислотные аккумуляторы"
             image={`/images/battery/lead-acid_batteries.png`}
-            link="lead-acid"
+            // link="lead-acid"
           />
           <Category
             title="Литий-ионные аккумуляторы"
             image={`/images/battery/lithium-ion_batteries.png`}
-            link="lithium-ion"
+            // link="lithium-ion"
           />
           <Category
             title="Зарядное устройство тяговых аккумуляторов"

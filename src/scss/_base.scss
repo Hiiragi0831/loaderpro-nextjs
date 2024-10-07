@@ -6,7 +6,7 @@
 	--width-multiplier: var(--width-current) / var(--width-base);
 
 	@include desktop-xl {
-		--width-current: 100vw;
+		--width-current: 90vw;
 	}
 
 	@include devices {
