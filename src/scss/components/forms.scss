@@ -91,11 +91,33 @@
 		> * {
 			&:nth-child(5) {
 				grid-column: 1 / 5;
+
+				@include devices {
+					grid-column: initial;
+				}
+			}
+
+			&:nth-child(4) {
+				&::before {
+					content: "Х";
+
+					@include devices {
+						content: "Удалить";
+					}
+				}
+
+				@include devices {
+					order: 2;
+					margin-left: auto;
+					width: fit-content;
+				}
 			}
 		}
 
 		@include devices {
 			grid-template-columns: 100%;
+			padding: vc(12);
+			gap: vc(12);
 		}
 	}
 

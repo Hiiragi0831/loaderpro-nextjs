@@ -10,6 +10,7 @@ import CloneDeep from "lodash-es/cloneDeep";
 import { RedditTextField } from "@/components/ui/RedditTextField";
 import { IsMobile } from "@/utils/IsMobile";
 import { RedditButton } from "@/components/ui/RedditButton";
+import {InputPhone} from "@/components/ui/InputPhone";
 
 export const FormParts = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
@@ -93,9 +94,9 @@ export const FormParts = () => {
                 error={!!user.formState.errors.email}
                 {...user.register("email", { required: true })}
               />
-              <RedditTextField
-                label="Телефон"
+              <InputPhone
                 error={!!user.formState.errors.phone}
+                label="Телефон"
                 {...user.register("phone", { required: true })}
               />
             </div>
@@ -190,12 +191,11 @@ export const FormParts = () => {
                 <button
                   className="button button__primary"
                   onClick={() => deleteQuery(id)}
-                >
-                  X
-                </button>
+                />
                 <RedditTextField
                   label="Комментарий"
                   multiline
+                  disabled={true}
                   defaultValue={item.comment}
                 />
               </div>

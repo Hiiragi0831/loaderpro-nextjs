@@ -10,6 +10,7 @@ import CloneDeep from "lodash-es/cloneDeep";
 import { RedditTextField } from "@/components/ui/RedditTextField";
 import { IsMobile } from "@/utils/IsMobile";
 import { RedditButton } from "@/components/ui/RedditButton";
+import {InputPhone} from "@/components/ui/InputPhone";
 
 export const QueryBox = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
@@ -86,7 +87,7 @@ export const QueryBox = () => {
                 label="Email"
                 {...user.register("email", { required: true })}
               />
-              <RedditTextField
+              <InputPhone
                 error={!!user.formState.errors.phone}
                 label="Телефон"
                 {...user.register("phone", { required: true })}

@@ -2,7 +2,7 @@
 
 :root {
 	--width-base: #{$desktop-xl};
-	--width-current: #{1800 * 1px};
+	--width-current: #{$desktop-lg * 1px};
 	--width-multiplier: var(--width-current) / var(--width-base);
 
 	@include desktop-xl {
