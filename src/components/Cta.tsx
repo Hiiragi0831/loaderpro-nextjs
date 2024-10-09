@@ -9,6 +9,7 @@ import { RedditButton } from "@/components/ui/RedditButton";
 import { darkTheme } from "@/utils/customTheme";
 import { RedditTextField } from "@/components/ui/RedditTextField";
 import { InputPhone } from "@/components/ui/InputPhone";
+import { usePathname } from "next/navigation";
 
 type CtaType = {
   title?: any;
@@ -17,6 +18,7 @@ type CtaType = {
 };
 
 export const Cta: FC<CtaType> = (data) => {
+  const pathname = usePathname();
   const { register, handleSubmit, reset, formState } = useForm({
     defaultValues: {
       username: "",
@@ -31,7 +33,7 @@ export const Cta: FC<CtaType> = (data) => {
     : "Если у вас возникли вопросы, вы можете заказать обратный звонок";
 
   const onSubmit = async (data: any) => {
-    const fd = Object.assign(data);
+    const fd = Object.assign(data, { url: pathname });
     console.log(fd);
     try {
       const res = await api.postCB(fd);
