@@ -138,7 +138,7 @@ class APIService {
   public async getReviews(id: string | undefined): Promise<any> {
     try {
       const res = await fetch(
-        `https://app.reviewlab.ru/api/v1/widgets/widget/${id}/reviews/remote?limit=30`,
+        `https://app.reviewlab.ru/api/v1/widgets/widget/${id}/reviews/remote?limit=15`,
       );
       return res.json();
     } catch (error: any) {

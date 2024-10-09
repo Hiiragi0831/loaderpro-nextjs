@@ -16,11 +16,11 @@ export const Categories = () => {
             // link="lithium-ion"
           />
           <Category
-            title="Зарядное устройство тяговых аккумуляторов"
+            title="Зарядные устройства"
             image={`/images/battery/traction_battery_charger.png`}
           />
           <Category
-            title="Разъемы для тяговых аккумуляторов"
+            title="Разъемы"
             image={`/images/battery/connectors_for_traction_batteries.png`}
           />
         </div>

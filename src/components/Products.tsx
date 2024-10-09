@@ -36,7 +36,7 @@ const Products: FC<Props> = ({ filter, limit, title, link }) => {
       break;
     case "inStock":
       filteredProducts = data
-        .filter((item) => item.status.name === "В наличии")
+        .filter((item) => item.status.value === "green")
         .slice(0, limit);
       break;
     default:

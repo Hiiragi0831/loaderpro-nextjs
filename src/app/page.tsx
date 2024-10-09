@@ -27,14 +27,14 @@ export default function Home() {
       <Brands />
       <Products
         limit={5}
-        filter={"popular"}
-        title={"Часто ищут"}
+        filter={"inStock"}
+        title={"В наличии"}
         link={"/spare-parts"}
       />
       <Products
         limit={5}
-        filter={"inStock"}
-        title={"В наличии"}
+        filter={"popular"}
+        title={"Спецпредложения"}
         link={"/spare-parts"}
       />
       <Advantages />

@@ -38,9 +38,9 @@ const Review: FC<Props> = ({ name, date, message, rating, photo }) => {
       <div className="review__head">
         <div className="review__avatar">
           <picture className="info-box__image--main">
-            <source srcSet={photo ? photo : "images/blank/avatar.png"} />
+            <source srcSet={photo ? photo : "/images/blank/avatar.png"} />
             <img
-              src={photo ? photo : "images/blank/avatar.png"}
+              src={photo ? photo : "/images/blank/avatar.png"}
               alt={name}
               decoding="async"
             />
