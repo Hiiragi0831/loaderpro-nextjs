@@ -4,6 +4,8 @@
 	--width-base: #{$desktop-xl};
 	--width-current: #{$desktop-lg * 1px};
 	--width-multiplier: var(--width-current) / var(--width-base);
+	//--toastify-color-progress-success: $color-black;
+	//--toastify-icon-color-success: $color-tree-poppy-400;
 
 	@include desktop-xl {
 		--width-current: 90vw;

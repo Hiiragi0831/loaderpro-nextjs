@@ -6,6 +6,7 @@ import { useBasket } from "@/store/basket";
 import { api } from "@/services/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Thumbs } from "swiper/modules";
+import Link from "next/link";
 
 export default function ProductInfo(prop: any) {
   const id = prop.id;
@@ -149,7 +150,8 @@ export default function ProductInfo(prop: any) {
                         безналичному расчету с НДС 20% или по карте. Если у вас
                         возникли сложности с выбором, вы можете получить
                         экспертную консультацию связавшись с нами любым удобным
-                        способом со страницы Контакты(гиперссылка)
+                        способом со страницы{" "}
+                        <Link href={"/contact"}> Контакты</Link>
                       </p>
                     </>
                   )}

@@ -1,4 +1,18 @@
 .Toastify {
 	font-size: vc(16);
 	line-height: 1;
+
+	&__progress-bar {
+		&--success {
+			background: $color-black;
+		}
+	}
+
+	&__toast {
+		&--success {
+			svg {
+				fill: $color-tree-poppy-400;
+			}
+		}
+	}
 }
