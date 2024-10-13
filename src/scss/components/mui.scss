@@ -1,0 +1,106 @@
+.MuiInputBase {
+	&-root {
+		padding: 0;
+	}
+
+	&-input {
+		padding: vc(16) vc(20);
+		height: auto;
+		font-size: vc(16);
+		line-height: 1;
+
+		@include devices {
+			padding: vc(10) vc(16);
+			font-size: vc(14);
+		}
+	}
+}
+
+.MuiOutlinedInput {
+	&-notchedOutline {
+		span {
+			padding: 0 vc(5);
+			font-size: vc(16);
+			line-height: 1;
+
+			@include devices {
+				font-size: vc(14);
+			}
+		}
+	}
+}
+
+.MuiAutocomplete {
+	&-inputRoot {
+		padding: 0 !important;
+	}
+
+	&-input {
+		border-radius: vc(5);
+		padding: vc(16) vc(20) !important;
+		height: auto;
+		font-size: vc(16);
+		line-height: 1;
+
+		@include devices {
+			padding: vc(10) vc(16) !important;
+			font-size: vc(14);
+		}
+	}
+
+	&-endAdornment {
+		right: vc(10) !important;
+		display: flex;
+		gap: vc(10);
+
+		button {
+			padding: 0;
+			width: vc(40);
+			height: vc(40);
+		}
+	}
+}
+
+.MuiButtonBase {
+	&-root {
+		border-radius: vc(5);
+		padding: vc(16) vc(20);
+		font-weight: 500;
+		font-size: vc(16);
+		line-height: 1;
+		text-transform: none;
+
+		@include devices {
+			padding: vc(10) vc(16);
+			font-size: vc(14);
+		}
+	}
+}
+
+.MuiFormLabel-root {
+	font-size: vc(16);
+	line-height: 1;
+	transform: translate(vc(20), vc(18)) scale(1);
+
+	&.Mui-focused,
+	&.MuiFormLabel-filled {
+		transform: translate(vc(20), vc(-8)) scale(0.75);
+	}
+
+	@include devices {
+		font-size: vc(14);
+		transform: translate(vc(10), vc(12)) scale(1);
+	}
+}
+
+//active		.Mui-active
+//checked		.Mui-checked
+//completed		.Mui-completed
+//disabled		.Mui-disabled
+//error			.Mui-error
+//expanded		.Mui-expanded
+//focus visible	.Mui-focusVisible
+//focused		.Mui-focused
+//readOnly		.Mui-readOnly
+//required		.Mui-required
+//selected		.Mui-selected

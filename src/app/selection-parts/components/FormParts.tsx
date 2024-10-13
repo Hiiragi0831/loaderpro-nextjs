@@ -162,9 +162,9 @@ export const FormParts = () => {
                 multiline
                 {...query.register("comment")}
               />
-              <button className="button button__outline">
+              <RedditButton type={"submit"} variant="contained">
                 Добавить в список
-              </button>
+              </RedditButton>
             </div>
           </form>
           <div className="forms">

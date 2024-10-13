@@ -42,6 +42,10 @@
 		overflow: hidden;
 		border-radius: vc(10);
 		min-height: vc(410);
+
+		@include devices {
+			min-height: auto;
+		}
 	}
 
 	&__title {

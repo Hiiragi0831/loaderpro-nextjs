@@ -26,7 +26,7 @@
 		display: grid;
 		grid-template-columns: 100%;
 		padding: vc(30);
-		gap: vc(30);
+		gap: vc(20);
 
 		&.row-2 {
 			grid-template-columns: 1fr 1fr;
@@ -62,7 +62,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		padding: vc(30);
-		gap: vc(30);
+		gap: vc(20);
 
 		> * {
 			&:nth-child(4) {
@@ -86,7 +86,7 @@
 		grid-template-columns: 1fr 1fr 1fr 0.1fr;
 		border-bottom: 1px solid $color-woodsmoke-200;
 		padding: vc(30);
-		gap: vc(30);
+		gap: vc(20);
 
 		> * {
 			&:nth-child(5) {

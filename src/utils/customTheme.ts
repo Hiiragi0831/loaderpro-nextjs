@@ -26,6 +26,7 @@ export const darkTheme = createTheme({
   typography: {
     fontFamily: "'FiraSans', Arial, sans-serif",
   },
+  spacing: (factor: number) => `${0.25 * factor}rem`,
   palette: {
     mode: "dark",
     primary: {
