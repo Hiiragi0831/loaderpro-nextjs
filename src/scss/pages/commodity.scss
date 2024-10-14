@@ -136,6 +136,10 @@
 					background: $color-tree-poppy-400;
 				}
 			}
+
+			@include devices {
+				height: vc(74);
+			}
 		}
 
 		@include devices {

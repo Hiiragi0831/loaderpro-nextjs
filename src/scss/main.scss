@@ -12,6 +12,7 @@
 @import 'helpers';
 @import 'vendor';
 
+@import 'components/mui';
 @import 'components/button';
 @import 'components/header';
 @import 'components/footer';
@@ -51,7 +52,7 @@
 @import 'components/search';
 @import 'components/title';
 @import 'components/reviews';
-@import 'components/mui';
+@import 'components/empty';
 
 @import 'pages/home';
 @import 'pages/catalog';

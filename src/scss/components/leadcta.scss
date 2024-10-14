@@ -63,6 +63,10 @@
 				margin-bottom: 0;
 			}
 		}
+
+		@include devices {
+			margin-top: vc(10);
+		}
 	}
 
 	&__img {
@@ -98,7 +102,7 @@
 		@include devices {
 			order: -1;
 			margin: vc(-10);
-			height: vc(160);
+			height: vc(194);
 		}
 	}
 

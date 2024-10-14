@@ -4,6 +4,7 @@
 	.row {
 		display: grid;
 		grid-template-columns: 1fr vc(360);
+		margin-top: vc(15);
 		gap: vc(50);
 
 		@include devices {
@@ -39,8 +40,8 @@
 			}
 
 			@include devices {
-				padding: vc(10) 0;
 				grid-template-columns: vc(60) vc(150) vc(80) vc(90) vc(80) vc(30);
+				padding: vc(10) 0;
 				gap: vc(10);
 			}
 		}
@@ -97,7 +98,7 @@
 	display: grid;
 	align-items: center;
 	justify-content: space-between;
-	grid-template-columns: vc(125) 1fr vc(200) vc(154) vc(200) vc(14);
+	grid-template-columns: vc(125) 1fr vc(200) vc(154) vc(200) vc(30);
 	border-bottom: 1px solid $color-black;
 	padding: vc(14) 0;
 	width: 100%;
@@ -194,8 +195,8 @@
 	}
 
 	@include devices {
+		grid-template-columns: vc(60) vc(150) vc(80) vc(90) vc(80) vc(30);
 		padding: vc(8) 0;
-		grid-template-columns: vc(60) vc(150) vc(80) vc(90) vc(80) vc(14);
 		gap: vc(10);
 	}
 }

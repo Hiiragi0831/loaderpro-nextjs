@@ -6,6 +6,7 @@ import { useFavorite } from "@/store/favorite";
 import { api } from "@/services/api";
 import Product from "@/components/Product";
 import Link from "next/link";
+import { Empty } from "@/components/Empty";
 
 export default function Favorites() {
   const [data, setData] = useState<ProductsType[]>([]);
@@ -49,18 +50,10 @@ export default function Favorites() {
               </div>
             </section>
           ) : (
-            <section className="favorites__empty">
-              <div className="container">
-                <h1>Вы ещё не добавили товары в Избранное</h1>
-                <p>Нажмите кнопку, чтобы продолжить покупки</p>
-                <Link
-                  href={"/spare-parts"}
-                  className={"button button__primary"}
-                >
-                  В каталог
-                </Link>
-              </div>
-            </section>
+            <Empty
+              title={"Вы ещё не добавили товары в Избранное"}
+              text={"Нажмите кнопку, чтобы продолжить покупки"}
+            />
           )}
         </>
       )}
