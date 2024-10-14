@@ -5,7 +5,6 @@ import { Product as ProductsType } from "@/common/types/Product";
 import { useFavorite } from "@/store/favorite";
 import { api } from "@/services/api";
 import Product from "@/components/Product";
-import Link from "next/link";
 import { Empty } from "@/components/Empty";
 
 export default function Favorites() {
