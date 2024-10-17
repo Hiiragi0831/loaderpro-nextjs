@@ -1,7 +1,7 @@
 .mobilebar {
 	position: fixed;
 	bottom: 0;
-	z-index: 999;
+	z-index: 12;
 	display: grid;
 	grid-template-columns: 1fr 1fr vc(80) 1fr 1fr;
 	border-top: 1px solid $color-woodsmoke-400;

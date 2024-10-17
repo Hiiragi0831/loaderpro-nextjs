@@ -49,56 +49,61 @@ export const Search: FC<Props> = ({ className }) => {
   }, [searchQuery]);
 
   return (
-    <div className={`search ${className}`} ref={ref}>
-      <label>
-        <input
-          type="text"
-          name="search"
-          placeholder="Поиск товара"
-          onFocus={() => setFocused(true)}
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button type="submit">
-          <IconMagnifying />
-        </button>
-      </label>
-      {searchData.length > 0 && (
-        <div className={`search__results ${focused ? "active" : ""}`}>
-          <div className="search__wrapper">
-            {searchData.map((item) => (
-              <Link
-                onClick={onClickItem}
-                key={item.id}
-                href={`/products/${item.id}`}
-                className="search__link"
-              >
-                <picture>
-                  <source
-                    srcSet={
-                      item.image
-                        ? `https://my.loaderpro.ru/images/products/${item.image}`
-                        : "https://my.loaderpro.ru/images/no-photo.svg"
-                    }
-                  />
-                  <img
-                    src={
-                      item.image
-                        ? `https://my.loaderpro.ru/images/products/${item.image}`
-                        : "https://my.loaderpro.ru/images/no-photo.svg"
-                    }
-                    alt=""
-                    decoding="async"
-                  />
-                </picture>
-                <span>
-                  {item.productname} {item.brand} {item.article}
-                </span>
-              </Link>
-            ))}
-          </div>
+    <section className={`search ${className}`}>
+      <div className={"search__bg"}></div>
+      <div className={"container"}>
+        <div className={"row"} ref={ref}>
+          <label>
+            <input
+              type="text"
+              name="search"
+              placeholder="Поиск товара"
+              onFocus={() => setFocused(true)}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button type="submit">
+              <IconMagnifying />
+            </button>
+          </label>
+          {searchData.length > 0 && (
+            <div className={`search__results ${focused ? "active" : ""}`}>
+              <div className="search__wrapper">
+                {searchData.map((item) => (
+                  <Link
+                    onClick={onClickItem}
+                    key={item.id}
+                    href={`/products/${item.id}`}
+                    className="search__link"
+                  >
+                    <picture>
+                      <source
+                        srcSet={
+                          item.image
+                            ? `https://my.loaderpro.ru/images/products/${item.image}`
+                            : "https://my.loaderpro.ru/images/no-photo.svg"
+                        }
+                      />
+                      <img
+                        src={
+                          item.image
+                            ? `https://my.loaderpro.ru/images/products/${item.image}`
+                            : "https://my.loaderpro.ru/images/no-photo.svg"
+                        }
+                        alt=""
+                        decoding="async"
+                      />
+                    </picture>
+                    <span>
+                      {item.productname} {item.brand} {item.article}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      </div>
+    </section>
   );
 };

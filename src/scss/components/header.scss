@@ -105,14 +105,15 @@
 			span:nth-child(1) {
 				transform: rotate(-45deg) translateX(vc(-7));
 			}
+
 			span:nth-child(2) {
 				opacity: 0;
 				visibility: hidden;
 			}
+
 			span:nth-child(3) {
 				transform: rotate(45deg) translateX(vc(-7));
 			}
-
 		}
 
 		@include desktop {
@@ -135,7 +136,8 @@
 			display: flex;
 			gap: vc(50);
 
-			a, button {
+			a,
+			button {
 				position: relative;
 				display: flex;
 				align-items: center;
@@ -165,13 +167,13 @@
 
 	&__main {
 		position: relative;
-		padding: vc(15) 0;
 		z-index: 2;
+		padding: vc(15) 0;
 
 		.row {
 			display: grid;
 			align-items: center;
-			grid-template-columns: vc(260) 4fr 1fr;
+			grid-template-columns: vc(260) vc(850) 1fr;
 			gap: vc(46);
 
 			@include devices {

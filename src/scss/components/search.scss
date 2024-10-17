@@ -1,8 +1,33 @@
 .search {
+	position: fixed;
+	z-index: 13;
+	margin-top: vc(47);
+	padding: vc(15) 0;
 	width: 100%;
-	position: relative;
-	background: $color-white;
-	z-index: 3;
+	transition: visibility $transition, opacity $transition;
+
+	.row {
+		position: relative;
+		margin-top: vc(5);
+		margin-left: vc(307);
+		width: vc(850);
+
+		@include devices {
+			margin: 0;
+			width: 100%;
+		}
+	}
+
+	&__bg {
+		position: absolute;
+		display: none;
+		background: rgba($color-black, 0.7);
+		inset: 0;
+
+		@include devices {
+			display: block;
+		}
+	}
 
 	label {
 		position: relative;
@@ -11,6 +36,7 @@
 		border: 1px solid $color-woodsmoke-300;
 		border-radius: vc(5);
 		padding: vc(14) vc(20);
+		background: $color-white;
 
 		input {
 			width: 100%;
@@ -30,24 +56,24 @@
 
 	&__results {
 		position: absolute;
-		display: flex;
-		flex-direction: column;
-		background: $color-white;
 		top: vc(56);
 		bottom: 0;
-		height: fit-content;
-		width: 100%;
+		display: flex;
+		flex-direction: column;
 		overflow: hidden;
 		border: 1px solid $color-woodsmoke-300;
 		border-radius: vc(5);
+		width: 100%;
+		height: fit-content;
 		max-height: 60vh;
-		visibility: hidden;
+		background: $color-white;
 		opacity: 0;
+		visibility: hidden;
 		transition: visibility $transition, opacity $transition;
 
 		&.active {
-			visibility: visible;
 			opacity: 1;
+			visibility: visible;
 		}
 
 		@include devices {
@@ -56,47 +82,51 @@
 	}
 
 	&__wrapper {
-		width: 100%;
-		height: 100%;
 		display: flex;
 		flex-direction: column;
 		overflow: auto;
+		width: 100%;
+		height: 100%;
 	}
 
 	&__link {
 		display: flex;
 		align-items: center;
-		width: 100%;
-		gap: vc(15);
-		padding: vc(10);
 		border-bottom: 1px solid $color-woodsmoke-300;
+		padding: vc(10);
+		width: 100%;
 		background: $color-white;
 		transition: background $transition;
-
-		@include hover {
-			background: $color-tree-poppy-400;
-		}
+		gap: vc(15);
 
 		picture {
 			width: vc(50);
 			height: vc(50);
 
 			img {
-				height: 100%;
 				width: 100%;
+				height: 100%;
 				object-fit: contain;
 			}
 		}
-	}
 
-	@include devices {
-		display: none;
+		@include hover {
+			background: $color-tree-poppy-400;
+		}
 	}
 
 	&.active {
-		display: block;
 		position: fixed;
 		left: 0;
-		top: vc(60);
+		top: 0;
+		height: 100%;
+		opacity: 1;
+		visibility: visible;
+	}
+
+	@include devices {
+		margin: 0;
+		opacity: 0;
+		visibility: hidden;
 	}
 }
