@@ -8,6 +8,7 @@ import { Product } from "@/common/types/Product";
 import { useClickAway } from "react-use";
 import Link from "next/link";
 import { useSearchPanel } from "@/store/useSearchPanel";
+import { useRouter } from "next/navigation";
 
 type Props = {
   className?: string;
@@ -19,18 +20,23 @@ export const Search: FC<Props> = ({ className }) => {
   const [focused, setFocused] = useState(false);
   const ref = useRef(null);
   const { toggleShow } = useSearchPanel();
+  const route = useRouter();
 
   const search = async (data: any) => {
     try {
       const fdata = await api.getSearchResult({ search: data });
       setSearchData(fdata || []);
+
+      if (fdata.length === 0 && data.length > 0) {
+        route.push("/request-parts");
+      }
     } catch (error: any) {
       setSearchData([]);
       console.error("Error fetching:", error.message);
       throw error;
     }
   };
-  const debounced = useRef(debounce(search, 300));
+  const debounced = useRef(debounce(search, 500));
 
   useClickAway(ref, () => {
     setFocused(false);
@@ -42,6 +48,10 @@ export const Search: FC<Props> = ({ className }) => {
     toggleShow(false);
     setSearchQuery("");
     setSearchData([]);
+  };
+
+  const onSearch = (e: any) => {
+    setSearchQuery(e.target.value);
   };
 
   useEffect(() => {
@@ -59,7 +69,7 @@ export const Search: FC<Props> = ({ className }) => {
             placeholder="Поиск товара"
             onFocus={() => setFocused(true)}
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={onSearch}
           />
           <button type="submit">
             <IconMagnifying />
