@@ -61,7 +61,7 @@ const Header = () => {
               <Link className="header__logo" href="/">
                 <IconLogo />
               </Link>
-              <div className={"for-desktop"} />
+              <Search className={`${isShow ? "active" : ""}`} />
               <div className="header__action">
                 <Link href={"/request-parts"} className={"for-desktop"}>
                   <IconRectangle />
@@ -130,7 +130,6 @@ const Header = () => {
         </div>
       </header>
       <MobileNav />
-      <Search className={`${isShow ? "active" : ""}`} />
     </>
   );
 };

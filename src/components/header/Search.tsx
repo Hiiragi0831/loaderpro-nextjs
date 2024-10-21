@@ -61,7 +61,7 @@ export const Search: FC<Props> = ({ className }) => {
   return (
     <section className={`search ${className}`}>
       <div className={"search__bg"}></div>
-      <div className={"row"} ref={ref}>
+      <div className={"search__row"} ref={ref}>
         <label>
           <input
             type="text"

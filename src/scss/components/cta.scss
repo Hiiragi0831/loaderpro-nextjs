@@ -50,7 +50,7 @@
 			font-size: vc(18);
 
 			@include devices {
-				padding: vc(2);
+				padding: vc(10);
 				font-size: vc(12);
 			}
 		}
