@@ -11,10 +11,12 @@ import { RedditTextField } from "@/components/ui/RedditTextField";
 import { IsMobile } from "@/utils/IsMobile";
 import { RedditButton } from "@/components/ui/RedditButton";
 import { InputPhone } from "@/components/ui/InputPhone";
+import { useRouter } from "next/navigation";
 
 export const FormParts = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
   const [queryRequested, setQueryRequested] = useState([]);
+  const route = useRouter();
   const user = useForm({
     defaultValues: {
       name: "",
@@ -52,8 +54,9 @@ export const FormParts = () => {
     console.log(fd);
     try {
       const fdata = await api.postQueryTs(fd);
-      if (fdata.ok) {
+      if (fdata.status === 200) {
         toast.success("Запрос на подбор успешно создан");
+        route.push(`/selection-parts/success?num=${fdata.num}`);
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);

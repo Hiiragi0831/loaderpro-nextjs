@@ -11,10 +11,12 @@ import { RedditTextField } from "@/components/ui/RedditTextField";
 import { IsMobile } from "@/utils/IsMobile";
 import { RedditButton } from "@/components/ui/RedditButton";
 import { InputPhone } from "@/components/ui/InputPhone";
+import { useRouter } from "next/navigation";
 
 export const QueryBox = () => {
   const [brand, setBrand] = useState<Brand[]>([]);
   const [queryRequested, setQueryRequested] = useState([]);
+  const route = useRouter();
   const query = useForm({
     defaultValues: {
       brand: "",
@@ -45,8 +47,9 @@ export const QueryBox = () => {
     console.log(fd);
     try {
       const fdata = await api.postQueryZp(fd);
-      if (fdata.ok) {
+      if (fdata.status === 200) {
         toast.success("Запрос успешно создан");
+        route.push(`/request-parts/success?num=${fdata.num}`);
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);

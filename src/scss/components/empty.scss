@@ -9,4 +9,9 @@
 		justify-content: center;
 		gap: vc(15);
 	}
+
+	mark {
+		color: $color-tree-poppy-400;
+		background: none;
+	}
 }

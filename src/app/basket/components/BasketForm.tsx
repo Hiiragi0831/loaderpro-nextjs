@@ -6,13 +6,16 @@ import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
 import { useLayoutEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useBasket } from "@/store/basket";
 
-export const BasketForm = ({ products }: { products: any }) => {
+export const BasketForm = () => {
   const [delivery, setDelivery] = useState(false);
   const [status, setStatus] = useState([]);
   const [isLoadingStatus, setIsLoadingStatus] = useState(true);
-  const isOrdered = useBasket((state) => state.isOrdered);
+  const route = useRouter();
+  const products = useBasket((state) => state.basket);
+  const cleanBasket = useBasket((state) => state.reset);
   const { register, handleSubmit, formState } = useForm({
     defaultValues: {
       username: "",
@@ -44,10 +47,10 @@ export const BasketForm = ({ products }: { products: any }) => {
     console.log(fd);
     try {
       const fdata = await api.postBasket(fd);
-      if (fdata.ok) {
+      if (fdata.status === 200) {
         toast.success("Заказ успешно создан");
-        console.log(fdata.json());
-        // isOrdered(fdata.json());
+        route.push(`/basket/success?num=${fdata.num}`);
+        cleanBasket();
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);

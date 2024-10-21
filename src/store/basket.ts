@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 type Store = {
   basket: any;
   order: string;
-  isOrdered: (text: string) => void;
+  reset: () => void;
   addToBasket: (id: number, count: number) => void;
   increment: (id: number) => void;
   decrement: (id: number) => void;
@@ -19,8 +19,8 @@ export const useBasket = create<Store>()(
     (set, get) => ({
       basket: [],
       order: "",
-      isOrdered: () => {
-
+      reset: () => {
+        set({ basket: [] });
       },
       addToBasket: (id, count) => {
         console.log(id, count);

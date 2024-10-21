@@ -11,7 +11,7 @@ const ProductInfo = dynamic(() => import("../components/ProductInfo"), {
 const Page = ({ params }: { params?: any }) => {
   return (
     <main>
-      <h1>Post: {params.productname}</h1>
+      {/*<h1>Post: {params.productname}</h1>*/}
       <ProductInfo id={params.slug} />
       <Reviews />
       <Cta />

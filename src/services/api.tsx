@@ -69,10 +69,11 @@ class APIService {
 
   public async postBasket(data: any) {
     try {
-      return await fetch("https://api.cartrac.ru/Main/orders/", {
+      const res = await fetch("https://api.cartrac.ru/Main/orders/", {
         method: "POST",
         body: JSON.stringify(data),
       });
+      return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;
@@ -81,10 +82,11 @@ class APIService {
 
   public async postQueryTs(data: any) {
     try {
-      return await fetch("https://api.cartrac.ru/Main/query_ts/", {
+      const res = await fetch("https://api.cartrac.ru/Main/query_ts/", {
         method: "POST",
         body: JSON.stringify(data),
       });
+      return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;
@@ -93,10 +95,11 @@ class APIService {
 
   public async postQueryZp(data: any) {
     try {
-      return await fetch("https://api.cartrac.ru/Main/query_catalog/", {
+      const res = await fetch("https://api.cartrac.ru/Main/query_catalog/", {
         method: "POST",
         body: JSON.stringify(data),
       });
+      return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;

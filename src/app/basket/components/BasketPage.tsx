@@ -9,7 +9,11 @@ import { Product as ProductsType } from "@/common/types/Product";
 
 export const BasketPage = ({ data }: { data: ProductsType[] }) => {
   const products = useBasket((state) => state.basket);
-  let filteredProducts = [];
+  const filteredProducts = data
+    .filter((item) =>
+      products.find((element: { id: number }) => element.id === item.id),
+    )
+    .slice(0);
 
   const totalFun = (items: any) => {
     let sum = 0;
@@ -22,12 +26,6 @@ export const BasketPage = ({ data }: { data: ProductsType[] }) => {
     return Number(sum);
   };
 
-  filteredProducts = data
-    .filter((item) =>
-      products.find((element: { id: number }) => element.id === item.id),
-    )
-    .slice(0);
-
   return (
     <>
       {filteredProducts.length > 0 ? (
@@ -38,7 +36,7 @@ export const BasketPage = ({ data }: { data: ProductsType[] }) => {
               <div className="basket__table">
                 <div className="basket__table-body">
                   <div className="basket__table-th">
-                    <p></p>
+                    <p />
                     <p>Название товара</p>
                     <p>Стоимость</p>
                     <p>Количество</p>
@@ -57,7 +55,7 @@ export const BasketPage = ({ data }: { data: ProductsType[] }) => {
                     <span>{getPriceFormat(totalFun(filteredProducts))} ₽</span>
                   </b>
                 </div>
-                <BasketForm products={products} />
+                <BasketForm />
               </div>
             </div>
           </div>
