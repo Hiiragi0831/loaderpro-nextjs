@@ -8,14 +8,17 @@ const ProductInfo = dynamic(() => import("../components/ProductInfo"), {
   ssr: false,
 });
 
-export default function Products({ params }: { params?: any }) {
+const Page = ({ params }: { params?: any }) => {
   return (
     <main>
-      <ProductInfo id={params.productId} />
+      <h1>Post: {params.productname}</h1>
+      <ProductInfo id={params.slug} />
       <Reviews />
       <Cta />
       <Advantages />
       <Articles limit={4} />
     </main>
   );
-}
+};
+
+export default Page;

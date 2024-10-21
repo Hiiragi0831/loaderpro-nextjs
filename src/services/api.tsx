@@ -1,7 +1,7 @@
-import { Article } from "@/common/types/Article";
+// import { Article } from "@/common/types/Article";
 import { Brand } from "@/common/types/Brand";
 import { Product, SingleProduct } from "@/common/types/Product";
-import { User } from "@/common/types/User";
+// import { User } from "@/common/types/User";
 
 class APIService {
   public async getAllProducts(): Promise<Product[]> {
@@ -24,25 +24,25 @@ class APIService {
     }
   }
 
-  public async getArticles(): Promise<Article[]> {
-    try {
-      const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/articles");
-      return res.json();
-    } catch (error: any) {
-      console.error("Error fetching:", error.message);
-      throw error;
-    }
-  }
-
-  public async getUsers(): Promise<User[]> {
-    try {
-      const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/users/");
-      return res.json();
-    } catch (error: any) {
-      console.error("Error fetching:", error.message);
-      throw error;
-    }
-  }
+  // public async getArticles(): Promise<Article[]> {
+  //   try {
+  //     const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/articles");
+  //     return res.json();
+  //   } catch (error: any) {
+  //     console.error("Error fetching:", error.message);
+  //     throw error;
+  //   }
+  // }
+  //
+  // public async getUsers(): Promise<User[]> {
+  //   try {
+  //     const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/users/");
+  //     return res.json();
+  //   } catch (error: any) {
+  //     console.error("Error fetching:", error.message);
+  //     throw error;
+  //   }
+  // }
 
   public async getBasketStatus() {
     try {

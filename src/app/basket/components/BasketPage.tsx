@@ -57,7 +57,7 @@ export const BasketPage = ({ data }: { data: ProductsType[] }) => {
                     <span>{getPriceFormat(totalFun(filteredProducts))} ₽</span>
                   </b>
                 </div>
-                <BasketForm products={filteredProducts} />
+                <BasketForm products={products} />
               </div>
             </div>
           </div>
