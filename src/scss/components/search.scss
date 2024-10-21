@@ -47,13 +47,12 @@
 	}
 
 	&__results {
-		position: relative;
-		top: 0;
+		position: absolute;
+		top: vc(56);
 		overflow: hidden;
 		border: 1px solid $color-woodsmoke-300;
 		border-radius: vc(5);
 		width: 100%;
-		height: fit-content;
 		max-height: 60vh;
 		box-shadow: $box-shadow;
 		background: $color-white;
@@ -64,6 +63,10 @@
 		&.active {
 			opacity: 1;
 			visibility: visible;
+		}
+
+		@include devices {
+			top: vc(45);
 		}
 	}
 
