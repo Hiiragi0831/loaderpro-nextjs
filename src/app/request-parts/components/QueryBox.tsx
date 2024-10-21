@@ -49,7 +49,7 @@ export const QueryBox = () => {
       const fdata = await api.postQueryZp(fd);
       if (fdata.status === 200) {
         toast.success("Запрос успешно создан");
-        route.push(`/request-parts/success?num=${fdata.num}`);
+        route.push(`/success?num=${fdata.num}&page=query`);
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);

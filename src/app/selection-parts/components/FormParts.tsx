@@ -56,7 +56,7 @@ export const FormParts = () => {
       const fdata = await api.postQueryTs(fd);
       if (fdata.status === 200) {
         toast.success("Запрос на подбор успешно создан");
-        route.push(`/selection-parts/success?num=${fdata.num}`);
+        route.push(`/success?num=${fdata.num}&page=query`);
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);

@@ -9,7 +9,7 @@ import { RedditButton } from "@/components/ui/RedditButton";
 import { darkTheme } from "@/utils/customTheme";
 import { RedditTextField } from "@/components/ui/RedditTextField";
 import { InputPhone } from "@/components/ui/InputPhone";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type CtaType = {
   title?: any;
@@ -19,6 +19,7 @@ type CtaType = {
 
 export const Cta: FC<CtaType> = (data) => {
   const pathname = usePathname();
+  const route = useRouter();
   const { register, handleSubmit, reset, formState } = useForm({
     defaultValues: {
       username: "",
@@ -36,9 +37,10 @@ export const Cta: FC<CtaType> = (data) => {
     const fd = Object.assign(data, { url: pathname });
     console.log(fd);
     try {
-      const res = await api.postCB(fd);
-      if (res.ok) {
+      const fdata = await api.postCB(fd);
+      if (fdata.status === 200) {
         toast.success("Заявка успешно отправлена");
+        route.push(`/success?num=${fdata.num}&page=call`);
         reset();
       }
     } catch (error: any) {

@@ -49,7 +49,7 @@ export const BasketForm = () => {
       const fdata = await api.postBasket(fd);
       if (fdata.status === 200) {
         toast.success("Заказ успешно создан");
-        route.push(`/basket/success?num=${fdata.num}`);
+        route.push(`/success?num=${fdata.num}&page=basket`);
         cleanBasket();
       }
     } catch (error: any) {
