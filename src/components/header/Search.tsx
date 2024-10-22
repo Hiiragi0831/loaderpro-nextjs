@@ -27,9 +27,9 @@ export const Search: FC<Props> = ({ className }) => {
       const fdata = await api.getSearchResult({ search: data });
       setSearchData(fdata || []);
 
-      if (fdata.length === 0 && data.length > 0) {
-        route.push("/request-parts");
-      }
+      // if (fdata.length === 0 && data.length > 0) {
+      //   route.push("/request-parts");
+      // }
     } catch (error: any) {
       setSearchData([]);
       console.error("Error fetching:", error.message);
@@ -54,19 +54,28 @@ export const Search: FC<Props> = ({ className }) => {
     setSearchQuery(e.target.value);
   };
 
+  const onSubmit = (evt: any) => {
+    evt.preventDefault();
+    if (searchData.length === 0 && searchQuery.length > 1) {
+      route.push("/request-parts");
+    }
+  };
+
   useEffect(() => {
-    debounced.current(searchQuery);
+    if (searchQuery.length > 1) {
+      debounced.current(searchQuery);
+    }
   }, [searchQuery]);
 
   return (
     <section className={`search ${className}`}>
       <div className={"search__bg"}></div>
-      <div className={"search__row"} ref={ref}>
+      <form className={"search__row"} ref={ref} onSubmit={onSubmit}>
         <label>
           <input
             type="text"
             name="search"
-            placeholder="Поиск товара"
+            placeholder="Поиск товара (введите артикул или название товара)"
             onFocus={() => setFocused(true)}
             value={searchQuery}
             onChange={onSearch}
@@ -111,7 +120,7 @@ export const Search: FC<Props> = ({ className }) => {
             </div>
           </div>
         )}
-      </div>
+      </form>
     </section>
   );
 };
