@@ -195,9 +195,6 @@ export default function TireService() {
                 Стоимость установки зависит от размера шин, уточнить цену можно
                 у наших менеджеров.
               </p>
-              <button className="button button__outline">
-                Оставить заявку
-              </button>
             </div>
             <div className="leadcta__video">
               <VideoBlock
