@@ -1,6 +1,5 @@
 "use client";
 
-import { RedditTextField } from "@/components/ui/RedditTextField";
 import { InputPhone } from "@/components/ui/InputPhone";
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
@@ -8,15 +7,18 @@ import { toast } from "react-toastify";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useBasket } from "@/store/basket";
+import { Button, TextField } from "@mui/material";
 
 export const BasketForm = () => {
   const [delivery, setDelivery] = useState(false);
   const [status, setStatus] = useState([]);
+  const [disabled, setDisabled] = useState(false);
   const [isLoadingStatus, setIsLoadingStatus] = useState(true);
   const route = useRouter();
   const products = useBasket((state) => state.basket);
   const cleanBasket = useBasket((state) => state.reset);
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, reset, formState } = useForm({
+    disabled,
     defaultValues: {
       username: "",
       email: "",
@@ -45,17 +47,20 @@ export const BasketForm = () => {
   const onSubmit = async (data: any) => {
     const fd = Object.assign({ goods: products }, data);
     console.log(fd);
+    setDisabled(true);
     try {
       const fdata = await api.postBasket(fd);
       if (fdata.status === 200) {
-        toast.success("Заказ успешно создан");
         route.push(`/success?num=${fdata.num}&page=basket`);
+        toast.success("Заказ успешно создан");
         cleanBasket();
+        reset();
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;
     }
+    setDisabled(false);
   };
 
   const select = (name: string) => {
@@ -111,12 +116,12 @@ export const BasketForm = () => {
   useLayoutEffect(() => void loadBasketStatus(), []);
   return (
     <form className="basket__form-data" onSubmit={handleSubmit(onSubmit)}>
-      <RedditTextField
+      <TextField
         error={!!formState.errors.username}
         label="Имя"
         {...register("username", { required: true })}
       />
-      <RedditTextField
+      <TextField
         error={!!formState.errors.email}
         label="Email"
         {...register("email", { required: true })}
@@ -151,7 +156,9 @@ export const BasketForm = () => {
         </>
       )}
       {isLoadingStatus ? "" : select("priority")}
-      <button className="button button__primary">Оформить заказ</button>
+      <Button variant="contained" type={"submit"} disabled={disabled}>
+        Оформить заказ
+      </Button>
     </form>
   );
 };

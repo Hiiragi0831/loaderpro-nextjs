@@ -3,21 +3,21 @@
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { Autocomplete } from "@mui/material";
+import { Autocomplete, Button, TextField } from "@mui/material";
 import { Brand } from "@/common/types/Brand";
 import { useEffect, useState } from "react";
 import CloneDeep from "lodash-es/cloneDeep";
-import { RedditTextField } from "@/components/ui/RedditTextField";
 import { IsMobile } from "@/utils/IsMobile";
-import { RedditButton } from "@/components/ui/RedditButton";
 import { InputPhone } from "@/components/ui/InputPhone";
 import { useRouter } from "next/navigation";
 
 export const FormParts = () => {
+  const [disabled, setDisabled] = useState(false);
   const [brand, setBrand] = useState<Brand[]>([]);
   const [queryRequested, setQueryRequested] = useState([]);
   const route = useRouter();
   const user = useForm({
+    disabled,
     defaultValues: {
       name: "",
       email: "",
@@ -52,16 +52,19 @@ export const FormParts = () => {
   const onSubmit = async (data: any) => {
     const fd = Object.assign(data, { query: queryRequested });
     console.log(fd);
+    setDisabled(true);
     try {
       const fdata = await api.postQueryTs(fd);
       if (fdata.status === 200) {
         toast.success("Запрос на подбор успешно создан");
         route.push(`/success?num=${fdata.num}&page=query`);
+        user.reset();
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;
     }
+    setDisabled(false);
   };
 
   const addToQuery = (data: object) => {
@@ -87,12 +90,12 @@ export const FormParts = () => {
               <p>Контактная информация</p>
             </div>
             <div className="forms__row row-3">
-              <RedditTextField
+              <TextField
                 label="Имя"
                 error={!!user.formState.errors.name}
                 {...user.register("name", { required: true })}
               />
-              <RedditTextField
+              <TextField
                 label="Email"
                 error={!!user.formState.errors.email}
                 {...user.register("email", { required: true })}
@@ -115,7 +118,7 @@ export const FormParts = () => {
                 getOptionLabel={(option) => option.name}
                 options={brand}
                 renderInput={(params) => (
-                  <RedditTextField
+                  <TextField
                     {...params}
                     error={!!user.formState.errors.brand}
                     label="Бренд"
@@ -123,18 +126,18 @@ export const FormParts = () => {
                   />
                 )}
               />
-              <RedditTextField
+              <TextField
                 error={!!user.formState.errors.model}
                 label="Модель"
                 {...user.register("model", { required: true })}
               />
-              <RedditTextField
+              <TextField
                 error={!!user.formState.errors.yearproduction}
                 label="Год производства"
                 {...user.register("yearproduction", { required: true })}
               />
-              <RedditTextField label="Префикс" {...user.register("prefix")} />
-              <RedditTextField
+              <TextField label="Префикс" {...user.register("prefix")} />
+              <TextField
                 error={!!user.formState.errors.serialnumber}
                 label="Серийный номер"
                 {...user.register("serialnumber", { required: true })}
@@ -146,28 +149,28 @@ export const FormParts = () => {
               <p>Добавить запчасти для ТС</p>
             </div>
             <div className="forms__request">
-              <RedditTextField
+              <TextField
                 error={!!query.formState.errors.sparepart}
                 label="Наименование запчасти"
                 {...query.register("sparepart", { required: true })}
               />
-              <RedditTextField
+              <TextField
                 label="Каталожный номер запчасти"
                 {...query.register("catalognumber")}
               />
-              <RedditTextField
+              <TextField
                 error={!!query.formState.errors.quantity}
                 label="Количество"
                 {...query.register("quantity", { required: true })}
               />
-              <RedditTextField
+              <TextField
                 label="Комментарий"
                 multiline
                 {...query.register("comment")}
               />
-              <RedditButton type={"submit"} variant="contained">
+              <Button type={"submit"} variant="contained">
                 Добавить в список
-              </RedditButton>
+              </Button>
             </div>
           </form>
           <div className="forms">
@@ -176,17 +179,17 @@ export const FormParts = () => {
             </div>
             {queryRequested.map((item: any, id) => (
               <div className="forms__request-query" key={id}>
-                <RedditTextField
+                <TextField
                   label="Бренд"
                   defaultValue={item.sparepart}
                   disabled={true}
                 />
-                <RedditTextField
+                <TextField
                   label="Номер запчасти"
                   defaultValue={item.catalognumber}
                   disabled={true}
                 />
-                <RedditTextField
+                <TextField
                   label="Количество"
                   defaultValue={item.quantity}
                   disabled={true}
@@ -195,7 +198,7 @@ export const FormParts = () => {
                   className="button button__primary"
                   onClick={() => deleteQuery(id)}
                 />
-                <RedditTextField
+                <TextField
                   label="Комментарий"
                   multiline
                   disabled={true}
@@ -205,9 +208,9 @@ export const FormParts = () => {
             ))}
           </div>
           <form onSubmit={user.handleSubmit(onSubmit)}>
-            <RedditButton type={"submit"} variant="contained">
+            <Button type={"submit"} variant="contained" disabled={disabled}>
               Отправить запрос
-            </RedditButton>
+            </Button>
           </form>
         </div>
       </div>

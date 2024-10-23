@@ -1,13 +1,11 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { ThemeProvider } from "@mui/material";
-import { RedditButton } from "@/components/ui/RedditButton";
+import { Button, TextField, ThemeProvider } from "@mui/material";
 import { darkTheme } from "@/utils/customTheme";
-import { RedditTextField } from "@/components/ui/RedditTextField";
 import { InputPhone } from "@/components/ui/InputPhone";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -20,7 +18,9 @@ type CtaType = {
 export const Cta: FC<CtaType> = (data) => {
   const pathname = usePathname();
   const route = useRouter();
+  const [disabled, setDisabled] = useState(false);
   const { register, handleSubmit, reset, formState } = useForm({
+    disabled,
     defaultValues: {
       username: "",
       phone: "",
@@ -36,6 +36,7 @@ export const Cta: FC<CtaType> = (data) => {
   const onSubmit = async (data: any) => {
     const fd = Object.assign(data, { url: pathname });
     console.log(fd);
+    setDisabled(true);
     try {
       const fdata = await api.postCB(fd);
       if (fdata.status === 200) {
@@ -47,6 +48,7 @@ export const Cta: FC<CtaType> = (data) => {
       console.error("Error fetching:", error.message);
       throw error;
     }
+    setDisabled(false);
   };
 
   return (
@@ -59,7 +61,7 @@ export const Cta: FC<CtaType> = (data) => {
               {data.text === null ? "" : <p>{text}</p>}
             </div>
             <form className="cta__form" onSubmit={handleSubmit(onSubmit)}>
-              <RedditTextField
+              <TextField
                 error={!!formState.errors.username}
                 label="Имя"
                 {...register("username", { required: true })}
@@ -69,9 +71,9 @@ export const Cta: FC<CtaType> = (data) => {
                 label="Телефон"
                 {...register("phone", { required: true })}
               />
-              <RedditButton type={"submit"} variant="contained">
+              <Button type={"submit"} variant="contained" disabled={disabled}>
                 Оставить заявку
-              </RedditButton>
+              </Button>
             </form>
           </div>
         </div>

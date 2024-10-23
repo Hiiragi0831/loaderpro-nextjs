@@ -5,15 +5,14 @@ import { api } from "@/services/api";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { Brand } from "@/common/types/Brand";
-import { Autocomplete } from "@mui/material";
+import { Autocomplete, Button, TextField } from "@mui/material";
 import CloneDeep from "lodash-es/cloneDeep";
-import { RedditTextField } from "@/components/ui/RedditTextField";
 import { IsMobile } from "@/utils/IsMobile";
-import { RedditButton } from "@/components/ui/RedditButton";
 import { InputPhone } from "@/components/ui/InputPhone";
 import { useRouter } from "next/navigation";
 
 export const QueryBox = () => {
+  const [disabled, setDisabled] = useState(false);
   const [brand, setBrand] = useState<Brand[]>([]);
   const [queryRequested, setQueryRequested] = useState([]);
   const route = useRouter();
@@ -25,6 +24,7 @@ export const QueryBox = () => {
     },
   });
   const user = useForm({
+    disabled,
     defaultValues: {
       name: "",
       email: "",
@@ -45,16 +45,19 @@ export const QueryBox = () => {
   const onSubmit = async (data: any) => {
     const fd = Object.assign(data, { query: queryRequested });
     console.log(fd);
+    setDisabled(true);
     try {
       const fdata = await api.postQueryZp(fd);
       if (fdata.status === 200) {
         toast.success("Запрос успешно создан");
         route.push(`/success?num=${fdata.num}&page=query`);
+        user.reset();
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;
     }
+    setDisabled(false);
   };
 
   const addToQuery = (data: object) => {
@@ -80,12 +83,12 @@ export const QueryBox = () => {
               <p>Контактная информация</p>
             </div>
             <div className="forms__row row-3">
-              <RedditTextField
+              <TextField
                 error={!!user.formState.errors.name}
                 label="Имя"
                 {...user.register("name", { required: true })}
               />
-              <RedditTextField
+              <TextField
                 error={!!user.formState.errors.email}
                 label="Email"
                 {...user.register("email", { required: true })}
@@ -111,7 +114,7 @@ export const QueryBox = () => {
                 getOptionLabel={(option) => option.name}
                 options={brand}
                 renderInput={(params) => (
-                  <RedditTextField
+                  <TextField
                     error={!!query.formState.errors.brand}
                     {...params}
                     label="Бренд"
@@ -119,20 +122,20 @@ export const QueryBox = () => {
                   />
                 )}
               />
-              <RedditTextField
+              <TextField
                 error={!!query.formState.errors.serialnumber}
                 label="Номер запчасти"
                 {...query.register("serialnumber", { required: true })}
               />
-              <RedditTextField
+              <TextField
                 error={!!query.formState.errors.quantity}
                 label="Количество"
                 {...query.register("quantity", { required: true })}
               />
               <div className="forms__buttons">
-                <RedditButton variant="contained" type={"submit"}>
+                <Button variant="contained" type={"submit"}>
                   Добавить в список
-                </RedditButton>
+                </Button>
               </div>
             </form>
           </div>
@@ -142,36 +145,33 @@ export const QueryBox = () => {
             </div>
             {queryRequested.map((item: any, id) => (
               <div className="forms__query" key={id}>
-                <RedditTextField
+                <TextField
                   label="Бренд"
                   defaultValue={item.brand}
                   disabled={true}
                 />
-                <RedditTextField
+                <TextField
                   label="Номер запчасти"
                   defaultValue={item.serialnumber}
                   disabled={true}
                 />
-                <RedditTextField
+                <TextField
                   label="Количество"
                   defaultValue={item.quantity}
                   disabled={true}
                 />
                 <div className="forms__buttons">
-                  <RedditButton
-                    onClick={() => deleteQuery(id)}
-                    variant="contained"
-                  >
+                  <Button onClick={() => deleteQuery(id)} variant="contained">
                     X
-                  </RedditButton>
+                  </Button>
                 </div>
               </div>
             ))}
           </div>
           <form onSubmit={user.handleSubmit(onSubmit)}>
-            <RedditButton variant="contained" type="submit">
+            <Button variant="contained" type="submit" disabled={disabled}>
               Отправить запрос
-            </RedditButton>
+            </Button>
           </form>
         </div>
       </div>

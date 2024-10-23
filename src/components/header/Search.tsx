@@ -71,16 +71,19 @@ export const Search: FC<Props> = ({ className }) => {
     <section className={`search ${className}`}>
       <div className={"search__bg"}></div>
       <form className={"search__row"} ref={ref} onSubmit={onSubmit}>
+        <button type="submit" className="search__button-pc">
+          <IconMagnifying />
+        </button>
         <label>
           <input
             type="text"
             name="search"
-            placeholder="Поиск товара (введите артикул или название товара)"
+            placeholder="Введите артикул или название товара"
             onFocus={() => setFocused(true)}
             value={searchQuery}
             onChange={onSearch}
           />
-          <button type="submit">
+          <button type="submit" className="search__button-m">
             <IconMagnifying />
           </button>
         </label>
