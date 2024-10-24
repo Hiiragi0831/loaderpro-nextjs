@@ -16,6 +16,9 @@ export default function SpareParts() {
     <main>
       <section className="catalog__section">
         <div className="container">
+          <div className="section-title">
+            <span className="h1">Запчасти для вилочных погрузчиков</span>
+          </div>
           <div className="row row-1">
             <div className="catalog__products">
               <CatalogProducts />

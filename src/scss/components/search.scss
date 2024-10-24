@@ -2,7 +2,7 @@
 	position: relative;
 	z-index: 2;
 	margin: 0;
-	padding: vc(15) 0;
+	padding: vc(15) 0 vc(15) vc(12);
 	transition: visibility $transition, opacity $transition;
 
 	&__row {

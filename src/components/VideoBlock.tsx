@@ -53,7 +53,7 @@ export const VideoBlock: FC<VideoBlockType> = ({ id, className }) => {
 //               <img src={video.image} alt={video.title} decoding="async" />
 //             </picture>
 //           </button>
-//           <p className="h1 videoblock__title">{video.title}</p>
+//           <p className="videoblock__title">{video.title}</p>
 //           <FsLightbox
 //             toggler={toggler}
 //             sources={[sources[productIndex]]}

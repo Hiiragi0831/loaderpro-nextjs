@@ -36,7 +36,7 @@ export const Search: FC<Props> = ({ className }) => {
       throw error;
     }
   };
-  const debounced = useRef(debounce(search, 500));
+  const debounced = useRef(debounce(search, 100));
 
   useClickAway(ref, () => {
     setFocused(false);
@@ -58,6 +58,8 @@ export const Search: FC<Props> = ({ className }) => {
     evt.preventDefault();
     if (searchData.length === 0 && searchQuery.length > 1) {
       route.push("/request-parts");
+    } else {
+      route.push(`/search?search=${searchQuery}`);
     }
   };
 

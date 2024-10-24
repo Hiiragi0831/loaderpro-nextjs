@@ -21,7 +21,7 @@
 	&__action {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: vc(24);
+		gap: vc(20);
 
 		a {
 			display: flex;
@@ -173,7 +173,7 @@
 		.row {
 			display: grid;
 			align-items: center;
-			grid-template-columns: vc(260) vc(850) 1fr;
+			grid-template-columns: vc(260) 1fr vc(346);
 			gap: vc(46);
 
 			@include devices {
