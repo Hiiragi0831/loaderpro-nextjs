@@ -37,14 +37,14 @@ const Product: FC<Props> = (data) => {
             <source
               srcSet={
                 data.image
-                  ? `https://my.loaderpro.ru/images/products/${data.image}`
+                  ? `${data.image}`
                   : "https://my.loaderpro.ru/images/no-photo.svg"
               }
             />
             <img
               src={
                 data.image
-                  ? `https://my.loaderpro.ru/images/products/${data.image}`
+                  ? `${data.image}`
                   : "https://my.loaderpro.ru/images/no-photo.svg"
               }
               alt=""

@@ -59,12 +59,8 @@ export default function ProductInfo(prop: any) {
     return items.map((item: any, index: Key | null | undefined) => (
       <SwiperSlide key={index}>
         <picture>
-          <source srcSet={`https://my.loaderpro.ru/images/products/${item}`} />
-          <img
-            src={`https://my.loaderpro.ru/images/products/${item}`}
-            alt=""
-            decoding="async"
-          />
+          <source srcSet={item} />
+          <img src={item} alt="" decoding="async" />
         </picture>
       </SwiperSlide>
     ));
@@ -127,8 +123,8 @@ export default function ProductInfo(prop: any) {
                       <p>Бренд</p>
                       <span>{data.brand}</span>
                     </div>
-                    {data.options?.map((option: any) => (
-                      <div className="commodity__specification" key={option.id}>
+                    {data.options?.map((option: any, id) => (
+                      <div className="commodity__specification" key={id}>
                         <p>{option.name}</p>
                         <span>{option.value}</span>
                       </div>

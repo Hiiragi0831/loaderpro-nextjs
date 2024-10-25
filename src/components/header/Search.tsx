@@ -103,14 +103,14 @@ export const Search: FC<Props> = ({ className }) => {
                     <source
                       srcSet={
                         item.image
-                          ? `https://my.loaderpro.ru/images/products/${item.image}`
+                          ? `${item.image}`
                           : "https://my.loaderpro.ru/images/no-photo.svg"
                       }
                     />
                     <img
                       src={
                         item.image
-                          ? `https://my.loaderpro.ru/images/products/${item.image}`
+                          ? `${item.image}`
                           : "https://my.loaderpro.ru/images/no-photo.svg"
                       }
                       alt=""

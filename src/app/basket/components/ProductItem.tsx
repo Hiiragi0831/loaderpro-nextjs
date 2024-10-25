@@ -31,9 +31,9 @@ export const ProductItem: FC<ProductType> = ({
     <div className="basket-item">
       <Link href={`/products/${id}`}>
         <picture className="basket-item__img">
-          <source srcSet={`https://my.loaderpro.ru/images/products/${image}`} />
+          <source srcSet={image} />
           <img
-            src={`https://my.loaderpro.ru/images/products/${image}`}
+            src={image}
             alt={productname}
             decoding="async"
           />
