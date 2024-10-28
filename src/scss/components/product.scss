@@ -4,6 +4,7 @@
 	flex-direction: column;
 	border-radius: vc(5);
 	padding: vc(20) vc(12);
+	height: 100%;
 	box-shadow: $box-shadow;
 	background: $color-white;
 	gap: vc(12);
@@ -14,9 +15,9 @@
 		}
 
 		.swiper {
-			width: calc(100% + #{vc(30)});
 			margin: 0 vc(-15);
 			padding: 0 vc(15);
+			width: calc(100% + #{vc(30)});
 
 			@include devices {
 				padding: 0 vc(6);
@@ -230,6 +231,7 @@
 
 	&__buttons {
 		display: flex;
+		margin-top: auto;
 		gap: vc(6);
 
 		> * {

@@ -12,7 +12,7 @@ const Page = ({ params }: { params?: any }) => {
   return (
     <main>
       {/*<h1>Post: {params.productname}</h1>*/}
-      <ProductInfo id={params.slug} />
+      <ProductInfo id={params} />
       <Reviews />
       <Cta />
       <Advantages />

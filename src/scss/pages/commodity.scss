@@ -172,6 +172,20 @@
 		display: flex;
 		flex-direction: column;
 		margin-top: vc(24);
+
+		button {
+			margin-top: vc(20);
+			font-weight: 400;
+			font-size: vc(14);
+			text-align: right;
+			text-decoration: underline;
+			color: $color-tree-poppy-400;
+			transition: color $transition;
+
+			@include hover {
+				color: $color-black;
+			}
+		}
 	}
 
 	&__specification {
@@ -274,6 +288,17 @@
 
 		picture {
 			margin-top: auto;
+		}
+	}
+
+	&-specification {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		padding: vc(60);
+		gap: 0 vc(20);
+
+		.commodity__specification:last-child {
+			border-bottom: 1px dashed $color-black;
 		}
 	}
 }

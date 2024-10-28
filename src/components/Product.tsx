@@ -11,6 +11,7 @@ import { useBasket } from "@/store/basket";
 import { useFavorite } from "@/store/favorite";
 import { getPriceFormat } from "@/utils/getPriceFormat";
 import Link from "next/link";
+import translit from "@/utils/translit";
 
 type Props = Pick<
   ProductType,
@@ -21,6 +22,7 @@ const Product: FC<Props> = (data) => {
   const addToCart = useBasket((state) => state.addToBasket);
   const toggleFavorite = useFavorite((state) => state.toggleFavorite);
   const favorites = useFavorite((state) => state.favorite);
+  const href = `/products/${translit(data.productname.replaceAll(" ", "-"))}-${data.id}`;
 
   return (
     <div className="product">
@@ -32,7 +34,7 @@ const Product: FC<Props> = (data) => {
         <IconHeartSolid className="heart-solid" />
       </button>
       <div className="product__img">
-        <Link href={`/products/${data.id}`}>
+        <Link href={href}>
           <picture>
             <source
               srcSet={
@@ -69,7 +71,7 @@ const Product: FC<Props> = (data) => {
           <p>{data.status.name}</p>
         </div>
         <div className="product__title">
-          <Link href={`/products/${data.id}`}>{data.productname}</Link>
+          <Link href={href}>{data.productname}</Link>
         </div>
       </div>
       <div className="product__buttons">

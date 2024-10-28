@@ -7,9 +7,17 @@ import { api } from "@/services/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Thumbs } from "swiper/modules";
 import Link from "next/link";
+import { Modal } from "@/components/Modal";
+import { notFound, useRouter } from "next/navigation";
+import translit from "@/utils/translit";
 
-export default function ProductInfo(prop: any) {
-  const id = prop.id;
+export default function ProductInfo(params: any) {
+  // const id = prop.id;
+  const slugArray = params.id.slug.split("-");
+  const id = slugArray.pop();
+  const slug = slugArray.join("-");
+  const route = useRouter();
+
   const [data, setData] = useState<SingleProduct>({
     id: 0,
     productname: "",
@@ -29,6 +37,7 @@ export default function ProductInfo(prop: any) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   const addToCart = useBasket((state) => state.addToBasket);
@@ -50,6 +59,18 @@ export default function ProductInfo(prop: any) {
       const props = await api.getProduct(id);
       setData(props);
       setIsLoading(false);
+
+      if (!props.id) {
+        notFound();
+      }
+
+      console.log(slug, translit(props.productname.replaceAll(" ", "-")));
+
+      if (slug !== translit(props.productname.replaceAll(" ", "-"))) {
+        route.push(
+          `/products/${translit(props.productname.replaceAll(" ", "-"))}-${props.id}`,
+        );
+      }
     } catch (error: any) {
       console.error("Error fetching:", error.message);
     }
@@ -69,147 +90,160 @@ export default function ProductInfo(prop: any) {
   useLayoutEffect(() => void loadArticle(), []);
 
   return (
-    <section className="commodity__section">
-      <div className="container">
-        {isLoading ? (
-          "Загрузка"
-        ) : (
-          <div className="row">
-            <div className="commodity__head">
-              <div className="commodity__title">
-                <h1>
-                  {data.productname} {data.brand} {data.article}
-                </h1>
+    <>
+      <section className="commodity__section">
+        <div className="container">
+          {isLoading ? (
+            "Загрузка"
+          ) : (
+            <div className="row">
+              <div className="commodity__head">
+                <div className="commodity__title">
+                  <h1>
+                    {data.productname} {data.brand} {data.article}
+                  </h1>
+                </div>
+              </div>
+              <div className="commodity__main">
+                <div className="commodity__gallery">
+                  <div className="commodity__gallery-main">
+                    <Swiper
+                      spaceBetween={10}
+                      thumbs={{ swiper: thumbsSwiper }}
+                      modules={[Thumbs]}
+                    >
+                      {images(data.image)}
+                    </Swiper>
+                  </div>
+                  <div className="commodity__gallery-thumb">
+                    <Swiper
+                      // @ts-expect-error @ts-expect-error
+                      onSwiper={setThumbsSwiper}
+                      slidesPerView={4}
+                      freeMode={true}
+                      watchSlidesProgress={true}
+                      modules={[FreeMode, Thumbs]}
+                    >
+                      {images(data.image)}
+                    </Swiper>
+                  </div>
+                </div>
+                <div className="commodity__info">
+                  <div className="commodity__info-box">
+                    <div
+                      className={`commodity__availability commodity__availability--${data.status.value}`}
+                    >
+                      <span />
+                      <p>{data.status.name}</p>
+                    </div>
+                    <div className="commodity__specifications">
+                      <div className="commodity__specification">
+                        <p>Артикул</p>
+                        <span>{data.article}</span>
+                      </div>
+                      <div className="commodity__specification">
+                        <p>Бренд</p>
+                        <span>{data.brand}</span>
+                      </div>
+                      <button onClick={() => setModalOpen(true)}>
+                        Показать все характеристики
+                      </button>
+                    </div>
+                  </div>
+                  <div className="commodity__description">
+                    {data.description ? (
+                      <>
+                        <h5>Описание</h5>
+                        <p>{data.description}</p>
+                      </>
+                    ) : (
+                      <>
+                        <h5>Описание</h5>
+                        <p>
+                          {data.productname} {data.brand} {data.article} вы
+                          можете купить с доставкой в любую точку России с
+                          оплатой по безналичному расчету с НДС 20% или по
+                          карте. Если у вас возникли сложности с выбором, вы
+                          можете получить экспертную консультацию связавшись с
+                          нами любым удобным способом со страницы{" "}
+                          <Link href={"/contact"}> Контакты</Link>
+                        </p>
+                      </>
+                    )}
+                    <picture>
+                      <source srcSet="/images/product/hero.png" />
+                      <img
+                        src="/images/product/hero.png"
+                        alt=""
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div className="commodity__basket">
+                    <div className="commodity__price">
+                      <span>Цена:</span>
+                      <p>{price} ₽</p>
+                    </div>
+                    {data.status.name === "Нет в наличии" ? (
+                      <>
+                        <label className="commodity__input">
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                          />
+                        </label>
+                        <button className="button button__primary">
+                          Запросить
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <div className="commodity__count">
+                          <button
+                            className="commodity__count-minus"
+                            onClick={() => decrement()}
+                          >
+                            -
+                          </button>
+                          <input
+                            type="number"
+                            name="count"
+                            value={quantity}
+                            onChange={handleInitialCountChange}
+                          />
+                          <button
+                            className="commodity__count-plus"
+                            onClick={() => increment()}
+                          >
+                            +
+                          </button>
+                        </div>
+                        <button
+                          className="button button__primary"
+                          onClick={() => addToCart(data.id, quantity)}
+                        >
+                          В корзину
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="commodity__main">
-              <div className="commodity__gallery">
-                <div className="commodity__gallery-main">
-                  <Swiper
-                    spaceBetween={10}
-                    thumbs={{ swiper: thumbsSwiper }}
-                    modules={[Thumbs]}
-                  >
-                    {images(data.image)}
-                  </Swiper>
-                </div>
-                <div className="commodity__gallery-thumb">
-                  <Swiper
-                    // @ts-expect-error @ts-expect-error
-                    onSwiper={setThumbsSwiper}
-                    slidesPerView={4}
-                    freeMode={true}
-                    watchSlidesProgress={true}
-                    modules={[FreeMode, Thumbs]}
-                  >
-                    {images(data.image)}
-                  </Swiper>
-                </div>
-              </div>
-              <div className="commodity__info">
-                <div className="commodity__info-box">
-                  <div
-                    className={`commodity__availability commodity__availability--${data.status.value}`}
-                  >
-                    <span />
-                    <p>{data.status.name}</p>
-                  </div>
-                  <div className="commodity__specifications">
-                    <div className="commodity__specification">
-                      <p>Артикул</p>
-                      <span>{data.article}</span>
-                    </div>
-                    <div className="commodity__specification">
-                      <p>Бренд</p>
-                      <span>{data.brand}</span>
-                    </div>
-                    {data.options?.map((option: any, id) => (
-                      <div className="commodity__specification" key={id}>
-                        <p>{option.name}</p>
-                        <span>{option.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="commodity__description">
-                  {data.description ? (
-                    <>
-                      <h5>Описание</h5>
-                      <p>{data.description}</p>
-                    </>
-                  ) : (
-                    <>
-                      <h5>Описание</h5>
-                      <p>
-                        {data.productname} {data.brand} {data.article} вы можете
-                        купить с доставкой в любую точку России с оплатой по
-                        безналичному расчету с НДС 20% или по карте. Если у вас
-                        возникли сложности с выбором, вы можете получить
-                        экспертную консультацию связавшись с нами любым удобным
-                        способом со страницы{" "}
-                        <Link href={"/contact"}> Контакты</Link>
-                      </p>
-                    </>
-                  )}
-                  <picture>
-                    <source srcSet="/images/product/hero.png" />
-                    <img
-                      src="/images/product/hero.png"
-                      alt=""
-                      decoding="async"
-                    />
-                  </picture>
-                </div>
-                <div className="commodity__basket">
-                  <div className="commodity__price">
-                    <span>Цена:</span>
-                    <p>{price} ₽</p>
-                  </div>
-                  {data.status.name === "Нет в наличии" ? (
-                    <>
-                      <label className="commodity__input">
-                        <input type="email" name="email" placeholder="Email" />
-                      </label>
-                      <button className="button button__primary">
-                        Запросить
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <div className="commodity__count">
-                        <button
-                          className="commodity__count-minus"
-                          onClick={() => decrement()}
-                        >
-                          -
-                        </button>
-                        <input
-                          type="number"
-                          name="count"
-                          value={quantity}
-                          onChange={handleInitialCountChange}
-                        />
-                        <button
-                          className="commodity__count-plus"
-                          onClick={() => increment()}
-                        >
-                          +
-                        </button>
-                      </div>
-                      <button
-                        className="button button__primary"
-                        onClick={() => addToCart(data.id, quantity)}
-                      >
-                        В корзину
-                      </button>
-                    </>
-                  )}
-                </div>
-              </div>
+          )}
+        </div>
+      </section>
+      <Modal isShow={modalOpen} onClose={() => setModalOpen(false)}>
+        <div className="commodity-specification">
+          {data.options?.map((option: any, id) => (
+            <div className="commodity__specification" key={id}>
+              <p>{option.name}</p>
+              <span>{option.value}</span>
             </div>
-          </div>
-        )}
-      </div>
-    </section>
+          ))}
+        </div>
+      </Modal>
+    </>
   );
 }
