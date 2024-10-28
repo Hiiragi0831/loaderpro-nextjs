@@ -32,11 +32,7 @@ export const ProductItem: FC<ProductType> = ({
       <Link href={`/products/${id}`}>
         <picture className="basket-item__img">
           <source srcSet={image} />
-          <img
-            src={image}
-            alt={productname}
-            decoding="async"
-          />
+          <img src={image} alt={productname} decoding="async" />
         </picture>
       </Link>
       <div className="basket-item__info">
