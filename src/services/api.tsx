@@ -4,9 +4,10 @@ import { Product, SingleProduct } from "@/common/types/Product";
 // import { User } from "@/common/types/User";
 
 class APIService {
-  public async getAllProducts(): Promise<Product[]> {
+  public async getAllProducts(url?: string): Promise<Product[]> {
+    const link = url ? url : "";
     try {
-      const res = await fetch("https://api.cartrac.ru/catalog/");
+      const res = await fetch(`https://api.cartrac.ru/catalog/${link}`);
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);

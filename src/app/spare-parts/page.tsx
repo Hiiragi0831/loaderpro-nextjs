@@ -21,7 +21,7 @@ export default function SpareParts() {
           </div>
           <div className="row row-1">
             <div className="catalog__products">
-              <CatalogProducts />
+              <CatalogProducts url={"spare_parts"} />
             </div>
           </div>
         </div>
