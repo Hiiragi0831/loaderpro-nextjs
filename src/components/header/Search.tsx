@@ -92,7 +92,7 @@ export const Search: FC<Props> = ({ className }) => {
         {searchData.length > 0 && (
           <div className={`search__results ${focused ? "active" : ""}`}>
             <div className="search__wrapper">
-              {searchData.map((item) => (
+              {searchData.slice(0, 8).map((item) => (
                 <Link
                   onClick={onClickItem}
                   key={item.id}
@@ -122,6 +122,20 @@ export const Search: FC<Props> = ({ className }) => {
                   </span>
                 </Link>
               ))}
+              {searchData.length > 8 ? (
+                <Link
+                  onClick={onClickItem}
+                  href={`/search?search=${searchQuery}`}
+                  className={"search__more"}
+                >
+                  <span className={"search__more-text"}>
+                    Найдено {searchData.length} результатов
+                  </span>
+                  <span className={"search__more-button"}>Показать все</span>
+                </Link>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         )}

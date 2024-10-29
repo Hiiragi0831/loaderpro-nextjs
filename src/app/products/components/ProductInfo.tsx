@@ -11,13 +11,27 @@ import { Modal } from "@/components/Modal";
 import { notFound, useRouter } from "next/navigation";
 import translit from "@/utils/translit";
 
+const images = (items: []) => {
+  return items.map((item: any, index: Key | null | undefined) => (
+    <SwiperSlide key={index}>
+      <picture>
+        <source srcSet={item} />
+        <img src={item} alt="" decoding="async" />
+      </picture>
+    </SwiperSlide>
+  ));
+};
+
 export default function ProductInfo(params: any) {
   // const id = prop.id;
   const slugArray = params.id.slug.split("-");
   const id = slugArray.pop();
   const slug = slugArray.join("-");
   const route = useRouter();
-
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [quantity, setQuantity] = useState(1);
+  const [modalOpen, setModalOpen] = useState(false);
   const [data, setData] = useState<SingleProduct>({
     id: 0,
     productname: "",
@@ -34,10 +48,6 @@ export default function ProductInfo(params: any) {
     },
     brand: "",
   });
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [quantity, setQuantity] = useState(1);
-  const [modalOpen, setModalOpen] = useState(false);
 
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   const addToCart = useBasket((state) => state.addToBasket);
@@ -64,8 +74,6 @@ export default function ProductInfo(params: any) {
         notFound();
       }
 
-      console.log(slug, translit(props.productname.replaceAll(" ", "-")));
-
       if (slug !== translit(props.productname.replaceAll(" ", "-"))) {
         route.push(
           `/products/${translit(props.productname.replaceAll(" ", "-"))}-${props.id}`,
@@ -74,17 +82,6 @@ export default function ProductInfo(params: any) {
     } catch (error: any) {
       console.error("Error fetching:", error.message);
     }
-  };
-
-  const images = (items: []) => {
-    return items.map((item: any, index: Key | null | undefined) => (
-      <SwiperSlide key={index}>
-        <picture>
-          <source srcSet={item} />
-          <img src={item} alt="" decoding="async" />
-        </picture>
-      </SwiperSlide>
-    ));
   };
 
   useLayoutEffect(() => void loadArticle(), []);

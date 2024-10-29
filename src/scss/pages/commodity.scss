@@ -198,6 +198,10 @@
 
 		span {
 			color: $color-woodsmoke-600;
+
+			&:last-child {
+				text-align: right;
+			}
 		}
 
 		&:last-child {
@@ -299,6 +303,11 @@
 
 		.commodity__specification:last-child {
 			border-bottom: 1px dashed $color-black;
+		}
+
+		@include devices {
+			padding: vc(40);
+			grid-template-columns: 100%;
 		}
 	}
 }

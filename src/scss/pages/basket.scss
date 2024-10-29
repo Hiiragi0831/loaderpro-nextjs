@@ -98,7 +98,7 @@
 	display: grid;
 	align-items: center;
 	justify-content: space-between;
-	grid-template-columns: vc(125) 1fr vc(200) vc(154) vc(200) vc(30);
+	grid-template-columns: vc(100) 1fr vc(200) vc(154) vc(200) vc(30);
 	border-bottom: 1px solid $color-black;
 	padding: vc(14) 0;
 	width: 100%;
@@ -127,6 +127,18 @@
 			span {
 				font-size: vc(12);
 			}
+		}
+	}
+
+	&__img {
+		width: vc(100);
+		height: vc(100);
+
+		picture,
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
 		}
 	}
 

@@ -117,13 +117,21 @@
 		border-bottom: 1px solid $color-woodsmoke-300;
 		padding: vc(10);
 		width: 100%;
+		font-weight: 400;
+		font-size: vc(16);
+		line-height: 1;
 		background: $color-white;
 		transition: background $transition;
 		gap: vc(15);
 
 		picture {
+			flex-shrink: 0;
+			overflow: hidden;
+			border: 1px solid $color-woodsmoke-300;
+			border-radius: vc(5);
 			width: vc(50);
 			height: vc(50);
+			background: $color-white;
 
 			img {
 				width: 100%;
@@ -137,7 +145,31 @@
 		}
 
 		@include hover {
+			background: $color-woodsmoke-100;
+		}
+	}
+
+	&__more {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: vc(10);
+		transition: background $transition;
+
+		&-text {
+			font-size: vc(16);
+			line-height: 1;
+		}
+
+		&-button {
+			border-radius: vc(5);
+			padding: vc(5);
+			font-size: vc(14);
 			background: $color-tree-poppy-400;
+		}
+
+		@include hover {
+			background: $color-woodsmoke-100;
 		}
 	}
 
