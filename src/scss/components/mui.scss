@@ -93,6 +93,21 @@
 	}
 }
 
+.MuiPagination-root {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+
+	.MuiPagination-ul {
+		li {
+			button {
+				padding: 0;
+			}
+		}
+	}
+}
+
 //active		.Mui-active
 //checked		.Mui-checked
 //completed		.Mui-completed

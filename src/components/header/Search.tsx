@@ -4,7 +4,7 @@ import IconMagnifying from "@/icons/magnifying-glass.svg";
 import { FC, useEffect, useRef, useState } from "react";
 import { api } from "@/services/api";
 import { debounce } from "lodash-es";
-import { Product } from "@/common/types/Product";
+import { Product as ProductType } from "@/common/types/Product";
 import { useClickAway } from "react-use";
 import Link from "next/link";
 import { useSearchPanel } from "@/store/useSearchPanel";
@@ -16,7 +16,7 @@ type Props = {
 
 export const Search: FC<Props> = ({ className }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchData, setSearchData] = useState<Product[]>([]);
+  const [searchData, setSearchData] = useState<ProductType[]>([]);
   const [focused, setFocused] = useState(false);
   const ref = useRef(null);
   const { toggleShow } = useSearchPanel();

@@ -35,18 +35,24 @@ export default function ProductInfo(params: any) {
   const [data, setData] = useState<SingleProduct>({
     id: 0,
     productname: "",
+    brand: "",
+    article: "",
     price: 0,
     count: 0,
-    description: "",
     image: [],
-    article: "",
-    weight: "",
     status: {
       id: 0,
       name: "",
       value: "",
     },
-    brand: "",
+    description: "",
+    weight: "",
+    options: [
+      {
+        name: "",
+        value: "",
+      },
+    ],
   });
 
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");

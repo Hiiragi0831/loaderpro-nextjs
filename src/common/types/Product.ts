@@ -1,27 +1,3 @@
-export type Product = {
-  id: number;
-  productname: string;
-  brand?: number;
-  article?: string;
-  price: number;
-  count?: number;
-  image?: string;
-  status: {
-    id: number;
-    name: string;
-    value: string;
-  };
-  description?: string;
-  weight?: string;
-  options?: [
-    {
-      id: number;
-      name: string;
-      value: string;
-    },
-  ];
-};
-
 export type SingleProduct = {
   id: number;
   productname: string;
@@ -39,53 +15,44 @@ export type SingleProduct = {
   weight?: string;
   options?: [
     {
-      id: number;
       name: string;
       value: string;
     },
   ];
 };
 
-// "id": "3",
-//   "productname": "Мотор гидравлический",
-//   "brand": "1",
-//   "article": "51304684",
-//   "price": "85417",
-//   "count": "0",
-//   "img-drop": "fe29c2e2c1c553b7449f00aec7cc7bd4.png"
+export type Product = {
+  id: number;
+  productname: string;
+  brand?: string;
+  article?: string;
+  price: number;
+  count?: number;
+  image?: string;
+  status: {
+    id: number;
+    name: string;
+    value: string;
+  };
+};
 
-// [
-//   {
-//     "id": "1",
-//     "productname": "Мотор гидравлический",
-//     "searchname": "Мотор гидравлический JUNGHEINRICH (269) 51304684",
-//     "brand": "1",
-//     "article": "51304684",
-//     "price": "85417",
-//     "count": "0",
-//     "options": [
-//       {
-//         "id": "1",
-//         "name": "Качество",
-//         "value": "OEM"
-//       },
-//       {
-//         "id": "2",
-//         "name": "Качество",
-//         "value": "Аналог"
-//       },
-//       {
-//         "id": "3",
-//         "name": "Качество",
-//         "value": "Оригинал\r\n"
-//       }
-//     ],
-//     "weight": "7,24",
-//     "description": "",
-//     "image": [
-//       "b841584de7d1645c72d3db9679642491.jpeg",
-//       "b841584de7d1645c72d3db9679642491.jpeg",
-//       "b841584de7d1645c72d3db9679642491.jpeg"
-//     ]
-//   }
-// ]
+export type Products = {
+  page: number;
+  total: number;
+  results: [Product];
+};
+
+// {
+//   "id": 4051,
+//   "productname": "Шина пневматическая 23.5-25 20PR BKT GR 288 191A2/167A8 G-2/L-2 TL",
+//   "brand": "BKT",
+//   "article": "R00298",
+//   "price": 201852,
+//   "count": 1,
+//   "image": "https://image.loaderpro.ru/products/bk_tyres/R00298.jpg",
+//   "status": {
+//   "id": 2,
+//     "name": "1-2 дня",
+//     "value": "green"
+// }
+// },
