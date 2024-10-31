@@ -30,7 +30,7 @@ export default function CatalogProducts({ url }: { url?: string }) {
   const loadProducts = async (page?: number) => {
     const count = page ? page : 1;
     try {
-      const res = await api.getAllProducts(`${link}/?page=${count}`);
+      const res = await api.getAllProductsLink(`${link}/?page=${count}`);
       setCountPage(res.total);
       setData(res.results);
       setIsLoading(false);

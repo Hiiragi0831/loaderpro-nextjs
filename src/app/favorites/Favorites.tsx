@@ -1,14 +1,14 @@
 "use client";
 
 import { useLayoutEffect, useState } from "react";
-import { Product as ProductsType } from "@/common/types/Product";
+import { Product as ProductType } from "@/common/types/Product";
 import { useFavorite } from "@/store/favorite";
 import { api } from "@/services/api";
 import Product from "@/components/Product";
 import { Empty } from "@/components/Empty";
 
 export default function Favorites() {
-  const [data, setData] = useState<ProductsType[]>([]);
+  const [data, setData] = useState<ProductType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   let filteredProducts = [];
   const favorites = useFavorite((state) => state.favorite);

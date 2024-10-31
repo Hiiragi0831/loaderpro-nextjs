@@ -1,13 +1,23 @@
 // import { Article } from "@/common/types/Article";
 import { Brand } from "@/common/types/Brand";
-import { Products, SingleProduct } from "@/common/types/Product";
+import { Product, Products, SingleProduct } from "@/common/types/Product";
 // import { User } from "@/common/types/User";
 
 class APIService {
-  public async getAllProducts(url?: string): Promise<Products> {
+  public async getAllProductsLink(url?: string): Promise<Products> {
     const link = url ? url : "";
     try {
       const res = await fetch(`https://api.cartrac.ru/catalog/${link}`);
+      return res.json();
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  }
+
+  public async getAllProducts(): Promise<Product[]> {
+    try {
+      const res = await fetch(`https://api.cartrac.ru/catalog/`);
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
