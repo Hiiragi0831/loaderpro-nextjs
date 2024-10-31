@@ -6,6 +6,7 @@ import { Product as ProductType } from "@/common/types/Product";
 import { api } from "@/services/api";
 import { Skeleton } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
+import { IsMobile } from "@/utils/IsMobile";
 
 const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
 
@@ -61,8 +62,8 @@ export default function CatalogProducts({ url }: { url?: string }) {
         color="primary"
         page={page}
         onChange={handleChange}
-        siblingCount={2}
-        boundaryCount={3}
+        siblingCount={IsMobile() ? 1 : 2}
+        boundaryCount={IsMobile() ? 1 : 3}
       />
     </>
   );

@@ -99,7 +99,9 @@
 		}
 
 		@include devices {
+			left: 0;
 			top: vc(45);
+			width: 100%;
 		}
 	}
 

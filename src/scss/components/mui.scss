@@ -99,11 +99,18 @@
 	justify-content: center;
 	width: 100%;
 
-	.MuiPagination-ul {
-		li {
-			button {
-				padding: 0;
-			}
+	.MuiPaginationItem-root {
+		margin: 0 vc(3);
+		padding: 0;
+		height: vc(34);
+		min-width: vc(34);
+		font-size: vc(16);
+		line-height: 2.2;
+
+		@include devices {
+			height: vc(30);
+			min-width: vc(30);
+			font-size: vc(14);
 		}
 	}
 }
