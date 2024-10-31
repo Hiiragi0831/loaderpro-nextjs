@@ -4,16 +4,26 @@ import IconTg from "@/icons/tg.svg";
 import IconWt from "@/icons/wt.svg";
 import IconYoutube from "@/icons/youtube.svg";
 import { useMobileNav } from "@/store/useMobileNav";
+import { useClickAway } from "react-use";
+import { useRef } from "react";
 
 export function MobileNav() {
   const stateMobileNav = useMobileNav();
+  const ref = useRef(null);
 
   const onClickItem = () => {
     stateMobileNav.toggleShow(false);
   };
 
+  useClickAway(ref, () => {
+    stateMobileNav.toggleShow(false);
+  });
+
   return (
-    <nav className={`mobilenav ${stateMobileNav.isShow ? "active" : ""}`}>
+    <nav
+      className={`mobilenav ${stateMobileNav.isShow ? "active" : ""}`}
+      ref={ref}
+    >
       <div className="mobilenav__wrapper">
         <div className="mobilenav__item">
           <p className="mobilenav__title">Партнерам</p>
