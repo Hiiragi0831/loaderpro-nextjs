@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { Brand } from "@/common/types/Brand";
 import { Autocomplete, Button, TextField } from "@mui/material";
-import CloneDeep from "lodash-es/cloneDeep";
 import { IsMobile } from "@/utils/IsMobile";
 import { InputPhone } from "@/components/ui/InputPhone";
 import { useRouter } from "next/navigation";
@@ -15,9 +14,11 @@ import { useQuery } from "@/store/query";
 export const QueryBox = () => {
   const [disabled, setDisabled] = useState(false);
   const [brand, setBrand] = useState<Brand[]>([]);
-  const [queryRequested, setQueryRequested] = useState([]);
   const route = useRouter();
-  // const addToQuery = useQuery((state) => state.addToQuery);
+  const queryData = useQuery((state) => state.query);
+  const resetQuery = useQuery((state) => state.reset);
+  const addToQuery = useQuery((state) => state.addToQuery);
+  const deleteQuery = useQuery((state) => state.deleteFormQuery);
 
   const query = useForm({
     defaultValues: {
@@ -46,8 +47,8 @@ export const QueryBox = () => {
   };
 
   const onSubmit = async (data: any) => {
-    const fd = Object.assign(data, { query: queryRequested });
-    console.log(fd);
+    const fd = Object.assign(data, { query: queryData });
+    console.log(queryData);
     setDisabled(true);
     try {
       const fdata = await api.postQueryZp(fd);
@@ -55,25 +56,13 @@ export const QueryBox = () => {
         toast.success("Запрос успешно создан");
         route.push(`/success?num=${fdata.num}&page=query`);
         user.reset();
+        resetQuery();
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);
       throw error;
     }
     setDisabled(false);
-  };
-
-  const addToQuery = (data: object) => {
-    const arr: any = queryRequested;
-    arr.push(data);
-    console.log(data);
-    setQueryRequested(arr);
-  };
-
-  const deleteQuery = (id: number) => {
-    const arr = CloneDeep(queryRequested);
-    arr.splice(id, 1);
-    setQueryRequested(arr);
   };
 
   useEffect(() => void loadBrands(), []);
@@ -110,7 +99,13 @@ export const QueryBox = () => {
             </div>
             <form
               className="forms__query"
-              onSubmit={query.handleSubmit(addToQuery)}
+              onSubmit={query.handleSubmit((data) => {
+                addToQuery(
+                  data.serialnumber,
+                  Number(data.quantity),
+                  data.brand,
+                );
+              })}
             >
               <Autocomplete
                 size={IsMobile() ? "small" : "medium"}
@@ -147,8 +142,8 @@ export const QueryBox = () => {
             <div className="forms__head">
               <p>Ваш запрос</p>
             </div>
-            {queryRequested.map((item: any, id) => (
-              <div className="forms__query" key={id}>
+            {queryData.map((item: any) => (
+              <div className="forms__query" key={item.serialnumber}>
                 <TextField
                   label="Бренд"
                   defaultValue={item.brand}
@@ -165,7 +160,10 @@ export const QueryBox = () => {
                   disabled={true}
                 />
                 <div className="forms__buttons">
-                  <Button onClick={() => deleteQuery(id)} variant="contained">
+                  <Button
+                    onClick={() => deleteQuery(item.serialnumber)}
+                    variant="contained"
+                  >
                     X
                   </Button>
                 </div>

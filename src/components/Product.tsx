@@ -12,14 +12,15 @@ import { useFavorite } from "@/store/favorite";
 import { getPriceFormat } from "@/utils/getPriceFormat";
 import Link from "next/link";
 import translit from "@/utils/translit";
-import Image from "next/image";
+import { useQuery } from "@/store/query";
 
 type Props = Pick<
   ProductType,
-  "price" | "status" | "id" | "image" | "productname" | "article"
+  "price" | "status" | "id" | "image" | "productname" | "article" | "brand"
 >;
 
 const Product: FC<Props> = (data) => {
+  const addToQuery = useQuery((state) => state.addToQuery);
   const addToCart = useBasket((state) => state.addToBasket);
   const toggleFavorite = useFavorite((state) => state.toggleFavorite);
   const favorites = useFavorite((state) => state.favorite);
@@ -93,7 +94,12 @@ const Product: FC<Props> = (data) => {
         {data.status.name === "Нет предложений" ||
         data.status.name === "В идентификации" ? (
           <>
-            <button className="button button__primary">Запросить</button>
+            <button
+              className="button button__primary"
+              onClick={() => addToQuery(data.article, 1, data.brand)}
+            >
+              Запросить
+            </button>
           </>
         ) : (
           <>

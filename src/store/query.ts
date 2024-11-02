@@ -5,17 +5,22 @@ import { toast } from "react-toastify";
 
 type Store = {
   query: any[];
-  addToQuery: (article: number, count: number, brand: string) => void;
+  reset: () => void;
+  addToQuery: (article: string, count: number, brand: string) => void;
+  deleteFormQuery: (article: string) => void;
 };
 
 export const useQuery = create<Store>()(
   persist(
     (set, get) => ({
       query: [],
+      reset: () => {
+        set({ query: [] });
+      },
       addToQuery: (serialnumber, quantity, brand) => {
         const products = CloneDeep(get().query);
         const product = products.find(
-          (element: { serialnumber: number }) =>
+          (element: { serialnumber: string }) =>
             element.serialnumber === serialnumber,
         );
 
@@ -33,6 +38,17 @@ export const useQuery = create<Store>()(
             { serialnumber: serialnumber, quantity: quantity, brand: brand },
           ],
         });
+      },
+      deleteFormQuery: (serialnumber) => {
+        const products = CloneDeep(get().query);
+        const product = products.find(
+          (element: { serialnumber: string }) =>
+            element.serialnumber === serialnumber,
+        );
+
+        products.splice(product, 1);
+        toast.success(`Товар удален из запросов`);
+        set({ query: products });
       },
     }),
     { name: "query" },

@@ -214,7 +214,7 @@ export default function ProductInfo(params: any) {
                         <button
                           className="button button__primary"
                           onClick={() =>
-                            addToQuery(data.id, quantity, data.brand)
+                            addToQuery(data.article, quantity, data.brand)
                           }
                         >
                           Запросить
