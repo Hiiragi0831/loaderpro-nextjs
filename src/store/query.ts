@@ -6,7 +6,11 @@ import { toast } from "react-toastify";
 type Store = {
   query: any[];
   reset: () => void;
-  addToQuery: (article: string, count: number, brand: string) => void;
+  addToQuery: (
+    article: string | undefined,
+    count: number,
+    brand: string | undefined,
+  ) => void;
   deleteFormQuery: (article: string) => void;
 };
 

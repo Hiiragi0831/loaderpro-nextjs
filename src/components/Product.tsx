@@ -16,7 +16,14 @@ import { useQuery } from "@/store/query";
 
 type Props = Pick<
   ProductType,
-  "price" | "status" | "id" | "image" | "productname" | "article" | "brand"
+  | "price"
+  | "status"
+  | "id"
+  | "image"
+  | "productname"
+  | "article"
+  | "brand"
+  | "count"
 >;
 
 const Product: FC<Props> = (data) => {
@@ -91,8 +98,7 @@ const Product: FC<Props> = (data) => {
         </div>
       </div>
       <div className="product__buttons">
-        {data.status.name === "Нет предложений" ||
-        data.status.name === "В идентификации" ? (
+        {data.count === 0 ? (
           <>
             <button
               className="button button__primary"
