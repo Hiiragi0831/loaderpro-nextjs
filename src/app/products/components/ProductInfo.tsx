@@ -3,6 +3,7 @@
 import { Key, useLayoutEffect, useState } from "react";
 import { SingleProduct } from "@/common/types/Product";
 import { useBasket } from "@/store/basket";
+import { useQuery } from "@/store/query";
 import { api } from "@/services/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Thumbs } from "swiper/modules";
@@ -57,6 +58,7 @@ export default function ProductInfo(params: any) {
 
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   const addToCart = useBasket((state) => state.addToBasket);
+  const addToQuery = useQuery((state) => state.addToQuery);
 
   const handleInitialCountChange = (event: any) => {
     setQuantity(Number(event.target.value));
@@ -187,48 +189,48 @@ export default function ProductInfo(params: any) {
                       <span>Цена:</span>
                       <p>{price} ₽</p>
                     </div>
-                    {data.status.name === "Нет в наличии" ? (
+                    <div className="commodity__count">
+                      <button
+                        className="commodity__count-minus"
+                        onClick={() => decrement()}
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        name="count"
+                        value={quantity}
+                        onChange={handleInitialCountChange}
+                      />
+                      <button
+                        className="commodity__count-plus"
+                        onClick={() => increment()}
+                      >
+                        +
+                      </button>
+                    </div>
+                    {data.count === 0 ? (
                       <>
-                        <label className="commodity__input">
-                          <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                          />
-                        </label>
-                        <button className="button button__primary">
-                          Запросить
-                        </button>
-                      </>
-                    ) : (
-                      <>
-                        <div className="commodity__count">
-                          <button
-                            className="commodity__count-minus"
-                            onClick={() => decrement()}
-                          >
-                            -
-                          </button>
-                          <input
-                            type="number"
-                            name="count"
-                            value={quantity}
-                            onChange={handleInitialCountChange}
-                          />
-                          <button
-                            className="commodity__count-plus"
-                            onClick={() => increment()}
-                          >
-                            +
-                          </button>
-                        </div>
                         <button
                           className="button button__primary"
-                          onClick={() => addToCart(data.id, quantity)}
+                          onClick={() =>
+                            addToQuery(data.id, quantity, data.brand)
+                          }
                         >
-                          В корзину
+                          Запросить
                         </button>
+                        <p className="commodity__query">
+                          *Указана последняя цена и срок поставки. <br /> Товар
+                          необходимо запросить.
+                        </p>
                       </>
+                    ) : (
+                      <button
+                        className="button button__primary"
+                        onClick={() => addToCart(data.id, quantity)}
+                      >
+                        В корзину
+                      </button>
                     )}
                   </div>
                 </div>

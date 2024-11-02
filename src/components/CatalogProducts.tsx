@@ -7,6 +7,7 @@ import { api } from "@/services/api";
 import { Skeleton } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import { IsMobile } from "@/utils/IsMobile";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
 
@@ -21,11 +22,18 @@ export default function CatalogProducts({ url }: { url?: string }) {
   const [isLoading, setIsLoading] = useState(true);
   const link = url ? url : "";
   const [page, setPage] = useState(1);
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const params = new URLSearchParams(searchParams);
+  const numPage = Number(params.get("page"));
 
   const handleChange = (event: ChangeEvent<unknown>, value: number) => {
+    params.set("page", String(value));
     setPage(value);
     loadProducts(value);
     scrollToTop();
+    replace(`${pathname}?${params.toString()}`);
   };
 
   const loadProducts = async (page?: number) => {
@@ -35,13 +43,14 @@ export default function CatalogProducts({ url }: { url?: string }) {
       setCountPage(res.total);
       setData(res.results);
       setIsLoading(false);
+      setPage(count);
     } catch (error) {
       // @ts-expect-error @ts-ignore
       console.error("Error fetching:", error.message);
     }
   };
 
-  useLayoutEffect(() => void loadProducts(), []);
+  useLayoutEffect(() => void loadProducts(numPage), []);
   return (
     <>
       <div className="catalog__products-row">

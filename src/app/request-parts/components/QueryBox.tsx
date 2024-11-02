@@ -10,12 +10,15 @@ import CloneDeep from "lodash-es/cloneDeep";
 import { IsMobile } from "@/utils/IsMobile";
 import { InputPhone } from "@/components/ui/InputPhone";
 import { useRouter } from "next/navigation";
+import { useQuery } from "@/store/query";
 
 export const QueryBox = () => {
   const [disabled, setDisabled] = useState(false);
   const [brand, setBrand] = useState<Brand[]>([]);
   const [queryRequested, setQueryRequested] = useState([]);
   const route = useRouter();
+  // const addToQuery = useQuery((state) => state.addToQuery);
+
   const query = useForm({
     defaultValues: {
       brand: "",
@@ -63,6 +66,7 @@ export const QueryBox = () => {
   const addToQuery = (data: object) => {
     const arr: any = queryRequested;
     arr.push(data);
+    console.log(data);
     setQueryRequested(arr);
   };
 

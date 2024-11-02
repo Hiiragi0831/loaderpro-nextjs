@@ -12,6 +12,7 @@ import { useFavorite } from "@/store/favorite";
 import { getPriceFormat } from "@/utils/getPriceFormat";
 import Link from "next/link";
 import translit from "@/utils/translit";
+import Image from "next/image";
 
 type Props = Pick<
   ProductType,
@@ -43,14 +44,28 @@ const Product: FC<Props> = (data) => {
                   : "https://my.loaderpro.ru/images/no-photo.svg"
               }
             />
+            {/*<Image*/}
+            {/*  width={190}*/}
+            {/*  height={150}*/}
+            {/*  sizes={"100%"}*/}
+            {/*  style={{*/}
+            {/*    width: "100%",*/}
+            {/*    height: "100%",*/}
+            {/*  }}*/}
+            {/*  src={*/}
+            {/*    data.image*/}
+            {/*      ? `${data.image}`*/}
+            {/*      : "https://my.loaderpro.ru/images/no-photo.svg"*/}
+            {/*  }*/}
+            {/*  alt={data.productname}*/}
+            {/*/>*/}
             <img
               src={
                 data.image
                   ? `${data.image}`
                   : "https://my.loaderpro.ru/images/no-photo.svg"
               }
-              alt=""
-              decoding="async"
+              alt={data.productname}
             />
           </picture>
         </Link>

@@ -153,7 +153,7 @@
 			"info price"
 			"description description";
 		grid-template-columns: vc(500) 1fr;
-		gap: vc(15) vc(30);
+		gap: vc(0) vc(30);
 
 		&-box {
 			grid-area: info;
@@ -215,7 +215,7 @@
 		grid-auto-rows: min-content;
 		grid-template-columns: repeat(2, 1fr);
 		border-radius: vc(5);
-		padding: vc(30) vc(20);
+		padding: vc(20);
 		height: min-content;
 		box-shadow: $box-shadow;
 		gap: vc(15);
@@ -238,6 +238,13 @@
 			font-size: vc(30);
 			color: $color-tree-poppy-400;
 		}
+	}
+
+	&__query {
+		grid-column: span 2 / span 1;
+		font-size: vc(14);
+		line-height: vc(14);
+		color: $red-orange-500;
 	}
 
 	&__input {
@@ -306,8 +313,8 @@
 		}
 
 		@include devices {
-			padding: vc(40);
 			grid-template-columns: 100%;
+			padding: vc(40);
 		}
 	}
 }
