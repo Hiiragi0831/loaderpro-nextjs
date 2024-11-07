@@ -26,10 +26,6 @@ export const Search: FC<Props> = ({ className }) => {
     try {
       const fdata = await api.getSearchResult({ search: data });
       setSearchData(fdata || []);
-
-      // if (fdata.length === 0 && data.length > 0) {
-      //   route.push("/request-parts");
-      // }
     } catch (error: any) {
       setSearchData([]);
       console.error("Error fetching:", error.message);
@@ -38,9 +34,13 @@ export const Search: FC<Props> = ({ className }) => {
   };
   const debounced = useRef(debounce(search, 100));
 
-  useClickAway(ref, () => {
+  const close = () => {
     setFocused(false);
     toggleShow(false);
+  };
+
+  useClickAway(ref, () => {
+    close();
   });
 
   const onClickItem = () => {
@@ -140,6 +140,9 @@ export const Search: FC<Props> = ({ className }) => {
           </div>
         )}
       </form>
+      <span onClick={close} className="search__close">
+        Закрыть
+      </span>
     </section>
   );
 };
