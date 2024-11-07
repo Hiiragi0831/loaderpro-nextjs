@@ -359,6 +359,11 @@ blockquote {
 }
 
 iframe.fslightboxs {
-	width: vc(1200)!important;
+	width: vc(1200) !important;
 	height: vc(700) !important;
+
+	@include devices {
+		width: 100% !important;
+		height: vc(180) !important;
+	}
 }
