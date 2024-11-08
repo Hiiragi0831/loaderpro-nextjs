@@ -13,7 +13,6 @@ export async function generateMetadata({ params }: { params: any }) {
   const slugArray = params.slug.split("-");
   const id = slugArray.pop();
   const post = await api.getProduct(id);
-  console.log(post);
 
   return {
     title: `${post.productname}`,
