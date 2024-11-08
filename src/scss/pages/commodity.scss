@@ -81,6 +81,7 @@
 
 		picture {
 			overflow: hidden;
+			padding: vc(5);
 			height: 100%;
 
 			img {
@@ -104,7 +105,7 @@
 
 		&-thumb {
 			width: calc(100% + #{vc(15)});
-			height: vc(108);
+			height: vc(110);
 
 			.swiper {
 				height: 100%;
@@ -119,7 +120,7 @@
 				&::before {
 					content: "";
 					position: absolute;
-					bottom: 0;
+					bottom: vc(1);
 					z-index: 2;
 					border-radius: vc(3);
 					width: calc(100% - #{vc(15)});
