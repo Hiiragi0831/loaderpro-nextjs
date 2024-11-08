@@ -4,8 +4,6 @@ import IconTg from "@/icons/tg.svg";
 import IconWt from "@/icons/wt.svg";
 import IconYoutube from "@/icons/youtube.svg";
 import { useMobileNav } from "@/store/useMobileNav";
-import { useClickAway } from "react-use";
-import { useRef } from "react";
 
 export function MobileNav() {
   const stateMobileNav = useMobileNav();
