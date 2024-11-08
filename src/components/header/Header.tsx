@@ -21,6 +21,10 @@ const Header = () => {
   const { isShow } = useSearchPanel();
   const stateMobileNav = useMobileNav();
 
+  const onClickItem = () => {
+    stateMobileNav.toggleShow(false);
+  };
+
   useLockBodyScroll(stateMobileNav.isShow);
 
   return (
@@ -58,7 +62,7 @@ const Header = () => {
         <div className="header__main">
           <div className="container">
             <div className="row">
-              <Link className="header__logo" href="/">
+              <Link className="header__logo" href="/" onClick={onClickItem}>
                 <IconLogo />
               </Link>
               <Search className={`${isShow ? "active" : ""}`} />
@@ -71,11 +75,11 @@ const Header = () => {
                   <IconDesktop />
                   <span>Подбор ЗЧ</span>
                 </Link>
-                <Link href={"/favorites"}>
+                <Link href={"/favorites"} onClick={onClickItem}>
                   <IconHeart />
                   <span>Избранное</span>
                 </Link>
-                <Link href={"/basket"}>
+                <Link href={"/basket"} onClick={onClickItem}>
                   <IconCart />
                   <span>Корзина</span>
                 </Link>

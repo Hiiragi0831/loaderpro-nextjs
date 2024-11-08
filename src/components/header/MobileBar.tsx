@@ -7,17 +7,27 @@ import Link from "next/link";
 import { useSearchPanel } from "@/store/useSearchPanel";
 import IconDesktop from "@/icons/desktop.svg";
 import IconMagnifying from "@/icons/magnifying-glass.svg";
+import { useMobileNav } from "@/store/useMobileNav";
 
 export const MobileBar = () => {
   const { isShow, toggleShow } = useSearchPanel();
+  const stateMobileNav = useMobileNav();
+
+  const onClickItem = () => {
+    stateMobileNav.toggleShow(false);
+  };
 
   return (
     <div className="mobilebar">
-      <Link href="/" className="mobilebar__item">
+      <Link href="/" className="mobilebar__item" onClick={onClickItem}>
         <IconHome />
         <span>Домой</span>
       </Link>
-      <Link href={"/spare-parts"} className="mobilebar__item">
+      <Link
+        href={"/spare-parts"}
+        className="mobilebar__item"
+        onClick={onClickItem}
+      >
         <IconBox />
         <span>Каталог</span>
       </Link>
@@ -29,11 +39,19 @@ export const MobileBar = () => {
           <IconMagnifying className="search-icon" />
         </div>
       </span>
-      <Link href={"/request-parts"} className="mobilebar__item">
+      <Link
+        href={"/request-parts"}
+        className="mobilebar__item"
+        onClick={onClickItem}
+      >
         <IconRectangle />
         <span>Запросы</span>
       </Link>
-      <Link href={"/selection-parts"} className="mobilebar__item">
+      <Link
+        href={"/selection-parts"}
+        className="mobilebar__item"
+        onClick={onClickItem}
+      >
         <IconDesktop />
         <span>Подбор ЗЧ</span>
       </Link>
