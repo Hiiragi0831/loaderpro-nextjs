@@ -37,7 +37,10 @@ const Header = () => {
               <div className="header__top-links">
                 <Link href={"/dealer"}>Дилерам</Link>
                 <Link href={"/suppliers"}>Поставщикам</Link>
-                <ProfileButton onClickSignIn={() => setModalOpen(true)} className={"is-hide"}/>
+                <ProfileButton
+                  onClickSignIn={() => setModalOpen(true)}
+                  className={"is-hide"}
+                />
               </div>
               <p className="text-uppercase">
                 Ваша техника под надежной защитой
