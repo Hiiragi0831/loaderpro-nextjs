@@ -105,7 +105,7 @@ export default function ProductInfo(params: any) {
     }
   };
 
-  useLayoutEffect(() => void loadArticle());
+  useLayoutEffect(() => void loadArticle(), []);
 
   return (
     <>
