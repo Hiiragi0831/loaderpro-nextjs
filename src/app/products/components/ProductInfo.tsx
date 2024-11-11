@@ -242,8 +242,7 @@ export default function ProductInfo(params: any) {
                           <p className="commodity__query"></p>
                         ) : (
                           <p className="commodity__query">
-                            *Указана последняя цена и срок поставки. <br />{" "}
-                            Товар необходимо запросить.
+                            *Цену и срок поставки необходимо запросить.
                           </p>
                         )}
                       </>
