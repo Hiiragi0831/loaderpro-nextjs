@@ -150,7 +150,7 @@
 
 		p {
 			font-weight: 500;
-			font-size: vc(20);
+			font-size: vc(18);
 			color: $color-tree-poppy-400;
 
 			@include devices {
@@ -223,6 +223,7 @@
 	&__title {
 		font-weight: 400;
 		font-size: vc(16);
+		line-height: 1;
 
 		@include devices {
 			font-size: vc(11);

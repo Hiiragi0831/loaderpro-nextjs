@@ -66,7 +66,10 @@ export default function ProductInfo(params: any) {
     ],
   });
 
-  const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  const price =
+    data.price === 0
+      ? "Цена по запросу"
+      : `${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽`;
   const addToCart = useBasket((state) => state.addToBasket);
   const addToQuery = useQuery((state) => state.addToQuery);
 
@@ -102,7 +105,7 @@ export default function ProductInfo(params: any) {
     }
   };
 
-  useLayoutEffect(() => void loadArticle(), []);
+  useLayoutEffect(() => void loadArticle());
 
   return (
     <>
@@ -145,12 +148,22 @@ export default function ProductInfo(params: any) {
                 </div>
                 <div className="commodity__info">
                   <div className="commodity__info-box">
-                    <div
-                      className={`commodity__availability commodity__availability--${data.status.value}`}
-                    >
-                      <span />
-                      <p>{data.status.name}</p>
-                    </div>
+                    {data.count === 0 ? (
+                      <div
+                        className={`commodity__availability commodity__availability--green`}
+                      >
+                        <span />
+                        <p>7-10 дней</p>
+                      </div>
+                    ) : (
+                      <div
+                        className={`commodity__availability commodity__availability--${data.status.value}`}
+                      >
+                        <span />
+                        <p>{data.status.name}</p>
+                      </div>
+                    )}
+
                     <div className="commodity__specifications">
                       <div className="commodity__specification">
                         <p>Артикул</p>
@@ -193,7 +206,7 @@ export default function ProductInfo(params: any) {
                   <div className="commodity__basket">
                     <div className="commodity__price">
                       <span>Цена:</span>
-                      <p>{price} ₽</p>
+                      <p>{price}</p>
                     </div>
                     <div className="commodity__count">
                       <button
@@ -225,10 +238,14 @@ export default function ProductInfo(params: any) {
                         >
                           Запросить
                         </button>
-                        <p className="commodity__query">
-                          *Указана последняя цена и срок поставки. <br /> Товар
-                          необходимо запросить.
-                        </p>
+                        {data.price === 0 ? (
+                          <p className="commodity__query"></p>
+                        ) : (
+                          <p className="commodity__query">
+                            *Указана последняя цена и срок поставки. <br />{" "}
+                            Товар необходимо запросить.
+                          </p>
+                        )}
                       </>
                     ) : (
                       <button

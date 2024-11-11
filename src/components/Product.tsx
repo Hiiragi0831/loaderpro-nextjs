@@ -68,7 +68,6 @@ const Product: FC<Props> = (data) => {
               height: "100%",
               objectFit: "contain",
             }}
-            quality="85"
             loading="lazy"
             blurDataURL={rgbDataURL(255, 255, 255)}
             placeholder={"blur"}
@@ -101,19 +100,30 @@ const Product: FC<Props> = (data) => {
       </div>
       <div className="product__info">
         <div className="product__price">
-          <p>{getPriceFormat(data.price)} ₽</p>
+          <p>
+            {data.price === 0
+              ? "Цена по запросу"
+              : `${getPriceFormat(data.price)}₽`}
+          </p>
         </div>
         <div className="product__article">
           <p>Артикул: {data.article}</p>
         </div>
       </div>
       <div className="product__main">
-        <div
-          className={`product__status product__status--${data.status.value}`}
-        >
-          <span />
-          <p>{data.status.name}</p>
-        </div>
+        {data.count === 0 ? (
+          <div className={`product__status product__status--green`}>
+            <span />
+            <p>7-10 дней</p>
+          </div>
+        ) : (
+          <div
+            className={`product__status product__status--${data.status.value}`}
+          >
+            <span />
+            <p>{data.status.name}</p>
+          </div>
+        )}
         <div className="product__title">
           <Link href={href}>{data.productname}</Link>
         </div>

@@ -4,6 +4,7 @@ import { api } from "@/services/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import IconStar from "@/icons/star.svg";
+import { Skeleton } from "@mui/material";
 
 type Props = {
   name: string;
@@ -103,7 +104,9 @@ export const Reviews = () => {
           </p>
         </div>
         {isLoading ? (
-          "Загрузка"
+          <>
+            <Skeleton height={240} variant={"rounded"}></Skeleton>
+          </>
         ) : (
           <Swiper
             slidesPerView={1}

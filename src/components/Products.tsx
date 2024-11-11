@@ -6,6 +6,7 @@ import { FC, useLayoutEffect, useState } from "react";
 import { Product as ProductsType } from "@/common/types/Product";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
+import { Skeleton } from "@mui/material";
 
 type Props = {
   filter: string;
@@ -55,7 +56,13 @@ const Products: FC<Props> = ({ filter, limit, title, link }) => {
         </div>
         <div className="row">
           {isLoading ? (
-            "Загрузка"
+            <>
+              <Skeleton height={440} variant={"rounded"}></Skeleton>
+              <Skeleton height={440} variant={"rounded"}></Skeleton>
+              <Skeleton height={440} variant={"rounded"}></Skeleton>
+              <Skeleton height={440} variant={"rounded"}></Skeleton>
+              <Skeleton height={440} variant={"rounded"}></Skeleton>
+            </>
           ) : (
             <Swiper
               slidesPerView={"auto"}

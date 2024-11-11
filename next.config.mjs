@@ -37,8 +37,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "eme54.ru",
       },
+      {
+        protocol: "https",
+        hostname: "my.loaderpro.ru",
+      },
     ],
-    domains: ["image.loaderpro.ru", "eme54.ru"],
+    domains: ["image.loaderpro.ru", "eme54.ru", "my.loaderpro.ru"],
   },
 };
 
