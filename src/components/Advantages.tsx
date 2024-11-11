@@ -10,13 +10,13 @@ const Advantage = () => {
             <div className="advantage__bg">
               <picture>
                 <source srcSet="/images/advantage1.jpg" />
-                <img src="/images/advantage1.jpg" alt="" decoding="async" />
+                <img src="/images/advantage1.jpg" alt="" />
               </picture>
             </div>
             <div className="advantage__img">
               <picture>
                 <source srcSet="/images/advantage11.png" />
-                <img src="/images/advantage11.png" alt="" decoding="async" />
+                <img src="/images/advantage11.png" alt="" />
               </picture>
             </div>
             <div className="advantage__info">
@@ -44,13 +44,13 @@ const Advantage = () => {
             <div className="advantage__bg">
               <picture>
                 <source srcSet="/images/advantage2.jpg" />
-                <img src="/images/advantage2.jpg" alt="" decoding="async" />
+                <img src="/images/advantage2.jpg" alt="" />
               </picture>
             </div>
             <div className="advantage__img">
               <picture>
                 <source srcSet="/images/advantage22.png" />
-                <img src="/images/advantage22.png" alt="" decoding="async" />
+                <img src="/images/advantage22.png" alt="" />
               </picture>
             </div>
             <div className="advantage__info">

@@ -15,7 +15,6 @@ export const Types = () => {
                   <img
                     src="/images/battery/elektropogruzchiki.png"
                     alt="Электропогрузчик"
-                    decoding="async"
                   />
                 </picture>
                 <p>Электропогрузчик</p>
@@ -25,11 +24,7 @@ export const Types = () => {
               <div className="battery__type-item">
                 <picture>
                   <source srcSet="/images/battery/shtabeler.png" />
-                  <img
-                    src="/images/battery/shtabeler.png"
-                    alt="Штабелер"
-                    decoding="async"
-                  />
+                  <img src="/images/battery/shtabeler.png" alt="Штабелер" />
                 </picture>
                 <p>Штабелер</p>
               </div>
@@ -38,11 +33,7 @@ export const Types = () => {
               <div className="battery__type-item">
                 <picture>
                   <source srcSet="/images/battery/richtrak.png" />
-                  <img
-                    src="/images/battery/richtrak.png"
-                    alt="Ричтрак"
-                    decoding="async"
-                  />
+                  <img src="/images/battery/richtrak.png" alt="Ричтрак" />
                 </picture>
                 <p>Ричтрак</p>
               </div>
@@ -54,7 +45,6 @@ export const Types = () => {
                   <img
                     src="/images/battery/telezhka.png"
                     alt="Электротележка"
-                    decoding="async"
                   />
                 </picture>
                 <p>Электротележка</p>
@@ -64,11 +54,7 @@ export const Types = () => {
               <div className="battery__type-item">
                 <picture>
                   <source srcSet="/images/battery/golfcart.png" />
-                  <img
-                    src="/images/battery/golfcart.png"
-                    alt="Гольф кары"
-                    decoding="async"
-                  />
+                  <img src="/images/battery/golfcart.png" alt="Гольф кары" />
                 </picture>
                 <p>Гольф кары</p>
               </div>

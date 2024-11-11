@@ -88,7 +88,6 @@ export const Brands = () => {
                     <img
                       src={`/images/vendors/${brand.title}.png`}
                       alt={brand.title}
-                      decoding="async"
                     />
                   </picture>
                 </div>

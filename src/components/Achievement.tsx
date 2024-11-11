@@ -11,7 +11,7 @@ export const Achievement: FC<Props> = ({ icon, title, text }) => {
     <div className="achievement">
       <picture className="achievement__icon">
         <source srcSet={icon} />
-        <img src={icon} alt={title} decoding="async" />
+        <img src={icon} alt={title} />
       </picture>
       <div className="achievement__title">{title}</div>
       <div className="achievement__text">

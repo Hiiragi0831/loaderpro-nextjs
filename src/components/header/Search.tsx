@@ -114,7 +114,6 @@ export const Search: FC<Props> = ({ className }) => {
                           : "https://my.loaderpro.ru/images/no-photo.svg"
                       }
                       alt=""
-                      decoding="async"
                     />
                   </picture>
                   <span>

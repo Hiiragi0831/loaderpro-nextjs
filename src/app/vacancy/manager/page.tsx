@@ -48,7 +48,7 @@ export default function VacancyManager() {
           <div className="vacancy-modal__image">
             <picture>
               <source srcSet="/images/vacancy/hr.jpg" />
-              <img src="/images/vacancy/hr.jpg" alt="" decoding="async" />
+              <img src="/images/vacancy/hr.jpg" alt="" />
             </picture>
           </div>
         </div>

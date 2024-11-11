@@ -32,7 +32,7 @@ export default function Contact() {
                 >
                   <picture>
                     <source srcSet="/images/contact/wh.png" />
-                    <img src="/images/contact/wh.png" alt="" decoding="async" />
+                    <img src="/images/contact/wh.png" alt="" />
                   </picture>
                 </a>
                 <a
@@ -42,7 +42,7 @@ export default function Contact() {
                 >
                   <picture>
                     <source srcSet="/images/contact/tg.png" />
-                    <img src="/images/contact/tg.png" alt="" decoding="async" />
+                    <img src="/images/contact/tg.png" alt="" />
                   </picture>
                 </a>
                 <a
@@ -52,7 +52,7 @@ export default function Contact() {
                 >
                   <picture>
                     <source srcSet="/images/contact/vk.png" />
-                    <img src="/images/contact/vk.png" alt="" decoding="async" />
+                    <img src="/images/contact/vk.png" alt="" />
                   </picture>
                 </a>
                 <a
@@ -62,11 +62,7 @@ export default function Contact() {
                 >
                   <picture>
                     <source srcSet="/images/contact/youtube.png" />
-                    <img
-                      src="/images/contact/youtube.png"
-                      alt=""
-                      decoding="async"
-                    />
+                    <img src="/images/contact/youtube.png" alt="" />
                   </picture>
                 </a>
               </div>
@@ -80,7 +76,7 @@ export default function Contact() {
               >
                 <picture>
                   <source srcSet="/images/contact/qr-w.png" />
-                  <img src="/images/contact/qr-w.png" alt="" decoding="async" />
+                  <img src="/images/contact/qr-w.png" alt="" />
                 </picture>
                 <p>
                   Ответы на
@@ -95,7 +91,7 @@ export default function Contact() {
               >
                 <picture>
                   <source srcSet="/images/contact/qr-t.png" />
-                  <img src="/images/contact/qr-t.png" alt="" decoding="async" />
+                  <img src="/images/contact/qr-t.png" alt="" />
                 </picture>
                 <p>Акции, скидки, чат профессионалов</p>
               </a>
@@ -107,7 +103,7 @@ export default function Contact() {
               >
                 <picture>
                   <source srcSet="/images/contact/qr-v.png" />
-                  <img src="/images/contact/qr-v.png" alt="" decoding="async" />
+                  <img src="/images/contact/qr-v.png" alt="" />
                 </picture>
                 <p>Полезная информация, жизнь компании и новости</p>
               </a>

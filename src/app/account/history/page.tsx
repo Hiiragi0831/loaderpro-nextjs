@@ -84,7 +84,7 @@ export default function History() {
                 <div className="basket-item">
                   <picture className="basket-item__img">
                     <source srcSet="/images/basket.jpg" />
-                    <img src="/images/basket.jpg" alt="" decoding="async" />
+                    <img src="/images/basket.jpg" alt="" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -105,7 +105,7 @@ export default function History() {
                 <div className="basket-item">
                   <picture className="basket-item__img">
                     <source srcSet="/images/basket.jpg" />
-                    <img src="/images/basket.jpg" alt="" decoding="async" />
+                    <img src="/images/basket.jpg" alt="" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -126,7 +126,7 @@ export default function History() {
                 <div className="basket-item">
                   <picture className="basket-item__img">
                     <source srcSet="/images/basket.jpg" />
-                    <img src="/images/basket.jpg" alt="" decoding="async" />
+                    <img src="/images/basket.jpg" alt="" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -206,7 +206,7 @@ export default function History() {
                 <div className="basket-item">
                   <picture className="basket-item__img">
                     <source srcSet="/images/basket.jpg" />
-                    <img src="/images/basket.jpg" alt="" decoding="async" />
+                    <img src="/images/basket.jpg" alt="" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -227,7 +227,7 @@ export default function History() {
                 <div className="basket-item">
                   <picture className="basket-item__img">
                     <source srcSet="/images/basket.jpg" />
-                    <img src="/images/basket.jpg" alt="" decoding="async" />
+                    <img src="/images/basket.jpg" alt="" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>
@@ -248,7 +248,7 @@ export default function History() {
                 <div className="basket-item">
                   <picture className="basket-item__img">
                     <source srcSet="/images/basket.jpg" />
-                    <img src="/images/basket.jpg" alt="" decoding="async" />
+                    <img src="/images/basket.jpg" alt="" />
                   </picture>
                   <div className="basket-item__info">
                     <p>Название товара, пример текста</p>

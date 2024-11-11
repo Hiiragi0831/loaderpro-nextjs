@@ -36,11 +36,11 @@ export default function Dealer() {
           <div className="dealer__hero">
             <picture className="for-desktop">
               <source srcSet={`/images/slider/3.jpeg`} />
-              <img src={`/images/slider/3.jpeg`} alt="" decoding="async" />
+              <img src={`/images/slider/3.jpeg`} alt="" />
             </picture>
             <picture className="for-devices">
               <source srcSet={`/images/slider/3m.jpeg`} />
-              <img src={`/images/slider/3m.jpeg`} alt="" decoding="async" />
+              <img src={`/images/slider/3m.jpeg`} alt="" />
             </picture>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function Dealer() {
             <span className="h1">Кто может стать дилером нашей платформы?</span>
             <picture className="for-desktop">
               <source srcSet={`/images/who-arrows.png`} />
-              <img src={`/images/who-arrows.png`} alt="" decoding="async" />
+              <img src={`/images/who-arrows.png`} alt="" />
             </picture>
           </div>
           <div className="row">
@@ -164,7 +164,6 @@ export default function Dealer() {
               <img
                 src={`/images/39cb5a85e98971fa10132bc4929b5b14.jpg`}
                 alt=""
-                decoding="async"
               />
             </picture>
           </div>

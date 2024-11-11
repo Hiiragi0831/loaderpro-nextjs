@@ -100,11 +100,7 @@ export const Team = () => {
                 <div className="team__slide">
                   <picture>
                     <source srcSet={`${post.image}`} />
-                    <img
-                      src={`${post.image}`}
-                      alt={post.name}
-                      decoding="async"
-                    />
+                    <img src={`${post.image}`} alt={post.name} />
                   </picture>
                   <p>
                     <b>{post.name}</b>

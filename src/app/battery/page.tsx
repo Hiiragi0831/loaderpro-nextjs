@@ -77,7 +77,7 @@ export default function battery() {
           </div>
           <picture>
             <source srcSet="/images/battery/akb-type.png" />
-            <img src="/images/battery/akb-type.png" alt="" decoding="async" />
+            <img src="/images/battery/akb-type.png" alt="" />
           </picture>
         </div>
       </section>
@@ -90,7 +90,6 @@ export default function battery() {
                 <img
                   src="/images/battery/lead-acid_traction_batteries.png"
                   alt=""
-                  decoding="async"
                 />
               </picture>
               <p>Свинцово-кислотные тяговые аккумуляторы </p>
@@ -107,7 +106,6 @@ export default function battery() {
                 <img
                   src="/images/battery/lithium-ion_traction_batteries.png"
                   alt=""
-                  decoding="async"
                 />
               </picture>
               <p>Литий-ионные тяговые аккумуляторы</p>

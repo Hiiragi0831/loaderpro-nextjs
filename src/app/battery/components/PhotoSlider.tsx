@@ -11,11 +11,7 @@ export const PhotoSlider = () => {
       <SwiperSlide key={i}>
         <picture>
           <source srcSet={`/images/battery/slider/${i}.jpg`} />
-          <img
-            src={`/images/battery/slider/${i}.jpg`}
-            alt=""
-            decoding="async"
-          />
+          <img src={`/images/battery/slider/${i}.jpg`} alt="" />
         </picture>
       </SwiperSlide>,
     );

@@ -47,11 +47,7 @@ export default function OilsLubricants() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/oilslubricants/serv3.png`} />
-                <img
-                  src={`/images/oilslubricants/serv3.png`}
-                  alt=""
-                  decoding="async"
-                />
+                <img src={`/images/oilslubricants/serv3.png`} alt="" />
               </picture>
             </div>
           </div>
@@ -79,11 +75,7 @@ export default function OilsLubricants() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/oilslubricants/remont.png`} />
-                <img
-                  src={`/images/oilslubricants/remont.png`}
-                  alt=""
-                  decoding="async"
-                />
+                <img src={`/images/oilslubricants/remont.png`} alt="" />
               </picture>
             </div>
           </div>

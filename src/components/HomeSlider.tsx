@@ -22,19 +22,11 @@ const HomeSlider = () => {
                 <div className="slider__content">
                   <picture className="for-desktop">
                     <source srcSet={`/images/slider/${slide}.jpeg`} />
-                    <img
-                      src={`/images/slider/${slide}.jpeg`}
-                      alt=""
-                      decoding="async"
-                    />
+                    <img src={`/images/slider/${slide}.jpeg`} alt="" />
                   </picture>
                   <picture className="for-devices">
                     <source srcSet={`/images/slider/${slide}m.jpeg`} />
-                    <img
-                      src={`/images/slider/${slide}m.jpeg`}
-                      alt=""
-                      decoding="async"
-                    />
+                    <img src={`/images/slider/${slide}m.jpeg`} alt="" />
                   </picture>
                 </div>
               </SwiperSlide>

@@ -7,7 +7,7 @@ export const MapSending = () => {
         </div>
         <picture>
           <source srcSet="/images/map.gif" />
-          <img src="/images/map.gif" alt="" decoding="async" />
+          <img src="/images/map.gif" alt="map" />
         </picture>
       </div>
     </section>

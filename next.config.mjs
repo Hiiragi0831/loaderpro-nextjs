@@ -28,6 +28,16 @@ const nextConfig = {
     return config;
   },
   images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.loaderpro.ru",
+      },
+      {
+        protocol: "https",
+        hostname: "eme54.ru",
+      },
+    ],
     domains: ["image.loaderpro.ru", "eme54.ru"],
   },
 };

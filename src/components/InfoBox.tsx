@@ -18,7 +18,7 @@ export const InfoBox: FC<InfoBoxType> = (data) => {
       return (
         <picture className="info-box__image--special">
           <source srcSet={data.special} />
-          <img src={data.special} alt={data.title} decoding="async" />
+          <img src={data.special} alt={data.title} />
         </picture>
       );
     }
@@ -38,7 +38,7 @@ export const InfoBox: FC<InfoBoxType> = (data) => {
                   <SwiperSlide key={id}>
                     <picture>
                       <source srcSet={image} />
-                      <img src={image} alt={data.title} decoding="async" />
+                      <img src={image} alt={data.title} />
                     </picture>
                   </SwiperSlide>
                 ))}
@@ -46,7 +46,7 @@ export const InfoBox: FC<InfoBoxType> = (data) => {
             ) : (
               <picture className="info-box__image--main">
                 <source srcSet={data.img} />
-                <img src={data.img} alt={data.title} decoding="async" />
+                <img src={data.img} alt={data.title} />
               </picture>
             )}
             {special()}

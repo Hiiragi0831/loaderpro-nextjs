@@ -17,7 +17,7 @@ const background = (bg: any) => {
         <div className="preference__bg">
           <picture>
             <source srcSet={`/images/preference/${bg}.jpg`} />
-            <img src={`/images/preference/${bg}.jpg`} alt="" decoding="async" />
+            <img src={`/images/preference/${bg}.jpg`} alt="" />
           </picture>
         </div>
       );

@@ -4,11 +4,11 @@ export const Hero = () => {
       <div className="container">
         <picture className="for-desktop">
           <source srcSet="/images/slider/5.jpeg" />
-          <img src="/images/slider/5.jpeg" alt="" decoding="async" />
+          <img src="/images/slider/5.jpeg" alt="" />
         </picture>
         <picture className="for-devices">
           <source srcSet="/images/slider/5m.jpeg" />
-          <img src="/images/slider/5m.jpeg" alt="" decoding="async" />
+          <img src="/images/slider/5m.jpeg" alt="" />
         </picture>
       </div>
     </section>

@@ -20,7 +20,7 @@ export default function Home() {
         <div className="container">
           <picture>
             <source srcSet="/images/home/kat.png" />
-            <img src="/images/home/kat.png" alt="" decoding="async" />
+            <img src="/images/home/kat.png" alt="" />
           </picture>
         </div>
       </section>

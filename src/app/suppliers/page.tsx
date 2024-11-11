@@ -29,11 +29,7 @@ export default function Suppliers() {
           </h1>
           <picture>
             <source srcSet="/images/658cf87cb0dd4446e655fa5caef79c49.png" />
-            <img
-              src="/images/658cf87cb0dd4446e655fa5caef79c49.png"
-              alt="map"
-              decoding="async"
-            />
+            <img src="/images/658cf87cb0dd4446e655fa5caef79c49.png" alt="map" />
           </picture>
         </div>
       </section>

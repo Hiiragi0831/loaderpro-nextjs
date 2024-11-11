@@ -13,49 +13,37 @@ export const Clients = () => {
           <div className="clients__item">
             <picture>
               <source srcSet={`/images/clients/wb.png`} />
-              <img src={`/images/clients/wb.png`} alt="wb" decoding="async" />
+              <img src={`/images/clients/wb.png`} alt="wb" />
             </picture>
           </div>
           <div className="clients__item">
             <picture>
               <source srcSet={`/images/clients/egger.png`} />
-              <img
-                src={`/images/clients/egger.png`}
-                alt="wb"
-                decoding="async"
-              />
+              <img src={`/images/clients/egger.png`} alt="wb" />
             </picture>
           </div>
           <div className="clients__item">
             <picture>
               <source srcSet={`/images/clients/ozon.png`} />
-              <img src={`/images/clients/ozon.png`} alt="wb" decoding="async" />
+              <img src={`/images/clients/ozon.png`} alt="wb" />
             </picture>
           </div>
           <div className="clients__item">
             <picture>
               <source srcSet={`/images/clients/marazzi.png`} />
-              <img
-                src={`/images/clients/marazzi.png`}
-                alt="wb"
-                decoding="async"
-              />
+              <img src={`/images/clients/marazzi.png`} alt="wb" />
             </picture>
           </div>
           <div className="clients__item">
             <picture>
               <source srcSet={`/images/clients/efko.png`} />
-              <img src={`/images/clients/efko.png`} alt="wb" decoding="async" />
+              <img src={`/images/clients/efko.png`} alt="wb" />
             </picture>
           </div>
           <div className="clients__item">
             <picture>
               <source srcSet={`/images/clients/maksidom.png`} />
-              <img
-                src={`/images/clients/maksidom.png`}
-                alt="wb"
-                decoding="async"
-              />
+              <img src={`/images/clients/maksidom.png`} alt="wb" />
             </picture>
           </div>
         </div>

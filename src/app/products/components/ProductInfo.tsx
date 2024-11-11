@@ -13,11 +13,21 @@ import { notFound, useRouter } from "next/navigation";
 import translit from "@/utils/translit";
 
 const images = (items: []) => {
+  if (items.length === 0) {
+    return (
+      <SwiperSlide>
+        <picture>
+          <source srcSet="/images/no-photo.jpg" />
+          <img src="/images/no-photo.jpg" alt="" />
+        </picture>
+      </SwiperSlide>
+    );
+  }
   return items.map((item: any, index: Key | null | undefined) => (
     <SwiperSlide key={index}>
       <picture>
         <source srcSet={item} />
-        <img src={item} alt="" decoding="async" />
+        <img src={item} alt="" />
       </picture>
     </SwiperSlide>
   ));
@@ -177,11 +187,7 @@ export default function ProductInfo(params: any) {
                     )}
                     <picture>
                       <source srcSet="/images/product/hero.png" />
-                      <img
-                        src="/images/product/hero.png"
-                        alt=""
-                        decoding="async"
-                      />
+                      <img src="/images/product/hero.png" alt="" />
                     </picture>
                   </div>
                   <div className="commodity__basket">

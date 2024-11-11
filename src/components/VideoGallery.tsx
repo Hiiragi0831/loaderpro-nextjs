@@ -54,11 +54,7 @@ export const VideoGallery = () => {
                     >
                       <picture>
                         <source srcSet={item.image} />
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          decoding="async"
-                        />
+                        <img src={item.image} alt={item.title} />
                       </picture>
                       <p className="h4">{item.title}</p>
                     </button>

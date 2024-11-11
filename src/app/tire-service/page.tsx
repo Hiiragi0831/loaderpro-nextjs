@@ -17,15 +17,11 @@ export default function TireService() {
         <div className="container">
           <picture className="for-desktop">
             <source srcSet={`/images/tireservice/hero.jpg`} />
-            <img src={`/images/tireservice/hero.jpg`} alt="" decoding="async" />
+            <img src={`/images/tireservice/hero.jpg`} alt="" />
           </picture>
           <picture className="for-devices">
             <source srcSet={`/images/tireservice/hero-m.jpg`} />
-            <img
-              src={`/images/tireservice/hero-m.jpg`}
-              alt=""
-              decoding="async"
-            />
+            <img src={`/images/tireservice/hero-m.jpg`} alt="" />
           </picture>
         </div>
       </section>
@@ -63,7 +59,6 @@ export default function TireService() {
                 <img
                   src={`/images/tireservice/shinomontazh-lityh-shin-1.png`}
                   alt=""
-                  decoding="async"
                 />
               </picture>
             </div>
@@ -76,11 +71,7 @@ export default function TireService() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/tireservice/remont.png`} />
-                <img
-                  src={`/images/tireservice/remont.png`}
-                  alt=""
-                  decoding="async"
-                />
+                <img src={`/images/tireservice/remont.png`} alt="" />
               </picture>
             </div>
             <div className="text">
@@ -170,11 +161,7 @@ export default function TireService() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/tireservice/to-1.png`} />
-                <img
-                  src={`/images/tireservice/to-1.png`}
-                  alt=""
-                  decoding="async"
-                />
+                <img src={`/images/tireservice/to-1.png`} alt="" />
               </picture>
             </div>
           </div>

@@ -12,7 +12,7 @@ const Category: FC<Props> = (data) => {
       <div className="category__bg">
         <picture>
           <source srcSet={data.image} />
-          <img src={data.image} alt={data.title} decoding="async" />
+          <img src={data.image} alt={data.title} />
         </picture>
       </div>
       <div className="category__info">

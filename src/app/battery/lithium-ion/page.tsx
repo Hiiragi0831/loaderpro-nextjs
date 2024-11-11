@@ -41,7 +41,6 @@ export default function lithiumIon() {
               <img
                 src="/images/battery/87f3a6404c391a24d4b1dfac012a6d01.png"
                 alt=""
-                decoding="async"
               />
             </picture>
           </div>
@@ -97,7 +96,6 @@ export default function lithiumIon() {
                 <img
                   src="/images/battery/lead-acid_traction_batteries.png"
                   alt=""
-                  decoding="async"
                 />
               </picture>
               <p>Тяговые аккумуляторы LOADERPRO</p>
@@ -111,7 +109,6 @@ export default function lithiumIon() {
                 <img
                   src="/images/battery/lead-acid_traction_batteries.png"
                   alt=""
-                  decoding="async"
                 />
               </picture>
               <p>Свинцово-кислотные тяговые аккумуляторы </p>

@@ -51,7 +51,6 @@ export default function leadAcid() {
               <img
                 src="/images/battery/ce0c309ef31bf939a9ca4d068ca5c4f2.png"
                 alt=""
-                decoding="async"
               />
             </picture>
           </div>
@@ -70,7 +69,6 @@ export default function leadAcid() {
               <img
                 src="/images/battery/5d43bba877eb0f188daa01a07ff8a2ba.png"
                 alt=""
-                decoding="async"
               />
             </picture>
             <h2 className="h1">Обратите внимание</h2>
@@ -137,7 +135,6 @@ export default function leadAcid() {
                 <img
                   src="/images/battery/lead-acid_traction_batteries.png"
                   alt=""
-                  decoding="async"
                 />
               </picture>
               <p>Тяговые аккумуляторы LOADERPRO</p>
@@ -151,7 +148,6 @@ export default function leadAcid() {
                 <img
                   src="/images/battery/lithium-ion_traction_batteries.png"
                   alt=""
-                  decoding="async"
                 />
               </picture>
               <p>Литий-ионные тяговые аккумуляторы</p>

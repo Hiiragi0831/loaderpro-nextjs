@@ -13,6 +13,7 @@ import { getPriceFormat } from "@/utils/getPriceFormat";
 import Link from "next/link";
 import translit from "@/utils/translit";
 import { useQuery } from "@/store/query";
+import Image from "next/image";
 
 type Props = Pick<
   ProductType,
@@ -33,6 +34,20 @@ const Product: FC<Props> = (data) => {
   const favorites = useFavorite((state) => state.favorite);
   const href = `/products/${translit(data.productname.replaceAll(" ", "-"))}-${data.id}`;
 
+  const keyStr =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+  const triplet = (e1: number, e2: number, e3: number) =>
+    keyStr.charAt(e1 >> 2) +
+    keyStr.charAt(((e1 & 3) << 4) | (e2 >> 4)) +
+    keyStr.charAt(((e2 & 15) << 2) | (e3 >> 6)) +
+    keyStr.charAt(e3 & 63);
+
+  const rgbDataURL = (r: number, g: number, b: number) =>
+    `data:image/gif;base64,R0lGODlhAQABAPAA${
+      triplet(0, r, g) + triplet(b, 255, 255)
+    }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
+
   return (
     <div className="product">
       <button
@@ -44,38 +59,44 @@ const Product: FC<Props> = (data) => {
       </button>
       <div className="product__img">
         <Link href={href}>
-          <picture>
-            <source
-              srcSet={
-                data.image
-                  ? `${data.image}`
-                  : "https://my.loaderpro.ru/images/no-photo.svg"
-              }
-            />
-            {/*<Image*/}
-            {/*  width={190}*/}
-            {/*  height={150}*/}
-            {/*  sizes={"100%"}*/}
-            {/*  style={{*/}
-            {/*    width: "100%",*/}
-            {/*    height: "100%",*/}
-            {/*  }}*/}
-            {/*  src={*/}
-            {/*    data.image*/}
-            {/*      ? `${data.image}`*/}
-            {/*      : "https://my.loaderpro.ru/images/no-photo.svg"*/}
-            {/*  }*/}
-            {/*  alt={data.productname}*/}
-            {/*/>*/}
-            <img
-              src={
-                data.image
-                  ? `${data.image}`
-                  : "https://my.loaderpro.ru/images/no-photo.svg"
-              }
-              alt={data.productname}
-            />
-          </picture>
+          <Image
+            width={190}
+            height={150}
+            sizes={"100%"}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+            }}
+            quality="85"
+            loading="lazy"
+            blurDataURL={rgbDataURL(255, 255, 255)}
+            placeholder={"blur"}
+            priority={false}
+            src={
+              data.image
+                ? `${data.image}`
+                : "https://my.loaderpro.ru/images/no-photo.svg"
+            }
+            alt={data.productname}
+          />
+          {/*<picture>*/}
+          {/*  <source*/}
+          {/*    srcSet={*/}
+          {/*      data.image*/}
+          {/*        ? `${data.image}`*/}
+          {/*        : "https://my.loaderpro.ru/images/no-photo.svg"*/}
+          {/*    }*/}
+          {/*  />*/}
+          {/*  <img*/}
+          {/*    src={*/}
+          {/*      data.image*/}
+          {/*        ? `${data.image}`*/}
+          {/*        : "https://my.loaderpro.ru/images/no-photo.svg"*/}
+          {/*    }*/}
+          {/*    alt={data.productname}*/}
+          {/*  />*/}
+          {/*</picture>*/}
         </Link>
       </div>
       <div className="product__info">

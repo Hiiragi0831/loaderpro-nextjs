@@ -98,7 +98,7 @@ export default function DeliveryPayment() {
             <div className="deliverypayment__info">
               <picture>
                 <source srcSet="/images/pay.png" />
-                <img src="/images/pay.png" alt="" decoding="async" />
+                <img src="/images/pay.png" alt="" />
               </picture>
               <div className="deliverypayment__important">
                 <p>

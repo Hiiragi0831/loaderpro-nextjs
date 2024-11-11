@@ -38,29 +38,17 @@ export default function polyurethaneWheels() {
               </p>
               <picture className="for-desktop">
                 <source srcSet={`/images/polyurethane/logos.png`} />
-                <img
-                  src={`/images/polyurethane/logos.png`}
-                  alt=""
-                  decoding="async"
-                />
+                <img src={`/images/polyurethane/logos.png`} alt="" />
               </picture>
               <picture className="for-devices">
                 <source srcSet={`/images/polyurethane/logos-m.png`} />
-                <img
-                  src={`/images/polyurethane/logos-m.png`}
-                  alt=""
-                  decoding="async"
-                />
+                <img src={`/images/polyurethane/logos-m.png`} alt="" />
               </picture>
             </div>
             <div className="polyurethane__hero-img">
               <picture>
                 <source srcSet={`/images/polyurethane/wheels-1.png`} />
-                <img
-                  src={`/images/polyurethane/wheels-1.png`}
-                  alt=""
-                  decoding="async"
-                />
+                <img src={`/images/polyurethane/wheels-1.png`} alt="" />
               </picture>
             </div>
           </div>
@@ -71,7 +59,7 @@ export default function polyurethaneWheels() {
         <div className="container">
           <picture>
             <source srcSet={`/images/polyurethane/01.png`} />
-            <img src={`/images/polyurethane/01.png`} alt="" decoding="async" />
+            <img src={`/images/polyurethane/01.png`} alt="" />
           </picture>
         </div>
       </section>
@@ -88,7 +76,6 @@ export default function polyurethaneWheels() {
                   <img
                     src={`/images/polyurethane/assortment-0${key + 1}.png`}
                     alt=""
-                    decoding="async"
                   />
                 </picture>
                 <p>{cat}</p>

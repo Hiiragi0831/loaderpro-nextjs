@@ -41,19 +41,11 @@ export default function PolyurethaneSurfacing() {
             <div className="polyurethane__hero-img">
               <picture className={"for-desktop"}>
                 <source srcSet={`/images/polyurethane/wheels-1.png`} />
-                <img
-                  src={`/images/polyurethane/wheels-1.png`}
-                  alt=""
-                  decoding="async"
-                />
+                <img src={`/images/polyurethane/wheels-1.png`} alt="" />
               </picture>
               <picture>
                 <source srcSet={`/images/polyurethane/naplavka.gif`} />
-                <img
-                  src={`/images/polyurethane/naplavka.gif`}
-                  alt=""
-                  decoding="async"
-                />
+                <img src={`/images/polyurethane/naplavka.gif`} alt="" />
               </picture>
             </div>
           </div>
@@ -188,7 +180,7 @@ export default function PolyurethaneSurfacing() {
         <div className="container">
           <picture>
             <source srcSet={`/images/advantage2.jpg`} />
-            <img src={`/images/advantage2.jpg`} alt="" decoding="async" />
+            <img src={`/images/advantage2.jpg`} alt="" />
           </picture>
         </div>
       </section>
@@ -221,11 +213,7 @@ export default function PolyurethaneSurfacing() {
         <div className="container">
           <picture>
             <source srcSet={`/images/polyurethane/after-before.png`} />
-            <img
-              src={`/images/polyurethane/after-before.png`}
-              alt=""
-              decoding="async"
-            />
+            <img src={`/images/polyurethane/after-before.png`} alt="" />
           </picture>
         </div>
       </section>

@@ -40,7 +40,6 @@ export default function About() {
               <img
                 src="/images/about/8e4ee82a7855efb652e62fd089db1fd6.jpg"
                 alt="О нас"
-                decoding="async"
               />
             </picture>
           </div>

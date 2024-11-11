@@ -20,7 +20,7 @@ const Article: FC<Props> = ({ id, title, description, image, date, link }) => {
       <div className="article__img">
         <picture>
           <source srcSet={`${image}`} />
-          <img src={`${image}`} alt={title} decoding="async" />
+          <img src={`${image}`} alt={title} />
         </picture>
       </div>
       <div className="article__title">
