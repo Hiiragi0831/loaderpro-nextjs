@@ -96,3 +96,10 @@
 .text-uppercase {
 	text-transform: uppercase;
 }
+
+.yandex-metrika {
+	&__img {
+		position:absolute;
+		left:-9999px;
+	}
+}

@@ -6,67 +6,67 @@ import { Pagination } from "swiper/modules";
 export const Team = () => {
   const data = [
     {
-      image: "images/team/semenov.jpg",
+      image: "/images/team/semenov.jpg",
       name: "Семенов Максим Евгеньевич",
       position: "Начальник отдела логистики",
     },
     {
-      image: "images/team/grigorieva.jpg",
+      image: "/images/team/grigorieva.jpg",
       name: "Григорьевна Яна Николаевна",
       position: "Руководитель отдела продаж",
     },
     {
-      image: "images/team/privalov.jpg",
+      image: "/images/team/privalov.jpg",
       name: "Привалов Алексей Васильевич",
       position: "Директор по маркетингу",
     },
     {
-      image: "images/team/kukushkina.jpg",
+      image: "/images/team/kukushkina.jpg",
       name: "Кукушкина Евгения Викторовна",
       position: "Бухгалтер",
     },
     {
-      image: "images/team/stepanov.jpg",
+      image: "/images/team/stepanov.jpg",
       name: "Степанов Антон Олегович",
       position: "Технический директор",
     },
     {
-      image: "images/team/sokirka.jpg",
+      image: "/images/team/sokirka.jpg",
       name: "Сокирка Юлия Витальевна",
       position: "Маркетолог",
     },
     {
-      image: "images/team/kryuchkova.jpg",
+      image: "/images/team/kryuchkova.jpg",
       name: "Крючкова Надежда Андреевна",
       position: "Специалист по подбору персонала",
     },
     {
-      image: "images/team/zagvozdin.jpg",
+      image: "/images/team/zagvozdin.jpg",
       name: "Загвоздин Андрей Петрович",
       position: "ВЭД специалист",
     },
     {
-      image: "images/team/makarova.jpg",
+      image: "/images/team/makarova.jpg",
       name: "Макарова Марина Александровна",
       position: "Руководитель отдела закупок",
     },
     {
-      image: "images/team/kuznetsova.jpg",
+      image: "/images/team/kuznetsova.jpg",
       name: "Кузнецова Елена Германовна",
       position: "Специалист отдела закупок",
     },
     {
-      image: "images/team/peretyagin.jpg",
+      image: "/images/team/peretyagin.jpg",
       name: "Перетягин Кирилл Александрович",
       position: "Специалист отдела продаж",
     },
     {
-      image: "images/team/orlov.jpg",
+      image: "/images/team/orlov.jpg",
       name: "Орлов Сергей Викторович",
       position: "Менеджер маркетплейсов",
     },
     {
-      image: "images/team/grigorev.jpg",
+      image: "/images/team/grigorev.jpg",
       name: "Григорьев Сергей Сергеевич",
       position: "Кладовщик",
     },
