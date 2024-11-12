@@ -17,6 +17,7 @@ type Props = {
 
 const Products: FC<Props> = ({ filter, limit, title, link }) => {
   const [data, setData] = useState<ProductsType[]>([]);
+  const [spareParts, setSpareParts] = useState<ProductsType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   let filteredProducts: any[];
 
@@ -31,12 +32,25 @@ const Products: FC<Props> = ({ filter, limit, title, link }) => {
     }
   };
 
+  const loadSpareParts = async () => {
+    try {
+      const data = await api.getAllProducts(
+        "https://api.cartrac.ru/catalog/spare_parts_remains",
+      );
+      setSpareParts(data);
+      setIsLoading(false);
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  };
+
   switch (filter) {
     case "popular":
       filteredProducts = data.slice(0, limit);
       break;
     case "inStock":
-      filteredProducts = data
+      filteredProducts = spareParts
         .filter((item) => item.status.value === "green")
         .slice(0, limit);
       break;
@@ -46,6 +60,7 @@ const Products: FC<Props> = ({ filter, limit, title, link }) => {
   }
 
   useLayoutEffect(() => void loadProducts(), []);
+  useLayoutEffect(() => void loadSpareParts(), []);
 
   return (
     <section className="product__section">
