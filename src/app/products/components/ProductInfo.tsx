@@ -238,13 +238,9 @@ export default function ProductInfo(params: any) {
                         >
                           Запросить
                         </button>
-                        {data.price === 0 ? (
-                          <p className="commodity__query"></p>
-                        ) : (
-                          <p className="commodity__query">
-                            *Цену и срок поставки необходимо запросить.
-                          </p>
-                        )}
+                        <p className="commodity__query">
+                          *Цену и срок поставки необходимо запросить.
+                        </p>
                       </>
                     ) : (
                       <button
