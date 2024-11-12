@@ -35,7 +35,7 @@ export default function Home() {
         limit={5}
         filter={"popular"}
         title={"Спецпредложения"}
-        link={"/spare-parts"}
+        link={"/tires-rims"}
       />
       <Advantages />
       <Reviews />
