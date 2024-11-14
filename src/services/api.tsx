@@ -7,7 +7,9 @@ class APIService {
   public async getAllProductsLink(url?: string): Promise<Products> {
     const link = url ? url : "";
     try {
-      const res = await fetch(`https://api.cartrac.ru/catalog/${link}`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/catalog/${link}`,
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -17,7 +19,9 @@ class APIService {
 
   public async getAllProducts(url?: string): Promise<Product[]> {
     try {
-      const res = await fetch(url ? url : `https://api.cartrac.ru/catalog/`);
+      const res = await fetch(
+        url ? url : `${process.env.NEXT_PUBLIC_API_HOST}/catalog/`,
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -27,7 +31,9 @@ class APIService {
 
   public async getProduct(id: string | string[]): Promise<SingleProduct> {
     try {
-      const res = await fetch(`https://api.cartrac.ru/catalog/${id}`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/catalog/${id}`,
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -57,7 +63,9 @@ class APIService {
 
   public async getBasketStatus() {
     try {
-      const res = await fetch("https://api.cartrac.ru/basket_status/");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/basket_status/`,
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -67,10 +75,13 @@ class APIService {
 
   public async getSearchResult(data: any) {
     try {
-      const res = await fetch("https://api.cartrac.ru/Main/search_product/", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/Main/search_product/`,
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+        },
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -80,10 +91,13 @@ class APIService {
 
   public async postBasket(data: any) {
     try {
-      const res = await fetch("https://api.cartrac.ru/Main/orders/", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/Main/orders/`,
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+        },
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -93,10 +107,13 @@ class APIService {
 
   public async postQueryTs(data: any) {
     try {
-      const res = await fetch("https://api.cartrac.ru/Main/query_ts/", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/Main/query_ts/`,
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+        },
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -106,10 +123,13 @@ class APIService {
 
   public async postQueryZp(data: any) {
     try {
-      const res = await fetch("https://api.cartrac.ru/Main/query_catalog/", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/Main/query_catalog/`,
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+        },
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -119,10 +139,13 @@ class APIService {
 
   public async postCB(data: any) {
     try {
-      const res = await fetch("https://api.cartrac.ru/Main/call_back/", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/Main/call_back/`,
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+        },
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -132,7 +155,7 @@ class APIService {
 
   public async getAllBrand(): Promise<Brand[]> {
     try {
-      const res = await fetch(`https://api.cartrac.ru/brands/`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/brands/`);
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
@@ -142,7 +165,9 @@ class APIService {
 
   public async getBrand(id: number | undefined): Promise<Brand> {
     try {
-      const res = await fetch(`https://api.cartrac.ru/brands/${id}`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/brands/${id}`,
+      );
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);

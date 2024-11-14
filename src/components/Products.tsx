@@ -35,7 +35,7 @@ const Products: FC<Props> = ({ filter, limit, title, link }) => {
   const loadSpareParts = async () => {
     try {
       const data = await api.getAllProducts(
-        "https://api.cartrac.ru/catalog/spare_parts_remains",
+        `${process.env.NEXT_PUBLIC_API_HOST}/catalog/spare_parts_remains`,
       );
       setSpareParts(data);
       setIsLoading(false);
