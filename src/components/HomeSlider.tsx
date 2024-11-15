@@ -1,8 +1,16 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import Link from "next/link";
 
-const slides = ["1", "2", "3", "4", "5", "6"];
+const slides = [
+  { id: 1, link: "/spare-parts" },
+  { id: 2, link: "/tires-rims" },
+  { id: 3, link: "/dealer" },
+  { id: 4, link: "/about" },
+  { id: 5, link: "/battery" },
+  { id: 6, link: "/suppliers" },
+];
 
 const HomeSlider = () => {
   return (
@@ -16,19 +24,19 @@ const HomeSlider = () => {
           loop={true}
           autoplay={{ delay: 4000 }}
         >
-          {slides.map((slide, key) => {
+          {slides.map((slide) => {
             return (
-              <SwiperSlide key={key} className="SwiperSlide">
-                <div className="slider__content">
+              <SwiperSlide key={slide.id} className="SwiperSlide">
+                <Link className="slider__content" href={slide.link}>
                   <picture className="for-desktop">
-                    <source srcSet={`/images/slider/${slide}.jpeg`} />
-                    <img src={`/images/slider/${slide}.jpeg`} alt="" />
+                    <source srcSet={`/images/slider/${slide.id}.jpeg`} />
+                    <img src={`/images/slider/${slide.id}.jpeg`} alt="" />
                   </picture>
                   <picture className="for-devices">
-                    <source srcSet={`/images/slider/${slide}m.jpeg`} />
-                    <img src={`/images/slider/${slide}m.jpeg`} alt="" />
+                    <source srcSet={`/images/slider/${slide.id}m.jpeg`} />
+                    <img src={`/images/slider/${slide.id}m.jpeg`} alt="" />
                   </picture>
-                </div>
+                </Link>
               </SwiperSlide>
             );
           })}
