@@ -3,8 +3,16 @@ import { api } from "@/services/api";
 
 export default async function sitemap() {
   const data = await api.getAllProducts();
+  const brand = await api.getAllBrand();
   const products = data.map((item) => ({
     url: `${process.env.NEXT_PUBLIC_HOST}/products/${translit(item.productname.replaceAll(" ", "-"))}-${item.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  const brandProducts = brand.map((item) => ({
+    url: `${process.env.NEXT_PUBLIC_HOST}/brand/${translit(item.name.replaceAll(" ", "-"))}-${item.id}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.5,
@@ -126,5 +134,6 @@ export default async function sitemap() {
       priority: 0.8,
     },
     ...products,
+    ...brandProducts,
   ];
 }

@@ -1,6 +1,7 @@
 // import { Article } from "@/common/types/Article";
 import { Brand, PageBrands } from "@/common/types/Brand";
 import { Product, Products, SingleProduct } from "@/common/types/Product";
+import { notFound } from "next/navigation";
 // import { User } from "@/common/types/User";
 
 class APIService {
@@ -181,6 +182,11 @@ class APIService {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_HOST}/brands_products/${link}`,
       );
+
+      if (res.status === 404) {
+        notFound();
+      }
+
       return res.json();
     } catch (error: any) {
       console.error("Error fetching:", error.message);
