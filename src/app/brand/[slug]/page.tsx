@@ -33,6 +33,7 @@ export default async function SpareParts({ params }: { params: any }) {
               <CatalogProducts url={id} brand={true} />
             </div>
           </div>
+          <div>{brand.content}</div>
         </div>
       </section>
     </main>
