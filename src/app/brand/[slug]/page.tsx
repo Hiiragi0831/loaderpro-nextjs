@@ -30,7 +30,7 @@ export default async function SpareParts({ params }: { params: any }) {
           </div>
           <div className="row row-1">
             <div className="catalog__products">
-              <CatalogProducts url={id} brand={id} />
+              <CatalogProducts url={id} brand={true} />
             </div>
           </div>
         </div>

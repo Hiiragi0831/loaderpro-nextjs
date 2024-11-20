@@ -21,7 +21,7 @@ export default function CatalogProducts({
   brand,
 }: {
   url?: string;
-  brand?: string;
+  brand?: boolean;
 }) {
   const [data, setData] = useState<ProductType[]>([]);
   const [countPage, setCountPage] = useState(1);

@@ -88,12 +88,12 @@ export default function ProductInfo(params: any) {
   const loadArticle = async () => {
     try {
       const props = await api.getProduct(id);
-      setData(props);
-      setIsLoading(false);
-
       if (!props.id) {
         notFound();
       }
+
+      setData(props);
+      setIsLoading(false);
 
       if (slug !== translit(props.productname.replaceAll(" ", "-"))) {
         route.push(
