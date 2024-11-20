@@ -124,4 +124,26 @@
 			}
 		}
 	}
+
+	&__info {
+		margin: vc(40) 0;
+
+		h2 {
+			margin-bottom: vc(20);
+		}
+
+		p {
+			margin-bottom: vc(16);
+		}
+
+		ul {
+			margin-bottom: vc(10);
+			margin-left: vc(30);
+
+			li {
+				display: list-item;
+				list-style: disc;
+			}
+		}
+	}
 }

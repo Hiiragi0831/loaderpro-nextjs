@@ -33,7 +33,7 @@ export default async function SpareParts({ params }: { params: any }) {
               <CatalogProducts url={id} brand={true} />
             </div>
           </div>
-          <div>{brand.content}</div>
+          <div dangerouslySetInnerHTML={{ __html: brand.content }} className={"catalog__info"}></div>
         </div>
       </section>
     </main>
