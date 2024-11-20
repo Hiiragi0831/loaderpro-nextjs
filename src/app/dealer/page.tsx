@@ -104,10 +104,14 @@ export default function Dealer() {
                 <li>Создание КП с&nbsp;указанием вашей наценки</li>
                 <li>Доставка до&nbsp;вас или ваших клиентов</li>
               </ul>
-              <button className="button button__outline-white">
+              <a
+                className="button button__outline-white"
+                href={"https://my.loaderpro.ru/registration"}
+                target="_blank"
+              >
                 {" "}
                 Оставить заявку
-              </button>
+              </a>
             </div>
           </div>
         </div>
