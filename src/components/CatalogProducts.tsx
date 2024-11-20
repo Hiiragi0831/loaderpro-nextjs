@@ -16,7 +16,13 @@ function scrollToTop() {
   window.scrollTo({ top: 0 });
 }
 
-export default function CatalogProducts({ url }: { url?: string }) {
+export default function CatalogProducts({
+  url,
+  brand,
+}: {
+  url?: string;
+  brand?: string;
+}) {
   const [data, setData] = useState<ProductType[]>([]);
   const [countPage, setCountPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -38,8 +44,11 @@ export default function CatalogProducts({ url }: { url?: string }) {
 
   const loadProducts = async (page?: number) => {
     const count = page ? page : 1;
+    const href = brand
+      ? api.getPageBrand(`${link}/?page=${count}`)
+      : api.getAllProductsLink(`${link}/?page=${count}`);
     try {
-      const res = await api.getAllProductsLink(`${link}/?page=${count}`);
+      const res = await href;
       setCountPage(res.total);
       setData(res.results);
       setIsLoading(false);

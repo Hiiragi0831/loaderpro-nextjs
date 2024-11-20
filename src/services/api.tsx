@@ -1,5 +1,5 @@
 // import { Article } from "@/common/types/Article";
-import { Brand } from "@/common/types/Brand";
+import { Brand, PageBrands } from "@/common/types/Brand";
 import { Product, Products, SingleProduct } from "@/common/types/Product";
 // import { User } from "@/common/types/User";
 
@@ -167,6 +167,19 @@ class APIService {
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_HOST}/brands/${id}`,
+      );
+      return res.json();
+    } catch (error: any) {
+      console.error("Error fetching:", error.message);
+      throw error;
+    }
+  }
+
+  public async getPageBrand(url?: string): Promise<PageBrands> {
+    const link = url ? url : "";
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_HOST}/brands_products/${link}`,
       );
       return res.json();
     } catch (error: any) {
