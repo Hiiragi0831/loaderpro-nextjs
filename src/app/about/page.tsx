@@ -37,10 +37,7 @@ export default function About() {
             </div>
             <picture className="about__pic">
               <source srcSet="/images/about/distributor.jpg" />
-              <img
-                src="/images/about/distributor.jpg"
-                alt="О нас"
-              />
+              <img src="/images/about/distributor.jpg" alt="О нас" />
             </picture>
           </div>
         </div>
