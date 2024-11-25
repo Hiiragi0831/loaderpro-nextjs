@@ -36,9 +36,9 @@ export default function About() {
               </mark>
             </div>
             <picture className="about__pic">
-              <source srcSet="/images/about/8e4ee82a7855efb652e62fd089db1fd6.jpg" />
+              <source srcSet="/images/about/distributor.jpg" />
               <img
-                src="/images/about/8e4ee82a7855efb652e62fd089db1fd6.jpg"
+                src="/images/about/distributor.jpg"
                 alt="О нас"
               />
             </picture>
