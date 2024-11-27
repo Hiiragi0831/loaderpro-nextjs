@@ -41,8 +41,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "my.loaderpro.ru",
       },
+      {
+        protocol: "https",
+        hostname: "api.cartrac.ru",
+      },
     ],
-    domains: ["image.loaderpro.ru", "eme54.ru", "my.loaderpro.ru"],
+    domains: ["image.loaderpro.ru", "eme54.ru", "my.loaderpro.ru", "api.cartrac.ru"],
   },
 };
 

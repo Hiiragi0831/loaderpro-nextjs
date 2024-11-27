@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 export default function DeliveryPayment() {
   return (
     <main>
-      IconLogo
       <section className="deliverypayment">
         <div className="container">
           <h1>Правила доставки товара</h1>
