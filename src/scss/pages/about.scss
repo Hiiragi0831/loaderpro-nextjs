@@ -32,11 +32,11 @@
 			p {
 				display: inline-block;
 				margin: 0;
-				border-bottom: 2px solid $color-black;
 				font-weight: 700;
 				font-size: vc(30);
 				line-height: vc(26);
 				text-align: center;
+				text-transform: uppercase;
 				color: $color-black;
 
 				@include devices {
@@ -50,7 +50,11 @@
 	&__pic {
 		overflow: hidden;
 		border-radius: vc(10);
-		height: vc(442);
+		height: 100%;
+
+		img {
+			height: 100%;
+		}
 
 		@include devices {
 			height: auto;
