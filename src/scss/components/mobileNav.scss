@@ -1,89 +1,89 @@
 .mobilenav {
-    position: fixed;
-    top: vc(58);
-    left: vc(-376);
-    width: 100%;
-    height: calc(100vh - #{vc(118)});
-    background: $color-white;
-    z-index: 9;
-    overflow: hidden;
-    transition: left $transition;
+	position: fixed;
+	left: vc(-376);
+	top: vc(58);
+	z-index: 9;
+	overflow: hidden;
+	width: 100%;
+	height: calc(100vh - #{vc(118)});
+	background: $color-white;
+	transition: left $transition;
 
-    &__wrapper {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: auto;
-        padding-bottom: vc(40);
-    }
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		overflow: auto;
+		padding-bottom: vc(40);
+		width: 100%;
+		height: 100%;
+	}
 
-    &__row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: vc(4);
-    }
+	&__row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: vc(4);
+	}
 
-    &__title {
-        font-weight: 500;
-        font-size: vc(18);
-        line-height: 1;
-        color: $color-woodsmoke-950;
-        margin-bottom: vc(15);
-    }
+	&__title {
+		margin-bottom: vc(15);
+		font-weight: 500;
+		font-size: vc(18);
+		line-height: 1;
+		color: $color-woodsmoke-950;
+	}
 
-    &__item {
-        padding: vc(16);
-        display: flex;
-        flex-direction: column;
-    }
+	&__item {
+		display: flex;
+		flex-direction: column;
+		padding: vc(16);
+	}
 
-    &__col {
-        display: flex;
-        flex-direction: column;
-        gap: vc(6);
+	&__col {
+		display: flex;
+		flex-direction: column;
+		gap: vc(6);
 
-        a {
-            font-size: vc(15);
-        }
+		a {
+			font-size: vc(15);
+		}
 
-        a.mobilenav__contact {
-            display: flex;
-            flex-direction: column;
-            font-size: vc(16);
-            font-weight: 400;
-            margin-bottom: vc(6);
+		a.mobilenav__contact {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: vc(6);
+			font-weight: 400;
+			font-size: vc(16);
 
-            small {
-                font-size: vc(12);
-                color: $color-woodsmoke-300;
-            }
-        }
-    }
+			small {
+				font-size: vc(12);
+				color: $color-woodsmoke-300;
+			}
+		}
+	}
 
-    &__socials {
-        display: flex;
-        align-self: center;
-        gap: vc(30);
+	&__socials {
+		display: flex;
+		align-self: center;
+		gap: vc(30);
 
-        a {
-            width: vc(30);
-            height: vc(30);
-            padding: vc(6);
-            border-radius: 100%;
-            background: $color-woodsmoke-950;
+		a {
+			border-radius: 100%;
+			padding: vc(6);
+			width: vc(30);
+			height: vc(30);
+			background: $color-woodsmoke-950;
 
-            svg {
-                fill: $color-white;
-            }
-        }
-    }
+			svg {
+				fill: $color-white;
+			}
+		}
+	}
 
-    &.active {
-        left: 0;
-    }
+	&.active {
+		left: 0;
+	}
 
-    @include desktop {
-        display: none;
-    }
+	@include desktop {
+		display: none;
+	}
 }

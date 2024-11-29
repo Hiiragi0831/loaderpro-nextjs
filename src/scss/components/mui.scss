@@ -6,11 +6,27 @@
 	&-input {
 		padding: vc(16) vc(20);
 		height: auto;
+		min-height: vc(20);
 		font-size: vc(16);
 		line-height: 1;
 
 		@include devices {
 			padding: vc(10) vc(16);
+			font-size: vc(14);
+		}
+	}
+}
+
+.MuiSelect {
+	&-select {
+		padding: vc(16) vc(20) !important;
+		height: auto;
+		min-height: vc(20) !important;
+		font-size: vc(16);
+		line-height: 1;
+
+		@include devices {
+			padding: vc(10) vc(16) !important;
 			font-size: vc(14);
 		}
 	}

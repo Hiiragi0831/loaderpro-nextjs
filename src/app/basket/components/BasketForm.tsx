@@ -7,7 +7,14 @@ import { toast } from "react-toastify";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useBasket } from "@/store/basket";
-import { Button, TextField } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 
 export const BasketForm = () => {
   const [delivery, setDelivery] = useState(false);
@@ -79,8 +86,11 @@ export const BasketForm = () => {
 
     if (name === "delivery") {
       return (
-        <label className="form__select">
-          <select
+        <FormControl>
+          <InputLabel id={`select-${item.id}`}>{item.title}</InputLabel>
+          <Select
+            labelId={`select-${item.id}`}
+            label={item.title}
             {...register(item.name, { required: true })}
             onChange={(e) => {
               if (Number(e.target.value) === 4) {
@@ -91,24 +101,31 @@ export const BasketForm = () => {
             }}
           >
             {item.options.map((option: any) => (
-              <option key={option.id} value={option.id} label={option.label} />
+              <MenuItem key={option.id} value={option.id}>
+                {option.label}
+              </MenuItem>
             ))}
-          </select>
-          <span>{item.title}</span>
-        </label>
+          </Select>
+        </FormControl>
       );
     }
 
     if (item) {
       return (
-        <label className="form__select">
-          <select {...register(item.name, { required: true })}>
+        <FormControl>
+          <InputLabel id={`select-${item.id}`}>{item.title}</InputLabel>
+          <Select
+            labelId={`select-${item.id}`}
+            label={item.title}
+            {...register(item.name, { required: true })}
+          >
             {item.options.map((option: any) => (
-              <option key={option.id} value={option.id} label={option.label} />
+              <MenuItem key={option.id} value={option.id}>
+                {option.label}
+              </MenuItem>
             ))}
-          </select>
-          <span>{item.title}</span>
-        </label>
+          </Select>
+        </FormControl>
       );
     }
   };
@@ -137,22 +154,16 @@ export const BasketForm = () => {
         <>
           {isLoadingStatus ? "" : select("transport")}
           {isLoadingStatus ? "" : select("methoddelivery")}
-          <label className="form__input">
-            <input
-              type="text"
-              placeholder="Город"
-              {...register("city", { required: true })}
-            />
-            <span>Город</span>
-          </label>
-          <label className="form__input">
-            <input
-              type="text"
-              placeholder="Адрес"
-              {...register("address", { required: true })}
-            />
-            <span>Адрес</span>
-          </label>
+          <TextField
+            error={!!formState.errors.city}
+            label="Город"
+            {...register("city", { required: true })}
+          />
+          <TextField
+            error={!!formState.errors.address}
+            label="Адрес"
+            {...register("address", { required: true })}
+          />
         </>
       )}
       {isLoadingStatus ? "" : select("priority")}

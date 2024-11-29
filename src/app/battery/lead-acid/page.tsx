@@ -4,6 +4,14 @@ import { Hero } from "../components/Hero";
 // import { PhotoSlider } from "../components/PhotoSlider";
 import { Types } from "../components/Types";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title:
+    "Свинцовые тяговые аккумуляторы: особенности, характеристики, применение.",
+  description:
+    "На этой странице вы найдёте подробную информацию о свинцовых тяговых аккумуляторах. Мы расскажем об их особенностях, характеристиках и применении. Вы узнаете, как выбрать подходящий аккумулятор для ваших нужд и обеспечить его долгую и надёжную работу.",
+};
 
 export default function leadAcid() {
   return (

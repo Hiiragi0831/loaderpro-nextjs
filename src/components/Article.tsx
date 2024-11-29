@@ -26,9 +26,9 @@ const Article: FC<Props> = ({ id, title, description, image, date, link }) => {
       <div className="article__title">
         <p>{title}</p>
       </div>
-      <div className="article__date">
-        <p>{date}</p>
-      </div>
+      {/*<div className="article__date">*/}
+      {/*  <p>{date}</p>*/}
+      {/*</div>*/}
       <div className="article__description">
         <p>{description?.slice(0, 80)}...</p>
       </div>
