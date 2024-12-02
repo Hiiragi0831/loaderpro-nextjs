@@ -17,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
+        <meta name="yandex-verification" content="23b6971cb65615ee" />
         <link
           rel="icon"
           type="image/png"
