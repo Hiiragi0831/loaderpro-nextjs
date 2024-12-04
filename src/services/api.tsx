@@ -77,11 +77,7 @@ class APIService {
   public async getSearchResult(data: any) {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_HOST}/Main/search_product/`,
-        {
-          method: "POST",
-          body: JSON.stringify(data),
-        },
+        `${process.env.NEXT_PUBLIC_API_HOST}/catalog/search_catalog/${data}`,
       );
       return res.json();
     } catch (error: any) {

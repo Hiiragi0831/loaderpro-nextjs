@@ -17,6 +17,7 @@ type Props = {
 export const Search: FC<Props> = ({ className }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchData, setSearchData] = useState<ProductType[]>([]);
+  const [totalResult, setTotalResult] = useState(0);
   const [focused, setFocused] = useState(false);
   const ref = useRef(null);
   const { toggleShow } = useSearchPanel();
@@ -24,8 +25,9 @@ export const Search: FC<Props> = ({ className }) => {
 
   const search = async (data: any) => {
     try {
-      const fdata = await api.getSearchResult({ search: data });
-      setSearchData(fdata || []);
+      const fdata = await api.getSearchResult(`?search=${data}`);
+      setSearchData(fdata.results || []);
+      setTotalResult(fdata.total);
     } catch (error: any) {
       setSearchData([]);
       console.error("Error fetching:", error.message);
@@ -128,7 +130,7 @@ export const Search: FC<Props> = ({ className }) => {
                   className={"search__more"}
                 >
                   <span className={"search__more-text"}>
-                    Найдено {searchData.length} результатов
+                    Найдено {totalResult * 50}+ результатов
                   </span>
                   <span className={"search__more-button"}>Показать все</span>
                 </Link>

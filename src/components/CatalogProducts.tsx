@@ -8,13 +8,7 @@ import { Skeleton } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import { IsMobile } from "@/utils/IsMobile";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-
-const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
-
-function scrollToTop() {
-  if (!isBrowser()) return;
-  window.scrollTo({ top: 0 });
-}
+import { scrollToTop } from "@/utils/scrollToTop";
 
 export default function CatalogProducts({
   url,
