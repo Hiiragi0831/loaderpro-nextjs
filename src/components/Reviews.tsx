@@ -98,7 +98,7 @@ export const Reviews = () => {
             {/*<span className={"is-hidden"}>{dataCompany.yaSpravRating}</span>*/}
           </span>
           <p>
-            <a href="https://yandex.ru/profile/144706740321" target="_blank">
+            <a href="https://yandex.ru/profile/64792251897" target="_blank">
               Все отзывы
             </a>
           </p>
