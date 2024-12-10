@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: any }) {
   const post = await api.getProduct(id);
 
   return {
-    title: `${post.productname}`,
+    title: `${post.productname} ${post.brand} ${post.article}`,
     description: `${post.productname} ${post.brand} ${post.article} вы можете купить с доставкой в любую точку России с оплатой по безналичному расчету с НДС 20% или по карте.`,
   };
 }
