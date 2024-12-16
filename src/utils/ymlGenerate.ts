@@ -23,27 +23,27 @@ export default async function ymlGenerate() {
 
   const obj = {
     yml_catalog: {
-      "@date": new Date(),
+      "@date": new Date().toISOString(),
       shop: {
         name: "Запчасти для вилочных погрузчиков",
-      },
-      company: "ООО «СПЕЦМАШИНА»",
-      url: "http://loaderpro.ru/",
-      platform: "Next.js",
-      currencies: {
-        currency: {
-          "@id": "RUB",
-          "@rate": "1",
+        company: "ООО «СПЕЦМАШИНА»",
+        url: "http://loaderpro.ru/",
+        platform: "Next.js",
+        currencies: {
+          currency: {
+            "@id": "RUB",
+            "@rate": "1",
+          },
         },
-      },
-      categories: {
-        category: {
-          "@id": "1",
-          "#": "Запчасти",
+        categories: {
+          category: {
+            "@id": "1",
+            "#": "Запчасти",
+          },
         },
-      },
-      offers: {
-        offer,
+        offers: {
+          offer,
+        },
       },
     },
   };
