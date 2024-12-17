@@ -6,14 +6,13 @@ import translit from "@/utils/translit";
 export default async function ymlGenerate() {
   const data = await api.getAllProducts();
   const products = data.filter((item) => item.price > 0).slice(0);
-  const offer = products.map((item) => ({
+  const offer = data.map((item) => ({
     "@id": item.id,
     name: `${item.productname} ${item.brand} ${item.article}`,
     url: `${process.env.NEXT_PUBLIC_HOST}/products/${translit(item.productname.replaceAll(" ", "-"))}-${item.id}`,
     price: item.price,
     currencyId: "RUB",
     categoryId: 1,
-    available: item.status.value === "green",
     picture: item.image,
     delivery: true,
     pickup: true,
