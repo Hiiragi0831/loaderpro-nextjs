@@ -6,7 +6,7 @@
 
 	&__logo {
 		width: vc(260);
-		height: vc(55);
+		height: vc(80);
 
 		svg {
 			fill: $color-black;
@@ -14,7 +14,7 @@
 
 		@include devices {
 			width: vc(140);
-			height: vc(28);
+			height: vc(43);
 		}
 	}
 
@@ -184,6 +184,8 @@
 		}
 
 		@include devices {
+			padding: vc(8) 0;
+
 			.header__search {
 				display: none;
 			}
