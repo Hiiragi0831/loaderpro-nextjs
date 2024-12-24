@@ -7,14 +7,12 @@ import { Team } from "@/components/Team";
 import { VideoGallery } from "@/components/VideoGallery";
 import Articles from "@/components/Articles";
 import dynamic from "next/dynamic";
-import ymlGenerate from "@/utils/ymlGenerate";
 
 const Products = dynamic(() => import("@/components/Products"), {
   ssr: false,
 });
 
 export default function Home() {
-  ymlGenerate();
   return (
     <main>
       <HomeSlider />
