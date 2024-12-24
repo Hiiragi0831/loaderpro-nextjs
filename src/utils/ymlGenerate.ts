@@ -4,9 +4,21 @@ import { api } from "@/services/api";
 import translit from "@/utils/translit";
 
 export default async function ymlGenerate() {
-  const data = await api.getAllProducts();
-  const products = data.filter((item) => item.price > 0).slice(0);
-  const offer = data.map((item) => ({
+  const data = await api.getAllProductsLink("spare_parts");
+  const total = data.total;
+  const products: any = [];
+
+  for (let i = 1; i <= total; i++) {
+    const getResult = await api.getAllProductsLink(`spare_parts/?page=${i}`);
+    const result = getResult.results;
+    result.map((item) => {
+      products.push(item);
+    });
+  }
+
+  // const products = data.filter((item) => item.price > 0).slice(0);
+
+  const offer = products.map((item: any) => ({
     "@id": item.id,
     name: `${item.productname} ${item.brand} ${item.article}`,
     url: `${process.env.NEXT_PUBLIC_HOST}/products/${translit(item.productname.replaceAll(" ", "-"))}-${item.id}`,
@@ -51,7 +63,7 @@ export default async function ymlGenerate() {
   const doc = create(obj);
   const xml = doc.end({ prettyPrint: true });
 
-  fs.writeFile("./public/yandex-tovari.xml", xml, (err) => {
+  fs.writeFile("./public/yandex-spare.xml", xml, (err) => {
     if (err) throw err;
     console.log("YML has been saved!", obj);
   });
