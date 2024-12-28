@@ -9,6 +9,7 @@ export type PageBrands = {
   page: number;
   total: number;
   title: string;
+  h1: string;
   description: string;
   content: string;
   results: [Product];

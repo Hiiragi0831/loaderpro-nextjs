@@ -26,7 +26,7 @@ export default async function SpareParts({ params }: { params: any }) {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <span className="h1">{brand.title}</span>
+            <span className="h1">{brand.h1 ? brand.h1 : brand.title}</span>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
