@@ -17,7 +17,7 @@ export default function WarehouseEquipment() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <span className="h1">Складская техника</span>
+            <h1 className="h1">Складская техника</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">

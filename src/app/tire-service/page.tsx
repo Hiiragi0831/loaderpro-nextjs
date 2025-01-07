@@ -29,10 +29,10 @@ export default function TireService() {
         <div className="container">
           <div className="row col-2">
             <div className="text">
-              <span className="h1">
+              <h1 className="h1">
                 Запрессовка цельнолитых шин – профессиональный подход к каждому
                 колесу
-              </span>
+              </h1>
               <p>
                 Цельнолитые шины на вилочных погрузчиках требуют регулярной
                 замены для минимизации износа и снижения нагрузок на ходовую

@@ -22,10 +22,10 @@ export default function RepairMaintenance() {
         <div className="container">
           <div className="row col-2">
             <div className="text">
-              <span className="h1">
+              <h1 className="h1">
                 Ремонт и техобслуживание автопогрузчиков и внутрискладской
                 техники в СПБ
-              </span>
+              </h1>
               <p>
                 Наши специалисты помогут с&nbsp;поломкой любой сложности,
                 проведут диагностику технического состояния техники от&nbsp;всех

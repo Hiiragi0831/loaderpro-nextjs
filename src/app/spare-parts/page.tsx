@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
-  title: "Запчасти для вилочных погрузчиков",
+  title: "Каталог запчастей для погрузчиков и складской техники",
   description:
-    "Купить запчасти для вилочных погрузчиков с доставкой по России вы можете на маркетплейсе СПЕЦМАШИНА. Мы объединили проверенных и надежных поставщиков России, Азии и Европы в одной площадке. Теперь приобрести необходимые запчасти стало намного проще, в нашем портфеле 1616 брендов производителей со всего мира.",
+    "Наш каталог запчастей для вилочных погрузчиков включает в себя более 55 миллионов оригинальных запчастей и аналогов проверенного качества. На отсутствующие в каталоге запчасти вы можете отправить запрос. Если у вас нет номера детали вы можете воспользоваться услугой подбора запчастей.",
 };
 
 const CatalogProducts = dynamic(() => import("@/components/CatalogProducts"), {
@@ -17,7 +17,7 @@ export default function SpareParts() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <span className="h1">Запчасти для вилочных погрузчиков</span>
+            <h1 className="h1">Каталог запчастей для погрузчиков</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
