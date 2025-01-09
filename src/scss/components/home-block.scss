@@ -17,19 +17,9 @@
 
 	.h3 {
 		text-align: center;
+
 		@include devices {
 			text-align: start;
-		}
-	}
-
-	&__title {
-		.h1 {
-			margin-bottom: vc(40);
-			text-align: center;
-
-			@include devices {
-				margin-bottom: vc(10);
-			}
 		}
 	}
 

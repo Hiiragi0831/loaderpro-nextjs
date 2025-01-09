@@ -3,7 +3,20 @@
 		margin: vc(45) 0;
 
 		@include devices {
-			margin-top: vc(10);
+			margin: vc(10) 0;
+		}
+	}
+
+	&__title {
+		.h1 {
+			margin-bottom: vc(40);
+			font-size: vc(56);
+			text-align: center;
+
+			@include devices {
+				margin-bottom: vc(10);
+				font-size: vc(18);
+			}
 		}
 	}
 }
