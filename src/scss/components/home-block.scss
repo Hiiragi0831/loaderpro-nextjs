@@ -1,0 +1,104 @@
+.home-block {
+	.row {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__wrapper {
+		border-radius: vc(30);
+		padding: vc(24);
+		box-shadow: $box-shadow;
+
+		@include devices {
+			border-radius: vc(5);
+			padding: vc(10);
+		}
+	}
+
+	.h3 {
+		text-align: center;
+		@include devices {
+			text-align: start;
+		}
+	}
+
+	&__title {
+		.h1 {
+			margin-bottom: vc(40);
+			text-align: center;
+
+			@include devices {
+				margin-bottom: vc(10);
+			}
+		}
+	}
+
+	&__icons {
+		display: grid;
+		justify-items: center;
+		grid-template-columns: 1fr 1fr 1fr;
+		margin-bottom: vc(60);
+
+		@include devices {
+			grid-template-columns: 100%;
+			margin-bottom: vc(20);
+			gap: vc(20);
+		}
+	}
+
+	&__icon {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: vc(358);
+		gap: vc(10);
+
+		picture {
+			width: vc(100);
+			height: vc(100);
+
+			@include devices {
+				width: vc(56);
+				height: vc(56);
+			}
+		}
+
+		p {
+			font-weight: 500;
+			font-size: vc(30);
+			line-height: vc(36);
+			text-align: center;
+
+			@include devices {
+				font-size: vc(20);
+				line-height: vc(24);
+			}
+		}
+
+		@include devices {
+			max-width: vc(270);
+		}
+	}
+
+	&__text {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		margin-bottom: vc(40);
+		gap: vc(28);
+
+		@include devices {
+			grid-template-columns: 100%;
+			margin-bottom: vc(20);
+		}
+	}
+
+	&__button {
+		display: block;
+		width: 100%;
+
+		a {
+			display: block;
+			width: 100%;
+		}
+	}
+}
