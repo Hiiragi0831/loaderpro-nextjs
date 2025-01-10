@@ -1,14 +1,9 @@
 import Advantages from "@/components/Advantages";
 import Articles from "@/components/Articles";
 import { Reviews } from "@/components/Reviews";
-// import dynamic from "next/dynamic";
 import { Cta } from "@/components/Cta";
 import { api } from "@/services/api";
 import ProductInfo from "@/app/products/components/ProductInfo";
-
-// const ProductInfo = dynamic(() => import("../components/ProductInfo"), {
-//   ssr: false,
-// });
 
 export async function generateMetadata({ params }: { params: any }) {
   const slugArray = params.slug.split("-");
