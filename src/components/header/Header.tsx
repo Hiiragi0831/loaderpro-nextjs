@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import IconLogo from "@/icons/logo-show.svg";
+import IconLogo from "@/icons/logo.svg";
 import IconMail from "@/icons/mail.svg";
 import IconPhone from "@/icons/phone.svg";
 import IconRectangle from "@/icons/rectangle-history-circle-plus.svg";
