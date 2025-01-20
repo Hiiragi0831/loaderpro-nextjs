@@ -92,7 +92,7 @@ export default function About() {
             </div>
             <div className="table__item">
               <p>ИНН/КПП</p>
-              <p>7810959038 / 781001001</p>
+              <p>7810959038 / 780701001</p>
             </div>
             <div className="table__item">
               <p>ОГРН</p>
