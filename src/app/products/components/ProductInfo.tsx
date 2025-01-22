@@ -94,8 +94,8 @@ export default async function ProductInfo(params: any) {
                     </>
                   )}
                   <picture>
-                    <source srcSet="/images/product/hero-2.png" />
-                    <img src="/images/product/hero-2.png" alt="" />
+                    <source srcSet="/images/product/hero.png" />
+                    <img src="/images/product/hero.png" alt="" />
                   </picture>
                 </div>
                 <div className="commodity__basket">
