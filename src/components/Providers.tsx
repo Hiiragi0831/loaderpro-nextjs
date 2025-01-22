@@ -12,7 +12,6 @@ import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import NextTopLoader from "nextjs-toploader";
 import { Metrika } from "@/utils/metrika";
-// import { useSession } from "next-auth/react";
 
 export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
   // const { data: session } = useSession();

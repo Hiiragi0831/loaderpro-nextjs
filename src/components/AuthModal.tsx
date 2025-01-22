@@ -1,4 +1,5 @@
 "use client";
+
 import { FC } from "react";
 import { Modal } from "@/components/Modal";
 import { signIn } from "next-auth/react";
@@ -6,6 +7,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formLoginSchema, TFormLoginValues } from "@/common/shemas";
 import IconLogo from "@/icons/logo.svg";
+import { TextField } from "@mui/material";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface Props {
   isShow: boolean;
@@ -13,7 +17,7 @@ interface Props {
 }
 
 export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
-  const { register, handleSubmit, formState } = useForm<TFormLoginValues>({
+  const form = useForm<TFormLoginValues>({
     resolver: zodResolver(formLoginSchema),
     defaultValues: {
       email: "",
@@ -21,11 +25,13 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
     },
   });
 
-  const { errors } = formState;
+  const router = useRouter();
 
-  if (errors) {
-    // console.log(errors);
-  }
+  // const { errors } = form.formState;
+  //
+  // if (errors) {
+  //   console.log(errors);
+  // }
 
   const onSubmit = async (data: TFormLoginValues) => {
     try {
@@ -37,10 +43,12 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
       if (resp?.error) {
         throw Error();
       } else {
-        console.log("Вы успешно вошли в аккаунт");
+        toast.success("Вы успешно вошли в аккаунт");
+        router.push("/account");
         onClose?.();
       }
     } catch (error) {
+      toast.error("Не верный логин или пароль");
       console.error("Error [LOGIN]", error);
     }
   };
@@ -53,23 +61,18 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
         </div>
         <hr />
         <p className="h2">Авторизоваться</p>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label className="form__input">
-            <input
-              type="email"
-              placeholder="Email"
-              {...register("email", { required: true, maxLength: 20 })}
-            />
-            <span>Email</span>
-          </label>
-          <label className="form__input">
-            <input
-              type="Password"
-              placeholder="Пароль"
-              {...register("password", { required: true, maxLength: 20 })}
-            />
-            <span>Пароль</span>
-          </label>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <TextField
+            error={!!form.formState.errors.email}
+            label="Email"
+            {...form.register("email", { required: true })}
+          />
+          <TextField
+            error={!!form.formState.errors.password}
+            label="Пароль"
+            type={"password"}
+            {...form.register("password", { required: true })}
+          />
           <button type={"submit"} className={"button button__primary"}>
             Войти
           </button>

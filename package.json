@@ -17,7 +17,7 @@
     "fslightbox-react": "^1.7.6",
     "lodash-es": "^4.17.21",
     "next": "14.2.5",
-    "next-auth": "^5.0.0-beta.20",
+    "next-auth": "^5.0.0-beta.25",
     "nextjs-toploader": "^3.7.15",
     "react": "^18",
     "react-dom": "^18",

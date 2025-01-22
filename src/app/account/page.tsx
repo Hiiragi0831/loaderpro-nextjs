@@ -1,4 +1,9 @@
-export default function Account() {
+import { auth } from "@/services/auth";
+
+export default async function Account() {
+  const session = await auth();
+  if (!session) return <div>Not authenticated</div>;
+
   return (
     <div className="account__tab">
       <div className="account__title">
@@ -6,6 +11,7 @@ export default function Account() {
         <small>Личная информация</small>
       </div>
       <div className="account__personal">
+        <pre>{JSON.stringify(session, null, 2)}</pre>
         <div className="account__personal-item">
           <p>Контактные данные</p>
           <div className="account__personal-forms">
