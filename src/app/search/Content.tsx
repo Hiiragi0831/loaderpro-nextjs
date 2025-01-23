@@ -38,7 +38,7 @@ const Content = () => {
     loadSearch(`?${params.toString()}`);
   };
 
-  useEffect(() => void loadSearch(), []);
+  useEffect(() => void loadSearch(), [searchParams]);
 
   return (
     <section className={"catalog__section"}>

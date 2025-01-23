@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "../scss/main.scss";
 import { Providers } from "@/components/Providers";
 
@@ -7,6 +7,13 @@ export const metadata: Metadata = {
     "Запчасти для погрузчиков от лучших мировых производителей и поставщиков",
   description:
     "Купить запчасти для вилочных погрузчиков бренда LOADERPRO в компании СПЕЦМАШИНА - это выбор людей которые ценят высокий уровень сервиса и внимание к мелочам. Работая на рынке с 2017 года мы развиваем продукт с высокими стандартами качества, которые предъявляем для всех участников нашей деятельности.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  initialScale: 1,
+  width: "device-width",
+  maximumScale: 1,
 };
 
 export default function RootLayout({

@@ -34,6 +34,7 @@ export const Search: FC<Props> = ({ className }) => {
       throw error;
     }
   };
+
   const debounced = useRef(debounce(search, 100));
 
   const close = () => {
