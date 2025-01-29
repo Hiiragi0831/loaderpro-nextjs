@@ -10,10 +10,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       name: "credentials",
       credentials: {
         email: { label: "Email" },
-        password: { label: "Password", type: "password" },
+        password: { label: "Password", type: "password" }, // base64
       },
       async authorize(credentials) {
-        const res = await fetch("https://76fbb2aa70af7ba2.mokky.dev/auth/", {
+        const res = await fetch("https://api.cartrac.ru/Main/auth_user/", {
           method: "POST",
           body: JSON.stringify(credentials),
           headers: { "Content-Type": "application/json" },
