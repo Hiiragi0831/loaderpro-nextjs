@@ -4,12 +4,12 @@ import { Hero } from "../components/Hero";
 import { Types } from "../components/Types";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Преимущества использования литий-ионной тяговой батареи.",
-  description:
-    "На этой странице вы найдёте подробную информацию о литий-ионных тяговых батареях. Мы расскажем об их особенностях, характеристиках и применении в различных областях. Вы узнаете, как выбрать подходящую батарею для ваших нужд и обеспечить её долгую и надёжную работу.",
-};
+export const metadata: Metadata = metaGen(
+  "Преимущества использования литий-ионной тяговой батареи.",
+  "На этой странице вы найдёте подробную информацию о литий-ионных тяговых батареях. Мы расскажем об их особенностях, характеристиках и применении в различных областях. Вы узнаете, как выбрать подходящую батарею для ваших нужд и обеспечить её долгую и надёжную работу.",
+);
 
 export default function lithiumIon() {
   return (
@@ -46,7 +46,7 @@ export default function lithiumIon() {
               <source srcSet="/images/battery/87f3a6404c391a24d4b1dfac012a6d01.png" />
               <img
                 src="/images/battery/87f3a6404c391a24d4b1dfac012a6d01.png"
-                alt=""
+                alt="battery"
               />
             </picture>
           </div>
@@ -101,7 +101,7 @@ export default function lithiumIon() {
                 <source srcSet="/images/battery/lead-acid_traction_batteries.png" />
                 <img
                   src="/images/battery/lead-acid_traction_batteries.png"
-                  alt=""
+                  alt="battery"
                 />
               </picture>
               <p>Тяговые аккумуляторы LOADERPRO</p>
@@ -114,7 +114,7 @@ export default function lithiumIon() {
                 <source srcSet="/images/battery/lead-acid_traction_batteries.png" />
                 <img
                   src="/images/battery/lead-acid_traction_batteries.png"
-                  alt=""
+                  alt="battery"
                 />
               </picture>
               <p>Свинцово-кислотные тяговые аккумуляторы </p>

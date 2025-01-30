@@ -5,13 +5,12 @@ import { Hero } from "../components/Hero";
 import { Types } from "../components/Types";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title:
-    "Свинцовые тяговые аккумуляторы: особенности, характеристики, применение.",
-  description:
-    "На этой странице вы найдёте подробную информацию о свинцовых тяговых аккумуляторах. Мы расскажем об их особенностях, характеристиках и применении. Вы узнаете, как выбрать подходящий аккумулятор для ваших нужд и обеспечить его долгую и надёжную работу.",
-};
+export const metadata: Metadata = metaGen(
+  "Свинцовые тяговые аккумуляторы: особенности, характеристики, применение.",
+  "На этой странице вы найдёте подробную информацию о свинцовых тяговых аккумуляторах. Мы расскажем об их особенностях, характеристиках и применении. Вы узнаете, как выбрать подходящий аккумулятор для ваших нужд и обеспечить его долгую и надёжную работу.",
+);
 
 export default function leadAcid() {
   return (
@@ -58,7 +57,7 @@ export default function leadAcid() {
               <source srcSet="/images/battery/ce0c309ef31bf939a9ca4d068ca5c4f2.png" />
               <img
                 src="/images/battery/ce0c309ef31bf939a9ca4d068ca5c4f2.png"
-                alt=""
+                alt="battery"
               />
             </picture>
           </div>
@@ -76,7 +75,7 @@ export default function leadAcid() {
               <source srcSet="/images/battery/5d43bba877eb0f188daa01a07ff8a2ba.png" />
               <img
                 src="/images/battery/5d43bba877eb0f188daa01a07ff8a2ba.png"
-                alt=""
+                alt="battery"
               />
             </picture>
             <h2 className="h1">Обратите внимание</h2>
@@ -142,7 +141,7 @@ export default function leadAcid() {
                 <source srcSet="/images/battery/lead-acid_traction_batteries.png" />
                 <img
                   src="/images/battery/lead-acid_traction_batteries.png"
-                  alt=""
+                  alt="battery"
                 />
               </picture>
               <p>Тяговые аккумуляторы LOADERPRO</p>
@@ -155,7 +154,7 @@ export default function leadAcid() {
                 <source srcSet="/images/battery/lithium-ion_traction_batteries.png" />
                 <img
                   src="/images/battery/lithium-ion_traction_batteries.png"
-                  alt=""
+                  alt="battery"
                 />
               </picture>
               <p>Литий-ионные тяговые аккумуляторы</p>

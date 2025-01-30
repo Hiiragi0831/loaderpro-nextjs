@@ -3,12 +3,12 @@ import Articles from "@/components/Articles";
 import { Cta } from "@/components/Cta";
 import { VideoBlock } from "@/components/VideoBlock";
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Шиномонтаж цельнолитых шин",
-  description:
-    "Для наших клиентов в Санкт-Петербурге мы предлагаем услугу шиномонтажа цельнолитых шин. Шиномонтаж выполняется на профессиональном оборудовании с использованием всех необходимых инструментов исключающих перекос шины.",
-};
+export const metadata: Metadata = metaGen(
+  "Шиномонтаж цельнолитых шин",
+  "Для наших клиентов в Санкт-Петербурге мы предлагаем услугу шиномонтажа цельнолитых шин. Шиномонтаж выполняется на профессиональном оборудовании с использованием всех необходимых инструментов исключающих перекос шины.",
+);
 
 export default function TireService() {
   return (
@@ -17,11 +17,11 @@ export default function TireService() {
         <div className="container">
           <picture className="for-desktop">
             <source srcSet={`/images/tireservice/hero.jpg`} />
-            <img src={`/images/tireservice/hero.jpg`} alt="" />
+            <img src={`/images/tireservice/hero.jpg`} alt="hero" />
           </picture>
           <picture className="for-devices">
             <source srcSet={`/images/tireservice/hero-m.jpg`} />
-            <img src={`/images/tireservice/hero-m.jpg`} alt="" />
+            <img src={`/images/tireservice/hero-m.jpg`} alt="hero" />
           </picture>
         </div>
       </section>
@@ -58,7 +58,7 @@ export default function TireService() {
                 />
                 <img
                   src={`/images/tireservice/shinomontazh-lityh-shin-1.png`}
-                  alt=""
+                  alt="tireservice"
                 />
               </picture>
             </div>
@@ -71,7 +71,7 @@ export default function TireService() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/tireservice/remont.png`} />
-                <img src={`/images/tireservice/remont.png`} alt="" />
+                <img src={`/images/tireservice/remont.png`} alt="tireservice" />
               </picture>
             </div>
             <div className="text">
@@ -161,7 +161,7 @@ export default function TireService() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/tireservice/to-1.png`} />
-                <img src={`/images/tireservice/to-1.png`} alt="" />
+                <img src={`/images/tireservice/to-1.png`} alt="tireservice" />
               </picture>
             </div>
           </div>

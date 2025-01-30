@@ -10,11 +10,17 @@ export default function RepairMaintenance() {
         <div className="container">
           <picture className="for-desktop">
             <source srcSet={`/images/repairmaintenance/hero.jpg`} />
-            <img src={`/images/repairmaintenance/hero.jpg`} alt="" />
+            <img
+              src={`/images/repairmaintenance/hero.jpg`}
+              alt="repairmaintenance"
+            />
           </picture>
           <picture className="for-devices">
             <source srcSet={`/images/repairmaintenance/hero-m.jpg`} />
-            <img src={`/images/repairmaintenance/hero-m.jpg`} alt="" />
+            <img
+              src={`/images/repairmaintenance/hero-m.jpg`}
+              alt="repairmaintenance"
+            />
           </picture>
         </div>
       </section>
@@ -42,7 +48,7 @@ export default function RepairMaintenance() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/repairmaintenance/about.png`} />
-                <img src={`/images/repairmaintenance/about.png`} alt="" />
+                <img src={`/images/repairmaintenance/about.png`} alt="about" />
               </picture>
             </div>
           </div>
@@ -137,7 +143,10 @@ export default function RepairMaintenance() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/repairmaintenance/reglament.png`} />
-                <img src={`/images/repairmaintenance/reglament.png`} alt="" />
+                <img
+                  src={`/images/repairmaintenance/reglament.png`}
+                  alt="reglament"
+                />
               </picture>
             </div>
             <div className="text">
@@ -236,7 +245,10 @@ export default function RepairMaintenance() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/repairmaintenance/maintenance.jpg`} />
-                <img src={`/images/repairmaintenance/maintenance.jpg`} alt="" />
+                <img
+                  src={`/images/repairmaintenance/maintenance.jpg`}
+                  alt="maintenance"
+                />
               </picture>
               <p className="for-desktop">
                 Проведение данных процедур стоит доверить профессионалам,
@@ -253,7 +265,7 @@ export default function RepairMaintenance() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/repairmaintenance/price.jpg`} />
-                <img src={`/images/repairmaintenance/price.jpg`} alt="" />
+                <img src={`/images/repairmaintenance/price.jpg`} alt="price" />
               </picture>
             </div>
             <div className="text">

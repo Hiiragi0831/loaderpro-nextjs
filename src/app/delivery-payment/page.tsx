@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import IconLogo from "@/icons/logo.svg";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Условия оплаты и доставки",
-};
+export const metadata: Metadata = metaGen("Условия оплаты и доставки");
 
 export default function DeliveryPayment() {
   return (
@@ -97,7 +96,7 @@ export default function DeliveryPayment() {
             <div className="deliverypayment__info">
               <picture>
                 <source srcSet="/images/pay.png" />
-                <img src="/images/pay.png" alt="" />
+                <img src="/images/pay.png" alt="pay" />
               </picture>
               <div className="deliverypayment__important">
                 <p>

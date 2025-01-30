@@ -4,12 +4,12 @@ import { Cta } from "@/components/Cta";
 import { VideoBlock } from "@/components/VideoBlock";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Смазочные материалы NEO",
-  description:
-    "Являясь официальным представителем завода премиальных смазочных материалов NEO мы предлагаем своим клиентам проверенные масла, готовые выдерживать самые суровые условия эксплуатации.",
-};
+export const metadata: Metadata = metaGen(
+  "Смазочные материалы NEO",
+  "Являясь официальным представителем завода премиальных смазочных материалов NEO мы предлагаем своим клиентам проверенные масла, готовые выдерживать самые суровые условия эксплуатации.",
+);
 
 const Products = dynamic(() => import("@/components/Products"), {
   ssr: false,
@@ -47,7 +47,7 @@ export default function OilsLubricants() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/oilslubricants/serv3.png`} />
-                <img src={`/images/oilslubricants/serv3.png`} alt="" />
+                <img src={`/images/oilslubricants/serv3.png`} alt="serv3" />
               </picture>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function OilsLubricants() {
             <div className="image">
               <picture>
                 <source srcSet={`/images/oilslubricants/remont.png`} />
-                <img src={`/images/oilslubricants/remont.png`} alt="" />
+                <img src={`/images/oilslubricants/remont.png`} alt="remont" />
               </picture>
             </div>
           </div>

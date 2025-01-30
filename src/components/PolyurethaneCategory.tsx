@@ -13,7 +13,10 @@ export const PolyurethaneCategory = () => {
             <div className="polyurethane__cat" key={key}>
               <picture>
                 <source srcSet={`/images/polyurethane/c-0${key + 1}.png`} />
-                <img src={`/images/polyurethane/c-0${key + 1}.png`} alt="" />
+                <img
+                  src={`/images/polyurethane/c-0${key + 1}.png`}
+                  alt="polyurethane"
+                />
               </picture>
               <p>{cat}</p>
             </div>

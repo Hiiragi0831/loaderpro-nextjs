@@ -10,7 +10,7 @@ const sliders = (items: string[]) => {
       <SwiperSlide>
         <picture>
           <source srcSet="/images/no-photo.jpg" />
-          <img src="/images/no-photo.jpg" alt="" />
+          <img src="/images/no-photo.jpg" alt="no-photo" />
         </picture>
       </SwiperSlide>
     );
@@ -19,7 +19,7 @@ const sliders = (items: string[]) => {
     <SwiperSlide key={index}>
       <picture>
         <source srcSet={item} />
-        <img src={item} alt="" />
+        <img src={item} alt="slide" />
       </picture>
     </SwiperSlide>
   ));

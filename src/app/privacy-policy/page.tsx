@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Политика конфиденциальности",
-};
+export const metadata: Metadata = metaGen("Политика конфиденциальности");
 
 export default function PrivacyPolicy() {
   return (

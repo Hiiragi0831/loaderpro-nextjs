@@ -17,7 +17,7 @@ export default function Layout({
             <div className="account__panel">
               <picture>
                 <source srcSet="/images/basket.jpg" />
-                <img src="/images/basket.jpg" alt="" />
+                <img src="/images/basket.jpg" alt="basket" />
               </picture>
               <p>Имя Фамилия</p>
               <nav>

@@ -31,11 +31,11 @@ const HomeSlider = () => {
                 <Link className="slider__content" href={slide.link}>
                   <picture className="for-desktop">
                     <source srcSet={`/images/slider/${slide.id}.jpeg`} />
-                    <img src={`/images/slider/${slide.id}.jpeg`} alt="" />
+                    <img src={`/images/slider/${slide.id}.jpeg`} alt="slide" />
                   </picture>
                   <picture className="for-devices">
                     <source srcSet={`/images/slider/${slide.id}m.jpeg`} />
-                    <img src={`/images/slider/${slide.id}m.jpeg`} alt="" />
+                    <img src={`/images/slider/${slide.id}m.jpeg`} alt="slide" />
                   </picture>
                 </Link>
               </SwiperSlide>

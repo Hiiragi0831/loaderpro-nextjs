@@ -49,6 +49,7 @@ export default async function ProductInfo(params: any) {
                   src={data.image.length ? data.image[0] : ""}
                   itemProp="image"
                   className={"is-hidden"}
+                  alt="gallery"
                 />
                 <Gallery images={data.image} />
               </div>
@@ -104,7 +105,7 @@ export default async function ProductInfo(params: any) {
                   )}
                   <picture>
                     <source srcSet="/images/product/hero.png" />
-                    <img src="/images/product/hero.png" alt="" />
+                    <img src="/images/product/hero.png" alt="hero" />
                   </picture>
                 </div>
                 <div

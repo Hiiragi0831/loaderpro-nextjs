@@ -24,7 +24,7 @@ export default function Home() {
           </h1>
           <picture>
             <source srcSet="/images/home/kat.png" />
-            <img src="/images/home/kat.png" alt="" />
+            <img src="/images/home/kat.png" alt="kat" />
           </picture>
         </div>
       </section>
@@ -58,7 +58,7 @@ export default function Home() {
                     <source srcSet="/images/home/icons/icon-park-outline_fork.png" />
                     <img
                       src="/images/home/icons/icon-park-outline_fork.png"
-                      alt=""
+                      alt="icon"
                     />
                   </picture>
                   <p>Профессиональная эксплуатация</p>
@@ -66,7 +66,7 @@ export default function Home() {
                 <div className="home-block__icon">
                   <picture>
                     <source srcSet="/images/home/icons/ep_tools.png" />
-                    <img src="/images/home/icons/ep_tools.png" alt="" />
+                    <img src="/images/home/icons/ep_tools.png" alt="icon" />
                   </picture>
                   <p>Правильное обслуживание</p>
                 </div>
@@ -75,7 +75,7 @@ export default function Home() {
                     <source srcSet="/images/home/icons/material-symbols_forklift.png" />
                     <img
                       src="/images/home/icons/material-symbols_forklift.png"
-                      alt=""
+                      alt="icon"
                     />
                   </picture>
                   <p>Использование качественных запчастей</p>

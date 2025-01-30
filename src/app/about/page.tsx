@@ -4,12 +4,12 @@ import { Cta } from "@/components/Cta";
 import { Preference } from "@/components/Preference";
 import { Team } from "@/components/Team";
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "О компании СПЕЦМАШИНА",
-  description:
-    "СПЕЦМАШИНА - эксперт в области складской техники. Мы обеспечиваем защиту работоспособности вашей техники и создали собственный бренд LOADERPRO, название которого является собирательным из слов LOADER и PROTECTION, что в переводе означает ЗАЩИТА ПОГРУЗЧИКА. Так и родился наш слоган - ВАША ТЕХНИКА ПОД НАДЕЖНОЙ ЗАЩИТОЙ.",
-};
+export const metadata: Metadata = metaGen(
+  "О компании СПЕЦМАШИНА",
+  "СПЕЦМАШИНА - эксперт в области складской техники. Мы обеспечиваем защиту работоспособности вашей техники и создали собственный бренд LOADERPRO, название которого является собирательным из слов LOADER и PROTECTION, что в переводе означает ЗАЩИТА ПОГРУЗЧИКА. Так и родился наш слоган - ВАША ТЕХНИКА ПОД НАДЕЖНОЙ ЗАЩИТОЙ.",
+);
 
 export default function About() {
   return (

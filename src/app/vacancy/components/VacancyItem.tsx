@@ -82,7 +82,7 @@ export const VacancyItem = () => {
           <div className="vacancy-modal__image">
             <picture>
               <source srcSet="/images/vacancy/hr.jpg" />
-              <img src="/images/vacancy/hr.jpg" alt="" />
+              <img src="/images/vacancy/hr.jpg" alt="hr" />
             </picture>
           </div>
         </div>

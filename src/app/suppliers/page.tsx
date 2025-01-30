@@ -4,12 +4,12 @@ import { Steps } from "@/components/Steps";
 import { Cta } from "@/components/Cta";
 import Articles from "@/components/Articles";
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Стань поставщиком LOADERPRO",
-  description:
-    "Вы можете использовать нашу площадку как дополнительный канал сбыта вашей продукции, необходимо лишь настроить интеграцию ваших актуальных остатков к нам в систему.",
-};
+export const metadata: Metadata = metaGen(
+  "Стань поставщиком LOADERPRO",
+  "Вы можете использовать нашу площадку как дополнительный канал сбыта вашей продукции, необходимо лишь настроить интеграцию ваших актуальных остатков к нам в систему.",
+);
 
 export default function Suppliers() {
   const connect = [
