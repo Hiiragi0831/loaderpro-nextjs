@@ -5,7 +5,7 @@ export type SingleProduct = {
   article: string;
   price: number;
   count?: number;
-  image: [];
+  image: string[];
   status: {
     id: number;
     name: string;

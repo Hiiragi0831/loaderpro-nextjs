@@ -29,18 +29,27 @@ export default async function ProductInfo(params: any) {
 
   return (
     <>
-      <section className="commodity__section">
+      <section
+        className="commodity__section"
+        itemScope
+        itemType="https://schema.org/Product"
+      >
         <div className="container">
           <div className="row">
             <div className="commodity__head">
               <div className="commodity__title">
-                <h1>
+                <h1 itemProp="name">
                   {data.productname} {data.brand} {data.article}
                 </h1>
               </div>
             </div>
             <div className="commodity__main">
               <div className="commodity__gallery">
+                <img
+                  src={data.image.length ? data.image[0] : ""}
+                  itemProp="image"
+                  className={"is-hidden"}
+                />
                 <Gallery images={data.image} />
               </div>
               <div className="commodity__info">
@@ -77,7 +86,7 @@ export default async function ProductInfo(params: any) {
                   {data.description ? (
                     <>
                       <h5>Описание</h5>
-                      <p>{data.description}</p>
+                      <p itemProp="description">{data.description}</p>
                     </>
                   ) : (
                     <>
@@ -98,7 +107,18 @@ export default async function ProductInfo(params: any) {
                     <img src="/images/product/hero.png" alt="" />
                   </picture>
                 </div>
-                <div className="commodity__basket">
+                <div
+                  className="commodity__basket"
+                  itemProp="offers"
+                  itemScope
+                  itemType="https://schema.org/Offer"
+                >
+                  <meta itemProp="price" content={data.price.toString()} />
+                  <meta itemProp="priceCurrency" content="RUB" />
+                  <link
+                    itemProp="availability"
+                    href="http://schema.org/InStock"
+                  />
                   <div className="commodity__price">
                     <span>Цена:</span>
                     <p>{price}</p>

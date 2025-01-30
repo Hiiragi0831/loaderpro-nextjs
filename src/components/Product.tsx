@@ -79,23 +79,6 @@ const Product: FC<Props> = (data) => {
             }
             alt={data.productname}
           />
-          {/*<picture>*/}
-          {/*  <source*/}
-          {/*    srcSet={*/}
-          {/*      data.image*/}
-          {/*        ? `${data.image}`*/}
-          {/*        : "https://my.loaderpro.ru/images/no-photo.svg"*/}
-          {/*    }*/}
-          {/*  />*/}
-          {/*  <img*/}
-          {/*    src={*/}
-          {/*      data.image*/}
-          {/*        ? `${data.image}`*/}
-          {/*        : "https://my.loaderpro.ru/images/no-photo.svg"*/}
-          {/*    }*/}
-          {/*    alt={data.productname}*/}
-          {/*  />*/}
-          {/*</picture>*/}
         </Link>
       </div>
       <div className="product__info">

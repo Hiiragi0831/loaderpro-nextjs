@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Key, useState } from "react";
 import { FreeMode, Thumbs } from "swiper/modules";
 
-const sliders = (items: []) => {
+const sliders = (items: string[]) => {
   if (items.length === 0) {
     return (
       <SwiperSlide>
@@ -25,7 +25,7 @@ const sliders = (items: []) => {
   ));
 };
 
-export default function Gallery({ images }: { images: [] }) {
+export default function Gallery({ images }: { images: string[] }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
