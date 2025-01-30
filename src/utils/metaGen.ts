@@ -19,5 +19,9 @@ export const metaGen = (
         ? img
         : [`${process.env.NEXT_PUBLIC_HOST}/images/slider/1.jpeg`],
     },
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_HOST}`),
+    alternates: {
+      canonical: "./",
+    },
   };
 };
