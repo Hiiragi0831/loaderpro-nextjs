@@ -12,7 +12,8 @@ export const formLoginSchema = z.object({
 export const formRegisterSchema = formLoginSchema
   .merge(
     z.object({
-      email: z.string().email({ message: "Введите корректную почту" }),
+      firstname: z.string().min(2, { message: "Введите имя" }),
+      lastname: z.string().min(2, { message: "Введите фамилию" }),
       confirmPassword: passwordSchema,
     }),
   )
