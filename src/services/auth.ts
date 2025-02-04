@@ -30,7 +30,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (res.ok && user) {
           return user.data;
         }
-        // Return null if user data could not be retrieved
+        // Return null if user data could not be retrieved.
         return null;
       },
     }),
