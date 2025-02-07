@@ -49,7 +49,7 @@ const Product: FC<Props> = (data) => {
     }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
 
   return (
-    <div className="product">
+    <div className="product" itemScope itemType="https://schema.org/Product">
       <button
         className={`product__like ${favorites.indexOf(data.id) !== -1 ? "active" : ""}`}
         onClick={() => toggleFavorite(data.id)}
@@ -72,6 +72,7 @@ const Product: FC<Props> = (data) => {
             blurDataURL={rgbDataURL(255, 255, 255)}
             placeholder={"blur"}
             priority={false}
+            itemProp="image"
             src={
               data.image
                 ? `${data.image}`
@@ -82,11 +83,19 @@ const Product: FC<Props> = (data) => {
         </Link>
       </div>
       <div className="product__info">
-        <div className="product__price">
-          <p>
+        <div
+          className="product__price"
+          itemProp="offers"
+          itemScope
+          itemType="https://schema.org/Offer"
+        >
+          <meta itemProp="price" content={String(data.price)} />
+          <meta itemProp="priceCurrency" content="RUB" />
+          <link itemProp="availability" href="http://schema.org/InStock" />
+          <p itemProp="price">
             {data.price === 0
               ? "Цена по запросу"
-              : `${getPriceFormat(data.price)}₽`}
+              : `${getPriceFormat(data.price)} ₽`}
           </p>
         </div>
         <div className="product__article">
@@ -108,7 +117,9 @@ const Product: FC<Props> = (data) => {
           </div>
         )}
         <div className="product__title">
-          <Link href={href}>{data.productname}</Link>
+          <Link href={href} itemProp="name">
+            {data.productname}
+          </Link>
         </div>
       </div>
       <div className="product__buttons">
