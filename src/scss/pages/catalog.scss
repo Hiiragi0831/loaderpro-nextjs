@@ -136,13 +136,20 @@
 			margin-bottom: vc(16);
 		}
 
-		ul {
+		ul,
+		ol {
 			margin-bottom: vc(10);
 			margin-left: vc(40);
 
 			li {
 				display: list-item;
 				list-style: disc;
+			}
+		}
+
+		ol {
+			li {
+				list-style: decimal;
 			}
 		}
 	}

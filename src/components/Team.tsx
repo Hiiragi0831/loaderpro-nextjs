@@ -12,7 +12,7 @@ export const Team = () => {
     },
     {
       image: "/images/team/grigorieva.jpg",
-      name: "Григорьевна Яна Николаевна",
+      name: "Григорьева Яна Николаевна",
       position: "Руководитель отдела продаж",
     },
     {
@@ -50,11 +50,11 @@ export const Team = () => {
       name: "Макарова Марина Александровна",
       position: "Руководитель отдела закупок",
     },
-    {
-      image: "/images/team/kuznetsova.jpg",
-      name: "Кузнецова Елена Германовна",
-      position: "Специалист отдела закупок",
-    },
+    // {
+    //   image: "/images/team/kuznetsova.jpg",
+    //   name: "Кузнецова Елена Германовна",
+    //   position: "Специалист отдела закупок",
+    // },
     {
       image: "/images/team/peretyagin.jpg",
       name: "Перетягин Кирилл Александрович",

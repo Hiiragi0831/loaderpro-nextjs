@@ -1,7 +1,7 @@
 export const metaGen = (
   title?: string,
   description?: string,
-  img?: string[],
+  img?: string,
   type?: string,
 ) => {
   return {
@@ -15,11 +15,11 @@ export const metaGen = (
       type: type ? type : "website",
       title: title,
       description: description,
-      images: img
-        ? img
-        : [`${process.env.NEXT_PUBLIC_HOST}/images/slider/1.jpeg`],
+      images: img ? img : [`${process.env.NEXT_PUBLIC_HOST}/images/share.jpg`],
+      url: "./",
     },
     metadataBase: new URL(`${process.env.NEXT_PUBLIC_HOST}`),
+    robots: "all",
     alternates: {
       canonical: "./",
     },

@@ -8,10 +8,17 @@ import { VideoGallery } from "@/components/VideoGallery";
 import Articles from "@/components/Articles";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
 const Products = dynamic(() => import("@/components/Products"), {
   ssr: false,
 });
+
+export const metadata: Metadata = metaGen(
+  "Запчасти для вилочных погрузчиков и складской техники в Санкт-Петербурге",
+  "Предлагаем купить запчасти для вилочных погрузчиков и складской техники от лучших мировых производителей и поставщиков в Санкт-Петербурге с доставкой по всей России у компании СПЕЦМАШИНА",
+);
 
 export default function Home() {
   return (
@@ -19,9 +26,7 @@ export default function Home() {
       <HomeSlider />
       <section className={"home__title"}>
         <div className="container">
-          <h1 className={"h1"}>
-            Запчасти для вилочных погрузчиков и складской техники
-          </h1>
+          <h1 className={"h1"}>ЗАПЧАСТИ ДЛЯ ПОГРУЗЧИКОВ И СКЛАДСКОЙ ТЕХНИКИ</h1>
           <picture>
             <source srcSet="/images/home/kat.png" />
             <img src="/images/home/kat.png" alt="kat" />
