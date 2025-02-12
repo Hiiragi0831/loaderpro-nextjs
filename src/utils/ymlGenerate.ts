@@ -63,7 +63,7 @@ export default async function ymlGenerate() {
   const doc = create(obj);
   const xml = doc.end({ prettyPrint: true });
 
-  fs.writeFile("./public/yandex-spare.xml", xml, (err) => {
+  fs.writeFile("./public/feed.xml", xml, (err) => {
     if (err) throw err;
     console.log("YML has been saved!", obj);
   });
