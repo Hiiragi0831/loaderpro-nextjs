@@ -4,6 +4,7 @@ import { api } from "@/services/api";
 import translit from "@/utils/translit";
 
 export default async function ymlGenerate() {
+  // * только запчасти * //
   const data = await api.getAllProductsLink("spare_parts");
   const total = data.total;
   const products: any = [];
@@ -16,6 +17,8 @@ export default async function ymlGenerate() {
     });
   }
 
+  // * Все товары с фильтром по цене * //
+  // const data = await api.getAllProducts();
   // const products = data.filter((item) => item.price > 0).slice(0);
 
   const offer = products.map((item: any) => ({

@@ -4,6 +4,7 @@ import { api } from "@/services/api";
 export default async function sitemap() {
   const data = await api.getAllProducts();
   const brand = await api.getAllBrand();
+
   const products = data.map((item) => ({
     url: `${process.env.NEXT_PUBLIC_HOST}/products/${translit(item.productname.replaceAll(" ", "-"))}-${item.id}`,
     lastModified: new Date(),
