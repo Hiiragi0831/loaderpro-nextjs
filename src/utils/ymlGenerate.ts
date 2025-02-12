@@ -12,9 +12,12 @@ export default async function ymlGenerate() {
   for (let i = 1; i <= total; i++) {
     const getResult = await api.getAllProductsLink(`spare_parts/?page=${i}`);
     const result = getResult.results;
-    result.map((item) => {
-      products.push(item);
-    });
+    result
+      .filter((item) => item.image?.length)
+      .slice(0)
+      .map((item) => {
+        products.push(item);
+      });
   }
 
   // * Все товары с фильтром по цене * //
