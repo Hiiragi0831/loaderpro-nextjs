@@ -13,7 +13,7 @@ export default async function ymlGenerate() {
     const getResult = await api.getAllProductsLink(`spare_parts/?page=${i}`);
     const result = getResult.results;
     result
-      .filter((item) => item.image?.length)
+      .filter((item) => item.image?.length && item.price > 0)
       .slice(0)
       .map((item) => {
         products.push(item);
