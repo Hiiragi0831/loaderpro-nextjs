@@ -3,6 +3,7 @@
 import { useBasket } from "@/store/basket";
 import { useQuery } from "@/store/query";
 import { useState } from "react";
+import ym from "react-yandex-metrika";
 
 export default function CountAddTo({
   id,
@@ -63,7 +64,10 @@ export default function CountAddTo({
       ) : (
         <button
           className="button button__primary"
-          onClick={() => addToCart(id, quantity)}
+          onClick={() => {
+            addToCart(id, quantity);
+            ym("reachGoal", "addToBasket");
+          }}
         >
           В корзину
         </button>

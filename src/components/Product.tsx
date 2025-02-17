@@ -14,6 +14,7 @@ import Link from "next/link";
 import translit from "@/utils/translit";
 import { useQuery } from "@/store/query";
 import Image from "next/image";
+import ym from "react-yandex-metrika";
 
 type Props = Pick<
   ProductType,
@@ -136,7 +137,10 @@ const Product: FC<Props> = (data) => {
           <>
             <button
               className="button button__primary button__icon"
-              onClick={() => addToCart(data.id, 1)}
+              onClick={() => {
+                addToCart(data.id, 1);
+                ym("reachGoal", "addToBasket");
+              }}
             >
               <IconShoppingCart />В корзину
             </button>

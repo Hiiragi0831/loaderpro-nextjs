@@ -10,6 +10,7 @@ import CloneDeep from "lodash-es/cloneDeep";
 import { IsMobile } from "@/utils/IsMobile";
 import { InputPhone } from "@/components/ui/InputPhone";
 import { useRouter } from "next/navigation";
+import ym from "react-yandex-metrika";
 
 export const FormParts = () => {
   const [disabled, setDisabled] = useState(false);
@@ -59,6 +60,7 @@ export const FormParts = () => {
         toast.success("Запрос на подбор успешно создан");
         route.push(`/success?num=${fdata.num}&page=query`);
         user.reset();
+        ym("reachGoal", "SendSelectionParts");
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);
