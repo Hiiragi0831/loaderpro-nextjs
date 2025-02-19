@@ -111,6 +111,30 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      <section className="contact__pickup">
+        <div className="container">
+          <div className="row">
+            <picture>
+              <source srcSet="/images/contact/pickup-01.jpg" />
+              <img src="/images/contact/pickup-01.jpg" alt="photo" />
+            </picture>
+            <div className="contact__pickup-text">
+              <p>Самовывоз осуществляется по адресу:</p>
+              <p>
+                <span>
+                  г. Санкт-Петербург, Красное Село, улица Юных Пионеров, 38Б
+                </span>
+              </p>
+              <small>Пн-Пт 09:00-17:00</small>
+              <small>Отправки по России осуществляются ежедневно!</small>
+            </div>
+            <picture>
+              <source srcSet="/images/contact/pickup-02.jpg" />
+              <img src="/images/contact/pickup-02.jpg" alt="photo" />
+            </picture>
+          </div>
+        </div>
+      </section>
       <Cta />
       <VideoGallery />
       <Articles limit={4} />
