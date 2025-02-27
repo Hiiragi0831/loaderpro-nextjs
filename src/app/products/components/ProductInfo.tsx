@@ -55,22 +55,12 @@ export default async function ProductInfo(params: any) {
               </div>
               <div className="commodity__info">
                 <div className="commodity__info-box">
-                  {data.count === 0 ? (
-                    <div
-                      className={`commodity__availability commodity__availability--green`}
-                    >
-                      <span />
-                      <p>7-10 дней</p>
-                    </div>
-                  ) : (
-                    <div
-                      className={`commodity__availability commodity__availability--${data.status.value}`}
-                    >
-                      <span />
-                      <p>{data.status.name}</p>
-                    </div>
-                  )}
-
+                  <div
+                    className={`commodity__availability ${data.count === 0 ? "commodity__availability--green" : `commodity__availability--${data.status.value}`}`}
+                  >
+                    <span />
+                    <p>{data.count === 0 ? "7-10 дней" : data.status.name}</p>
+                  </div>
                   <div className="commodity__specifications">
                     <div className="commodity__specification">
                       <p>Артикул</p>
@@ -91,7 +81,7 @@ export default async function ProductInfo(params: any) {
                     </>
                   ) : (
                     <>
-                      <h5>Описание</h5>
+                    <h5>Описание</h5>
                       <p>
                         {data.productname} {data.brand} {data.article} вы можете
                         купить с доставкой в любую точку России с оплатой по

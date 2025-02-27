@@ -56,6 +56,12 @@
 				background: $red-orange-500;
 			}
 		}
+
+		@include devices {
+			position: absolute;
+			right: vc(20);
+			top: vc(10);
+		}
 	}
 
 	&__main {
@@ -149,6 +155,7 @@
 	}
 
 	&__info {
+		position: relative;
 		display: grid;
 		grid-template-areas:
 			"info price"
