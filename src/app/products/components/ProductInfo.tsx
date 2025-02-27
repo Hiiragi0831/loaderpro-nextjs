@@ -81,7 +81,7 @@ export default async function ProductInfo(params: any) {
                     </>
                   ) : (
                     <>
-                    <h5>Описание</h5>
+                      <h5>Описание</h5>
                       <p>
                         {data.productname} {data.brand} {data.article} вы можете
                         купить с доставкой в любую точку России с оплатой по
