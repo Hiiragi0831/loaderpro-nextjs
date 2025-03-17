@@ -1,11 +1,11 @@
 .mobilenav {
 	position: fixed;
 	left: vc(-376);
-	top: vc(58);
+	top: vc(44);
 	z-index: 9;
 	overflow: hidden;
 	width: 100%;
-	height: calc(100vh - #{vc(118)});
+	height: calc(100vh - #{vc(104)});
 	background: $color-white;
 	transition: left $transition;
 
