@@ -5,6 +5,7 @@ import translit from "@/utils/translit";
 import Gallery from "@/app/products/components/Gallery";
 import SpecificationModal from "@/app/products/components/SpecificationModal";
 import CountAddTo from "@/app/products/components/CountAddTo";
+import FeatureList from "@/app/products/components/FeatureList";
 
 export default async function ProductInfo(params: any) {
   const slugArray = params.id.slug.split("-");
@@ -44,6 +45,9 @@ export default async function ProductInfo(params: any) {
               </div>
             </div>
             <div className="commodity__main">
+              <div className="commodity__features">
+                <FeatureList data={data} />
+              </div>
               <div className="commodity__gallery">
                 <img
                   src={data.image.length ? data.image[0] : ""}
@@ -81,7 +85,7 @@ export default async function ProductInfo(params: any) {
                     </>
                   ) : (
                     <>
-                      <h5>Описание</h5>
+                      <h5>Оплата и доставка</h5>
                       <p>
                         {data.productname} {data.brand} {data.article} вы можете
                         купить с доставкой в любую точку России с оплатой по

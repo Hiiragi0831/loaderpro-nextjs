@@ -13,7 +13,10 @@ export default function SpecificationModal({ options }: { options: any }) {
       <Modal isShow={modalOpen} onClose={() => setModalOpen(false)}>
         <div className="commodity-specification">
           {options?.map((option: any, id: any) => (
-            <div className="commodity__specification" key={id}>
+            <div
+              className={`commodity__specification ${option.value === "OEM" ? "is-hidden" : ""}`}
+              key={id}
+            >
               <p>{option.name}</p>
               <span>{option.value}</span>
             </div>

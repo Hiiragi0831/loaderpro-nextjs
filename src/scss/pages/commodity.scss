@@ -76,6 +76,22 @@
 		}
 	}
 
+	&__features {
+		position: absolute;
+		left: vc(10);
+		top: vc(10);
+		z-index: 2;
+		display: flex;
+		width: vc(636);
+		gap: vc(10);
+
+		@include devices {
+			flex-wrap: wrap;
+			width: auto;
+			max-width: vc(330);
+		}
+	}
+
 	&__gallery {
 		position: relative;
 		display: flex;
