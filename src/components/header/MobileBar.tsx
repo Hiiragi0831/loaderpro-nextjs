@@ -1,6 +1,5 @@
 "use client";
 import IconHome from "@/icons/house-l.svg";
-import IconShield from "@/icons/shield.svg";
 import IconBox from "@/icons/box-l.svg";
 import IconRectangle from "@/icons/rectangle-history-circle-plus-l.svg";
 import Link from "next/link";

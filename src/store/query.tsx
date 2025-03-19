@@ -2,7 +2,6 @@ import CloneDeep from "lodash-es/cloneDeep";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { toast } from "react-toastify";
-import { CustomNotification } from "@/utils/customNotification";
 import Link from "next/link";
 
 type Store = {

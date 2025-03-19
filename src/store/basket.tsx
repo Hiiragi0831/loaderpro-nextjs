@@ -34,7 +34,7 @@ export const useBasket = create<Store>()(
           <div className="notification">
             Товар добавлен в <Link href={"/basket"}>корзину</Link>
           </div>
-      ));
+        ));
 
         if (product) {
           product.quantity = product.quantity + count;
