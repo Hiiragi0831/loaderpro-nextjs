@@ -1,5 +1,6 @@
 .commodity {
 	&__head {
+		position: relative;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
@@ -10,27 +11,20 @@
 		}
 
 		@include devices {
+			margin-top: vc(20);
 			order: 1;
 		}
 	}
 
 	&__title {
 		position: relative;
-		margin-bottom: vc(22);
 		width: 100%;
-
-		&::before {
-			content: "";
-			position: absolute;
-			bottom: vc(-10);
-			border-radius: vc(5);
-			width: 100%;
-			height: vc(5);
-			background: $color-woodsmoke-200;
-		}
 	}
 
 	&__availability {
+		position: absolute;
+		left: 0;
+		top: 0;
 		display: flex;
 		align-items: center;
 		gap: vc(6);
@@ -74,8 +68,8 @@
 
 		@include devices {
 			position: absolute;
-			right: vc(10);
-			top: vc(-30);
+			left: 0;
+			top: vc(-20);
 		}
 	}
 
@@ -87,6 +81,7 @@
 
 		@include devices {
 			grid-template-columns: 100%;
+			gap: vc(15);
 		}
 	}
 
@@ -205,6 +200,7 @@
 				"info"
 				"description";
 			grid-template-columns: 100%;
+			gap: vc(15);
 		}
 	}
 
@@ -259,6 +255,10 @@
 		height: min-content;
 		box-shadow: $box-shadow;
 		gap: vc(15);
+
+		@include devices {
+			padding: vc(15);
+		}
 	}
 
 	&__price {
