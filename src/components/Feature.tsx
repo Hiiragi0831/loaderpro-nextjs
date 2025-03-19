@@ -57,13 +57,24 @@ const Feature = ({ text }: { text: string }) => {
       description =
         "На товары этого бренда объявлена распродажа, не упустите момент для покупки товара по сниженной цене.";
       break;
+    case "OEM":
+      color = "gray";
+      description =
+        "Original Equipment Manufacturer - это запасные части, произведённые официальным поставщиком завода-изготовителя техники.\n";
+      break;
     default:
       color = "gray";
       break;
   }
 
   return (
-    <Tooltip title={description} key={text} placement="top">
+    <Tooltip
+      title={description}
+      key={text}
+      placement="top"
+      disableFocusListener
+      enterTouchDelay={50}
+    >
       <div className={`feature feature--${color}`}>
         {icon ? <div className="feature__icon">{icon}</div> : ""}
         <p>{text}</p>

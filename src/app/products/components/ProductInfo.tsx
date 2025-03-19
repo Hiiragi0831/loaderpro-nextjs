@@ -27,6 +27,12 @@ export default async function ProductInfo(params: any) {
     data.price === 0
       ? "Цена по запросу"
       : `${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽`;
+  const dillerPrice =
+    data.price === 0
+      ? "Цена по запросу"
+      : `${Math.ceil(data.price - (data.price * 10) / 100)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽`;
 
   return (
     <>
@@ -37,18 +43,18 @@ export default async function ProductInfo(params: any) {
       >
         <div className="container">
           <div className="row">
-            <div className="commodity__head">
-              <div className="commodity__title">
-                <h1 itemProp="name">
-                  {data.productname} {data.brand} {data.article}
-                </h1>
-              </div>
-            </div>
             <div className="commodity__main">
-              <div className="commodity__features">
-                <FeatureList data={data} />
+              <div className="commodity__head">
+                <div className="commodity__title">
+                  <h1 itemProp="name">
+                    {data.productname} {data.brand} {data.article}
+                  </h1>
+                </div>
               </div>
               <div className="commodity__gallery">
+                <div className="commodity__features">
+                  <FeatureList data={data} />
+                </div>
                 <img
                   src={data.image.length ? data.image[0] : ""}
                   itemProp="image"
@@ -114,9 +120,22 @@ export default async function ProductInfo(params: any) {
                     itemProp="availability"
                     href="http://schema.org/InStock"
                   />
-                  <div className="commodity__price">
+                  <div
+                    className={`commodity__price ${data.price > 0 ? "" : "two"}`}
+                  >
                     <span>Цена:</span>
                     <p>{price}</p>
+                  </div>
+                  <div
+                    className={`commodity__price ${data.price > 0 ? "" : "is-hidden"}`}
+                  >
+                    <span>
+                      Цена{" "}
+                      <a href="https://my.loaderpro.ru/" target={"_blank"}>
+                        дилера:
+                      </a>
+                    </span>
+                    <p>{dillerPrice}</p>
                   </div>
                   <CountAddTo
                     id={data.id}

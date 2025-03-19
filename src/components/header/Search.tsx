@@ -64,6 +64,7 @@ export const Search: FC<Props> = ({ className }) => {
     } else {
       route.push(`/search?search=${searchQuery}`);
     }
+    close();
   };
 
   useEffect(() => {
@@ -75,7 +76,12 @@ export const Search: FC<Props> = ({ className }) => {
   return (
     <section className={`search ${className}`}>
       <div className={"search__bg"}></div>
-      <form className={"search__row"} ref={ref} onSubmit={onSubmit}>
+      <form
+        className={"search__row"}
+        ref={ref}
+        onSubmit={onSubmit}
+        action={"#"}
+      >
         <button type="submit" className="search__button-pc">
           <IconMagnifying />
         </button>

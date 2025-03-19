@@ -32,12 +32,13 @@ export const MobileBar = () => {
         <span>Каталог</span>
       </Link>
       <span className="mobilebar__search" onClick={() => toggleShow(!isShow)}>
-        <div className="front">
-          <IconShield className="logo-icon" />
-        </div>
-        <div className="back">
-          <IconMagnifying className="search-icon" />
-        </div>
+        {/*<div className="front">*/}
+        {/*  <IconShield className="logo-icon" />*/}
+        {/*</div>*/}
+        {/*<div className="back">*/}
+        {/*  <IconMagnifying className="search-icon" />*/}
+        {/*</div>*/}
+        <IconMagnifying className="search-icon" />
       </span>
       <Link
         href={"/request-parts"}
