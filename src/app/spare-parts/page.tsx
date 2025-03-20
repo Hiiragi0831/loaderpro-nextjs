@@ -17,7 +17,7 @@ export default function SpareParts() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">Каталог запчастей для погрузчиков</h1>
+            <h1 className="h1">Каталог запасных частей для погрузчиков</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -25,6 +25,7 @@ export default function SpareParts() {
             </div>
           </div>
           <div className={"catalog__info"}>
+            <h2>Каталог запчастей для погрузчиков</h2>
             <p>
               Любая складская и&nbsp;погрузочная техника в&nbsp;процессе
               эксплуатации подвергается интенсивным нагрузкам. Со временем даже

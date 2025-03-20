@@ -17,9 +17,7 @@ export default function TiresRims() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">
-              Шины для погрузчиков: купить недорого от&nbsp;производителя
-            </h1>
+            <h1 className="h1">Шины для погрузчиков</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -27,6 +25,7 @@ export default function TiresRims() {
             </div>
           </div>
           <div className={"catalog__info"}>
+            <h2>Шины для погрузчиков: купить недорого от&nbsp;производителя</h2>
             <p>
               Погрузчики вилочного типа представляют собой востребованный класс
               специальной техники легкой и&nbsp;средней категории, активно

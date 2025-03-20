@@ -17,9 +17,7 @@ export default function WarehouseEquipment() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">
-              Складская техника для склада: купить в Санкт-Петербурге
-            </h1>
+            <h1 className="h1">Складская техника для склада</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -27,6 +25,7 @@ export default function WarehouseEquipment() {
             </div>
           </div>
           <div className={"catalog__info"}>
+            <h2>Складская техника для склада: купить в Санкт-Петербурге</h2>
             <p>
               Современная <strong>складская техника</strong> включает
               в&nbsp;себя широкий спектр ручного, гидравлического
