@@ -7,6 +7,7 @@ import { Cta } from "@/components/Cta";
 import { Modal } from "@/components/Modal";
 import IconLogo from "@/icons/logo.svg";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function VacancyManager() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -95,7 +96,7 @@ export default function VacancyManager() {
                   </strong>
                 </p>
               </div>
-              <IconLogo className="for-desktop" />
+              <img src={"/images/vacancy/v-01.jpg"} alt={"company"} />
             </div>
             <div className="vacancy-inner__conditions">
               <div className="vacancy-inner__condition">
@@ -129,6 +130,19 @@ export default function VacancyManager() {
                 </blockquote>
               </div>
               <div className="vacancy-inner__condition">
+                <span className="h1">Дополнительные преимущества:</span>
+                <blockquote>
+                  <p>
+                    Дружный позитивный коллектив и поддержка на всех этапах
+                    работы
+                  </p>
+                  <p>
+                    Яркие корпоративные мероприятия, подарки для сотрудников и
+                    их детей
+                  </p>
+                </blockquote>
+              </div>
+              <div className="vacancy-inner__condition">
                 <span className="h1">Пожелания к кандидату:</span>
                 <blockquote>
                   <p>
@@ -143,19 +157,6 @@ export default function VacancyManager() {
                   <p>
                     Обучаемость, исполнительность, внимательность и готовность
                     выполнять поставленные задачи в конкретные сроки
-                  </p>
-                </blockquote>
-              </div>
-              <div className="vacancy-inner__condition">
-                <span className="h1">Дополнительные преимущества:</span>
-                <blockquote>
-                  <p>
-                    Дружный позитивный коллектив и поддержка на всех этапах
-                    работы
-                  </p>
-                  <p>
-                    Яркие корпоративные мероприятия, подарки для сотрудников и
-                    их детей
                   </p>
                 </blockquote>
               </div>
@@ -178,26 +179,20 @@ export default function VacancyManager() {
               </div>
             </div>
             <div className="vacancy-inner__info-text">
+              <br />
               <p>
-                <strong>
-                  Мы стремимся к лидерству и постоянно развиваемся, чтобы
-                  предлагать нашим клиентам лучшие решения. Наши клиенты
-                  доверяют нам, и мы гордимся высоким уровнем возвратности и
-                  лояльности.
-                </strong>
+                Мы стремимся к лидерству и постоянно развиваемся, чтобы
+                предлагать нашим клиентам лучшие решения. Наши клиенты доверяют
+                нам, и мы гордимся высоким уровнем возвратности и лояльности.
               </p>
               <p>
-                <strong>
-                  Мы работаем в динамично развивающемся рынке и понимаем, что
-                  наше дальнейшее масштабирование зависит от создания новых
-                  рабочих мест, так как возможности текущего состава находятся
-                  на пределе возможностей.
-                </strong>
+                Мы работаем в динамично развивающемся рынке и понимаем, что наше
+                дальнейшее масштабирование зависит от создания новых рабочих
+                мест, так как возможности текущего состава находятся на пределе
+                возможностей.
               </p>
               <p>
-                <strong>
-                  Присоединяйтесь к нам и станьте частью нашей успешной команды!
-                </strong>
+                Присоединяйтесь к нам и станьте частью нашей успешной команды!
               </p>
             </div>
           </div>
