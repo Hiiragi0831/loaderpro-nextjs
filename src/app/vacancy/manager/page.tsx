@@ -5,9 +5,7 @@ import { useState } from "react";
 import Articles from "@/components/Articles";
 import { Cta } from "@/components/Cta";
 import { Modal } from "@/components/Modal";
-import IconLogo from "@/icons/logo.svg";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function VacancyManager() {
   const [modalOpen, setModalOpen] = useState(false);
