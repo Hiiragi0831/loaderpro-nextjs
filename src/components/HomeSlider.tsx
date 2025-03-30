@@ -11,6 +11,9 @@ const slides = [
   { id: 4, link: "/about" },
   { id: 5, link: "/battery" },
   { id: 6, link: "/suppliers" },
+  { id: 7, link: "/spare-parts" },
+  { id: 8, link: "/spare-parts" },
+  { id: 9, link: "/spare-parts" },
 ];
 
 const HomeSlider = () => {
