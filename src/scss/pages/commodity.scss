@@ -205,6 +205,8 @@
 	}
 
 	&__hero {
+		margin-top: auto;
+
 		picture {
 			overflow: hidden;
 			border-radius: vc(5);
@@ -344,10 +346,6 @@
 			a {
 				color: $color-tree-poppy-400;
 			}
-		}
-
-		picture {
-			margin-top: auto;
 		}
 	}
 

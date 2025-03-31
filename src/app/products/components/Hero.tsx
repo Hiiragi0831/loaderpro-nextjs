@@ -15,7 +15,7 @@ export default function Hero({ sliders }: Props) {
         modules={[Autoplay]}
         spaceBetween={10}
         loop={true}
-        autoplay={{ delay: 4000 }}
+        autoplay={{ delay: 3000 }}
       >
         {sliders.map((item: any, index: Key | null | undefined) => (
           <SwiperSlide key={index}>
