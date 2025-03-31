@@ -204,6 +204,13 @@
 		}
 	}
 
+	&__hero {
+		picture {
+			overflow: hidden;
+			border-radius: vc(5);
+		}
+	}
+
 	&__specifications {
 		display: flex;
 		flex-direction: column;

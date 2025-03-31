@@ -104,6 +104,9 @@ const Header = () => {
           <div className="container">
             <div className="row">
               <nav>
+                <Link href={"/"} title="Главная">
+                  Главная
+                </Link>
                 <Link href={"/warehouse-equipment"} title="Складская техника">
                   Складская техника
                 </Link>

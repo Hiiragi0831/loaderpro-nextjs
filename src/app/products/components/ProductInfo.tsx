@@ -6,6 +6,7 @@ import Gallery from "@/app/products/components/Gallery";
 import SpecificationModal from "@/app/products/components/SpecificationModal";
 import CountAddTo from "@/app/products/components/CountAddTo";
 import FeatureList from "@/app/products/components/FeatureList";
+import Hero from "@/app/products/components/Hero";
 
 export default async function ProductInfo(params: any) {
   const slugArray = params.id.slug.split("-");
@@ -109,10 +110,14 @@ export default async function ProductInfo(params: any) {
                       </p>
                     </>
                   )}
-                  <picture>
-                    <source srcSet="/images/product/hero.png" />
-                    <img src="/images/product/hero.png" alt="hero" />
-                  </picture>
+                  <Hero
+                    sliders={[
+                      "/images/product/hero-01.jpg",
+                      "/images/product/hero-02.jpg",
+                      "/images/product/hero-03.jpg",
+                      "/images/product/hero-04.jpg",
+                    ]}
+                  />
                 </div>
                 <div
                   className="commodity__basket"
