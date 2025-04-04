@@ -6,13 +6,13 @@ import Link from "next/link";
 
 const slides = [
   { id: 1, link: "/spare-parts" },
-  { id: 2, link: "/tires-rims" },
-  { id: 3, link: "/dealer" },
-  { id: 4, link: "/about" },
-  { id: 5, link: "/battery" },
-  { id: 6, link: "/suppliers" },
-  { id: 7, link: "/spare-parts" },
-  { id: 8, link: "/spare-parts" },
+  { id: 2, link: "/spare-parts" },
+  { id: 3, link: "/spare-parts" },
+  { id: 4, link: "/tires-rims" },
+  { id: 5, link: "/dealer" },
+  { id: 6, link: "/about" },
+  { id: 7, link: "/battery" },
+  { id: 8, link: "/suppliers" },
   { id: 9, link: "/spare-parts" },
 ];
 
