@@ -8,12 +8,12 @@ const slides = [
   { id: 1, link: "/spare-parts" },
   { id: 2, link: "/spare-parts" },
   { id: 3, link: "/spare-parts" },
-  { id: 4, link: "/tires-rims" },
-  { id: 5, link: "/dealer" },
-  { id: 6, link: "/about" },
-  { id: 7, link: "/battery" },
-  { id: 8, link: "/suppliers" },
-  { id: 9, link: "/spare-parts" },
+  { id: 4, link: "/spare-parts" },
+  { id: 5, link: "/tires-rims" },
+  { id: 6, link: "/dealer" },
+  { id: 7, link: "/about" },
+  { id: 8, link: "/battery" },
+  { id: 9, link: "/suppliers" },
 ];
 
 const HomeSlider = () => {
