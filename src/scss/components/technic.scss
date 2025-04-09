@@ -1,0 +1,72 @@
+.technic {
+	.swiper {
+		margin: 0 vc(-9);
+		padding: vc(40) 0 vc(60);
+		width: calc(100% + #{vc(22)});
+
+		@include devices {
+			padding: vc(20) 0 vc(26);
+		}
+	}
+
+	.swiper-pagination {
+		bottom: 0;
+	}
+
+	.swiper-slide {
+		padding: 0 vc(18);
+		height: auto;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		border-radius: vc(30);
+		padding: vc(20);
+		height: 100%;
+		box-shadow: 0 0 20px rgba($color-black, 0.15);
+		background: $color-white;
+
+		picture {
+			width: 100%;
+			height: vc(210);
+
+			img {
+				height: 100%;
+				object-fit: contain;
+			}
+
+			@include devices {
+				height: vc(150);
+			}
+		}
+	}
+
+	&__title {
+		margin: vc(15) 0 vc(10);
+		font-weight: 500;
+		font-size: vc(25);
+		line-height: vc(30);
+		letter-spacing: -0.03em;
+		color: $color-black;
+
+		@include devices {
+			margin: vc(10) 0 vc(7);
+			font-size: vc(20);
+			line-height: 1;
+		}
+	}
+
+	&__description {
+		font-weight: 300;
+		font-size: vc(22);
+		line-height: vc(26);
+		letter-spacing: -0.03em;
+		color: $color-black;
+
+		@include devices {
+			font-size: vc(14);
+			line-height: vc(18);
+		}
+	}
+}

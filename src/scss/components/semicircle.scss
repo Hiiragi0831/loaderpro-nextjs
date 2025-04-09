@@ -1,0 +1,74 @@
+.semicircle {
+	position: relative;
+	color: $color-black;
+
+	&__circle {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 100%;
+		width: vc(86);
+		height: vc(86);
+		box-shadow: 0 0 62px rgba(0, 0, 0, 0.15);
+		background: $color-tree-poppy-400;
+
+		p {
+			font-weight: 500;
+			font-size: vc(40);
+			line-height: vc(48);
+
+			@include devices {
+				font-size: vc(19);
+				line-height: 1;
+			}
+		}
+
+		@include devices {
+			width: vc(42);
+			height: vc(42);
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		border-radius: vc(30);
+		padding: vc(15) vc(15) vc(15) vc(120);
+		background: radial-gradient(circle at vc(40) vc(40), transparent vc(60), $color-white 0%);
+		filter: drop-shadow(0 0 62px rgba(0, 0, 0, 0.15));
+		gap: vc(16);
+
+		@include devices {
+			border-radius: vc(4);
+			padding: vc(10) vc(10) vc(10) vc(58);
+			background: radial-gradient(circle at vc(20) vc(20), transparent vc(30), $color-white 0%);
+			gap: vc(8);
+		}
+	}
+
+	&__title {
+		font-weight: 500;
+		font-size: vc(30);
+		line-height: vc(36);
+
+		@include devices {
+			font-size: vc(16);
+			line-height: 1;
+		}
+	}
+
+	&__text {
+		font-weight: 300;
+		font-size: vc(22);
+		line-height: vc(26);
+
+		@include devices {
+			font-size: vc(12);
+			line-height: 1;
+		}
+	}
+}
