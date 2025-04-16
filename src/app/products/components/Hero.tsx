@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Key } from "react";
 import { Autoplay } from "swiper/modules";
+import Link from "next/link";
 
 type Props = {
   sliders: string[];
@@ -19,10 +20,12 @@ export default function Hero({ sliders }: Props) {
       >
         {sliders.map((item: any, index: Key | null | undefined) => (
           <SwiperSlide key={index}>
-            <picture>
-              <source srcSet={item} />
-              <img src={item} alt="slide" />
-            </picture>
+            <Link href="htpps://my.loaderpro.ru/" target={"_blank"}>
+              <picture>
+                <source srcSet={item} />
+                <img src={item} alt="slide" />
+              </picture>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
