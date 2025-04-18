@@ -18,7 +18,11 @@ export default function SpecificationModal({ options }: { options: any }) {
               key={id}
             >
               <p>{option.name}</p>
-              <span>{option.value}</span>
+              <span>
+                {option.value === "В идентификации"
+                  ? "7-10 дней"
+                  : option.value}
+              </span>
             </div>
           ))}
         </div>
