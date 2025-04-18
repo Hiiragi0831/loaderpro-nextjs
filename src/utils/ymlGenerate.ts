@@ -38,7 +38,7 @@ export default async function ymlGenerate() {
       shop: {
         name: "Запчасти для вилочных погрузчиков",
         company: "ООО «СПЕЦМАШИНА»",
-        url: "http://loaderpro.ru/",
+        url: "https://loaderpro.ru/",
         platform: "Next.js",
         currencies: {
           currency: {
@@ -65,6 +65,6 @@ export default async function ymlGenerate() {
 
   fs.writeFile("./public/yandex-spare.xml", xml, (err) => {
     if (err) throw err;
-    console.log("YML has been saved!", obj);
+    console.log("YML has been saved! yandex-spare.xml", obj);
   });
 }
