@@ -73,7 +73,7 @@ section {
 		margin-top: vc(50);
 
 		@include devices {
-			margin-top: vc(30);
+			margin-top: vc(20);
 		}
 	}
 
@@ -162,8 +162,6 @@ iframe {
 }
 
 .container {
-	position: relative;
-	z-index: 1;
 	margin: 0 auto;
 	width: 100%;
 	max-width: 100%;

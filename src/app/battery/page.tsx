@@ -6,12 +6,12 @@ import { Hero } from "./components/Hero";
 import { Types } from "./components/Types";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Тяговые аккумуляторы для погрузчиков",
-  description:
-    "Купить тяговый аккумулятор для погрузчика вы можете на маркетплейсе СПЕЦМАШИНА. Мы предлагаем тяговые батареи под собственным брендом LOADERPRO TRACTION BATTERY произведенные на лучшем контрактном заводе Китая. В ассортименте батареи для электрических вилочных погрузчиков, электрических тележек, штабелеров, ричтраков и другой складской техники.",
-};
+export const metadata: Metadata = metaGen(
+  "Тяговые аккумуляторы для погрузчиков в Санкт-Петербурге",
+  "Купить тяговый аккумулятор для погрузчика вы можете на маркетплейсе СПЕЦМАШИНА. Мы предлагаем тяговые батареи под собственным брендом LOADERPRO TRACTION BATTERY произведенные на лучшем контрактном заводе Китая. В ассортименте батареи для электрических вилочных погрузчиков, электрических тележек, штабелеров, ричтраков и другой складской техники.",
+);
 
 export default function battery() {
   return (
@@ -77,7 +77,7 @@ export default function battery() {
           </div>
           <picture>
             <source srcSet="/images/battery/akb-type.png" />
-            <img src="/images/battery/akb-type.png" alt="" />
+            <img src="/images/battery/akb-type.png" alt="battery" />
           </picture>
         </div>
       </section>
@@ -89,7 +89,7 @@ export default function battery() {
                 <source srcSet="/images/battery/lead-acid_traction_batteries.png" />
                 <img
                   src="/images/battery/lead-acid_traction_batteries.png"
-                  alt=""
+                  alt="Свинцово-кислотные тяговые аккумуляторы"
                 />
               </picture>
               <p>Свинцово-кислотные тяговые аккумуляторы </p>
@@ -105,7 +105,7 @@ export default function battery() {
                 <source srcSet="/images/battery/lithium-ion_traction_batteries.png" />
                 <img
                   src="/images/battery/lithium-ion_traction_batteries.png"
-                  alt=""
+                  alt="Литий-ионные тяговые аккумуляторы"
                 />
               </picture>
               <p>Литий-ионные тяговые аккумуляторы</p>

@@ -4,12 +4,12 @@ import { Cta } from "@/components/Cta";
 import { Preference } from "@/components/Preference";
 import { Team } from "@/components/Team";
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "О компании СПЕЦМАШИНА",
-  description:
-    "СПЕЦМАШИНА - эксперт в области складской техники. Мы обеспечиваем защиту работоспособности вашей техники и создали собственный бренд LOADERPRO, название которого является собирательным из слов LOADER и PROTECTION, что в переводе означает ЗАЩИТА ПОГРУЗЧИКА. Так и родился наш слоган - ВАША ТЕХНИКА ПОД НАДЕЖНОЙ ЗАЩИТОЙ.",
-};
+export const metadata: Metadata = metaGen(
+  "О компании СПЕЦМАШИНА",
+  "СПЕЦМАШИНА - эксперт в области складской техники. Мы обеспечиваем защиту работоспособности вашей техники и создали собственный бренд LOADERPRO, название которого является собирательным из слов LOADER и PROTECTION, что в переводе означает ЗАЩИТА ПОГРУЗЧИКА. Так и родился наш слоган - ВАША ТЕХНИКА ПОД НАДЕЖНОЙ ЗАЩИТОЙ.",
+);
 
 export default function About() {
   return (
@@ -76,17 +76,10 @@ export default function About() {
               <p>ООО «СПЕЦМАШИНА»</p>
             </div>
             <div className="table__item">
-              <p>Юридический и почтовый адрес</p>
+              <p>Юридический, фактический и почтовый адрес</p>
               <p>
-                196240, г. Санкт-Петербург, ул. Кубинская, д. 75 к. 1 литера А,
-                помещ. 3-Н, ком. 25 (Офис 216)
-              </p>
-            </div>
-            <div className="table__item">
-              <p>Фактический адрес</p>
-              <p>
-                198320, г. Санкт-Петербург, Красное село, ул. Юных Пионеров, д.
-                38Б
+                198320, г. Санкт-Петербург вн. тер. г. Красное Село, ул. Юных
+                Пионеров, д. 38 литера А, этаж 5, офис 519
               </p>
             </div>
             <div className="table__item">
@@ -99,7 +92,7 @@ export default function About() {
             </div>
             <div className="table__item">
               <p>ИНН/КПП</p>
-              <p>7810959038 / 781001001</p>
+              <p>7810959038 / 780701001</p>
             </div>
             <div className="table__item">
               <p>ОГРН</p>

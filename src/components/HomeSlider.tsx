@@ -6,11 +6,14 @@ import Link from "next/link";
 
 const slides = [
   { id: 1, link: "/spare-parts" },
-  { id: 2, link: "/tires-rims" },
-  { id: 3, link: "/dealer" },
-  { id: 4, link: "/about" },
-  { id: 5, link: "/battery" },
-  { id: 6, link: "/suppliers" },
+  { id: 2, link: "/spare-parts" },
+  { id: 3, link: "/spare-parts" },
+  { id: 4, link: "/spare-parts" },
+  { id: 5, link: "/tires-rims" },
+  { id: 6, link: "/dealer" },
+  { id: 7, link: "/about" },
+  { id: 8, link: "/battery" },
+  { id: 9, link: "/suppliers" },
 ];
 
 const HomeSlider = () => {
@@ -31,11 +34,11 @@ const HomeSlider = () => {
                 <Link className="slider__content" href={slide.link}>
                   <picture className="for-desktop">
                     <source srcSet={`/images/slider/${slide.id}.jpeg`} />
-                    <img src={`/images/slider/${slide.id}.jpeg`} alt="" />
+                    <img src={`/images/slider/${slide.id}.jpeg`} alt="slide" />
                   </picture>
                   <picture className="for-devices">
                     <source srcSet={`/images/slider/${slide.id}m.jpeg`} />
-                    <img src={`/images/slider/${slide.id}m.jpeg`} alt="" />
+                    <img src={`/images/slider/${slide.id}m.jpeg`} alt="slide" />
                   </picture>
                 </Link>
               </SwiperSlide>

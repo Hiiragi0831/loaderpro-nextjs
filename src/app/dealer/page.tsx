@@ -7,12 +7,12 @@ import IconPersonDolly from "@/icons/person-dolly.svg";
 import IconRevenue from "@/icons/revenue.svg";
 import IconTools from "@/icons/tools.svg";
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Стань дилером LOADERPRO",
-  description:
-    "Мы создали сервис в котором просто и понятно можно покупать запчасти для складской техники ваших клиентов. Стань нашим партнером и зарабатывай вместе с LOADERPRO.",
-};
+export const metadata: Metadata = metaGen(
+  "Стань дилером LOADERPRO",
+  "Мы создали сервис в котором просто и понятно можно покупать запчасти для складской техники ваших клиентов. Стань нашим партнером и зарабатывай вместе с LOADERPRO.",
+);
 
 export default function Dealer() {
   const steps = [
@@ -36,11 +36,11 @@ export default function Dealer() {
           <div className="dealer__hero">
             <picture className="for-desktop">
               <source srcSet={`/images/slider/3.jpeg`} />
-              <img src={`/images/slider/3.jpeg`} alt="" />
+              <img src={`/images/slider/3.jpeg`} alt="3" />
             </picture>
             <picture className="for-devices">
               <source srcSet={`/images/slider/3m.jpeg`} />
-              <img src={`/images/slider/3m.jpeg`} alt="" />
+              <img src={`/images/slider/3m.jpeg`} alt="3m" />
             </picture>
           </div>
         </div>
@@ -122,7 +122,10 @@ export default function Dealer() {
             <span className="h1">Кто может стать дилером нашей платформы?</span>
             <picture className="for-desktop">
               <source srcSet={`/images/who-arrows.png`} />
-              <img src={`/images/who-arrows.png`} alt="" />
+              <img
+                src={`/images/who-arrows.png`}
+                alt="Кто может стать дилером нашей платформы"
+              />
             </picture>
           </div>
           <div className="row">
@@ -167,7 +170,7 @@ export default function Dealer() {
               <source srcSet={`/images/39cb5a85e98971fa10132bc4929b5b14.jpg`} />
               <img
                 src={`/images/39cb5a85e98971fa10132bc4929b5b14.jpg`}
-                alt=""
+                alt="agents"
               />
             </picture>
           </div>

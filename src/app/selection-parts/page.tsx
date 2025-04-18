@@ -3,12 +3,12 @@ import { FormParts } from "./components/FormParts";
 import { Cta } from "@/components/Cta";
 import Advantages from "@/components/Advantages";
 import Articles from "@/components/Articles";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Подбор запасных частей по каталогам",
-  description:
-    "Наши технические специалисты постоянно расширяют базу каталогов запчастей для различных брендов складской техники, это позволяет нам осуществлять подбор запасных частей с гарантией.",
-};
+export const metadata: Metadata = metaGen(
+  "Подбор запасных частей по каталогам",
+  "Наши технические специалисты постоянно расширяют базу каталогов запчастей для различных брендов складской техники, это позволяет нам осуществлять подбор запасных частей с гарантией.",
+);
 
 export default function RequestParts() {
   return (

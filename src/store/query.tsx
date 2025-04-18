@@ -2,6 +2,7 @@ import CloneDeep from "lodash-es/cloneDeep";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 type Store = {
   query: any[];
@@ -28,7 +29,11 @@ export const useQuery = create<Store>()(
             element.serialnumber === serialnumber,
         );
 
-        toast.success("Товар добавлен в запросы");
+        toast.success(() => (
+          <div className="notification">
+            Товар добавлен в <Link href={"/request-parts"}>запросы</Link>
+          </div>
+        ));
 
         if (product) {
           product.quantity = product.quantity + quantity;

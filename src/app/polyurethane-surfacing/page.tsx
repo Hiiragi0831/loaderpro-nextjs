@@ -4,12 +4,12 @@ import { Cta } from "@/components/Cta";
 import { PolyurethaneCategory } from "@/components/PolyurethaneCategory";
 import { VideoBlock } from "@/components/VideoBlock";
 import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Восстановление полиуретановых колес",
-  description:
-    "Заказать услугу восстановления полиуретановых колес вы можете в компании СПЕЦМАШИНА. Мы более 10 лет успешно восстанавливаем полиуретановые колеса для наших партнеров. В числе наших клиентов крупнейшие складские комплексы и производственные площадки России.",
-};
+export const metadata: Metadata = metaGen(
+  "Восстановление полиуретановых колес в Санкт-Петербурге",
+  "Заказать услугу восстановления полиуретановых колес вы можете в компании СПЕЦМАШИНА. Мы более 10 лет успешно восстанавливаем полиуретановые колеса для наших партнеров. В числе наших клиентов крупнейшие складские комплексы и производственные площадки России.",
+);
 
 export default function PolyurethaneSurfacing() {
   return (
@@ -45,7 +45,7 @@ export default function PolyurethaneSurfacing() {
               </picture>
               <picture>
                 <source srcSet={`/images/polyurethane/naplavka.gif`} />
-                <img src={`/images/polyurethane/naplavka.gif`} alt="" />
+                <img src={`/images/polyurethane/naplavka.gif`} alt="naplavka" />
               </picture>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function PolyurethaneSurfacing() {
         <div className="container">
           <picture>
             <source srcSet={`/images/advantage2.jpg`} />
-            <img src={`/images/advantage2.jpg`} alt="" />
+            <img src={`/images/advantage2.jpg`} alt="advantage" />
           </picture>
         </div>
       </section>
@@ -213,7 +213,10 @@ export default function PolyurethaneSurfacing() {
         <div className="container">
           <picture>
             <source srcSet={`/images/polyurethane/after-before.png`} />
-            <img src={`/images/polyurethane/after-before.png`} alt="" />
+            <img
+              src={`/images/polyurethane/after-before.png`}
+              alt="polyurethane"
+            />
           </picture>
         </div>
       </section>

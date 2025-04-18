@@ -1,0 +1,58 @@
+.feature {
+	display: flex;
+	flex-shrink: 0;
+	border-radius: vc(6);
+	padding: vc(8) vc(10);
+	color: $color-white;
+	gap: vc(6);
+
+	p {
+		font-weight: 500;
+		font-size: vc(14);
+		line-height: 1;
+
+		@include devices {
+			font-size: vc(10);
+		}
+	}
+
+	&__icon {
+		width: vc(14);
+		height: vc(14);
+		fill: $color-white;
+
+		@include devices {
+			width: vc(8);
+			height: vc(8);
+		}
+	}
+
+	&--gray {
+		background-color: #555;
+	}
+
+	&--blue {
+		background-color: #0052cc;
+	}
+
+	&--red {
+		background-color: #ff3b30;
+	}
+
+	&--green {
+		background-color: #1baf5d;
+	}
+
+	&--purple {
+		background-color: #7e57c2;
+	}
+
+	&--yellow {
+		background-color: #ffb74d;
+	}
+
+	@include devices {
+		padding: vc(6);
+		gap: vc(4);
+	}
+}

@@ -10,6 +10,7 @@ import { IsMobile } from "@/utils/IsMobile";
 import { InputPhone } from "@/components/ui/InputPhone";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@/store/query";
+import ym from "react-yandex-metrika";
 
 export const QueryBox = () => {
   const [disabled, setDisabled] = useState(false);
@@ -57,6 +58,7 @@ export const QueryBox = () => {
         route.push(`/success?num=${fdata.num}&page=query`);
         user.reset();
         resetQuery();
+        ym("reachGoal", "sendRequestParts");
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);

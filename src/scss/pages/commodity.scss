@@ -1,33 +1,32 @@
 .commodity {
 	&__head {
+		position: relative;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
+
+		@include desktop {
+			grid-column: span 2 / span 1;
+		}
+
+		@include devices {
+			order: 1;
+			margin-top: vc(20);
+		}
 	}
 
 	&__title {
 		position: relative;
-		margin-bottom: vc(22);
 		width: 100%;
-
-		&::before {
-			content: "";
-			position: absolute;
-			bottom: vc(-10);
-			border-radius: vc(5);
-			width: 100%;
-			height: vc(5);
-			background: $color-woodsmoke-200;
-		}
 	}
 
 	&__availability {
+		position: absolute;
+		left: 0;
+		top: 0;
 		display: flex;
 		align-items: center;
-		font-weight: 400;
-		font-size: vc(18);
-		line-height: 1.2;
 		gap: vc(6);
 
 		span {
@@ -37,6 +36,16 @@
 			width: vc(14);
 			height: vc(14);
 			background: $color-black;
+		}
+
+		p {
+			font-weight: 400;
+			font-size: vc(18);
+			line-height: 1.2;
+
+			@include devices {
+				font-size: vc(14);
+			}
 		}
 
 		&--green {
@@ -56,17 +65,39 @@
 				background: $red-orange-500;
 			}
 		}
+
+		@include devices {
+			position: absolute;
+			left: 0;
+			top: vc(-20);
+		}
 	}
 
 	&__main {
 		position: relative;
 		display: grid;
 		grid-template-columns: vc(656) 1fr;
-		margin-top: vc(40);
 		gap: vc(30);
 
 		@include devices {
 			grid-template-columns: 100%;
+			gap: vc(15);
+		}
+	}
+
+	&__features {
+		position: absolute;
+		left: vc(10);
+		top: vc(10);
+		z-index: 2;
+		display: flex;
+		width: vc(636);
+		gap: vc(10);
+
+		@include devices {
+			flex-wrap: wrap;
+			width: auto;
+			max-width: vc(330);
 		}
 	}
 
@@ -144,11 +175,13 @@
 		}
 
 		@include devices {
+			order: 0;
 			height: vc(372);
 		}
 	}
 
 	&__info {
+		position: relative;
 		display: grid;
 		grid-template-areas:
 			"info price"
@@ -161,11 +194,22 @@
 		}
 
 		@include devices {
+			order: 2;
 			grid-template-areas:
 				"price"
 				"info"
 				"description";
 			grid-template-columns: 100%;
+			gap: vc(15);
+		}
+	}
+
+	&__hero {
+		margin-top: auto;
+
+		picture {
+			overflow: hidden;
+			border-radius: vc(5);
 		}
 	}
 
@@ -222,13 +266,11 @@
 		gap: vc(15);
 
 		@include devices {
-			order: 0;
+			padding: vc(15);
 		}
 	}
 
 	&__price {
-		grid-column: span 2 / span 1;
-
 		span {
 			font-size: vc(16);
 			color: $color-woodsmoke-400;
@@ -238,6 +280,14 @@
 			font-weight: 700;
 			font-size: vc(30);
 			color: $color-tree-poppy-400;
+		}
+
+		a {
+			color: $color-tree-poppy-400;
+		}
+
+		&.two {
+			grid-column: span 2 / span 1;
 		}
 	}
 
@@ -296,10 +346,6 @@
 			a {
 				color: $color-tree-poppy-400;
 			}
-		}
-
-		picture {
-			margin-top: auto;
 		}
 	}
 

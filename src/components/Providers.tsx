@@ -11,7 +11,7 @@ import { lightTheme } from "@/utils/customTheme";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import NextTopLoader from "nextjs-toploader";
-import { Metrika } from "@/utils/metrika";
+import YandexMetrikaContainer from "@/components/YandexMetrikaContainer";
 // import { useSession } from "next-auth/react";
 
 export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -32,7 +32,7 @@ export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
             <Footer />
             <ToastContainer />
             <Suspense>
-              <Metrika />
+              <YandexMetrikaContainer />
             </Suspense>
           </CacheProvider>
         </ThemeProvider>

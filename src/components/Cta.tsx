@@ -8,6 +8,7 @@ import { Button, TextField, ThemeProvider } from "@mui/material";
 import { darkTheme } from "@/utils/customTheme";
 import { InputPhone } from "@/components/ui/InputPhone";
 import { usePathname, useRouter } from "next/navigation";
+import ym from "react-yandex-metrika";
 
 type CtaType = {
   title?: any;
@@ -43,6 +44,7 @@ export const Cta: FC<CtaType> = (data) => {
         toast.success("Заявка успешно отправлена");
         route.push(`/success?num=${fdata.num}&page=call`);
         reset();
+        ym("reachGoal", "CallbackForm");
       }
     } catch (error: any) {
       console.error("Error fetching:", error.message);

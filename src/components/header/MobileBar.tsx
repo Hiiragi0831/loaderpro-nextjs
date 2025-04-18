@@ -1,6 +1,5 @@
 "use client";
 import IconHome from "@/icons/house-l.svg";
-import IconShield from "@/icons/shield.svg";
 import IconBox from "@/icons/box-l.svg";
 import IconRectangle from "@/icons/rectangle-history-circle-plus-l.svg";
 import Link from "next/link";
@@ -32,12 +31,13 @@ export const MobileBar = () => {
         <span>Каталог</span>
       </Link>
       <span className="mobilebar__search" onClick={() => toggleShow(!isShow)}>
-        <div className="front">
-          <IconShield className="logo-icon" />
-        </div>
-        <div className="back">
-          <IconMagnifying className="search-icon" />
-        </div>
+        {/*<div className="front">*/}
+        {/*  <IconShield className="logo-icon" />*/}
+        {/*</div>*/}
+        {/*<div className="back">*/}
+        {/*  <IconMagnifying className="search-icon" />*/}
+        {/*</div>*/}
+        <IconMagnifying className="search-icon" />
       </span>
       <Link
         href={"/request-parts"}

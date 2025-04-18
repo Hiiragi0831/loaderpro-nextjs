@@ -46,7 +46,12 @@ const nextConfig = {
         hostname: "api.cartrac.ru",
       },
     ],
-    domains: ["image.loaderpro.ru", "eme54.ru", "my.loaderpro.ru", "api.cartrac.ru"],
+    domains: [
+      "image.loaderpro.ru",
+      "eme54.ru",
+      "my.loaderpro.ru",
+      "api.cartrac.ru",
+    ],
   },
 };
 

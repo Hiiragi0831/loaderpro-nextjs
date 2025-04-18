@@ -1,23 +1,21 @@
 import Advantages from "@/components/Advantages";
 import Articles from "@/components/Articles";
 import { Reviews } from "@/components/Reviews";
-import dynamic from "next/dynamic";
 import { Cta } from "@/components/Cta";
 import { api } from "@/services/api";
-
-const ProductInfo = dynamic(() => import("../components/ProductInfo"), {
-  ssr: false,
-});
+import ProductInfo from "@/app/products/components/ProductInfo";
+import { metaGen } from "@/utils/metaGen";
 
 export async function generateMetadata({ params }: { params: any }) {
   const slugArray = params.slug.split("-");
   const id = slugArray.pop();
   const post = await api.getProduct(id);
 
-  return {
-    title: `${post.productname} ${post.brand} ${post.article}`,
-    description: `${post.productname} ${post.brand} ${post.article} вы можете купить с доставкой в любую точку России с оплатой по безналичному расчету с НДС 20% или по карте.`,
-  };
+  return metaGen(
+    `${post.productname} ${post.brand} ${post.article}`,
+    `${post.productname} ${post.brand} ${post.article} вы можете купить с доставкой в любую точку России с оплатой по безналичному расчету с НДС 20% или по карте.`,
+    `${post.image[0] ? post.image[0] : ""}`,
+  );
 }
 
 const Page = ({ params }: { params: any }) => {

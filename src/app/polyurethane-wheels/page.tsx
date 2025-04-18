@@ -6,12 +6,12 @@ import { PolyurethaneCategory } from "@/components/PolyurethaneCategory";
 import Link from "next/link";
 import type { Metadata } from "next";
 import IconLogo from "@/icons/logo.svg";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Полиуретановые колеса",
-  description:
-    "Купить полиуретановые колеса для ричтраков, штабелеров, электрических тележек и другой складской техники вы можете на маркетплейсе СПЕЦМАШИНА. В ассортименте как бюджетные варианты, так и премиум бренды Rader Vogel, FKK и Stellana.",
-};
+export const metadata: Metadata = metaGen(
+  "Большегрузные полиуретановые колеса в Санкт-Петербурге",
+  "Купить полиуретановые колеса для ричтраков, штабелеров, электрических тележек и другой складской техники вы можете на маркетплейсе СПЕЦМАШИНА. В ассортименте как бюджетные варианты, так и премиум бренды Rader Vogel, FKK и Stellana.",
+);
 
 export default function polyurethaneWheels() {
   const assortment = [
@@ -38,17 +38,17 @@ export default function polyurethaneWheels() {
               </p>
               <picture className="for-desktop">
                 <source srcSet={`/images/polyurethane/logos.png`} />
-                <img src={`/images/polyurethane/logos.png`} alt="" />
+                <img src={`/images/polyurethane/logos.png`} alt="logos" />
               </picture>
               <picture className="for-devices">
                 <source srcSet={`/images/polyurethane/logos-m.png`} />
-                <img src={`/images/polyurethane/logos-m.png`} alt="" />
+                <img src={`/images/polyurethane/logos-m.png`} alt="logos-m" />
               </picture>
             </div>
             <div className="polyurethane__hero-img">
               <picture>
                 <source srcSet={`/images/polyurethane/wheels-1.png`} />
-                <img src={`/images/polyurethane/wheels-1.png`} alt="" />
+                <img src={`/images/polyurethane/wheels-1.png`} alt="wheels" />
               </picture>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function polyurethaneWheels() {
         <div className="container">
           <picture>
             <source srcSet={`/images/polyurethane/01.png`} />
-            <img src={`/images/polyurethane/01.png`} alt="" />
+            <img src={`/images/polyurethane/01.png`} alt="polyurethane" />
           </picture>
         </div>
       </section>
@@ -75,7 +75,7 @@ export default function polyurethaneWheels() {
                   />
                   <img
                     src={`/images/polyurethane/assortment-0${key + 1}.png`}
-                    alt=""
+                    alt="assortment"
                   />
                 </picture>
                 <p>{cat}</p>

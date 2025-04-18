@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import Advantages from "@/components/Advantages";
 import { Cta } from "@/components/Cta";
 import Articles from "@/components/Articles";
+import { metaGen } from "@/utils/metaGen";
 
-export const metadata: Metadata = {
-  title: "Запрос запчастей по номерам",
-  description:
-    "Вы можете создать запрос на запчасти для погрузчика и мы отправим вам коммерческое предложение.",
-};
+export const metadata: Metadata = metaGen(
+  "Запрос запчастей по номерам",
+  "Вы можете создать запрос на запчасти для погрузчика и мы отправим вам коммерческое предложение.",
+);
 
 export default function SelectionParts() {
   return (

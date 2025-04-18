@@ -16,7 +16,7 @@ export const VacancyItem = () => {
               <div className="vacancy-item__head">
                 <div className="vacancy-item__title">
                   <span className="h1">Менеджер по продажам</span>
-                  <p>от 90 000 до 200 000 ₽ на руки</p>
+                  <p>от 70 000 до 150 000 ₽ на руки</p>
                 </div>
                 <div className="vacancy-item__logo">
                   <IconLogo />
@@ -25,7 +25,7 @@ export const VacancyItem = () => {
               <div className="vacancy-item__body">
                 <div className="vacancy__info">
                   <p>Требуемый опыт работы: не требуется</p>
-                  <p>Полная занятость, удаленная работа</p>
+                  <p>Полная занятость, в офисе</p>
                 </div>
                 <div className="vacancy__buttons">
                   <Link
@@ -82,7 +82,7 @@ export const VacancyItem = () => {
           <div className="vacancy-modal__image">
             <picture>
               <source srcSet="/images/vacancy/hr.jpg" />
-              <img src="/images/vacancy/hr.jpg" alt="" />
+              <img src="/images/vacancy/hr.jpg" alt="hr" />
             </picture>
           </div>
         </div>

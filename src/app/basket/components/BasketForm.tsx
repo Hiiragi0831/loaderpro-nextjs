@@ -15,6 +15,7 @@ import {
   Select,
   TextField,
 } from "@mui/material";
+import ym from "react-yandex-metrika";
 
 export const BasketForm = () => {
   const [delivery, setDelivery] = useState(false);
@@ -60,6 +61,7 @@ export const BasketForm = () => {
       if (fdata.status === 200) {
         route.push(`/success?num=${fdata.num}&page=basket`);
         toast.success("Заказ успешно создан");
+        ym("reachGoal", "basketSend");
         cleanBasket();
         reset();
       }
