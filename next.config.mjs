@@ -32,6 +32,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "image.loaderpro.ru",
+        pathname: "**",
       },
       {
         protocol: "https",
