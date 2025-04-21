@@ -21,7 +21,7 @@ const Products: FC<Props> = ({ filter, limit, title, link }) => {
   const [isLoading, setIsLoading] = useState(true);
   let filteredProducts: any[];
 
-  const loadProducts = async () => {
+  const loadSpecial = async () => {
     try {
       const data = await api.getAllProducts(
         `${process.env.NEXT_PUBLIC_API_HOST}/catalog/special_offers`,
@@ -61,7 +61,7 @@ const Products: FC<Props> = ({ filter, limit, title, link }) => {
       break;
   }
 
-  useLayoutEffect(() => void loadProducts(), []);
+  useLayoutEffect(() => void loadSpecial(), []);
   useLayoutEffect(() => void loadSpareParts(), []);
 
   return (
