@@ -23,7 +23,9 @@ const Products: FC<Props> = ({ filter, limit, title, link }) => {
 
   const loadProducts = async () => {
     try {
-      const data = await api.getAllProducts();
+      const data = await api.getAllProducts(
+        `${process.env.NEXT_PUBLIC_API_HOST}/catalog/special_offers`,
+      );
       setData(data);
       setIsLoading(false);
     } catch (error: any) {
