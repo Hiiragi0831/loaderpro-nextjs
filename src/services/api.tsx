@@ -21,7 +21,7 @@ class APIService {
   public async getAllProducts(url?: string): Promise<Product[]> {
     try {
       const res = await fetch(
-        url ? url : `${process.env.NEXT_PUBLIC_API_HOST}/catalog/`,
+        url ? url : `${process.env.NEXT_PUBLIC_API_HOST}/catalog/all/`,
       );
       return res.json();
     } catch (error: any) {

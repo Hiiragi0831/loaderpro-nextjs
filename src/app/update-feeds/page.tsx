@@ -8,6 +8,13 @@ export const metadata: Metadata = metaGen(
 );
 
 export default function Home() {
-  ymlGenerate();
-  return <main />;
+  return (
+    <main>
+      <section>
+        <div className="container">
+          <p className="h2">{ymlGenerate()}</p>
+        </div>
+      </section>
+    </main>
+  );
 }
