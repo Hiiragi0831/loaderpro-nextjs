@@ -18,6 +18,8 @@ export async function generateMetadata({ params }: { params: any }) {
   );
 }
 
+export const revalidate = 3600;
+
 const Page = ({ params }: { params: any }) => {
   return (
     <main>
