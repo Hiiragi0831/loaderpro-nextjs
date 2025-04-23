@@ -10,11 +10,13 @@ export default function CountAddTo({
   article,
   count,
   brand,
+  price,
 }: {
   id: number;
   article: string;
   count: any;
   brand: string;
+  price: number;
 }) {
   const [quantity, setQuantity] = useState(1);
 
@@ -35,7 +37,7 @@ export default function CountAddTo({
 
   return (
     <>
-      <div className="commodity__count">
+      <div className="commodity__count" data-count={count}>
         <button className="commodity__count-minus" onClick={() => decrement()}>
           -
         </button>
@@ -49,7 +51,7 @@ export default function CountAddTo({
           +
         </button>
       </div>
-      {count === 0 ? (
+      {price === 0 ? (
         <>
           <button
             className="button button__primary"

@@ -159,7 +159,7 @@ const Product: FC<Props> = (data) => {
         </div>
       </div>
       <div className="product__buttons">
-        {data.count === 0 ? (
+        {data.price === 0 ? (
           <>
             <button
               className="button button__primary"
