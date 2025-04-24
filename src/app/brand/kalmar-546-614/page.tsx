@@ -1,24 +1,20 @@
 import dynamic from "next/dynamic";
 import { api } from "@/services/api";
 import { metaGen } from "@/utils/metaGen";
+import type { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: any }) {
-  const slugArray = params.slug.split("-");
-  const id = slugArray.pop();
-  const brand = await api.getPageBrand(id);
-
-  return metaGen(brand.title, brand.description);
-}
+export const metadata: Metadata = metaGen(
+  "Стань дилером LOADERPRO",
+  "Мы создали сервис в котором просто и понятно можно покупать запчасти для складской техники ваших клиентов. Стань нашим партнером и зарабатывай вместе с LOADERPRO.",
+);
 
 const CatalogProducts = dynamic(() => import("@/components/CatalogProducts"), {
   ssr: false,
 });
 
-export default async function SpareParts({ params }: { params: any }) {
-  const slugArray = params.slug.split("-");
-  const id = slugArray.pop();
+export default async function SpareParts() {
+  const id = "614";
   const brand = await api.getPageBrand(id);
-  console.log(params);
 
   return (
     <main>
@@ -32,14 +28,6 @@ export default async function SpareParts({ params }: { params: any }) {
               <CatalogProducts url={id} brand={true} />
             </div>
           </div>
-          {brand.content ? (
-            <div
-              dangerouslySetInnerHTML={{ __html: brand.content }}
-              className={"catalog__info"}
-            />
-          ) : (
-            ""
-          )}
         </div>
       </section>
     </main>

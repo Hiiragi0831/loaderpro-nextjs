@@ -1,11 +1,15 @@
-import CloneDeep from "lodash-es/cloneDeep";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { toast } from "react-toastify";
 import Link from "next/link";
 
+type BasketItem = {
+  id: number;
+  quantity: number;
+};
+
 type Store = {
-  basket: any;
+  basket: BasketItem[];
   order: string;
   reset: () => void;
   addToBasket: (id: number, count: number) => void;
@@ -24,64 +28,67 @@ export const useBasket = create<Store>()(
         set({ basket: [] });
       },
       addToBasket: (id, count) => {
-        console.log(id, count);
-        const products = CloneDeep(get().basket);
-        const product = products.find(
-          (element: { id: number }) => element.id === id,
-        );
-
-        toast.success(() => (
-          <div className="notification">
-            Товар добавлен в <Link href={"/basket"}>корзину</Link>
-          </div>
-        ));
+        const products = [...get().basket];
+        const product = products.find((element) => element.id === id);
 
         if (product) {
-          product.quantity = product.quantity + count;
+          product.quantity += count;
           set({ basket: products });
-          return;
+        } else {
+          set({ basket: [...products, { id, quantity: count }] });
+          toast.success(() => (
+            <div className="notification">
+              Товар добавлен в <Link href={"/basket"}>корзину</Link>
+            </div>
+          ));
         }
-
-        set({ basket: [...products, { id: id, quantity: count }] });
       },
       increment: (id) => {
-        const products = CloneDeep(get().basket);
-        const product = products.find(
-          (element: { id: number }) => element.id === id,
-        );
-        product.quantity = product.quantity + 1;
+        const products = [...get().basket];
+        const product = products.find((element) => element.id === id);
+        if (!product) return;
+
+        product.quantity += 1;
         set({ basket: products });
       },
       decrement: (id) => {
-        const products = CloneDeep(get().basket);
-        const product = products.find(
-          (element: { id: number }) => element.id === id,
-        );
-        product.quantity = product.quantity - 1;
+        const products = [...get().basket];
+        const product = products.find((element) => element.id === id);
+        if (!product) return;
 
+        product.quantity -= 1;
         if (product.quantity <= 0) {
-          products.splice(product, 1);
+          const index = products.findIndex((element) => element.id === id);
+          if (index !== -1) {
+            products.splice(index, 1);
+          }
         }
         set({ basket: products });
       },
       deleteProduct: (id) => {
-        const products = CloneDeep(get().basket);
-        const product = products.find(
-          (element: { id: number }) => element.id === id,
-        );
-        products.splice(product, 1);
-        toast.success(`Товар удален из корзины`);
-        set({ basket: products });
+        const products = [...get().basket];
+        const index = products.findIndex((element) => element.id === id);
+        if (index !== -1) {
+          products.splice(index, 1);
+          toast.success(`Товар удален из корзины`);
+          set({ basket: products });
+        }
       },
       countChange: (id, count) => {
-        const products = CloneDeep(get().basket);
-        const product = products.find(
-          (element: { id: number }) => element.id === id,
-        );
+        const products = [...get().basket];
+        const product = products.find((element) => element.id === id);
+        if (!product) return;
+
         product.quantity = count;
         set({ basket: products });
       },
     }),
-    { name: "basket" },
+    {
+      name: "basket",
+      version: 1,
+      migrate: (persistedState) => {
+        return persistedState;
+      },
+    },
   ),
 );

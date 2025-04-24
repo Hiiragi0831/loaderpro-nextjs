@@ -37,14 +37,17 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "eme54.ru",
+        pathname: "**",
       },
       {
         protocol: "https",
         hostname: "my.loaderpro.ru",
+        pathname: "**",
       },
       {
         protocol: "https",
         hostname: "api.cartrac.ru",
+        pathname: "**",
       },
     ],
     domains: [

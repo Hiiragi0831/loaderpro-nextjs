@@ -37,7 +37,7 @@ export default function CatalogProducts({
   };
 
   const loadProducts = async (page?: number) => {
-    const count = page ? page : 1;
+    const count = page || 1;
     const href = brand
       ? api.getPageBrand(`${link}/?page=${count}`)
       : api.getAllProductsLink(`${link}/?page=${count}`);
@@ -45,38 +45,44 @@ export default function CatalogProducts({
       const res = await href;
       setCountPage(res.total);
       setData(res.results);
-      setIsLoading(false);
       setPage(count);
-    } catch (error) {
-      // @ts-expect-error @ts-ignore
-      console.error("Error fetching:", error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Error fetching:", error.message);
+      } else {
+        console.error("Unexpected error:", error);
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  useLayoutEffect(() => void loadProducts(numPage), []);
+  useLayoutEffect(() => {
+    const fetchData = async () => {
+      await loadProducts(numPage);
+    };
+    fetchData();
+  }, [numPage]);
+
   return (
     <>
       <div className="catalog__products-row">
-        {isLoading ? (
-          <>
-            <Skeleton height={440} variant={"rounded"}></Skeleton>
-            <Skeleton height={440} variant={"rounded"}></Skeleton>
-            <Skeleton height={440} variant={"rounded"}></Skeleton>
-            <Skeleton height={440} variant={"rounded"}></Skeleton>
-            <Skeleton height={440} variant={"rounded"}></Skeleton>
-          </>
-        ) : (
-          data.map((post) => <Product key={post.id} {...post} />)
-        )}
+        {isLoading
+          ? Array.from({ length: 5 }).map((_, index) => (
+              <Skeleton key={index} height={440} variant="rounded" />
+            ))
+          : data.map((post) => <Product key={post.id} {...post} />)}
       </div>
-      <Pagination
-        count={countPage}
-        color="primary"
-        page={page}
-        onChange={handleChange}
-        siblingCount={IsMobile() ? 1 : 2}
-        boundaryCount={IsMobile() ? 1 : 3}
-      />
+      {countPage > 0 && (
+        <Pagination
+          count={countPage}
+          color="primary"
+          page={page}
+          onChange={handleChange}
+          siblingCount={IsMobile() ? 1 : 2}
+          boundaryCount={IsMobile() ? 1 : 3}
+        />
+      )}
     </>
   );
 }
