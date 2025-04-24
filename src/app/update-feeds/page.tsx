@@ -7,6 +7,8 @@ export const metadata: Metadata = metaGen(
   "Предлагаем купить запчасти для вилочных погрузчиков и складской техники от лучших мировых производителей и поставщиков в Санкт-Петербурге с доставкой по всей России у компании СПЕЦМАШИНА",
 );
 
+export const revalidate = 3600;
+
 export default function Home() {
   return (
     <main>
