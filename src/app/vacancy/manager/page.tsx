@@ -94,6 +94,7 @@ export default function VacancyManager() {
                   </strong>
                 </p>
               </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={"/images/vacancy/v-01.jpg"} alt={"company"} />
             </div>
             <div className="vacancy-inner__conditions">

@@ -1,7 +1,7 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { api } from "@/services/api";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState, useCallback } from "react";
 import { Product as ProductType } from "@/common/types/Product";
 import Product from "@/components/Product";
 import { IsMobile } from "@/utils/IsMobile";
@@ -17,18 +17,21 @@ const Content = () => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const loadSearch = async (params?: any) => {
-    const param = params ? params : `?${searchParams}`;
-    try {
-      const fdata = await api.getSearchResult(param);
-      setSearchData(fdata.results || []);
-      setCountPage(fdata.total);
-    } catch (error: any) {
-      setSearchData([]);
-      console.error("Error fetching:", error.message);
-      throw error;
-    }
-  };
+  const loadSearch = useCallback(
+    async (params?: any) => {
+      const param = params ? params : `?${searchParams}`;
+      try {
+        const fdata = await api.getSearchResult(param);
+        setSearchData(fdata.results || []);
+        setCountPage(fdata.total);
+      } catch (error: any) {
+        setSearchData([]);
+        console.error("Error fetching:", error.message);
+        throw error;
+      }
+    },
+    [searchParams],
+  );
 
   const handleChange = (event: ChangeEvent<unknown>, value: number) => {
     params.set("page", String(value));
@@ -38,7 +41,9 @@ const Content = () => {
     loadSearch(`?${params.toString()}`);
   };
 
-  useEffect(() => void loadSearch(), [searchParams]);
+  useEffect(() => {
+    void loadSearch();
+  }, [searchParams, loadSearch]);
 
   return (
     <section className={"catalog__section"}>

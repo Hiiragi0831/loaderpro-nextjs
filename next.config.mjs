@@ -6,6 +6,10 @@ const nextConfig = {
       rule.test?.test?.(".svg"),
     );
 
+    if (!fileLoaderRule) {
+      throw new Error("SVG loader rule not found in Webpack configuration.");
+    }
+
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
       {
@@ -17,7 +21,7 @@ const nextConfig = {
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
+        resourceQuery: { not: [...(fileLoaderRule.resourceQuery?.not || []), /url/] }, // exclude if *.svg?url
         use: ["@svgr/webpack"],
       },
     );
@@ -28,6 +32,7 @@ const nextConfig = {
     return config;
   },
   experimental: {
+    // Используйте turbo только если это необходимо
     turbo: {
       rules: {
         "*.svg": {
@@ -42,29 +47,23 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "image.loaderpro.ru",
-        pathname: "**",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "eme54.ru",
-        pathname: "**",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "my.loaderpro.ru",
-        pathname: "**",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "api.cartrac.ru",
-        pathname: "**",
+        pathname: "/**",
       },
-    ],
-    domains: [
-      "image.loaderpro.ru",
-      "eme54.ru",
-      "my.loaderpro.ru",
-      "api.cartrac.ru",
     ],
   },
 };

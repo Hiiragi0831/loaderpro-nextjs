@@ -1,7 +1,7 @@
 "use client";
 
 import Product from "@/components/Product";
-import { ChangeEvent, useLayoutEffect, useState } from "react";
+import { ChangeEvent, useLayoutEffect, useState, useCallback } from "react";
 import { Product as ProductType } from "@/common/types/Product";
 import { api } from "@/services/api";
 import { Skeleton } from "@mui/material";
@@ -29,6 +29,30 @@ const CatalogProductsContent = ({
   const params = new URLSearchParams(searchParams);
   const numPage = Number(params.get("page"));
 
+  const loadProducts = useCallback(
+    async (page?: number) => {
+      const count = page || 1;
+      const href = brand
+        ? api.getPageBrand(`${link}/?page=${count}`)
+        : api.getAllProductsLink(`${link}/?page=${count}`);
+      try {
+        const res = await href;
+        setCountPage(res.total);
+        setData(res.results);
+        setPage(count);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.error("Error fetching:", error.message);
+        } else {
+          console.error("Unexpected error:", error);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [brand, link],
+  );
+
   const handleChange = (event: ChangeEvent<unknown>, value: number) => {
     params.set("page", String(value));
     setPage(value);
@@ -37,33 +61,9 @@ const CatalogProductsContent = ({
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const loadProducts = async (page?: number) => {
-    const count = page || 1;
-    const href = brand
-      ? api.getPageBrand(`${link}/?page=${count}`)
-      : api.getAllProductsLink(`${link}/?page=${count}`);
-    try {
-      const res = await href;
-      setCountPage(res.total);
-      setData(res.results);
-      setPage(count);
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        console.error("Error fetching:", error.message);
-      } else {
-        console.error("Unexpected error:", error);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useLayoutEffect(() => {
-    const fetchData = async () => {
-      await loadProducts(numPage);
-    };
-    fetchData();
-  }, [numPage]);
+    loadProducts(numPage);
+  }, [numPage, loadProducts]);
 
   return (
     <>

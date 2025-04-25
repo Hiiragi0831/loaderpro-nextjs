@@ -60,14 +60,19 @@ export default async function ProductInfo(params: any) {
               </div>
               <div className="commodity__gallery">
                 <div className="commodity__features">
-                  <FeatureList data={data} />
+                  <FeatureList brand={data.brand} />
                 </div>
-                <img
-                  src={data.image.length ? data.image[0] : ""}
-                  itemProp="image"
-                  className={"is-hidden"}
-                  alt="gallery"
-                />
+                {data.image.length ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={data.image[0]}
+                    itemProp="image"
+                    className={"is-hidden"}
+                    alt="gallery"
+                  />
+                ) : (
+                  ""
+                )}
                 <Gallery images={data.image} />
               </div>
               <div className="commodity__info">

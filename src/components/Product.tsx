@@ -60,8 +60,7 @@ const Product: FC<Props> = (data) => {
       case "HYSTER (001)":
       case "YALE (003)":
       case "BT (268)":
-        component.push("OEM");
-        component.push("Распродажа");
+        component.push("OEM", "Распродажа");
         break;
       case "KALMAR (546)":
       case "MERLO (A24)":

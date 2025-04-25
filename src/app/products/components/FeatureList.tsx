@@ -1,21 +1,19 @@
 import Feature from "@/components/Feature";
-import { SingleProduct } from "@/common/types/Product";
 
-const FeatureList = ({ data }: { data: SingleProduct }) => {
+const FeatureList = ({ brand }: { brand: string }) => {
   const component: any = [];
 
   component.push("Возврат НДС");
   component.push("Гарантия");
 
-  switch (data.brand) {
+  switch (brand) {
     case "JUNGHEINRICH (269)":
     case "LINDE (400)":
     case "STILL (255)":
     case "HYSTER (001)":
     case "YALE (003)":
     case "BT (268)":
-      component.push("OEM");
-      component.push("Распродажа");
+      component.push("OEM", "Распродажа");
       break;
     case "KALMAR (546)":
     case "MERLO (A24)":

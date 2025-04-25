@@ -1,8 +1,8 @@
 "use client";
 
-import { useLayoutEffect, useMemo, useState } from "react";
-
+import { useLayoutEffect, useMemo, useState, useCallback } from "react";
 import { api } from "@/services/api";
+
 type Props = {
   id: string;
   thumbnail_url: string;
@@ -24,7 +24,7 @@ export const useVideoLocal = (id: string) => {
     return {};
   }, [data]);
 
-  const loadVideos = async () => {
+  const loadVideos = useCallback(async () => {
     try {
       const data = await api.getLocalVideos();
       setData(
@@ -34,7 +34,11 @@ export const useVideoLocal = (id: string) => {
     } catch (error: any) {
       console.error("Error fetching:", error.message);
     }
-  };
-  useLayoutEffect(() => void loadVideos(), []);
+  }, [id]);
+
+  useLayoutEffect(() => {
+    void loadVideos();
+  }, [loadVideos]);
+
   return { isLoading, video };
 };

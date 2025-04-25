@@ -19,8 +19,6 @@ export async function generateMetadata(props: { params: Promise<any> }) {
   );
 }
 
-export const revalidate = 3600;
-
 const Page = async (props: { params: Promise<any> }) => {
   const params = await props.params;
   return (

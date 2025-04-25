@@ -1,8 +1,8 @@
 "use client";
 
-import { useLayoutEffect, useMemo, useState } from "react";
-
+import { useLayoutEffect, useMemo, useState, useCallback } from "react";
 import { api } from "@/services/api";
+
 type Props = {
   items: any;
 };
@@ -22,7 +22,7 @@ export const useVideo = (id: string) => {
     return {};
   }, [data]);
 
-  const loadVideos = async () => {
+  const loadVideos = useCallback(async () => {
     try {
       const data = await api.getYoutubeVideo(id);
       setData(data);
@@ -30,7 +30,11 @@ export const useVideo = (id: string) => {
     } catch (error: any) {
       console.error("Error fetching:", error.message);
     }
-  };
-  useLayoutEffect(() => void loadVideos(), []);
+  }, [id]);
+
+  useLayoutEffect(() => {
+    void loadVideos();
+  }, [loadVideos]);
+
   return { isLoading, video };
 };
