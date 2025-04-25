@@ -1,0 +1,81 @@
+.brand {
+	&__header {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: vc(136);
+
+		picture {
+			overflow: hidden;
+			border-radius: vc(10);
+			height: 100%;
+
+			img {
+				height: 100%;
+			}
+		}
+
+		@include devices {
+			grid-template-columns: 100%;
+			gap: vc(20);
+		}
+	}
+
+	.text {
+		display: flex;
+		flex-direction: column;
+		gap: vc(20);
+	}
+
+	.row {
+		display: grid;
+		gap: vc(30);
+
+		&--3 {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+}
+
+.brand-box {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin-top: vc(40);
+	border-radius: vc(10);
+	padding: vc(20);
+	box-shadow: $box-shadow;
+	background: $color-white;
+	gap: vc(20);
+	transition: $transition;
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		outline: vc(8) solid rgba($color-tree-poppy-400, 0.3);
+		border-radius: 100%;
+		width: vc(48);
+		height: vc(48);
+		background: $color-tree-poppy-400;
+
+		svg {
+			width: vc(24);
+			height: vc(24);
+			fill: $color-white;
+		}
+	}
+
+	&__title {
+		font-weight: 400;
+		font-size: vc(26);
+		line-height: 1;
+
+		@include devices {
+			font-size: vc(18);
+		}
+	}
+
+	@include hover {
+		background: $color-woodsmoke-50;
+	}
+}
