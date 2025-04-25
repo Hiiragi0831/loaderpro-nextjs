@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { FC } from "react";
 
@@ -8,7 +8,8 @@ interface Props {
 }
 
 export const ProfileButton: FC<Props> = ({ className, onClickSignIn }) => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
+  const session = false;
 
   return (
     <div className={className}>

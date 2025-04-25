@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-const Content = () => {
+const SearchParamsContent = () => {
   const searchParams = useSearchParams();
   const sNum = searchParams.get("num");
   const sPage = searchParams.get("page");
@@ -27,7 +28,6 @@ const Content = () => {
       text: "Мы вам перезвоним в ближайшее время.",
     },
   ];
-
   const data = page.find((page) => page.name === sPage);
 
   return (
@@ -41,6 +41,14 @@ const Content = () => {
         На главную
       </Link>
     </div>
+  );
+};
+
+const Content = () => {
+  return (
+    <Suspense fallback={<div>Загрузка...</div>}>
+      <SearchParamsContent />
+    </Suspense>
   );
 };
 

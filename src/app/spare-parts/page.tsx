@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { metaGen } from "@/utils/metaGen";
+import CatalogProducts from "@/components/CatalogProducts";
 
 export const metadata: Metadata = metaGen(
   "Оригинальные и OEM запчасти для погрузчиков в ассортименте: каталог компании «СПЕЦМАШИНА»",
   "Широкий выбор оригинальных и OEM запчастей. Купить в Санкт-Петербурге или заказать доставку в другой город. Запчасти от производителя",
 );
-
-const CatalogProducts = dynamic(() => import("@/components/CatalogProducts"), {
-  ssr: false,
-});
-
 export default function SpareParts() {
   return (
     <main>

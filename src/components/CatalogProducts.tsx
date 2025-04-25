@@ -9,14 +9,15 @@ import Pagination from "@mui/material/Pagination";
 import { IsMobile } from "@/utils/IsMobile";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { scrollToTop } from "@/utils/scrollToTop";
+import { Suspense } from "react";
 
-export default function CatalogProducts({
+const CatalogProductsContent = ({
   url,
   brand,
 }: {
   url?: string;
   brand?: boolean;
-}) {
+}) => {
   const [data, setData] = useState<ProductType[]>([]);
   const [countPage, setCountPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -84,5 +85,19 @@ export default function CatalogProducts({
         />
       )}
     </>
+  );
+};
+
+export default function CatalogProducts({
+  url,
+  brand,
+}: {
+  url?: string;
+  brand?: boolean;
+}) {
+  return (
+    <Suspense fallback={<div>Загрузка...</div>}>
+      <CatalogProductsContent url={url} brand={brand} />
+    </Suspense>
   );
 }

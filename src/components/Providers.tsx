@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Suspense } from "react";
-import { SessionProvider } from "next-auth/react";
+// import { SessionProvider } from "next-auth/react";
 import Header from "@/components/header/Header";
 import { MobileBar } from "@/components/header/MobileBar";
 import Footer from "@/components/Footer";
@@ -22,21 +22,19 @@ export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
   });
   return (
     <>
-      <SessionProvider>
-        <ThemeProvider theme={lightTheme}>
-          <CacheProvider value={cache}>
-            <NextTopLoader color="#f8991d" />
-            <Header />
-            {children}
-            <MobileBar />
-            <Footer />
-            <ToastContainer />
-            <Suspense>
-              <YandexMetrikaContainer />
-            </Suspense>
-          </CacheProvider>
-        </ThemeProvider>
-      </SessionProvider>
+      <ThemeProvider theme={lightTheme}>
+        <CacheProvider value={cache}>
+          <NextTopLoader color="#f8991d" />
+          <Header />
+          {children}
+          <MobileBar />
+          <Footer />
+          <ToastContainer />
+          <Suspense>
+            <YandexMetrikaContainer />
+          </Suspense>
+        </CacheProvider>
+      </ThemeProvider>
     </>
   );
 };

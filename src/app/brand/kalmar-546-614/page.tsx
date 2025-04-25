@@ -1,16 +1,12 @@
-import dynamic from "next/dynamic";
 import { api } from "@/services/api";
 import { metaGen } from "@/utils/metaGen";
 import type { Metadata } from "next";
+import CatalogProducts from "@/components/CatalogProducts";
 
 export const metadata: Metadata = metaGen(
   "Стань дилером LOADERPRO",
   "Мы создали сервис в котором просто и понятно можно покупать запчасти для складской техники ваших клиентов. Стань нашим партнером и зарабатывай вместе с LOADERPRO.",
 );
-
-const CatalogProducts = dynamic(() => import("@/components/CatalogProducts"), {
-  ssr: false,
-});
 
 export default async function SpareParts() {
   const id = "614";

@@ -21,7 +21,9 @@ export const BasketPage = ({ data }: { data: ProductsType[] }) => {
       const product = products.find(
         (element: { id: number }) => element.id === item.id,
       );
-      sum += item.price * product.quantity;
+      if (product) {
+        sum += item.price * product.quantity;
+      }
     });
     return Number(sum);
   };

@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { metaGen } from "@/utils/metaGen";
+import CatalogProducts from "@/components/CatalogProducts";
 
 export const metadata: Metadata = metaGen(
   "Купить складскую технику для укомплектования склада в Санкт-Петербурге",
   "Широкий ассортимент складской техники и оборудования в компании “СПЕЦМАШИНА”. Купить качественную технику от производителя с доставкой во все города РФ",
 );
-
-const CatalogProducts = dynamic(() => import("@/components/CatalogProducts"), {
-  ssr: false,
-});
 
 export default function WarehouseEquipment() {
   return (

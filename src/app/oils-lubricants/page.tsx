@@ -3,17 +3,13 @@ import Articles from "@/components/Articles";
 import { Cta } from "@/components/Cta";
 import { VideoBlock } from "@/components/VideoBlock";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { metaGen } from "@/utils/metaGen";
+import Products from "@/components/Products";
 
 export const metadata: Metadata = metaGen(
   "Смазочные материалы NEO",
   "Являясь официальным представителем завода премиальных смазочных материалов NEO мы предлагаем своим клиентам проверенные масла, готовые выдерживать самые суровые условия эксплуатации.",
 );
-
-const Products = dynamic(() => import("@/components/Products"), {
-  ssr: false,
-});
 
 export default function OilsLubricants() {
   return (

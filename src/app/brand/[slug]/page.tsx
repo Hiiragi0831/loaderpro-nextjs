@@ -1,8 +1,9 @@
-import dynamic from "next/dynamic";
 import { api } from "@/services/api";
 import { metaGen } from "@/utils/metaGen";
+import CatalogProducts from "@/components/CatalogProducts";
 
-export async function generateMetadata({ params }: { params: any }) {
+export async function generateMetadata(props: { params: Promise<any> }) {
+  const params = await props.params;
   const slugArray = params.slug.split("-");
   const id = slugArray.pop();
   const brand = await api.getPageBrand(id);
@@ -10,11 +11,8 @@ export async function generateMetadata({ params }: { params: any }) {
   return metaGen(brand.title, brand.description);
 }
 
-const CatalogProducts = dynamic(() => import("@/components/CatalogProducts"), {
-  ssr: false,
-});
-
-export default async function SpareParts({ params }: { params: any }) {
+export default async function SpareParts(props: { params: Promise<any> }) {
+  const params = await props.params;
   const slugArray = params.slug.split("-");
   const id = slugArray.pop();
   const brand = await api.getPageBrand(id);

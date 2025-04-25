@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { metaGen } from "@/utils/metaGen";
+import CatalogProducts from "@/components/CatalogProducts";
 
 export const metadata: Metadata = metaGen(
   "Купить шины для вилочных погрузчиков на склад недорого: заказ в 1 клик",
   "Купить разные виды шин на склад для погрузчиков. Пневматические и цельнолитые покрышки недорого от ведущих производителей. Заказать с доставкой в 1 клик",
 );
-
-const CatalogProducts = dynamic(() => import("@/components/CatalogProducts"), {
-  ssr: false,
-});
 
 export default function TiresRims() {
   return (

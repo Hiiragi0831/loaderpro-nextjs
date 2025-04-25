@@ -41,9 +41,10 @@ export const QueryBox = () => {
     try {
       const props = await api.getAllBrand();
       setBrand(props);
-    } catch (error) {
-      // @ts-expect-error @ts-expect-error
-      console.error("Error fetching:", error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(`Ошибка: ${error.message}`);
+      }
     }
   };
 

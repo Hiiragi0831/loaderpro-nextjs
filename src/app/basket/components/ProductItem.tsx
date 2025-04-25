@@ -56,7 +56,7 @@ export const ProductItem: FC<ProductType> = ({
         <input
           type="number"
           name="count"
-          value={product.quantity}
+          value={product?.quantity ?? 0}
           onChange={handleCountChange}
           max="100"
         />
@@ -68,7 +68,7 @@ export const ProductItem: FC<ProductType> = ({
         </button>
       </div>
       <div className="basket-item__sum">
-        <p>{getPriceFormat(price * product.quantity)} ₽</p>
+        <p>{product ? getPriceFormat(price * product.quantity) : "0"} ₽</p>
       </div>
       <div className="basket-item__del">
         <button

@@ -6,17 +6,13 @@ import { MapSending } from "@/components/MapSending";
 import { Team } from "@/components/Team";
 import { VideoGallery } from "@/components/VideoGallery";
 import Articles from "@/components/Articles";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { metaGen } from "@/utils/metaGen";
 import Technic from "@/components/Technic";
 import Semicircle from "@/components/Semicircle";
 import { Cta } from "@/components/Cta";
-
-const Products = dynamic(() => import("@/components/Products"), {
-  ssr: false,
-});
+import Products from "@/components/Products";
 
 export const metadata: Metadata = metaGen(
   "Запчасти для вилочных погрузчиков и складской техники в Санкт-Петербурге",

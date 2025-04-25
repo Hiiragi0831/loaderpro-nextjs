@@ -82,12 +82,23 @@ const Product: FC<Props> = (data) => {
       <Feature text={item} key={id} />
     ));
   };
+  const srcImage = () => {
+    if (data.image) {
+      if (data.image === "Array") {
+        return "https://my.loaderpro.ru/images/no-photo.svg";
+      }
+      return data.image;
+    } else {
+      return "https://my.loaderpro.ru/images/no-photo.svg";
+    }
+  };
 
   return (
     <div className="product" itemScope itemType="https://schema.org/Product">
       <button
         className={`product__like ${favorites.indexOf(data.id) !== -1 ? "active" : ""}`}
         onClick={() => toggleFavorite(data.id)}
+        aria-label="Добавить в избранное"
       >
         <IconHeart className="heart" />
         <IconHeartSolid className="heart-solid" />
@@ -107,13 +118,8 @@ const Product: FC<Props> = (data) => {
             loading="lazy"
             blurDataURL={rgbDataURL(255, 255, 255)}
             placeholder={"blur"}
-            priority={false}
             itemProp="image"
-            src={
-              data.image
-                ? `${data.image}`
-                : "https://my.loaderpro.ru/images/no-photo.svg"
-            }
+            src={srcImage()}
             alt={data.productname}
           />
         </Link>

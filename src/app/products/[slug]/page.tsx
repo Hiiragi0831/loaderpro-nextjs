@@ -6,7 +6,8 @@ import { api } from "@/services/api";
 import ProductInfo from "@/app/products/components/ProductInfo";
 import { metaGen } from "@/utils/metaGen";
 
-export async function generateMetadata({ params }: { params: any }) {
+export async function generateMetadata(props: { params: Promise<any> }) {
+  const params = await props.params;
   const slugArray = params.slug.split("-");
   const id = slugArray.pop();
   const post = await api.getProduct(id);
@@ -20,7 +21,8 @@ export async function generateMetadata({ params }: { params: any }) {
 
 export const revalidate = 3600;
 
-const Page = ({ params }: { params: any }) => {
+const Page = async (props: { params: Promise<any> }) => {
+  const params = await props.params;
   return (
     <main>
       <ProductInfo id={params} />

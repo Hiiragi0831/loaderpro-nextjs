@@ -1,4 +1,3 @@
-import CloneDeep from "lodash-es/cloneDeep";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { toast } from "react-toastify";
@@ -14,7 +13,7 @@ export const useFavorite = create<Store>()(
     (set, get) => ({
       favorite: [],
       toggleFavorite: (id) => {
-        const favorites = CloneDeep(get().favorite);
+        const favorites = [...get().favorite];
         const index = favorites.indexOf(id);
 
         if (index !== -1) {
