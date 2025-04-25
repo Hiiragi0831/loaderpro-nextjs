@@ -21,7 +21,9 @@ const nextConfig = {
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...(fileLoaderRule.resourceQuery?.not || []), /url/] }, // exclude if *.svg?url
+        resourceQuery: {
+          not: [...(fileLoaderRule.resourceQuery?.not || []), /url/],
+        }, // exclude if *.svg?url
         use: ["@svgr/webpack"],
       },
     );
@@ -30,17 +32,6 @@ const nextConfig = {
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;
-  },
-  experimental: {
-    // Используйте turbo только если это необходимо
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
-    },
   },
   images: {
     remotePatterns: [
