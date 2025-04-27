@@ -5,7 +5,7 @@ import translit from "@/utils/translit";
 import Gallery from "@/app/products/components/Gallery";
 import SpecificationModal from "@/app/products/components/SpecificationModal";
 import CountAddTo from "@/app/products/components/CountAddTo";
-import FeatureList from "@/app/products/components/FeatureList";
+import FeatureList from "@/components/FeatureList";
 import Hero from "@/app/products/components/Hero";
 
 export default async function ProductInfo(params: any) {
@@ -60,7 +60,10 @@ export default async function ProductInfo(params: any) {
               </div>
               <div className="commodity__gallery">
                 <div className="commodity__features">
-                  <FeatureList brand={data.brand} />
+                  <FeatureList
+                    brand={data.brand}
+                    extraFeatures={["Возврат НДС", "Гарантия"]}
+                  />
                 </div>
                 {data.image.length ? (
                   // eslint-disable-next-line @next/next/no-img-element

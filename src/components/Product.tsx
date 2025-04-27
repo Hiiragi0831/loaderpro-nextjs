@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useCallback, useMemo } from "react";
 
 import IconHeart from "@/icons/heart.svg";
 import IconHeartSolid from "@/icons/heart-solid.svg";
@@ -15,111 +15,96 @@ import translit from "@/utils/translit";
 import { useQuery } from "@/store/query";
 import Image from "next/image";
 import ym from "react-yandex-metrika";
-import Feature from "@/components/Feature";
+import { rgbDataURL } from "@/utils/image";
+import FeatureList from "@/components/FeatureList";
 
 type Props = Pick<
   ProductType,
-  | "price"
-  | "status"
   | "id"
   | "image"
   | "productname"
   | "article"
   | "brand"
+  | "price"
+  | "status"
   | "count"
 >;
 
-const Product: FC<Props> = (data) => {
-  const addToQuery = useQuery((state) => state.addToQuery);
-  const addToCart = useBasket((state) => state.addToBasket);
-  const toggleFavorite = useFavorite((state) => state.toggleFavorite);
-  const favorites = useFavorite((state) => state.favorite);
-  const href = `/products/${translit(data.productname.replaceAll(" ", "-"))}-${data.id}`;
+const DEFAULT_IMG = "https://my.loaderpro.ru/images/no-photo.svg";
 
-  const keyStr =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+const Product: FC<Props> = ({
+  id,
+  image,
+  productname,
+  article,
+  brand,
+  price,
+  status,
+  count,
+}) => {
+  const addToQuery = useQuery((s) => s.addToQuery);
+  const addToCart = useBasket((s) => s.addToBasket);
+  const toggleFav = useFavorite((s) => s.toggleFavorite);
+  const favorites = useFavorite((s) => s.favorite);
+  const href = useMemo(
+    () => `/products/${translit(productname)}-${id}`,
+    [productname, id],
+  );
 
-  const triplet = (e1: number, e2: number, e3: number) =>
-    keyStr.charAt(e1 >> 2) +
-    keyStr.charAt(((e1 & 3) << 4) | (e2 >> 4)) +
-    keyStr.charAt(((e2 & 15) << 2) | (e3 >> 6)) +
-    keyStr.charAt(e3 & 63);
+  const isFav = favorites.includes(id);
 
-  const rgbDataURL = (r: number, g: number, b: number) =>
-    `data:image/gif;base64,R0lGODlhAQABAPAA${
-      triplet(0, r, g) + triplet(b, 255, 255)
-    }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
+  const src = useMemo(
+    () => (image && image !== "Array" ? image : DEFAULT_IMG),
+    [image],
+  );
 
-  const features = () => {
-    const component: any = [];
+  const handleFav = useCallback(() => toggleFav(id), [id, toggleFav]);
+  const handleAdd = useCallback(() => {
+    addToCart(id, 1);
+    ym("reachGoal", "addToBasket");
+  }, [addToCart, id]);
 
-    switch (data.brand) {
-      case "JUNGHEINRICH (269)":
-      case "LINDE (400)":
-      case "STILL (255)":
-      case "HYSTER (001)":
-      case "YALE (003)":
-      case "BT (268)":
-        component.push("OEM", "Распродажа");
-        break;
-      case "KALMAR (546)":
-      case "MERLO (A24)":
-      case "BOBCAT (274)":
-      case "COMBILIFT (AY7)":
-      case "CLARK (007)":
-        component.push("Скидка за отзыв");
-        break;
-      case "HELI (U88)":
-      case "HANGCHA Forklift (DG5)":
-      case "EP (BB8)":
-      case "JAC (IM5)":
-        component.push("Оригинал");
-        break;
-    }
-
-    return component.map((item: any, id: any) => (
-      <Feature text={item} key={id} />
-    ));
-  };
-  const srcImage = () => {
-    if (data.image) {
-      if (data.image === "Array") {
-        return "https://my.loaderpro.ru/images/no-photo.svg";
-      }
-      return data.image;
-    } else {
-      return "https://my.loaderpro.ru/images/no-photo.svg";
-    }
-  };
+  // <ProductCard>
+  //   <FavoriteToggle isFav={isFav} onClick={handleFav} />
+  //   <FeatureList brand={brand} extraFeatures={…} />
+  //   <ProductImage src={src} alt={productname} href={href}/>
+  //   <ProductInfo>
+  //     <ProductPrice price={price} />
+  //     <ProductArticle article={article} />
+  //   </ProductInfo>
+  //   <ProductStatus status={status} count={count}/>
+  //   <ProductButtons
+  //     isRequest={isRequest}
+  //     onRequest={() => addToQuery(article, 1, brand)}
+  //     onBuy={handleAdd}
+  //   />
+  // </ProductCard>
 
   return (
     <div className="product" itemScope itemType="https://schema.org/Product">
       <button
-        className={`product__like ${favorites.indexOf(data.id) !== -1 ? "active" : ""}`}
-        onClick={() => toggleFavorite(data.id)}
+        className={`product__like ${isFav ? "active" : ""}`}
+        onClick={handleFav}
         aria-label="Добавить в избранное"
       >
         <IconHeart className="heart" />
         <IconHeartSolid className="heart-solid" />
       </button>
-      <div className="product__features">{features()}</div>
+      <div className="product__features">
+        <FeatureList brand={brand} />
+      </div>
       <div className="product__img">
         <Link href={href}>
           <Image
             width={190}
             height={150}
-            sizes={"100%"}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-            }}
-            loading="lazy"
+            style={{ objectFit: "contain", width: "100%", height: "100%" }}
+            placeholder="blur"
             blurDataURL={rgbDataURL(255, 255, 255)}
-            placeholder={"blur"}
+            src={src}
+            alt={productname}
+            loading="lazy"
             itemProp="image"
-            src={srcImage()}
-            alt={data.productname}
           />
         </Link>
       </div>
@@ -130,45 +115,34 @@ const Product: FC<Props> = (data) => {
           itemScope
           itemType="https://schema.org/Offer"
         >
-          <meta itemProp="price" content={String(data.price)} />
+          <meta itemProp="price" content={String(price)} />
           <meta itemProp="priceCurrency" content="RUB" />
           <link itemProp="availability" href="http://schema.org/InStock" />
           <p itemProp="price">
-            {data.price === 0
-              ? "Цена по запросу"
-              : `${getPriceFormat(data.price)} ₽`}
+            {price === 0 ? "Цена по запросу" : `${getPriceFormat(price)} ₽`}
           </p>
         </div>
-        <div className="product__article">
-          <p>Артикул: {data.article}</p>
-        </div>
+        <p className="product__article">Артикул: {article}</p>
       </div>
       <div className="product__main">
-        {data.count === 0 ? (
-          <div className={`product__status product__status--green`}>
-            <span />
-            <p>7-10 дней</p>
-          </div>
-        ) : (
-          <div
-            className={`product__status product__status--${data.status.value}`}
-          >
-            <span />
-            <p>{data.status.name}</p>
-          </div>
-        )}
-        <div className="product__title">
-          <Link href={href} itemProp="name">
-            {data.productname}
-          </Link>
+        <div
+          className={`product__status product__status--${
+            count === 0 ? "green" : status.value
+          }`}
+        >
+          <span />
+          <p>{count === 0 ? "7-10 дней" : status.name}</p>
+        </div>
+        <div className="product__title" itemProp="name">
+          <Link href={href}>{productname}</Link>
         </div>
       </div>
       <div className="product__buttons">
-        {data.price === 0 ? (
+        {price === 0 ? (
           <>
             <button
               className="button button__primary"
-              onClick={() => addToQuery(data.article, 1, data.brand)}
+              onClick={() => addToQuery(article, 1, brand)}
             >
               Запросить
             </button>
@@ -177,10 +151,7 @@ const Product: FC<Props> = (data) => {
           <>
             <button
               className="button button__primary button__icon"
-              onClick={() => {
-                addToCart(data.id, 1);
-                ym("reachGoal", "addToBasket");
-              }}
+              onClick={handleAdd}
             >
               <IconShoppingCart />В корзину
             </button>
