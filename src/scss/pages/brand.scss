@@ -32,6 +32,10 @@
 
 		&--3 {
 			grid-template-columns: 1fr 1fr 1fr;
+
+			@include devices {
+				grid-template-columns: 100%;
+			}
 		}
 	}
 }
@@ -40,13 +44,12 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	margin-top: vc(40);
 	border-radius: vc(10);
 	padding: vc(20);
 	box-shadow: $box-shadow;
 	background: $color-white;
-	gap: vc(20);
 	transition: $transition;
+	gap: vc(20);
 
 	&__icon {
 		display: flex;

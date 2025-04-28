@@ -16,7 +16,6 @@ export default async function SpareParts(props: { params: Promise<any> }) {
   const slugArray = params.slug.split("-");
   const id = slugArray.pop();
   const brand = await api.getPageBrand(id);
-  console.log(params);
 
   return (
     <main>

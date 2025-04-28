@@ -52,7 +52,6 @@ export const FormParts = () => {
 
   const onSubmit = async (data: any) => {
     const fd = Object.assign(data, { query: queryRequested });
-    console.log(fd);
     setDisabled(true);
     try {
       const fdata = await api.postQueryTs(fd);

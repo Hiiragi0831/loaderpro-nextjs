@@ -50,7 +50,6 @@ export const QueryBox = () => {
 
   const onSubmit = async (data: any) => {
     const fd = Object.assign(data, { query: queryData });
-    console.log(queryData);
     setDisabled(true);
     try {
       const fdata = await api.postQueryZp(fd);

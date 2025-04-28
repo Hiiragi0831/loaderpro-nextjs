@@ -1,6 +1,5 @@
 import { api } from "@/services/api";
 import { metaGen } from "@/utils/metaGen";
-import type { Metadata } from "next";
 import CatalogProducts from "@/components/CatalogProducts";
 import Link from "next/link";
 import { Cta } from "@/components/Cta";
@@ -8,10 +7,12 @@ import Articles from "@/components/Articles";
 import IconBolt from "@/icons/bolt.svg";
 import Box from "@/app/brand/components/Box";
 
-export const metadata: Metadata = metaGen(
-  "Стань дилером LOADERPRO",
-  "Мы создали сервис в котором просто и понятно можно покупать запчасти для складской техники ваших клиентов. Стань нашим партнером и зарабатывай вместе с LOADERPRO.",
-);
+export async function generateMetadata() {
+  const id = "614";
+  const brand = await api.getPageBrand(id);
+
+  return metaGen(brand.title, brand.description);
+}
 
 export default async function SpareParts() {
   const id = "614";
@@ -94,6 +95,10 @@ export default async function SpareParts() {
               можно выделить:
             </p>
           </div>
+        </div>
+      </section>
+      <section className="brand">
+        <div className="container">
           <div className="row row--3">
             <Box
               icon={<IconBolt />}

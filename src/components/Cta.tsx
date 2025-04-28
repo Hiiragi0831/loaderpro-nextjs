@@ -36,7 +36,6 @@ export const Cta: FC<CtaType> = (data) => {
 
   const onSubmit = async (data: any) => {
     const fd = Object.assign(data, { url: pathname });
-    console.log(fd);
     setDisabled(true);
     try {
       const fdata = await api.postCB(fd);

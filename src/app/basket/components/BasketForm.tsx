@@ -54,7 +54,6 @@ export const BasketForm = () => {
 
   const onSubmit = async (data: any) => {
     const fd = Object.assign({ goods: products }, data);
-    console.log(fd);
     setDisabled(true);
     try {
       const fdata = await api.postBasket(fd);
