@@ -93,7 +93,7 @@ export default async function ProductInfo(params: any) {
                     </div>
                     <div className="commodity__specification">
                       <p>Бренд</p>
-                      <span>{data.brand}</span>
+                      <span>LOADERPRO</span>
                     </div>
                     <SpecificationModal options={data.options} />
                   </div>
