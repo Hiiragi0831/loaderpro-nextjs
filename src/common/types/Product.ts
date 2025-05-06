@@ -13,6 +13,7 @@ export type SingleProduct = {
   };
   description?: string;
   weight?: string;
+  category_id?: number;
   options?: [
     {
       name: string;

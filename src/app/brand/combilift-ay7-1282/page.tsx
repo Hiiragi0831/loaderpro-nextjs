@@ -195,12 +195,7 @@ export default async function SpareParts() {
           </div>
         </div>
       </section>
-      <Cta
-        title={"Бесплатная консультация"}
-        text={
-          "Обращайтесь к нам прямо сейчас, получите бесплатную консультацию и индивидуальный прайс-лист на детали для различных погрузчиков KALMAR."
-        }
-      />
+      <Cta />
       <Articles limit={4} />
     </main>
   );
