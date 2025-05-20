@@ -37,6 +37,14 @@
 				grid-template-columns: 100%;
 			}
 		}
+
+		&--4 {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+
+			@include devices {
+				grid-template-columns: 100%;
+			}
+		}
 	}
 }
 
