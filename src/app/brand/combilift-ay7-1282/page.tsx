@@ -7,15 +7,15 @@ import Articles from "@/components/Articles";
 import IconBolt from "@/icons/bolt.svg";
 import Box from "@/app/brand/components/Box";
 
+const id = "1282";
+
 export async function generateMetadata() {
-  const id = "591";
   const brand = await api.getPageBrand(id);
 
   return metaGen(brand.title, brand.description);
 }
 
 export default async function SpareParts() {
-  const id = "1282";
   const brand = await api.getPageBrand(id);
 
   return (
