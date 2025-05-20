@@ -93,9 +93,7 @@ export default async function ProductInfo(params: any) {
                     </div>
                     <div className="commodity__specification">
                       <p>Бренд</p>
-                      <span>
-                        {data.category_id === 2 ? "LOADERPRO" : data.brand}
-                      </span>
+                      <span>{data.brand}</span>
                     </div>
                     <SpecificationModal options={data.options} />
                   </div>

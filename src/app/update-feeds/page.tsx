@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { metaGen } from "@/utils/metaGen";
-// import ymlGenerate from "@/utils/ymlGenerate";
+import ymlGenerate from "@/utils/ymlGenerate";
 
 export const metadata: Metadata = metaGen(
   "Запчасти для вилочных погрузчиков и складской техники в Санкт-Петербурге",
@@ -14,7 +14,7 @@ export default function Home() {
     <main>
       <section>
         <div className="container">
-          {/*<p className="h2">{ymlGenerate()}</p>*/}
+          <p className="h2">{ymlGenerate()}</p>
         </div>
       </section>
     </main>

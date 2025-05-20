@@ -11,7 +11,6 @@ const id = "591";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-
   return metaGen(brand.title, brand.description);
 }
 
