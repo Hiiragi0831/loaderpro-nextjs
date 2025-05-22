@@ -3,8 +3,26 @@
 import { Modal } from "@/components/Modal";
 import { useState } from "react";
 
-export default function SpecificationModal({ options }: { options: any }) {
+export default function SpecificationModal({
+  options,
+  count,
+}: {
+  options: any;
+  count?: number;
+}) {
   const [modalOpen, setModalOpen] = useState(false);
+  const optionStatus = (option: any) => {
+    if (option.name === "Срок поставки") {
+      if (count === 0) {
+        return "7-10 дней";
+      }
+    }
+    if (option.value === "В идентификации") {
+      return "7-10 дней";
+    }
+
+    return option.value;
+  };
   return (
     <>
       <button onClick={() => setModalOpen(true)}>
@@ -18,11 +36,7 @@ export default function SpecificationModal({ options }: { options: any }) {
               key={id}
             >
               <p>{option.name}</p>
-              <span>
-                {option.value === "В идентификации"
-                  ? "7-10 дней"
-                  : option.value}
-              </span>
+              <span>{optionStatus(option)}</span>
             </div>
           ))}
         </div>

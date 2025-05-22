@@ -35,6 +35,25 @@ export default async function ProductInfo(params: any) {
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽`;
 
+  const Availability = ({
+    className,
+    count,
+  }: {
+    className?: string;
+    count?: number;
+  }) => {
+    return (
+      <div
+        className={`commodity__availability ${className} ${count === 0 ? "commodity__availability--green" : `commodity__availability--${data.status.value}`}`}
+      >
+        <span />
+        <p>
+          {count === 0 ? "7-10 дней" : `${data.status.name} (${count} шт.)`}
+        </p>
+      </div>
+    );
+  };
+
   return (
     <>
       <section
@@ -51,12 +70,7 @@ export default async function ProductInfo(params: any) {
                     {data.productname} {data.brand} {data.article}
                   </h1>
                 </div>
-                <div
-                  className={`commodity__availability for-devices ${data.count === 0 ? "commodity__availability--green" : `commodity__availability--${data.status.value}`}`}
-                >
-                  <span />
-                  <p>{data.count === 0 ? "7-10 дней" : data.status.name}</p>
-                </div>
+                <Availability className={"for-devices"} count={data.count} />
               </div>
               <div className="commodity__gallery">
                 <div className="commodity__features">
@@ -79,12 +93,7 @@ export default async function ProductInfo(params: any) {
                 <Gallery images={data.image} />
               </div>
               <div className="commodity__info">
-                <div
-                  className={`commodity__availability for-desktop ${data.count === 0 ? "commodity__availability--green" : `commodity__availability--${data.status.value}`}`}
-                >
-                  <span />
-                  <p>{data.count === 0 ? "7-10 дней" : data.status.name}</p>
-                </div>
+                <Availability className={"for-desktop"} count={data.count} />
                 <div className="commodity__info-box">
                   <div className="commodity__specifications">
                     <div className="commodity__specification">
@@ -95,7 +104,22 @@ export default async function ProductInfo(params: any) {
                       <p>Бренд</p>
                       <span>{data.brand}</span>
                     </div>
-                    <SpecificationModal options={data.options} />
+                    {Number(data.weight) > 0 ? (
+                      <div className="commodity__specification">
+                        <p>Вес</p>
+                        <span>{data.weight} кг.</span>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {data.category_id === 2 ? (
+                      ""
+                    ) : (
+                      <SpecificationModal
+                        options={data.options}
+                        count={data.count}
+                      />
+                    )}
                   </div>
                 </div>
                 <div className="commodity__description">
