@@ -184,7 +184,6 @@ export default async function ProductInfo(params: any) {
                     id={data.id}
                     article={data.article}
                     count={data.count}
-                    price={data.price}
                     brand={data.brand}
                   />
                 </div>
