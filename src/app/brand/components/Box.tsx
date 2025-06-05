@@ -1,4 +1,4 @@
-export default function Box(data: { title: any; icon?: any; text: string }) {
+export default function Box(data: { title: any; icon?: any; text?: string }) {
   return (
     <div className={"brand-box"}>
       {data.icon ? <div className="brand-box__icon">{data.icon}</div> : ""}
@@ -6,7 +6,7 @@ export default function Box(data: { title: any; icon?: any; text: string }) {
         className="brand-box__title"
         dangerouslySetInnerHTML={{ __html: data.title }}
       />
-      <p>{data.text}</p>
+      {data.text ? <p>{data.text}</p> : ""}
     </div>
   );
 }
