@@ -104,6 +104,12 @@
 		}
 	}
 
+	sup {
+		position: absolute;
+		right: vc(10);
+		top: vc(10);
+	}
+
 	@include hover {
 		background: $color-woodsmoke-50;
 	}
