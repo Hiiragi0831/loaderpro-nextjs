@@ -4,8 +4,6 @@
 	--width-base: #{$desktop-xl};
 	--width-current: #{$desktop-lg * 1px};
 	--width-multiplier: var(--width-current) / var(--width-base);
-	//--toastify-color-progress-success: $color-black;
-	//--toastify-icon-color-success: $color-tree-poppy-400;
 
 	@include desktop-xl {
 		--width-current: 90vw;
@@ -37,6 +35,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	font-size: vc(22);
 	line-height: vc(26);
+	// stylelint-disable-next-line
 	text-decoration-skip: objects;
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
@@ -367,5 +366,40 @@ iframe.fslightboxs {
 	@include devices {
 		width: 100% !important;
 		height: vc(180) !important;
+	}
+}
+
+.cookie {
+	position: fixed;
+	right: vc(24);
+	bottom: vc(24);
+	z-index: 999;
+	border-radius: vc(20);
+	width: vc(300);
+	background: $color-woodsmoke-950;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		padding: vc(20);
+		color: $color-white;
+		gap: vc(14);
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: vc(20);
+		line-height: vc(24);
+	}
+
+	&__text {
+		p {
+			font-size: vc(12);
+			line-height: vc(16);
+		}
+
+		a {
+			text-decoration: underline;
+		}
 	}
 }

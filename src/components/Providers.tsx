@@ -11,6 +11,7 @@ import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import NextTopLoader from "nextjs-toploader";
 import YandexMetrikaContainer from "@/components/YandexMetrikaContainer";
+import CookieConsent from "@/components/CookieConsent";
 
 const emotionCache = createCache({ key: "loader", prepend: true });
 
@@ -24,6 +25,7 @@ export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
           <NextTopLoader color="#f8991d" />
           <Header />
           {children}
+          <CookieConsent />
           <MobileBar />
           <Footer />
           <ToastContainer />

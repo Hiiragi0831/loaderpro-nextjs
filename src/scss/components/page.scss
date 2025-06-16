@@ -10,4 +10,22 @@
 	p + h2 {
 		margin-top: vc(30);
 	}
+
+	ul,
+	ol {
+		margin-bottom: vc(10);
+		margin-left: vc(34);
+
+		li {
+			display: list-item;
+		}
+	}
+
+	ul li {
+		list-style: disc;
+	}
+
+	ol li {
+		list-style: decimal;
+	}
 }
