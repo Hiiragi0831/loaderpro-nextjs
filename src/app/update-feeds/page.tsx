@@ -14,7 +14,7 @@ export default function Home() {
     <main>
       <section>
         <div className="container">
-          <p className="h2">{ymlGenerate()}</p>
+          {/*<p className="h2">{ymlGenerate()}</p>*/}
         </div>
       </section>
     </main>
