@@ -35,12 +35,12 @@ export default function Dealer() {
         <div className="container">
           <div className="dealer__hero">
             <picture className="for-desktop">
-              <source srcSet={`/images/slider/3.jpeg`} />
-              <img src={`/images/slider/3.jpeg`} alt="3" />
+              <source srcSet={`/images/slider/6.jpeg`} />
+              <img src={`/images/slider/6.jpeg`} alt="6" />
             </picture>
             <picture className="for-devices">
-              <source srcSet={`/images/slider/3m.jpeg`} />
-              <img src={`/images/slider/3m.jpeg`} alt="3m" />
+              <source srcSet={`/images/slider/6m.jpeg`} />
+              <img src={`/images/slider/6m.jpeg`} alt="6m" />
             </picture>
           </div>
         </div>
