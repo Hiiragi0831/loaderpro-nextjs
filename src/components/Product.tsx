@@ -16,7 +16,7 @@ import { useQuery } from "@/store/query";
 import Image from "next/image";
 import ym from "react-yandex-metrika";
 import { rgbDataURL } from "@/utils/image";
-import FeatureList from "@/components/FeatureList";
+// import FeatureList from "@/components/FeatureList";
 
 type Props = Pick<
   ProductType,
@@ -90,9 +90,9 @@ const Product: FC<Props> = ({
         <IconHeart className="heart" />
         <IconHeartSolid className="heart-solid" />
       </button>
-      <div className="product__features">
-        <FeatureList brand={brand} />
-      </div>
+      {/*<div className="product__features">*/}
+      {/*  <FeatureList brand={brand} />*/}
+      {/*</div>*/}
       <div className="product__img">
         <Link href={href}>
           <Image

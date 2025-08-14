@@ -9,18 +9,18 @@ const brandFeatureRules: Array<{ keys: string[]; features: string[] }> = [
       "YALE (003)",
       "BT (268)",
     ],
-    features: ["OEM"],
+    features: ["OEM", "Распродажа"],
   },
-  // {
-  //   keys: [
-  //     "KALMAR (546)",
-  //     "MERLO (A24)",
-  //     "BOBCAT (274)",
-  //     "COMBILIFT (AY7)",
-  //     "CLARK (007)",
-  //   ],
-  //   features: ["Скидка за отзыв"],
-  // },
+  {
+    keys: [
+      "KALMAR (546)",
+      "MERLO (A24)",
+      "BOBCAT (274)",
+      "COMBILIFT (AY7)",
+      "CLARK (007)",
+    ],
+    features: ["Скидка за отзыв"],
+  },
   {
     keys: ["HELI (U88)", "HANGCHA Forklift (DG5)", "EP (BB8)", "JAC (IM5)"],
     features: ["Оригинал"],
