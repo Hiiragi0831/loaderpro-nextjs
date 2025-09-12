@@ -17,6 +17,7 @@ export async function generateMetadata() {
 }
 
 export default async function SpareParts() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const brand = await api.getPageBrand(id);
 
   return (
