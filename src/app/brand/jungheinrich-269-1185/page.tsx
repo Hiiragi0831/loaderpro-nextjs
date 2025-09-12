@@ -9,8 +9,10 @@ import Box from "@/app/brand/components/Box";
 const id = "1185";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков JUNGHEINRICH в Санкт-Петербурге",
+    "Предлагаем купить запчасти для вилочных погрузчиков JUNGHEINRICH в Санкт-Петербурге с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {

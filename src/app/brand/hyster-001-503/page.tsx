@@ -10,8 +10,10 @@ import IconBolt from "@/icons/bolt.svg";
 const id = "503";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков HYSTER",
+    "Предлагаем купить запчасти для вилочных погрузчиков HYSTER с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -22,7 +24,7 @@ export default async function SpareParts() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">{brand.h1 ? brand.h1 : brand.title}</h1>
+            <h1 className="h1">Запчасти HYSTER</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -35,9 +37,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков HYSTER в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков HYSTER</h2>
               <p>
                 Hyster — один из ведущих мировых производителей складской
                 спецтехники, включая вилочные погрузчики с электрическими и

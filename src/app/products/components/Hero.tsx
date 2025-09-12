@@ -20,7 +20,7 @@ export default function Hero({ sliders }: Props) {
       >
         {sliders.map((item: any, index: Key | null | undefined) => (
           <SwiperSlide key={index}>
-            <Link href="htpps://my.loaderpro.ru/" target={"_blank"}>
+            <Link href="https://my.loaderpro.ru/" target={"_blank"}>
               <picture>
                 <source srcSet={item} />
                 <img src={item} alt="slide" />

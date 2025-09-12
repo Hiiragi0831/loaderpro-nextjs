@@ -10,8 +10,10 @@ import IconBolt from "@/icons/bolt.svg";
 const id = "505";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков YALE",
+    "Предлагаем купить запчасти для вилочных погрузчиков YALE с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -35,9 +37,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков YALE в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков YALE</h2>
               <p>
                 Компания Yale — один из старейших мировых производителей
                 грузоподъемного оборудования. Основанная в 1844 году, она
