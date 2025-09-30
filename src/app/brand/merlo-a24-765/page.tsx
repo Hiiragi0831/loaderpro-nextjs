@@ -10,8 +10,10 @@ import Box from "@/app/brand/components/Box";
 const id = "765";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков MERLO",
+    "Предлагаем купить запчасти для погрузчиков MERLO с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -36,8 +38,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для телескопических погрузчиков Merlo (Мерло) в
-                Санкт-Петербурге
+                Купить запчасти для телескопических погрузчиков Merlo (Мерло)
               </h2>
               <p>
                 Телескопические погрузчики Merlo давно зарекомендовали себя как

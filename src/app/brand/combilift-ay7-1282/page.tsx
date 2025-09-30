@@ -10,8 +10,10 @@ import Box from "@/app/brand/components/Box";
 const id = "1282";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков COMBILIFT",
+    "Предлагаем купить запчасти для боковых погрузчиков COMBILIFT с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -36,7 +38,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для погрузчиков COMBILIFT в Санкт-Петербурге
+                Купить запчасти для погрузчиков COMBILIFT
               </h2>
               <p>
                 Торговая марка Combilift была основана в 1998 году в городе

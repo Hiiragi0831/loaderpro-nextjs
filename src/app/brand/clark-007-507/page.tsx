@@ -10,8 +10,10 @@ import Box from "@/app/brand/components/Box";
 const id = "507";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков CLARK",
+    "Предлагаем купить запчасти для вилочных погрузчиков CLARK с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -36,7 +38,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для погрузчиков CLARK в Санкт-Петербурге
+                Купить запчасти для погрузчиков CLARK
               </h2>
               <p>
                 Погрузчик Clark – это высококачественная складская техника от

@@ -10,8 +10,10 @@ import Box from "@/app/brand/components/Box";
 const id = "170";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков HELI",
+    "Предлагаем купить запчасти для вилочных погрузчиков HELI с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -35,9 +37,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Запчасти для погрузчиков HELI в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Запчасти для погрузчиков HELI</h2>
               <p>
                 Heli — это одна из самых крупных компаний в Китае по
                 производству грузоподъемного оборудования, которая на данный

@@ -9,8 +9,10 @@ import Box from "@/app/brand/components/Box";
 const id = "1302";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков STILL",
+    "Предлагаем купить запчасти для вилочных погрузчиков STILL с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -34,9 +36,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков STILL в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков STILL</h2>
               <p>
                 Техника для склада Still от немецкого производителя широко
                 известна в России. Погрузчики этого бренда зарекомендовали себя

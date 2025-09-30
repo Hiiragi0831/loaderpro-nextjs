@@ -10,8 +10,8 @@ const id = "1185";
 
 export async function generateMetadata() {
   return metaGen(
-    "Запчасти для погрузчиков JUNGHEINRICH в Санкт-Петербурге",
-    "Предлагаем купить запчасти для вилочных погрузчиков JUNGHEINRICH в Санкт-Петербурге с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+    "Запчасти для погрузчиков JUNGHEINRICH",
+    "Предлагаем купить запчасти для вилочных погрузчиков JUNGHEINRICH с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
   );
 }
 
@@ -37,8 +37,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для вилочных погрузчиков JUNGHEINRICH в
-                Санкт-Петербурге
+                Купить запчасти для вилочных погрузчиков JUNGHEINRICH
               </h2>
               <p>
                 Jungheinrich — это немецкий производитель подъемно-погрузочной

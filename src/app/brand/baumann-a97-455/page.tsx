@@ -10,8 +10,10 @@ import IconBolt from "@/icons/bolt.svg";
 const id = "455";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков BAUMANN",
+    "Предлагаем купить запчасти для боковых погрузчиков BAUMANN с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -37,7 +39,7 @@ export default async function SpareParts() {
             <div className="text">
               <h2 className={"h1"}>
                 Купить запчасти для боковых вилочных погрузчиков Baumann
-                (Бауман) в Санкт-Петербурге
+                (Бауман)
               </h2>
               <p>
                 Компания Baumann (Бауман) — это мировой эталон в сфере

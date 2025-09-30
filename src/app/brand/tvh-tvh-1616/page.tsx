@@ -10,8 +10,10 @@ import Box from "@/app/brand/components/Box";
 const id = "1616";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти TVH (TOTAL SOURCE)",
+    "Предлагаем купить запчасти TVH (TOTAL SOURCE) с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {

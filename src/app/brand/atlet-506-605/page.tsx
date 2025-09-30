@@ -10,8 +10,10 @@ import IconBolt from "@/icons/bolt.svg";
 const id = "605";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков ATLET",
+    "Предлагаем купить запчасти для вилочных погрузчиков ATLET с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -36,8 +38,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для вилочных погрузчиков Atlet (Атлет) в
-                Санкт-Петербурге
+                Купить запчасти для вилочных погрузчиков Atlet (Атлет)
               </h2>
               <p>
                 Вилочные погрузчики Atlet (Атлет) — это качественная и

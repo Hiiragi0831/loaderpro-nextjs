@@ -10,8 +10,10 @@ import Box from "@/app/brand/components/Box";
 const id = "1156";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков HANGCHA",
+    "Предлагаем купить запчасти для вилочных погрузчиков HANGCHA с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -36,8 +38,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для вилочных погрузчиков HANGCHA в
-                Санкт-Петербурге
+                Купить запчасти для вилочных погрузчиков HANGCHA
               </h2>
               <p>
                 Компания по выпуску погрузочной техники Hangcha расположена в
