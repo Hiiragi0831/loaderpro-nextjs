@@ -37,9 +37,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков CLARK
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков CLARK</h2>
               <p>
                 Погрузчик Clark – это высококачественная складская техника от
                 южнокорейского бренда. Компания Clark была основана в 1917 году

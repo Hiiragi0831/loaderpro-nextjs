@@ -37,9 +37,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков TCM
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков TCM</h2>
               <p>
                 Японские вилочные погрузчики TCM давно зарекомендовали себя как
                 надежное и производительное складское оборудование, широко
