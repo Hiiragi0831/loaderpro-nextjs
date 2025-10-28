@@ -3,7 +3,6 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
-  swcMinify: true,
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
