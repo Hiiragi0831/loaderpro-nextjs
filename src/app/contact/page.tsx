@@ -1,6 +1,13 @@
 import Articles from "@/components/Articles";
 import { Cta } from "@/components/Cta";
 import { VideoGallery } from "@/components/VideoGallery";
+import type { Metadata } from "next";
+import { metaGen } from "@/utils/metaGen";
+
+export const metadata: Metadata = metaGen(
+  "Контакты компании СПЕЦМАШИНА",
+  "Вы можете связаться с нами любым удобным для вас способом.",
+);
 
 export default function Contact() {
   return (
