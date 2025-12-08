@@ -30,9 +30,9 @@
     "sharp": "^0.33.5",
     "swiper": "^11.1.9",
     "ua-parser-js": "^1.0.39",
-    "xmlbuilder2": "^3.1.1",
+    "xmlbuilder2": "^4.0.3",
     "zod": "^3.23.8",
-    "zustand": "^4.5.4"
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
