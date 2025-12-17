@@ -118,7 +118,7 @@ export default function polyurethaneWheels() {
                 чтобы подобрать оптимальные варианты для вашей складской
                 техники.
               </p>
-              <Link href="#" className="button button__primary">
+              <Link href="/spare-parts" className="button button__primary">
                 Перейти в каталог
               </Link>
             </div>

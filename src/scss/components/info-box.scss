@@ -51,6 +51,10 @@
 						height: 100%;
 						object-fit: contain;
 					}
+
+					@include devices {
+						padding: vc(15);
+					}
 				}
 			}
 		}
