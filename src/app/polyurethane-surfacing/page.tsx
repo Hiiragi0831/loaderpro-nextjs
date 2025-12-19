@@ -209,7 +209,7 @@ export default function PolyurethaneSurfacing() {
           </div>
         </div>
       </section>
-      <section className={"is-hidden"}>
+      <section>
         <div className="container">
           <picture>
             <source srcSet={`/images/polyurethane/after-before.png`} />
