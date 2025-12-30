@@ -30,7 +30,7 @@ export default function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <p className={"h1"}>Запчасти для ричтраков</p>
+              <p className={"h1"}>Купить запчасти для ричтраков</p>
               <p>
                 Как и любая другая техника, ричтрак ломается неожиданно, а
                 ремонтируется долго. Простои на высоте с грузом могут стать

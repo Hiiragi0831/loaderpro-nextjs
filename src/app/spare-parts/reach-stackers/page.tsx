@@ -30,7 +30,7 @@ export default function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <p className={"h1"}>Запчасти для ричстакеров</p>
+              <p className={"h1"}>Купить запчасти для ричстакеров</p>
               <p>
                 Если ричстакер начинает сбоить, работая на высоте с многотонным
                 контейнером, значит времени на раздумья нет. Любая неисправность
