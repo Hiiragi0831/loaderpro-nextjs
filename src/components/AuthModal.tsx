@@ -1,7 +1,6 @@
 "use client";
 import { FC } from "react";
 import { Modal } from "@/components/Modal";
-import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formLoginSchema, TFormLoginValues } from "@/common/shemas";
@@ -28,21 +27,20 @@ export const AuthModal: FC<Props> = ({ isShow, onClose }) => {
   }
 
   const onSubmit = async (data: TFormLoginValues) => {
-    try {
-      const resp = await signIn("credentials", {
-        ...data,
-        redirect: false,
-      });
-
-      if (resp?.error) {
-        throw Error();
-      } else {
-        console.log("Вы успешно вошли в аккаунт");
-        onClose?.();
-      }
-    } catch (error) {
-      console.error("Error [LOGIN]", error);
-    }
+    // try {
+    //   const resp = await signIn("credentials", {
+    //     ...data,
+    //     redirect: false,
+    //   });
+    //   if (resp?.error) {
+    //     throw Error();
+    //   } else {
+    //     console.log("Вы успешно вошли в аккаунт");
+    //     onClose?.();
+    //   }
+    // } catch (error) {
+    //   console.error("Error [LOGIN]", error);
+    // }
   };
 
   return (

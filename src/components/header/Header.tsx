@@ -9,15 +9,15 @@ import IconCart from "@/icons/cart-shopping.svg";
 import IconDesktop from "@/icons/desktop.svg";
 import { MobileNav } from "./MobileNav";
 import { useLockBodyScroll } from "react-use";
-import { ProfileButton } from "@/components/ProfileButton";
-import { AuthModal } from "@/components/AuthModal";
+// import { ProfileButton } from "@/components/ProfileButton";
+// import { AuthModal } from "@/components/AuthModal";
 import { Search } from "./Search";
-import { useState } from "react";
+// import { useState } from "react";
 import { useSearchPanel } from "@/store/useSearchPanel";
 import { useMobileNav } from "@/store/useMobileNav";
 
 const Header = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  // const [modalOpen, setModalOpen] = useState(false);
   const { isShow } = useSearchPanel();
   const stateMobileNav = useMobileNav();
 
@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <>
-      <AuthModal isShow={modalOpen} onClose={() => setModalOpen(false)} />
+      {/*<AuthModal isShow={modalOpen} onClose={() => setModalOpen(false)} />*/}
       <header className="header">
         <div className="header__top">
           <div className="container">
@@ -37,10 +37,10 @@ const Header = () => {
               <div className="header__top-links">
                 <Link href={"/dealer"}>Дилерам</Link>
                 <Link href={"/suppliers"}>Поставщикам</Link>
-                <ProfileButton
-                  onClickSignIn={() => setModalOpen(true)}
-                  className={"is-hide"}
-                />
+                {/*<ProfileButton*/}
+                {/*  onClickSignIn={() => setModalOpen(true)}*/}
+                {/*  className={"is-hide"}*/}
+                {/*/>*/}
               </div>
               <p className="text-uppercase">
                 Ваша техника под надежной защитой
