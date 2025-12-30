@@ -30,7 +30,7 @@ export default function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <p className={"h1"}>Запчасти для автопогрузчиков</p>
+              <p className={"h1"}>Купить запчасти для автопогрузчиков</p>
               <p>
                 Если автопогрузчик начал терять мощность, сбоить в управлении
                 или появился стук в ходовой — ремонт нужен немедленно. Каждая

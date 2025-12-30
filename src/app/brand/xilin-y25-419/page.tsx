@@ -1,4 +1,3 @@
-import { api } from "@/services/api";
 import { metaGen } from "@/utils/metaGen";
 import CatalogProducts from "@/components/CatalogProducts";
 import Link from "next/link";
@@ -17,14 +16,12 @@ export async function generateMetadata() {
 }
 
 export default async function SpareParts() {
-  const brand = await api.getPageBrand(id);
-
   return (
     <main>
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">{brand.h1 ? brand.h1 : brand.title}</h1>
+            <h1 className="h1">Запчасти XILIN</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -37,7 +34,9 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>Запчасти XILIN</h2>
+              <h2 className={"h1"}>
+                Купить запчасти для штабелеров и погрузчиков XILIN
+              </h2>
               <p>
                 Техника XILIN часто используется там, где нет права на простой.
                 Погрузчики работают сменами, тележки и штабелеры перемещают груз
