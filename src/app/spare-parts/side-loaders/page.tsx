@@ -30,7 +30,7 @@ export default function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <p className={"h1"}>Купить запчасти для боковых погрузчиков</p>
+              <h2 className={"h1"}>Купить запчасти для боковых погрузчиков</h2>
               <p>
                 Стандартный каталог запчастей для вилочных погрузчиков не
                 подходит для боковых моделей. Разные системы выноса, усиленные

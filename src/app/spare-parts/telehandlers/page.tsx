@@ -30,9 +30,9 @@ export default function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <p className={"h1"}>
+              <h2 className={"h1"}>
                 Купить запчасти для телескопических погрузчиков
-              </p>
+              </h2>
               <p>
                 Найти запчасть для телескопического погрузчика по одному только
                 названию почти невозможно. Конструкция стрелы, усиленная ходовая

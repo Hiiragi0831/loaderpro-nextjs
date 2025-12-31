@@ -30,7 +30,7 @@ export default function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <p className={"h1"}>Купить запчасти для электророхли</p>
+              <h2 className={"h1"}>Купить запчасти для электророхли</h2>
               <p>
                 Когда ломается электророхля, искать запчасть «примерно
                 подходящую» под заводской аналог — значит гарантировать себе

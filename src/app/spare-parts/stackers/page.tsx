@@ -30,7 +30,7 @@ export default function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <p className={"h1"}>Купить запчасти для штабелеров</p>
+              <h2 className={"h1"}>Купить запчасти для штабелеров</h2>
               <p>
                 Ваш штабелер круглые сутки в работе? От постоянных нагрузок
                 техника изнашивается — рано или поздно детали придется менять.

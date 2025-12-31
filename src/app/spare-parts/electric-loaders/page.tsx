@@ -30,7 +30,7 @@ export default function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <p className={"h1"}>Купить запчасти для электропогрузчиков</p>
+              <h2 className={"h1"}>Купить запчасти для электропогрузчиков</h2>
               <p>
                 Поломка электропогрузчика усложняет логистическую работу в разы.
                 Каждый час протекает впустую, графики съезжают, а вы теряете
