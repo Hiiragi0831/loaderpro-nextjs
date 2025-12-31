@@ -49,7 +49,7 @@ const slides = [
     description:
       "Контейнерного погрузчика перегружателя вилочного или с захватом",
     img: "/images/technic/reach-stacker.png",
-    link: "/spare-parts/reach-trucks",
+    link: "/spare-parts/reach-stackers",
   },
   {
     title: "Запчасти бокового погрузчика",
