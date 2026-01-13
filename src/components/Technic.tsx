@@ -6,53 +6,53 @@ import Link from "next/link";
 
 const slides = [
   {
-    title: "Запчасти телескопических погрузчиков",
+    title: "Телескопических погрузчиков",
     description: "С телескопической стрелой вилочных или с ковшом",
     img: "/images/technic/telehandlers.png",
     link: "/spare-parts/telehandlers",
   },
   {
-    title: "Запчасти для автопогрузчиков",
+    title: "Автопогрузчиков",
     description: "Дизельных, бензиновых и газовых вилочных погрузчиков",
     img: "/images/technic/forklift-truck.png",
     link: "/spare-parts/forklift",
   },
   {
-    title: "Запчасти для штабелеров",
+    title: "Штабелеров",
     description:
       "Ручных, самоходных, гидравлических, электрических и других модификаций",
     img: "/images/technic/stackers.png",
     link: "/spare-parts/stackers",
   },
   {
-    title: "Запчасти для ричтрака",
+    title: "Ричтраков",
     description:
       "Электрического классического, узкопроходного и прочих модификаций",
     img: "/images/technic/reach-trucks.png",
     link: "/spare-parts/reach-trucks",
   },
   {
-    title: "Запчасти для электропогрузчиков",
+    title: "Электропогрузчиков",
     description: "Классических электрокар и электромобильных моделей",
     img: "/images/technic/electric-loaders.png",
     link: "/spare-parts/electric-loaders",
   },
   {
-    title: "Запчасти для электророхли",
+    title: "Электророхли",
     description:
       "С подъемным механизмом, поводковых, самоходных и других электротележек",
     img: "/images/technic/electric-shutters.png",
     link: "/spare-parts/electric-shoes",
   },
   {
-    title: "Запчасти для ричстакера",
+    title: "Ричстакеров",
     description:
       "Контейнерного погрузчика перегружателя вилочного или с захватом",
     img: "/images/technic/reach-stacker.png",
     link: "/spare-parts/reach-stackers",
   },
   {
-    title: "Запчасти бокового погрузчика",
+    title: "Боковых погрузчиков",
     description:
       "Трехходовых, четырехходовых и многоходовых вилочных погрузчиков с боковой загрузкой",
     img: "/images/technic/side-loader.png",
@@ -66,7 +66,7 @@ export default function Technic() {
       <div className="container">
         <div className="section-title">
           <h2 className="h1">
-            Магазин запчастей для погрузчиков СПЕЦМАШИНА предлагает купить:
+            Магазин СПЕЦМАШИНА предлагает купить запчасти для:
           </h2>
         </div>
         <Swiper
@@ -86,16 +86,16 @@ export default function Technic() {
           {slides.map((slide, id) => {
             return (
               <SwiperSlide key={id} className="SwiperSlide">
-                <div className="technic__item">
+                <Link href={slide.link} className="technic__item">
                   <picture>
                     <source srcSet={slide.img} />
                     <img src={slide.img} alt="slide" />
                   </picture>
-                  <Link href={slide.link} className="technic__title">
+                  <p className="technic__title">
                     {slide.title}
-                  </Link>
+                  </p>
                   <p className="technic__description">{slide.description}</p>
-                </div>
+                </Link>
               </SwiperSlide>
             );
           })}

@@ -26,7 +26,8 @@ export default async function SpareParts(props: { params: Promise<any> }) {
           </div>
           <div className="row row-1">
             <div className="catalog__products">
-              <CatalogProducts url={id} brand={true} />
+              {/*<CatalogProducts url={id} brand={true} />*/}
+              <CatalogProducts url={"spare_parts"} />
             </div>
           </div>
           {brand.content ? (
