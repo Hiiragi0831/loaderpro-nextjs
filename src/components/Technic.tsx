@@ -91,10 +91,10 @@ export default function Technic() {
                     <source srcSet={slide.img} />
                     <img src={slide.img} alt="slide" />
                   </picture>
-                  <p className="technic__title">
+                  <p className="technic__title text-center">
                     {slide.title}
                   </p>
-                  <p className="technic__description">{slide.description}</p>
+                  <p className="technic__description text-center">{slide.description}</p>
                 </Link>
               </SwiperSlide>
             );
