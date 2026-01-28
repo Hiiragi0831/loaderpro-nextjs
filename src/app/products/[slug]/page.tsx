@@ -14,7 +14,7 @@ export async function generateMetadata(props: { params: Promise<any> }) {
 
   return metaGen(
     `${post.productname} ${post.brand} ${post.article}`,
-    `${post.productname} ${post.brand} ${post.article} вы можете купить с доставкой в любую точку России с оплатой по безналичному расчету с НДС 20% или по карте.`,
+    `${post.productname} ${post.brand} ${post.article} вы можете купить с доставкой в любую точку России с оплатой по безналичному расчету с НДС 22% или по карте.`,
     `${post.image[0] ? post.image[0] : ""}`,
   );
 }
