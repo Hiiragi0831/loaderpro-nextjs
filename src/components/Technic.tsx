@@ -66,7 +66,7 @@ export default function Technic() {
       <div className="container">
         <div className="section-title">
           <h2 className="h1">
-            Магазин СПЕЦМАШИНА предлагает купить запчасти для:
+            Магазин СПЕЦМАШИНА предлагает купить запасные части для:
           </h2>
         </div>
         <Swiper
