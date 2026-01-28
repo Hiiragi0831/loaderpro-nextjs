@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-// import IconLogo from "@/icons/logo.svg";
+import IconLogo from "@/icons/logo.svg";
 import IconMail from "@/icons/mail.svg";
 import IconPhone from "@/icons/phone.svg";
 import IconRectangle from "@/icons/rectangle-history-circle-plus.svg";
@@ -66,9 +66,9 @@ const Header = () => {
           <div className="container">
             <div className="row">
               <Link className="header__logo" href="/" onClick={onClickItem}>
-                {/*<IconLogo />*/}
+                <IconLogo />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={"/images/logo-winter.svg"} alt="LoaderPro" />
+                {/*<img src={"/images/logo-winter.svg"} alt="LoaderPro" />*/}
               </Link>
               <Search className={`${isShow ? "active" : ""}`} />
               <div className="header__action">

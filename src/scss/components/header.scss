@@ -6,8 +6,8 @@
 
 	&__logo {
 		width: vc(260);
-		height: vc(87);
-		//height: vc(55);
+		height: vc(55);
+		//height: vc(87);
 
 		svg {
 			fill: $color-black;
@@ -20,8 +20,8 @@
 
 		@include devices {
 			width: vc(140);
-			height: vc(50);
-			//height: vc(28);
+			height: vc(28);
+			//height: vc(50);
 		}
 	}
 
