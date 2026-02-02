@@ -102,6 +102,10 @@ export default async function ProductInfo(params: any) {
               <div className="commodity__info">
                 <Availability className={"for-desktop"} count={data.count} />
                 <div className="commodity__info-box">
+                  <div className="commodity__tg for-devices">
+                    <p>Узнайте как стать дилером и получить лучшую цену с отсрочкой до 60 дней!</p>
+                    <a href="https://t.me/Alexey_Privalov" target="_blank"> <IconTg /> <span>Напишите нам</span></a>
+                  </div>
                   <div className="commodity__specifications">
                     <div className="commodity__specification">
                       <p>Артикул</p>
@@ -130,7 +134,7 @@ export default async function ProductInfo(params: any) {
                   </div>
                 </div>
                 <div className="commodity__description">
-                  <div className="commodity__tg">
+                  <div className="commodity__tg for-desktop">
                     <p>Узнайте как стать дилером и получить лучшую цену с отсрочкой до 60 дней!</p>
                     <a href="https://t.me/Alexey_Privalov" target="_blank"> <IconTg /> <span>Напишите нам</span></a>
                   </div>
