@@ -7,6 +7,7 @@ import SpecificationModal from "@/app/products/components/SpecificationModal";
 import CountAddTo from "@/app/products/components/CountAddTo";
 import FeatureList from "@/components/FeatureList";
 import Hero from "@/app/products/components/Hero";
+import IconTg from "@/icons/tg.svg";
 
 export default async function ProductInfo(params: any) {
   const slugArray = params.id.slug.split("-");
@@ -79,6 +80,12 @@ export default async function ProductInfo(params: any) {
                     extraFeatures={["Возврат НДС", "Гарантия"]}
                   />
                 </div>
+                <div className="commodity__trust">
+                  <picture>
+                    <source srcSet={"/images/product/trust.png"} />
+                    <img src={"/images/product/trust.png"} alt="trust" />
+                  </picture>
+                </div>
                 {data.image.length ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -123,6 +130,10 @@ export default async function ProductInfo(params: any) {
                   </div>
                 </div>
                 <div className="commodity__description">
+                  <div className="commodity__tg">
+                    <p>Узнайте как стать дилером и получить лучшую цену с отсрочкой до 60 дней!</p>
+                    <a href="https://t.me/Alexey_Privalov" target="_blank"> <IconTg /> <span>Напишите нам</span></a>
+                  </div>
                   {data.description ? (
                     <>
                       <h5>Описание</h5>
@@ -144,6 +155,7 @@ export default async function ProductInfo(params: any) {
                   )}
                   <Hero
                     sliders={[
+                      "/images/product/hero-05.jpg",
                       "/images/product/hero-01.jpg",
                       "/images/product/hero-02.jpg",
                       "/images/product/hero-03.jpg",

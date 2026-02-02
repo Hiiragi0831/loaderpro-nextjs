@@ -5,6 +5,7 @@ import { Autoplay } from "swiper/modules";
 import Link from "next/link";
 
 const slides = [
+  { id: 10, link: "/spare-parts" },
   { id: 1, link: "/spare-parts" },
   { id: 2, link: "/spare-parts" },
   { id: 3, link: "/spare-parts" },
