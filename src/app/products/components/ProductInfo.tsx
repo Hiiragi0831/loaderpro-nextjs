@@ -80,12 +80,14 @@ export default async function ProductInfo(params: any) {
                     extraFeatures={["Возврат НДС", "Гарантия"]}
                   />
                 </div>
-                <div className="commodity__trust">
-                  <picture>
-                    <source srcSet={"/images/product/trust.png"} />
-                    <img src={"/images/product/trust.png"} alt="trust" />
-                  </picture>
-                </div>
+                {data.category_id === 2 ? (
+                  <div className="commodity__trust">
+                    <picture>
+                      <source srcSet={"/images/product/trust.png"} />
+                      <img src={"/images/product/trust.png"} alt="trust" />
+                    </picture>
+                  </div>
+                ): ("")}
                 {data.image.length ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
