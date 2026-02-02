@@ -375,27 +375,14 @@
 			width: vc(100);
 			height: vc(100);
 		}
-
-		//position: absolute;
-		//left: vc(10);
-		//top: vc(10);
-		//z-index: 2;
-		//display: flex;
-		//width: vc(636);
-		//gap: vc(10);
-		//
-		//@include devices {
-		//	flex-wrap: wrap;
-		//	width: auto;
-		//	max-width: vc(330);
-		//}
 	}
 
 	&__tg {
+		margin-top: vc(10);
 		border: 1px solid #0088CC;
 		border-radius: vc(4);
 		display: grid;
-		grid-template-columns: vc(500) 1fr;
+		grid-template-columns: vc(530) 1fr;
 
 		p {
 			font-weight: 500;
