@@ -91,13 +91,13 @@
 		top: vc(10);
 		z-index: 2;
 		display: flex;
-		width: vc(636);
+		width: vc(500);
 		gap: vc(10);
 
 		@include devices {
 			flex-wrap: wrap;
 			width: auto;
-			max-width: vc(330);
+			max-width: vc(170);
 		}
 	}
 
@@ -108,7 +108,7 @@
 		overflow: hidden;
 		border: 1px solid $color-woodsmoke-200;
 		border-radius: vc(5);
-		height: vc(582);
+		height: vc(622);
 
 		picture {
 			overflow: hidden;
@@ -123,7 +123,7 @@
 
 		&-main {
 			border-bottom: 1px solid $color-woodsmoke-200;
-			height: vc(472);
+			height: vc(512);
 
 			.swiper {
 				height: 100%;
