@@ -1,18 +1,22 @@
 import { api } from "@/services/api";
 import { metaGen } from "@/utils/metaGen";
 import CatalogProducts from "@/components/CatalogProducts";
+import Link from "next/link";
+import { Cta } from "@/components/Cta";
+import Articles from "@/components/Articles";
+import Box from "@/app/brand/components/Box";
+import IconBolt from "@/icons/bolt.svg";
 
-export async function generateMetadata(props: { params: Promise<any> }) {
+const id = "153";
+
+export async function generateMetadata() {
   return metaGen(
     "Запчасти для перегружателей SENNEBOGEN",
     "Предлагаем купить запчасти для перегружателей SENNEBOGEN с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
   );
 }
 
-export default async function SpareParts(props: { params: Promise<any> }) {
-  const params = await props.params;
-  const slugArray = params.slug.split("-");
-  const id = slugArray.pop();
+export default async function SpareParts() {
   const brand = await api.getPageBrand(id);
 
   return (
@@ -24,20 +28,13 @@ export default async function SpareParts(props: { params: Promise<any> }) {
           </div>
           <div className="row row-1">
             <div className="catalog__products">
-              {/*<CatalogProducts url={id} brand={true} />*/}
               <CatalogProducts url={"spare_parts"} />
             </div>
           </div>
-          {brand.content ? (
-            <div
-              dangerouslySetInnerHTML={{ __html: brand.content }}
-              className={"catalog__info"}
-            />
-          ) : (
-            ""
-          )}
         </div>
       </section>
+      <Cta />
+      <Articles limit={4} />
     </main>
   );
 }
