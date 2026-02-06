@@ -11,7 +11,10 @@ const id = "1268";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для штабелеров OM PIMESPO",
+    "Предлагаем купить запчасти для штабелеров OM PIMESPO с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -36,7 +39,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для штабелеров OM Pimespo в Санкт-Петербурге
+                Купить запчасти для штабелеров OM Pimespo
               </h2>
               <p>
                 OM Pimespo — известный итальянский производитель складской

@@ -11,7 +11,10 @@ const id = "739";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков DOOSAN",
+    "Предлагаем купить запчасти для вилочных погрузчиков DOOSAN с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -22,7 +25,7 @@ export default async function SpareParts() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">{brand.h1 ? brand.h1 : brand.title}</h1>
+            <h1 className="h1">Запчасти DOOSAN</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -35,9 +38,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков DAEWOO-DOOSAN в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков DOOSAN</h2>
               <p>
                 Спецтехника DAEWOO-DOOSAN известна своей выносливостью,
                 производительностью и долговечностью. Однако любая техника, даже
@@ -68,7 +69,7 @@ export default async function SpareParts() {
               />
             </picture>
             <div className="text">
-              <h2>Где купить запчасти DAEWOO-DOOSAN?</h2>
+              <h2>Где купить запчасти DOOSAN?</h2>
               <p>
                 Найти расходные материалы для спецтехники сегодня несложно — они
                 представлены в множестве точек продаж. Однако далеко не все
@@ -80,10 +81,9 @@ export default async function SpareParts() {
               <p>
                 На сайте <strong>loaderpro.ru</strong> вы найдете все
                 необходимые компоненты для обслуживания и ремонта погрузчиков,
-                ричтраков, штабелеров и другой техники DAEWOO-DOOSAN. Мы
-                предлагаем детали, которые идеально подходят по характеристикам
-                и допускам — это залог эффективной и безопасной работы
-                оборудования.
+                ричтраков, штабелеров и другой техники DOOSAN. Мы предлагаем
+                детали, которые идеально подходят по характеристикам и допускам
+                — это залог эффективной и безопасной работы оборудования.
               </p>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default async function SpareParts() {
               строительстве, логистике, промышленности и других отраслях.
             </p>
             <p>
-              Особое внимание уделено технике бренда DAEWOO-DOOSAN — в каталоге
+              Особое внимание уделено технике бренда DOOSAN — в каталоге
               представлено более 15 000 наименований. Здесь вы найдете как
               популярные и востребованные ходовые запчасти, так и
               узкоспециализированные, редкие позиции, которые поставляются под
@@ -167,14 +167,14 @@ export default async function SpareParts() {
           <div className="text">
             <h2>Быстрая доставка по всей России</h2>
             <p>
-              Если техника DAEWOO-DOOSAN вышла из строя — не теряйте время. Мы
+              Если техника DOOSAN вышла из строя — не теряйте время. Мы
               организуем быструю отправку необходимых запчастей в ваш регион.
               Работая напрямую с производителями и проверенными поставщиками, мы
               гарантируем точное соответствие комплектующих и минимальные сроки
               доставки.
             </p>
             <p>
-              Нужны оригинальные запчасти DAEWOO-DOOSAN? Заказывайте у надежного
+              Нужны оригинальные запчасти DOOSAN? Заказывайте у надежного
               поставщика — в компании «СПЕЦМАШИНА». Мы поможем вернуть вашу
               спецтехнику в строй быстро, надежно и без переплат!
             </p>

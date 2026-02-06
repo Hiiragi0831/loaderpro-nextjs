@@ -10,7 +10,10 @@ const id = "1218";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков MANITOU",
+    "Предлагаем купить запчасти для погрузчиков MANITOU с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -34,9 +37,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков MANITOU в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков MANITOU</h2>
               <p>
                 Французский бренд Manitou занимается выпуском вилочных и
                 телескопических погрузчиков для эксплуатации в лесной,

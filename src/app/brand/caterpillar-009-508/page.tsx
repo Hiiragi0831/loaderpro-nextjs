@@ -11,7 +11,10 @@ const id = "508";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков CATERPILLAR",
+    "Предлагаем купить запчасти для вилочных погрузчиков CATERPILLAR с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -36,7 +39,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для погрузчиков CATERPILLAR в Санкт Петербурге
+                Купить запчасти для погрузчиков CATERPILLAR
               </h2>
               <p>
                 Компания Caterpillar занимается производством надежных вилочных

@@ -12,7 +12,7 @@ const id = "455";
 export async function generateMetadata() {
   return metaGen(
     "Запчасти для погрузчиков BAUMANN",
-    "Предлагаем купить запчасти для боковых погрузчиков BAUMANN с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+    "Предлагаем купить запчасти для погрузчиков BAUMANN с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
   );
 }
 
@@ -38,8 +38,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для боковых вилочных погрузчиков Baumann
-                (Бауман)
+                Купить запчасти для погрузчиков Baumann (Бауман)
               </h2>
               <p>
                 Компания Baumann (Бауман) — это мировой эталон в сфере
@@ -136,9 +135,7 @@ export default async function SpareParts() {
       <section className="brand">
         <div className="container">
           <div className="text">
-            <h2>
-              Как правильно подобрать запчасти для бокового погрузчика Baumann?
-            </h2>
+            <h2>Как правильно подобрать запчасти для погрузчика Baumann?</h2>
             <p>Чтобы мы могли подобрать нужную деталь, необходимо знать:</p>
           </div>
         </div>

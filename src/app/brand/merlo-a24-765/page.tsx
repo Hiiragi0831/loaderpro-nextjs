@@ -38,7 +38,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для телескопических погрузчиков Merlo (Мерло)
+                Купить запчасти для погрузчиков Merlo (Мерло)
               </h2>
               <p>
                 Телескопические погрузчики Merlo давно зарекомендовали себя как

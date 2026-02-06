@@ -10,7 +10,10 @@ const id = "1071";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков KONECRANES",
+    "Предлагаем купить запчасти для погрузчиков KONECRANES с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -21,7 +24,7 @@ export default async function SpareParts() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">{brand.h1 ? brand.h1 : brand.title}</h1>
+            <h1 className="h1">Запчасти KONECRANES</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -35,7 +38,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для ричстакеров KONECRANES в Санкт-Петербурге
+                Купить запчасти для погрузчиков KONECRANES
               </h2>
               <p>
                 Ричстакеры Konecranes — это высокопроизводительная техника,
@@ -167,7 +170,7 @@ export default async function SpareParts() {
               <img src={"/images/brand/konecranes-f11-1071-2.jpg"} alt="logo" />
             </picture>
             <div className="text">
-              <h2>Где купить запчасти для ричстакеров Konecranes?</h2>
+              <h2>Где купить запчасти для погрузчиков Konecranes?</h2>
               <p>
                 Компания «СПЕЦМАШИНА» — надежный поставщик комплектующих для
                 ричстакеров Konecranes. Мы предлагаем:

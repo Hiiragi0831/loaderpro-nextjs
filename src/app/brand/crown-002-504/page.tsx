@@ -11,7 +11,10 @@ const id = "504";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков CROWN",
+    "Предлагаем купить запчасти для вилочных погрузчиков CROWN с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -35,9 +38,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков CROWN в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков CROWN</h2>
               <p>
                 В 1960 году в сфере обработки и перемещения больших грузов
                 появилась компания Crown, которая быстро зарекомендовала себя

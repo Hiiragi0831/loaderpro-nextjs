@@ -11,7 +11,10 @@ const id = "595";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков NICHIYU",
+    "Предлагаем купить запчасти для вилочных погрузчиков NICHIYU с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -35,9 +38,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков NICHIYU в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков NICHIYU</h2>
               <p>
                 Nichiyu — японская компания, занимающаяся производством вилочных
                 электропогрузчиков. Главный офис расположен в городе Киото,

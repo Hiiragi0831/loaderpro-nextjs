@@ -1,4 +1,3 @@
-import { api } from "@/services/api";
 import { metaGen } from "@/utils/metaGen";
 import CatalogProducts from "@/components/CatalogProducts";
 import Link from "next/link";
@@ -10,19 +9,18 @@ import Box from "@/app/brand/components/Box";
 const id = "17";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen('Запчасти для погрузчиков FANTUZZI', 'Предлагаем купить запчасти для погрузчиков FANTUZZI с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА');
 }
 
 export default async function SpareParts() {
-  const brand = await api.getPageBrand(id);
+  // const brand = await api.getPageBrand(id);
 
   return (
     <main>
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">{brand.h1 ? brand.h1 : brand.title}</h1>
+            <h1 className="h1">Запчасти FANTUZZI</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -36,7 +34,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для ричстакеров FANTUZZI в Санкт-Петербурге
+                Купить запчасти для погрузчиков FANTUZZI
               </h2>
               <p>
                 Компания Fantuzzi-Reggiane — это известный производитель
@@ -80,7 +78,7 @@ export default async function SpareParts() {
       <section className="brand">
         <div className="container">
           <div className="text">
-            <h2>Разновидности запчастей для ричстакеров FANTUZZI</h2>
+            <h2>Разновидности запчастей для погрузчиков FANTUZZI</h2>
             <p>
               Современные ричстакеры Fantuzzi представлены в виде 7 моделей и 2
               семейств техники, имеющих грузоподъемностью от 10 до 45 тонн. Для
@@ -140,7 +138,7 @@ export default async function SpareParts() {
       <section className="brand">
         <div className="container">
           <div className="text">
-            <h2>Как выбрать запчасти для ричстакеров FANTUZZI</h2>
+            <h2>Как выбрать запчасти для погрузчиков FANTUZZI</h2>
             <p>
               Выбор комплектующих для ричстакеров должен учитывать несколько
               ключевых факторов:

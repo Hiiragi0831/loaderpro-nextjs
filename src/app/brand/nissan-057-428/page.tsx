@@ -11,7 +11,10 @@ const id = "428";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков NISSAN",
+    "Предлагаем купить запчасти для вилочных погрузчиков NISSAN с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -36,8 +39,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для вилочных погрузчиков Nissan (Ниссан) в
-                Санкт-Петербурге
+                Купить запчасти для вилочных погрузчиков Nissan (Ниссан)
               </h2>
               <p>
                 Вилочные погрузчики Nissan заслуженно считаются одной из самых

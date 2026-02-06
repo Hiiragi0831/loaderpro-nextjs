@@ -10,7 +10,10 @@ const id = "289";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков SANY",
+    "Предлагаем купить запчасти для погрузчиков SANY с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -21,7 +24,7 @@ export default async function SpareParts() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">{brand.h1 ? brand.h1 : brand.title}</h1>
+            <h1 className="h1">Запчасти SANY</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -34,9 +37,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для ричстакеров Sany для в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков Sany</h2>
               <p>
                 Компания SANY — один из крупнейших китайских производителей
                 спецтехники и строительного оборудования. Основанная в 1989
@@ -71,8 +72,8 @@ export default async function SpareParts() {
               <img src={"/images/brand/sany-km3-289-2.jpg"} alt="logo" />
             </picture>
             <div className="text">
-              <h2>Технические особенности ричстакеров SANY</h2>
-              <p>Характеристики ричстакеров SAN:</p>
+              <h2>Технические особенности погрузчиков SANY</h2>
+              <p>Характеристики погрузчиков SANY:</p>
               <ul>
                 <li>Грузоподъемность до 45 тонн.</li>
                 <li>Возможность подъема контейнеров на высоту до 15 метров.</li>
@@ -90,7 +91,7 @@ export default async function SpareParts() {
                 </li>
               </ul>
               <p>
-                Ричстакеры SANY обеспечивают высокую маневренность, прочность
+                Погрузчики SANY обеспечивают высокую маневренность, прочность
                 конструкции и отличный обзор для оператора, что особенно важно
                 при работе с грузами, расположенными на значительном расстоянии.
               </p>
@@ -101,7 +102,7 @@ export default async function SpareParts() {
       <section className="brand">
         <div className="container">
           <div className="text">
-            <h2>Почему важны оригинальные запчасти для ричстакеров SANY?</h2>
+            <h2>Почему важны оригинальные запчасти для погрузчиков SANY?</h2>
             <p>
               Для поддержания эффективной и безопасной работы техники необходимы
               качественные комплектующие. Запчасти низкого качества могут
@@ -166,7 +167,7 @@ export default async function SpareParts() {
           <div className="text">
             <h2>Оформление заказа и доставка</h2>
             <p>
-              Купить запчасти для ричстакеров SANY можно из любого региона
+              Купить запчасти для погрузчиков SANY можно из любого региона
               России. У «СПЕЦМАШИНА» есть склад в Санкт-Петербурге и развитая
               логистическая сеть, что позволяет доставлять товары максимально
               быстро и удобно.
@@ -177,7 +178,7 @@ export default async function SpareParts() {
               отличном состоянии и обеспечим бесперебойную работу вашего склада.
             </p>
             <p>
-              «СПЕЦМАШИНА» — запчасти для ричстакеров SANY высокого качества по
+              «СПЕЦМАШИНА» — запчасти для погрузчиков SANY высокого качества по
               доступным ценам!
             </p>
           </div>

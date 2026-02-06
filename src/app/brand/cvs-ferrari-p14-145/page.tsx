@@ -1,4 +1,4 @@
-import { api } from "@/services/api";
+// import { api } from "@/services/api";
 import { metaGen } from "@/utils/metaGen";
 import CatalogProducts from "@/components/CatalogProducts";
 import Link from "next/link";
@@ -10,19 +10,18 @@ import Box from "@/app/brand/components/Box";
 const id = "145";
 
 export async function generateMetadata() {
-  const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen('Запчасти для погрузчиков CVS FERRARI', 'Предлагаем купить запчасти для погрузчиков CVS FERRARI с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА');
 }
 
 export default async function SpareParts() {
-  const brand = await api.getPageBrand(id);
+  // const brand = await api.getPageBrand(id);
 
   return (
     <main>
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">{brand.h1 ? brand.h1 : brand.title}</h1>
+            <h1 className="h1">Запчасти CVS FERRARI</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -36,7 +35,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для ричстакеров CVS FERRARI в Санкт-Петербурге
+                Купить запчасти для погрузчиков CVS FERRARI
               </h2>
               <p>
                 Ричстакеры CVS Ferrari — это техника премиального уровня,
@@ -75,7 +74,7 @@ export default async function SpareParts() {
       <section className="brand">
         <div className="container">
           <div className="text">
-            <h2>Разновидности запчастей для ричстакеров CVS FERRARI</h2>
+            <h2>Разновидности запчастей для погрузчиков CVS FERRARI</h2>
             <p>
               Ричстакеры Ferrari оснащаются множеством узлов, которые
               обеспечивают стабильную работу техники в самых сложных условиях. В

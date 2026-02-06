@@ -11,7 +11,10 @@ const id = "1154";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков BOBCAT",
+    "Предлагаем купить запчасти для погрузчиков BOBCAT с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -35,9 +38,7 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для погрузчиков BOBCAT в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков BOBCAT</h2>
               <p>
                 Американская торговая марка Bobcat — это более чем полвека
                 безупречного лидерства в сфере изготовления универсальных и

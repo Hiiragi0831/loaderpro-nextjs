@@ -11,7 +11,10 @@ const id = "1042";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков TEREX",
+    "Предлагаем купить запчасти для погрузчиков TEREX с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -22,7 +25,7 @@ export default async function SpareParts() {
       <section className="catalog__section">
         <div className="container">
           <div className="section-title">
-            <h1 className="h1">{brand.h1 ? brand.h1 : brand.title}</h1>
+            <h1 className="h1">Запчасти TEREX</h1>
           </div>
           <div className="row row-1">
             <div className="catalog__products">
@@ -35,15 +38,13 @@ export default async function SpareParts() {
         <div className="container">
           <div className="brand__header">
             <div className="text">
-              <h2 className={"h1"}>
-                Купить запчасти для ричстакеров TEREX в Санкт-Петербурге
-              </h2>
+              <h2 className={"h1"}>Купить запчасти для погрузчиков TEREX</h2>
               <p>
                 Корпорация Terex занимается разработкой и выпуском подъемного
                 оснащения и техники для переработки материалов. Бренд заслужил
                 широкое признание благодаря производству портовых погрузчиков и
                 башенных кранов Terex Cranes. Особое внимание потребителей
-                привлекли ричстакеры TEREX — высокомощные машины, активно
+                привлекли погрузчики TEREX — высокомощные машины, активно
                 применяемые не только в портах и логистических терминалах, но и
                 в строительстве, металлургии, особенно для транспортировки
                 крупногабаритных стальных рулонов.
@@ -67,7 +68,7 @@ export default async function SpareParts() {
                 </li>
               </ul>
               <p>
-                Ричстакеры Terex обеспечивают быструю и безопасную
+                Погрузчики Terex обеспечивают быструю и безопасную
                 транспортировку груженых и пустых контейнеров. Модели с
                 грузоподъемностью до 45 тонн позволяют укладывать до 5–6 ярусов
                 в первом ряду. Оснащение комплектующими ведущих мировых
@@ -88,12 +89,12 @@ export default async function SpareParts() {
       <section className="brand">
         <div className="container">
           <div className="text">
-            <h2>Разновидности запчастей для ричстакеров TEREX</h2>
+            <h2>Разновидности запчастей для погрузчиков TEREX</h2>
             <p>
-              Для стабильной работы ричстакеров необходим своевременный подбор и
+              Для стабильной работы погрузчиков необходим своевременный подбор и
               замена оригинальных или совместимых комплектующих. В компании
               «СПЕЦМАШИНА» в Санкт-Петербурге вы можете купить разнообразные
-              запчасти для ричстакеров TEREX, в том числе:
+              запчасти для погрузчиков TEREX, в том числе:
             </p>
           </div>
         </div>
@@ -149,10 +150,10 @@ export default async function SpareParts() {
       <section className="brand">
         <div className="container">
           <div className="text">
-            <h2>Как выбрать запчасти для ричстакеров TEREX</h2>
+            <h2>Как выбрать запчасти для погрузчиков TEREX</h2>
             <p>
               Грамотный выбор запасных частей гарантирует долговечную и
-              безопасную эксплуатацию ричстакера. При выборе стоит учитывать
+              безопасную эксплуатацию погрузчиков. При выборе стоит учитывать
               следующие рекомендации:
             </p>
           </div>
@@ -193,7 +194,7 @@ export default async function SpareParts() {
           <div className="text">
             <p>
               Компания «СПЕЦМАШИНА» — надежный поставщик оригинальных и
-              совместимых запчастей для ричстакеров TEREX в Санкт-Петербурге.
+              совместимых запчастей для погрузчиков TEREX в Санкт-Петербурге.
             </p>
           </div>
         </div>

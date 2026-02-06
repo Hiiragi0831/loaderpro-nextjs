@@ -10,7 +10,10 @@ const id = "304";
 
 export async function generateMetadata() {
   const brand = await api.getPageBrand(id);
-  return metaGen(brand.title, brand.description);
+  return metaGen(
+    "Запчасти для погрузчиков MAXIMAL",
+    "Предлагаем купить запчасти для вилочных погрузчиков MAXIMAL с доставкой по всей России у проверенного поставщика в компании СПЕЦМАШИНА",
+  );
 }
 
 export default async function SpareParts() {
@@ -35,8 +38,7 @@ export default async function SpareParts() {
           <div className="brand__header">
             <div className="text">
               <h2 className={"h1"}>
-                Купить запчасти для вилочных погрузчиков Maximal (Максимал) в
-                Санкт-Петербурге
+                Купить запчасти для вилочных погрузчиков Maximal (Максимал)
               </h2>
               <p>
                 Zhejiang Maximal Forklift — один из ведущих производителей
