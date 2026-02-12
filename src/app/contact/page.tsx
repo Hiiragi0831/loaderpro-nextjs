@@ -66,7 +66,7 @@ export default function Contact() {
                   href="https://www.youtube.com/@loaderpro"
                   target="_blank"
                   rel="noreferrer"
-                  className={'is-hidden'}
+                  className={"is-hidden"}
                 >
                   <picture>
                     <source srcSet="/images/contact/youtube.png" />
