@@ -33,13 +33,13 @@ export default function Contact() {
               </div>
               <div className="contact__info-social">
                 <a
-                  href="https://wa.me/79643421256"
+                  href="https://max.ru/u/f9LHodD0cOKS7fA8Ui4yVuVDkfEkXy03IhLsaxSfb8K769FHkWkl4SGhgpU"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <picture>
-                    <source srcSet="/images/contact/wh.png" />
-                    <img src="/images/contact/wh.png" alt="wh" />
+                    <source srcSet="/images/contact/max.png" />
+                    <img src="/images/contact/max.png" alt="wh" />
                   </picture>
                 </a>
                 <a
@@ -66,6 +66,7 @@ export default function Contact() {
                   href="https://www.youtube.com/@loaderpro"
                   target="_blank"
                   rel="noreferrer"
+                  className={'is-hidden'}
                 >
                   <picture>
                     <source srcSet="/images/contact/youtube.png" />
@@ -77,13 +78,13 @@ export default function Contact() {
             <div className="contact__social">
               <a
                 className="contact__qr"
-                href="https://wa.me/79643421256"
+                href="https://max.ru/u/f9LHodD0cOKS7fA8Ui4yVuVDkfEkXy03IhLsaxSfb8K769FHkWkl4SGhgpU"
                 target="_blank"
                 rel="noreferrer"
               >
                 <picture>
-                  <source srcSet="/images/contact/qr-w.png" />
-                  <img src="/images/contact/qr-w.png" alt="qr-w" />
+                  <source srcSet="/images/contact/qr-max.png" />
+                  <img src="/images/contact/qr-max.png" alt="qr-w" />
                 </picture>
                 <p>
                   Ответы на
