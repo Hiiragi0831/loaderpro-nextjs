@@ -23,5 +23,19 @@ export const metaGen = (
     alternates: {
       canonical: "./",
     },
+    icons: [
+      {
+        rel: "icon",
+        type: "image/png",
+        url: "/favicon/w/web-app-manifest-192x192.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        url: "/favicon/b/web-app-manifest-192x192.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
   };
 };
