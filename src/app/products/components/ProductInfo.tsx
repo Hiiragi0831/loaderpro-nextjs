@@ -32,7 +32,7 @@ export default async function ProductInfo(params: any) {
   const dillerPrice =
     data.price === 0
       ? "Цена по запросу"
-      : `${Math.ceil(data.price - (data.price * 10) / 100)
+      : `${Math.ceil(data.price - (data.price * 20) / 100)
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽`;
 
@@ -87,7 +87,9 @@ export default async function ProductInfo(params: any) {
                       <img src={"/images/product/trust.png"} alt="trust" />
                     </picture>
                   </div>
-                ): ("")}
+                ) : (
+                  ""
+                )}
                 {data.image.length ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -105,8 +107,14 @@ export default async function ProductInfo(params: any) {
                 <Availability className={"for-desktop"} count={data.count} />
                 <div className="commodity__info-box">
                   <div className="commodity__tg for-devices">
-                    <p>Узнайте как стать дилером и получить лучшую цену с отсрочкой до 60 дней!</p>
-                    <a href="https://t.me/Alexey_Privalov" target="_blank"> <IconTg /> <span>Напишите нам</span></a>
+                    <p>
+                      Узнайте как стать дилером и получить лучшую цену с
+                      отсрочкой до 60 дней!
+                    </p>
+                    <a href="https://t.me/Alexey_Privalov" target="_blank">
+                      {" "}
+                      <IconTg /> <span>Напишите нам</span>
+                    </a>
                   </div>
                   <div className="commodity__specifications">
                     <div className="commodity__specification">
@@ -137,8 +145,14 @@ export default async function ProductInfo(params: any) {
                 </div>
                 <div className="commodity__description">
                   <div className="commodity__tg for-desktop">
-                    <p>Узнайте как стать дилером и получить лучшую цену с отсрочкой до 60 дней!</p>
-                    <a href="https://t.me/Alexey_Privalov" target="_blank"> <IconTg /> <span>Напишите нам</span></a>
+                    <p>
+                      Узнайте как стать дилером и получить лучшую цену с
+                      отсрочкой до 60 дней!
+                    </p>
+                    <a href="https://t.me/Alexey_Privalov" target="_blank">
+                      {" "}
+                      <IconTg /> <span>Напишите нам</span>
+                    </a>
                   </div>
                   {data.description ? (
                     <>
